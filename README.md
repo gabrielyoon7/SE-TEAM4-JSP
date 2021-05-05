@@ -13,7 +13,7 @@ Restaurant Booking System of TEAM4
 - 일단 수정해보기 (잘 안되면 Rollback 기능으로 되돌리면 됨)
 - ~~또 뭐가 있을까요?~~
 * * *
-##Project Structure
+## Project Structure
 * .idea
   > IntelliJ 관련 설정
   > >컴퓨터마다 환경이 달라서 자동으로 수정되는 경우가 많습니다. 되도록이면 github로 push 하지 마세요.
