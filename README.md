@@ -110,7 +110,8 @@ Restaurant Booking System of TEAM4
     > JSP에서 사용 할 js를 모아놓은 폴더입니다.(부트스트랩 5.0, JQuery 넣어둠)
   * WEB-INF
     * jsp
-    > JSP에서 *.do 형식으로 된 domain클래스를 요청합니다.
+      > JSP에서 *.do 형식으로 된 domain클래스를 요청합니다.
+      > > *.do 형식의 경로는 booksys.properties에서 찾을 수 있습니다.
        * common
          > 공통적으로 사용할 JSP를 모아놨습니다. ex) 헤더, 푸터
        * page
