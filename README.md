@@ -112,6 +112,23 @@ Restaurant Booking System of TEAM4
     * jsp
       > JSP에서 *.do 형식으로 된 domain클래스를 요청합니다.
       > > *.do 형식의 경로는 booksys.properties에서 찾을 수 있습니다.
+      
+      > 앞선 domain클래스에서 정의된 DB를 받아와서 JS로 가공한 후, HTML에 삽입합니다.
+      ```html
+      //앞선 설정으로 setAttribute 된 자바 변수를 JSP에서 받는 예시 (JQuery와 JSP문법을 사용하여 데이터를 가공한 후, id에 넘겨서 삽입함.)
+      <script> 
+      $(document).ready(function(){
+          makeinfo1();
+      })
+      function makeinfo1(){
+          var data = <%=getSomething%>;
+          var list = $('#testDataPrinter');
+          var text = '';
+          text+= '<div>'+'oid : '+data[0].oid+'/ name : '+data[0].name+'/ phoneNumber : '+data[0].phoneNumber+'</div>';
+          list.append(text);
+      }
+      </script>
+      ```
        * common
          > 공통적으로 사용할 JSP를 모아놨습니다. ex) 헤더, 푸터
        * page
