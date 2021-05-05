@@ -1,3 +1,4 @@
+
 DROP DATABASE if exists booksys ;
 
 CREATE DATABASE booksys ;
@@ -41,6 +42,6 @@ CREATE TABLE Reservation (
 INSERT INTO `table` VALUES(101,1,1);
 INSERT INTO `table` VALUES(102,2,2);
 INSERT INTO `table` VALUES(103,3,3);
-INSERT INTO `customer` VALUES(0, 'Gab', '010-4413-5698');
+INSERT INTO `customer` VALUES(1, 'Gab', '010-4413-5698');
 INSERT INTO `customer` VALUES(2, 'Arthur', '010-0000-0000');
 INSERT INTO `customer` VALUES(3, 'Dutch', '010-1111-1111');
