@@ -3,7 +3,7 @@ Restaurant Booking System of TEAM4
 >경기대학교 AI컴퓨터공학부
 > >권기현 교수님 2021-1 소프트웨어공학 4조
 * * *
-##Rules of Project development
+## Rules of Project development
 - Github 사용 시 Pull 먼저 하기
 - 주석과 Commit 메시지 꼼꼼히 적기
 - 변수명은 최대한 자세하게 적기
@@ -22,7 +22,7 @@ Restaurant Booking System of TEAM4
 * out
   >  컴파일 시 생성되는 IntelliJ만의 실행 폴더입니다. 서버를 run 할 때 마다 초기화 됩니다. 다른 컴퓨터에서 오류 발생 가능성이 있습니다. 컴파일을 할 때 모든 파일을 out폴더로 보내버려서 이 폴더로 작동하게 됩니다.
   > > **절대로 Github에 전송하지 마세요.** 오류 발생 가능성이 있습니다.
-* ###src
+* ### src
   >  Web Server를 담당합니다. Java로 작성합니다.
   * com.se.team4
     * application
@@ -102,7 +102,7 @@ Restaurant Booking System of TEAM4
       * index
       * sql
     
-* ###web
+* ### web
   > View를 담당합니다. JSP로 작성합니다.
   * css
     > JSP에서 사용 할 css를 모아놓은 폴더입니다. (부트스트랩 5.0 넣어둠)
@@ -117,7 +117,7 @@ Restaurant Booking System of TEAM4
     * lib
       > ~~프로젝트 만들다 보니깐 생겼는데 뭔지 모르겠습니다.~~
 * * *
-##How To Deploy
+## How To Deploy
 - 인텔리제이 설치 방법 : https://leirbag.tistory.com/50
 - 톰캣 설치 방법 : https://leirbag.tistory.com/52 의 1번 항 참고
 - mariaDB 설치 방법 : https://leirbag.tistory.com/46
@@ -125,14 +125,14 @@ Restaurant Booking System of TEAM4
   - 컴파일러에서 db 오류 발생 시 : https://leirbag.tistory.com/48
 - 클론 및 프로젝트 설치 방법 : https://leirbag.tistory.com/56
 * * *
-##Tools
+## Tools
 - IntelliJ 2021.1
 - Tomcat 9.0.45
 - JSP
 - MariaDB 버전 까먹음
 - Java EE
 * * *
-##Team4 Developers
+## Team4 Developers
 - 송성호(201713866)
   >github@ssh10032
 - 윤주현(201713919)
