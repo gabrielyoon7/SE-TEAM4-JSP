@@ -29,13 +29,16 @@ web/WEB-INF/test.jsp<br>
 ** oid==1인 리스트 전체를 불러오기*
 <div id="testDataPrinter1"></div>
 
-**
+** oid==1인 회원의 전화번호 db 수정하기*
+<div id="info"> </div>
+<button onclick="updateTestInfo()" type="button">수정하기</button>
 -------------------------<br>
 </body>
 <script>
     $(document).ready(function(){
         makeinfoAll();
         makeinfo1();
+        makeModifyinfo1();
     })
 
     function makeinfoAll(){
@@ -54,6 +57,39 @@ web/WEB-INF/test.jsp<br>
         var text = '';
         text+= '<div>'+'oid : '+data[0].oid+'/ name : '+data[0].name+'/ phoneNumber : '+data[0].phoneNumber+'</div>';
         list.append(text);
+    }
+
+    function makeModifyinfo1(){
+        var data = <%=getSomething%>;
+        var list = $('#info');
+        var a = '';
+        a+= 'oid: <input type="text" name="oid" id="oid" value="' + data[0].oid+ '"readonly/>'
+            + 'name: <input type="text" name="name" id="name" value="' + data[0].name+ '">'
+            +'phoneNumber: <input type="text" name="phoneNumber" id="phoneNumber" placeholder="' + data[0].phoneNumber+'">'
+        list.append(a);
+    }
+
+    function updateTestInfo(){
+        var oid=$('#oid').val();
+        var name=$('#name').val();
+        var phoneNumber=$('#phoneNumber').val();
+
+        var data = oid+'-/-/-'+name+"-/-/-"+phoneNumber;
+        var check = confirm("회원 정보를 수정하시겠습니까?");
+        if(check) {
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "updateTestInfo",
+                    data: data
+                },
+                success: function (data) {
+                    alert("db가 변경 되었습니다");
+                    location.reload();
+                }
+            })
+        }
     }
 
 

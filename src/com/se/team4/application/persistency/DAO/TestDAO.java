@@ -6,6 +6,7 @@ import com.se.team4.application.persistency.DTO.TestDTO;
 import com.se.team4.common.sql.Config;
 
 import org.apache.commons.dbutils.*;
+import org.apache.commons.dbutils.handlers.ColumnListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.Connection;
@@ -46,5 +47,22 @@ public class TestDAO {
         }.getType());
         System.out.println(list);
         return result;
+    }
+
+    public String modifyContent(String data) {
+        String arr[] = data.split("-/-/-"); // 0 oid 1 name 2 phoneNumber
+        String oid = arr[0];
+        String name = arr[1];
+        String phoneNumber = arr[2];
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner que = new QueryRunner();
+            que.update(conn, "UPDATE customer SET name=?, phoneNumber=? WHERE oid=?;", name, phoneNumber, oid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return "";
     }
 }
