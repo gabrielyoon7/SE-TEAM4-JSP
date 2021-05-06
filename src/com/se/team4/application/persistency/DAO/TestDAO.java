@@ -30,7 +30,12 @@ public class TestDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM customer WHERE oid=?", new MapListHandler(), num);
+            if(num==0){
+                list = queryRunner.query(conn, "SELECT * FROM customer", new MapListHandler());
+            }
+            else{
+                list = queryRunner.query(conn, "SELECT * FROM customer WHERE oid=?", new MapListHandler(), num);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -39,6 +44,7 @@ public class TestDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<TestDTO>>() {
         }.getType());
+        System.out.println(list);
         return result;
     }
 }

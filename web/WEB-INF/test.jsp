@@ -7,7 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String getSomething = (String) request.getAttribute("getSomething");
+    String getSomethingAll = (String) request.getAttribute("getSomething0");
+    String getSomething = (String) request.getAttribute("getSomething1");
 %>
 <!doctype html>
 <head>
@@ -22,21 +23,39 @@
 web/WEB-INF/test.jsp<br>
 테스트용 페이지.<br>
 --------DB연동 TEST-----------------<br>
-<div id="testDataPrinter"></div>
+** 리스트 전체를 불러오기*
+<div id="testDataPrinter0"></div>
+
+** oid==1인 리스트 전체를 불러오기*
+<div id="testDataPrinter1"></div>
+
+**
 -------------------------<br>
 </body>
 <script>
     $(document).ready(function(){
+        makeinfoAll();
         makeinfo1();
     })
 
-    function makeinfo1(){
-        var data = <%=getSomething%>;
-        var list = $('#testDataPrinter');
+    function makeinfoAll(){
+        var data = <%=getSomethingAll%>;
+        var list = $('#testDataPrinter0');
         var text = '';
-        text+= '<div>'+'oid : '+data[0].oid+'/ name : '+data[0].name+'/ phoneNumber : '+data[0].phoneNumber+'</div>';
-
+        for(var i=0; i<data.length; i++){
+            text+= '<div>'+'oid : '+data[i].oid+'/ name : '+data[i].name+'/ phoneNumber : '+data[i].phoneNumber+'</div>';
+        }
         list.append(text);
     }
+
+    function makeinfo1(){
+        var data = <%=getSomething%>;
+        var list = $('#testDataPrinter1');
+        var text = '';
+        text+= '<div>'+'oid : '+data[0].oid+'/ name : '+data[0].name+'/ phoneNumber : '+data[0].phoneNumber+'</div>';
+        list.append(text);
+    }
+
+
 </script>
 </html>
