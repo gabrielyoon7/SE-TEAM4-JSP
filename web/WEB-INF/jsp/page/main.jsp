@@ -20,6 +20,11 @@
 <body>
 <%@include file="../common/header.jsp" %>
 web/WEB-INF/jsp/page/main.jsp<br>
+    <article>
+        <div class="slideshow-container">
+
+        </div>
+    </article>
 <a href="test.do">Go To TestPage</a>
 </body>
 </html>

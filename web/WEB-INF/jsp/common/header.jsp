@@ -63,6 +63,32 @@
 			<li id="login"></li>
 		</ul>
 	</nav>
+	<nav id="main-navigation">
+		<div class="pull-left">
+			<ul class="outer-menu">
+				<li class="outer-menu-item">
+                    <span class="menu-title">
+                        <a href="test.do">BRAND</a>
+                    </span>
+				</li>
+				<li class="outer-menu-item">
+                    <span class="menu-title">
+                        <a href="test.do">MENU</a>
+                    </span>
+				</li>
+				<li class="outer-menu-item">
+                    <span class="menu-title">
+                        <a href="test.do">RESERVATION</a>
+                    </span>
+				</li>
+				<li class="outer-menu-item">
+                    <span class="menu-title">
+                        <a href="test.do">PACKING</a>
+                    </span>
+				</li>
+			</ul>
+		</div>
+	</nav>
 	<br>여기는 헤더가 출력될 위치입니다. <br>
 	----------------------------여기 위로는 헤더에서 출력됨-----------------------------------
 </header>
