@@ -11,7 +11,8 @@ public class TestAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Gson gson = new Gson();
-        request.setAttribute("getSomething", gson.toJson(TestDAO.getInstance().getSomething(1)));
+        request.setAttribute("getSomething0", gson.toJson(TestDAO.getInstance().getSomething(0)));
+        request.setAttribute("getSomething1", gson.toJson(TestDAO.getInstance().getSomething(1)));
         return "RequestDispatcher:test.jsp";
     }
 }

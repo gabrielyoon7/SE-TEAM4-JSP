@@ -3,6 +3,14 @@ Restaurant Booking System of TEAM4
 >경기대학교 AI컴퓨터공학부
 > >권기현 교수님 2021-1 소프트웨어공학 4조
 * * *
+## History
+- 2021.05.06
+  - [윤주현] Readme 업데이트
+  - [김우중] DB 업데이트
+- 2021.05.05
+  - Spring 에서 JSP로 변경
+  - [윤주현] Java ee와 Tomcat으로 JSP 프로젝트 구축 및 기본 구조 입력
+* * *
 ## Rules of Project development
 - Github 사용 시 Pull 먼저 하기
 - 주석과 Commit 메시지 꼼꼼히 적기
