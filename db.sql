@@ -70,7 +70,18 @@ CREATE TABLE pickup(
                               orderedList VARCHAR(32) NOT NULL
 );
 
+CREATE TABLE User (
+                          oid        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                          id            CHAR(13) NOT NULL,
+                          password    CHAR(13) NOT NULL,
+                          type VARCHAR (13) NOT NULL,
+                          name        VARCHAR(32) NOT NULL,
+                          birthDay   DATE,
+                          phoneNumber  CHAR(13) NOT NULL,
+                          blackList      BOOLEAN NOT NULL
+) ;
 
+INSERT INTO `user` VALUES(1000,201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698',false);
 INSERT INTO `table` VALUES(101,1,1,4);
 INSERT INTO `table` VALUES(102,2,2,4);
 INSERT INTO `table` VALUES(103,3,3,2);

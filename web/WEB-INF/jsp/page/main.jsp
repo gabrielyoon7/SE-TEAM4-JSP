@@ -21,7 +21,5 @@
 <%@include file="../common/header.jsp" %>
 web/WEB-INF/jsp/page/main.jsp<br>
 <a href="test.do">Go To TestPage</a>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
 </body>
 </html>

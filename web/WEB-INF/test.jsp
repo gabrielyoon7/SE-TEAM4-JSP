@@ -10,6 +10,9 @@
     String getSomethingAll = (String) request.getAttribute("getSomething0");
     String getSomething = (String) request.getAttribute("getSomething1");
 %>
+<%
+    String user =  (String)session.getAttribute("user");
+%>
 <!doctype html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,12 +36,15 @@ web/WEB-INF/test.jsp<br>
 <div id="info"> </div>
 <button onclick="updateTestInfo()" type="button">수정하기</button>
 -------------------------<br>
+----------------------로그인 테스트----------------------<br>
+<div id="loginTestMessage"></div>
 </body>
 <script>
     $(document).ready(function(){
         makeinfoAll();
         makeinfo1();
         makeModifyinfo1();
+        loginTest();
     })
 
     function makeinfoAll(){
@@ -91,7 +97,27 @@ web/WEB-INF/test.jsp<br>
             })
         }
     }
+    function loginTest(){
+        var user = <%=user%>;
+        var list =$('#loginTestMessage');
+        var a='';
+        if(user==null){
+            a+='로그인이 되지 않았습니다.';
+        }
+        else{
+            a+='- oid : '+user.oid+'<br>'
+                +'- id : '+user.id+'<br>'
+                +'- password : '+user.password+'<br>'
+                +'- type : '+user.type+'<br>'
+                +'- name : '+user.name+'<br>'
+                +'- birthDay : '+user.birthDay+'<br>'
+                +'- phoneNumber : '+user.phoneNumber+'<br>'
+                +'- blackList : '+user.blackList+'<br>'
+            ;
 
+        }
+        list.append(a);
+    }
 
 </script>
 </html>

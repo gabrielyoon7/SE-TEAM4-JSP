@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  String loginFail = (String) session.getAttribute("loginFail");
+%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -101,12 +104,12 @@
     }
   </style>
 </head>
-
+<%@include file="../common/header.jsp" %>
 <body width="100%" height="100%">
-<form action="index.html" method="post" class="loginForm">
+<form action="login.do" method="post" id="loginForm" class="loginForm">
   <h2>Login</h2>
   <div class="idForm">
-    <input type="text" class="id" placeholder="ID">
+    <input type="text" id="id" class="id" placeholder="ID">
   </div>
   <div class="passForm">
     <input type="password" id="pw" class="pw" placeholder="Password">
@@ -116,18 +119,27 @@
     function button(){
       var id = $('#id').val();
       var pw = $('#pw').val();
-      if(id=='manager' && pw=='0000'){
-        alert('접속에 성공하셨습니다.');
-        // window.location.href = 'webp/main.html';
-      }
-      else{
-        alert('Wrong information');
-      }
+      var data = id+"-/-/-"+pw;
+      $.ajax({
+          url: "login.do",
+          type: "post",
+          data: {
+            data: data
+          },
+          success: function (login) {
+            if(login=="성공"){
+              alert("로그인 성공");
+              window.location.href="main.do"
+            }
+            else{
+              alert("로그인 실패");
+              location.reload();
+            }
+          }
+        })
+
     }
 
-    //
-    //window.location.href = 'https://www.youtube.com/watch?v=UbfUxLfGPwo&t=3026s';
-    //window.location.href = 'https://youtu.be/QH2-TGUlwu4';
 
   </script>
 </form>
