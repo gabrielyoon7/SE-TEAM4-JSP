@@ -14,6 +14,8 @@ Restaurant Booking System of TEAM4
 - ~~또 뭐가 있을까요?~~
 * * *
 ## Project Structure
+> 프로젝트 구조 해석 영상
+> > https://drive.google.com/file/d/1lWJpXaAh7shmv10t9AoQUbhHaI2ocUy0/view?usp=sharing
 * .idea
   > IntelliJ 관련 설정
   > >컴퓨터마다 환경이 달라서 자동으로 수정되는 경우가 많습니다. 되도록이면 github로 push 하지 마세요.
