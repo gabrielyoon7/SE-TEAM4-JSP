@@ -3,7 +3,22 @@ Restaurant Booking System of TEAM4
 >경기대학교 AI컴퓨터공학부
 > >권기현 교수님 2021-1 소프트웨어공학 4조
 * * *
+## Team4 Developers
+- 송성호(201713866)
+  >github@ssh10032
+- 윤주현(201713919)
+  >github@gabrielyoon7
+- 김우중(201912039)
+  > github@Kimwoojung11
+- 최예슬(201912149)
+  > github@yeseul9231
+- 허수빈(201912161)
+  > github@heo5620
+* * *
 ## History
+- 2021.05.08
+  - [최예슬] 헤더 디자인 개선
+  - [윤주현] 로그아웃 기능 추가
 - 2021.05.07
   - [윤주현] 로그인 기능 추가, User 테이블 추가, 임시 헤더 작성
 - 2021.05.06
@@ -149,29 +164,29 @@ Restaurant Booking System of TEAM4
       > ~~프로젝트 만들다 보니깐 생겼는데 뭔지 모르겠습니다.~~
 * * *
 ## How To Deploy
-- 인텔리제이 설치 방법 : https://leirbag.tistory.com/50
-- 톰캣 설치 방법 : https://leirbag.tistory.com/52 의 1번 항 참고
-- mariaDB 설치 방법 : https://leirbag.tistory.com/46
-  - db 적용 방법 : https://leirbag.tistory.com/47
-  - 컴파일러에서 db 오류 발생 시 : https://leirbag.tistory.com/48
-- 클론 및 프로젝트 설치 방법 : https://leirbag.tistory.com/56
+- 인텔리제이 설치 방법
+  > https://leirbag.tistory.com/50
+- 톰캣 설치 방법
+  > https://leirbag.tistory.com/52 의 1번 항 참고
+- mariaDB 설치 방법
+  > https://leirbag.tistory.com/46
+  - db 적용 방법
+    > https://leirbag.tistory.com/47
+  - 컴파일러에서 db 오류 발생 시
+    > https://leirbag.tistory.com/48
+- 클론 및 프로젝트 설치 방법
+  > https://leirbag.tistory.com/56
 * * *
 ## Tools
 - IntelliJ 2021.1
 - Tomcat 9.0.45
 - JSP
-- MariaDB 버전 까먹음
+- MariaDB (버전 까먹음)
 - Java EE
 * * *
-## Team4 Developers
-- 송성호(201713866)
-  >github@ssh10032
-- 윤주현(201713919)
-  >github@gabrielyoon7
-- 김우중(201912039)
-  > github@Kimwoojung11
-- 최예슬(201912149)
-  > github@yeseul9231
-- 허수빈(201912161)
-  > github@heo5620
+## References
+- IntelliJ로 JSP 프로젝트 생성
+  > https://velog.io/@ruddms936/IntelliJ%EB%A1%9C-JSP-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1
+- *.do의 역사
+  > https://withthisclue.tistory.com/entry/JSP-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-%EA%B6%81%EA%B8%88%ED%96%88%EB%8D%98-do-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%9D%98%EB%AF%B8
 * * *

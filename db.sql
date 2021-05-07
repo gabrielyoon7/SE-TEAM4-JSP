@@ -60,8 +60,8 @@ CREATE TABLE Menu(
                               oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                               type   CHAR(13)   NOT NULL,
                               name VARCHAR(32) NOT NULL,
-                              price INT NOT NULL
-                              
+                              price INT NOT NULL,
+                              imageURL VARCHAR(100)
 );
 CREATE TABLE pickup(
                               date DATE,
@@ -83,6 +83,7 @@ CREATE TABLE User (
 
 INSERT INTO `user` VALUES(1000,201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698',false);
 INSERT INTO `user` VALUES(1001,201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620',false);
+
 INSERT INTO `table` VALUES(101,1,1,4);
 INSERT INTO `table` VALUES(102,2,2,4);
 INSERT INTO `table` VALUES(103,3,3,2);

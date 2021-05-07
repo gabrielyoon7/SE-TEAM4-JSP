@@ -106,7 +106,7 @@
 			a+= '<a href="loginPage.do">로그인</a>';
 		}
 		else {//로그인 상태
-			a+='안녕하세요 '+user.id+'님';
+			a+='안녕하세요 '+user.name+'님! <a href="logout.do">로그아웃</a>';
 		}
 		list.append(a);
 	}
