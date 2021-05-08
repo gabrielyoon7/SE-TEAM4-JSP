@@ -59,6 +59,9 @@ web/WEB-INF/jsp/page/main.jsp<br>
     <script src="js/js1.js"></script>
     <link rel="stylesheet" href='css/css1.css'>
 
-<a href="test.do">Go To TestPage</a>
+    <a href="test.do">Go To TestPage</a>
+    <footer id="main-footer">
+        <a href="#">Created by SE-TEAM4</a>
+    </footer>
 </body>
 </html>
