@@ -22,9 +22,43 @@
 web/WEB-INF/jsp/page/main.jsp<br>
     <article>
         <div class="slideshow-container">
+            <div class="mySlides fade" style="text-align:center">
+                <img src="img/img1.jpg" width="700" height="500">
+                    <div class="text" style="text-align:center">
+                    </div>
+            </div>
+            <div class="mySlides fade" style="text-align:center">
+                <img src="img/img2.jpg" width="700" height="500">
+                <div class="text">
+
+                </div>
+            </div>
+            <div class="mySlides fade" style="text-align:center">
+                <img src="img/img3.jpg" width="700" height="500">
+                <div class="text">
+
+                </div>
+            </div>
+            <div class="mySlides fade" style="text-align:center">
+                <img src="img/img4.jpg" width="700" height="500">
+                <div class="text">
+
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
 
         </div>
     </article>
+
+    <script src="js/js1.js"></script>
+    <link rel="stylesheet" href='css/css1.css'>
+
 <a href="test.do">Go To TestPage</a>
 </body>
 </html>
