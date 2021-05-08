@@ -17,8 +17,8 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2021.05.08
-  - [최예슬] 헤더 디자인 개선
-  - [윤주현] 로그아웃 기능 추가
+  - [최예슬] 헤더 디자인 개선, 푸터 추가, 이미지 슬라이더 추가
+  - [윤주현] 로그아웃 기능 추가, 부트스트랩 아이콘 추가
 - 2021.05.07
   - [윤주현] 로그인 기능 추가, User 테이블 추가, 임시 헤더 작성
 - 2021.05.06
@@ -183,6 +183,9 @@ Restaurant Booking System of TEAM4
 - JSP
 - MariaDB (버전 까먹음)
 - Java EE
+- Bootstrap
+- JQuery
+- Ajax
 * * *
 ## References
 - IntelliJ로 JSP 프로젝트 생성

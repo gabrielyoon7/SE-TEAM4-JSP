@@ -90,10 +90,13 @@
 		</div>
 	</nav>
 	<br>여기는 헤더가 출력될 위치입니다. <br>
+	<img src="/icons/bootstrap-fill.svg" alt="Bootstrap" width="32" height="32">
+	<i class="bi-alarm"></i>
 	----------------------------여기 위로는 헤더에서 출력됨-----------------------------------
 </header>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 <script>
 	$(document).ready(function(){
 		loginInfo();

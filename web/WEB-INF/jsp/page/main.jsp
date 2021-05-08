@@ -60,8 +60,6 @@ web/WEB-INF/jsp/page/main.jsp<br>
     <link rel="stylesheet" href='css/css1.css'>
 
     <a href="test.do">Go To TestPage</a>
-    <footer id="main-footer">
-        <a href="#">Created by SE-TEAM4</a>
-    </footer>
+<%@include file="../common/footer.jsp" %>
 </body>
 </html>
