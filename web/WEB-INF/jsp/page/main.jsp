@@ -11,6 +11,7 @@
 //    System.out.println(pageContext.request.contextPath);
 %>
 <!doctype html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="'viewport" content="width-device-width", initial-scale="1">
@@ -59,6 +60,7 @@ web/WEB-INF/jsp/page/main.jsp<br>
     <script src="js/js1.js"></script>
     <link rel="stylesheet" href='css/css1.css'>
 
+    <a href="main2.do">Carousel Main with Bootstrap5.0</a>
     <a href="test.do">Go To TestPage</a>
 <%@include file="../common/footer.jsp" %>
 </body>
