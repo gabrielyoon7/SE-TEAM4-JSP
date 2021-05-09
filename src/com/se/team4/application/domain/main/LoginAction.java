@@ -17,13 +17,12 @@ public class LoginAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         LoginManager manager = LoginManager.getInstance();
         String data = request.getParameter("data");
-        System.out.println(data);
+//        System.out.println(data);
         Boolean check = HomeDAO.getInstance().loginCheck(data);
-        System.out.println(check);
+//        System.out.println(check);
         Gson gson = new Gson();
         HttpSession session = request.getSession();
         if (check==false){ //로그인정보 미일치
-            request.setAttribute("loginFail", "loginFail");
             return "실패";//실패했다는걸 알려줘야함
         }
         else{//로그인 성공

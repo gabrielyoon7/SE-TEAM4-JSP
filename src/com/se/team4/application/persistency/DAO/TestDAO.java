@@ -45,7 +45,7 @@ public class TestDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<TestDTO>>() {
         }.getType());
-        System.out.println(list);
+//        System.out.println(list);
         return result;
     }
 
