@@ -1,102 +1,80 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: Gabriel Yoon
+  Date: 2021-05-09
+  Time: 오전 4:40
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	String user =  (String)session.getAttribute("user");
 %>
-<style>
-	h1 {
-		display: inline-block;
-		vertical-align: middle;
-		color: white;
-		margin: 0.5rem;
-		padding: 0;
-	}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.83.1">
+	<title>Carousel Template · Bootstrap v5.0</title>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
-	nav {
-		display: inline-block;
-		vertical-align: middle;
-	}
 
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		display: flex;
-	}
 
-	li.icon {
-		flex-basis: 25%;
-	}
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 
-	header {
-		background: cadetblue;
-		padding: 20px;
-	}
+	<style>
+		.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
 
-	a {
-		display: block;
-		text-align: center;
-		margin: .25rem;
-		padding: .5rem 1rem;
-		text-decoration: none;
-		font-weight: bold;
-		color: white;
-		background: teal;
-	}
+		@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+				font-size: 3.5rem;
+			}
+		}
+	</style>
 
-	a:hover {
-		background: yellowgreen;
-	}
 
-	html {
-		box-sizing: border-box;
-	}
-
-	*, *:before, *:after {
-		box-sizing: inherit;
-	}
-</style>
-
+	<!-- Custom styles for this template -->
+	<link href="css/carousel.css" rel="stylesheet">
+</head>
 <header>
-	<h1><a href="main.do">Team4 Restaurant</a></h1>
-	<nav>
-		<ul>
-			<li id="login"></li>
-		</ul>
-	</nav>
-	<nav id="main-navigation">
-		<div class="pull-left">
-			<ul class="outer-menu">
-				<li class="outer-menu-item">
-                    <span class="menu-title">
-                        <a href="test.do">BRAND</a>
-                    </span>
-				</li>
-				<li class="outer-menu-item">
-                    <span class="menu-title">
-                        <a href="test.do">MENU</a>
-                    </span>
-				</li>
-				<li class="outer-menu-item">
-                    <span class="menu-title">
-                        <a href="test.do">RESERVATION</a>
-                    </span>
-				</li>
-				<li class="outer-menu-item">
-                    <span class="menu-title">
-                        <a href="test.do">PACKING</a>
-                    </span>
-				</li>
-			</ul>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="main.do">Team4 Restaurant</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav me-auto mb-2 mb-md-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="test.do">Brand</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="test.do">Menu</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Reservation</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Packing</a>
+					</li>
+				</ul>
+				<div class="d-flex">
+					<%--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--%>
+					<div id="login"></div>
+				</div>
+			</div>
 		</div>
 	</nav>
-	<br>여기는 헤더가 출력될 위치입니다. <br>
-	<img src="/icons/bootstrap-fill.svg" alt="Bootstrap" width="32" height="32">
-	<i class="bi-alarm"></i>
-	----------------------------여기 위로는 헤더에서 출력됨-----------------------------------
 </header>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
 <script>
 	$(document).ready(function(){
 		loginInfo();
@@ -106,11 +84,17 @@
 		var list = $('#login');
 		var a = '';
 		if (user==null){//미로그인 상태
-			a+= '<a href="loginPage.do">로그인</a>';
+			a+= '<button class="btn btn-outline-success" onclick="goToLoginPage()">LOGIN</button>';
 		}
 		else {//로그인 상태
-			a+='안녕하세요 '+user.name+'님! <a href="logout.do">로그아웃</a>';
+			a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
 		}
 		list.append(a);
+	}
+	function goToLoginPage(){
+		location.href='loginPage.do';
+	}
+	function logout(){
+		location.href='logout.do';
 	}
 </script>
