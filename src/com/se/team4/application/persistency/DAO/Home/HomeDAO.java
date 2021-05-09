@@ -35,7 +35,7 @@ public class HomeDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner que = new QueryRunner();
-            list = que.query(conn, "SELECT * FROM user WHERE id=?;", new MapListHandler(),id);
+            list = que.query(conn, "SELECT * FROM User WHERE id=?;", new MapListHandler(),id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -60,7 +60,7 @@ public class HomeDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner que = new QueryRunner();
-            list = que.query(conn, "SELECT * FROM user WHERE id=?;", new MapListHandler(), id);
+            list = que.query(conn, "SELECT * FROM User WHERE id=?;", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
