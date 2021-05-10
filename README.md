@@ -25,7 +25,7 @@ Restaurant Booking System of TEAM4
   - [윤주현] 로그인 기능 추가, User 테이블 추가, 임시 헤더 작성
 - 2021.05.06
   - [윤주현] Readme 업데이트
-  - [김우중] DB 업데이트
+  - [송성호] DB 업데이트
 - 2021.05.05
   - Spring 에서 JSP로 변경
   - [윤주현] Java ee와 Tomcat으로 JSP 프로젝트 구축 및 기본 구조 입력
