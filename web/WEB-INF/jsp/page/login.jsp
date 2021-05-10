@@ -50,9 +50,12 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
+    <div class="mb-3">
+      <a href="signupPage.do">아직 회원이 아니세요?</a>
+    </div>
     <button type="button" class="w-100 btn btn-lg btn-primary" onclick="button()">로그인</button>
 <%--    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>--%>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2021 TEAM4.SE@KGU</p>
   </form>
 </main>
 
@@ -68,9 +71,10 @@
     var pw = $('#floatingPassword').val();
     var data = id+"-/-/-"+pw;
     $.ajax({
-      url: "login.do",
+      url: "ajax.do",
       type: "post",
       data: {
+        req: "login",
         data: data
       },
       success: function (login) {

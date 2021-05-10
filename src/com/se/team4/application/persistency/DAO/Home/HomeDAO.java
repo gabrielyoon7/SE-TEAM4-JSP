@@ -72,4 +72,27 @@ public class HomeDAO {
 //        System.out.println(list);
         return result.get(0);
     }
+
+    public String signUp(String data) {//회원가입
+        Connection conn = Config.getInstance().sqlLogin();
+        System.out.println(data);
+        String arr[] = data.split("-/-/-"); // 0 name, 1 birthDay, 2 id, 3 password, 4 phoneNumber
+        String name = arr[0];
+        String birthDay = arr[1];
+        String id = arr[2];
+        String password = arr[3];
+        String phoneNumber = arr[4];
+        String type = "손님";
+        Boolean blackList = false;
+        try {
+            QueryRunner que = new QueryRunner();
+            que.query(conn, "INSERT User SET name=?, birthDay=?, id=?, password=?, phoneNumber=?, type=?, blackList=?;", new MapListHandler(), name, birthDay, id, password, phoneNumber, type, blackList);
+//insert into User(id, password, type, name, birthDay, phoneNumber, blackList) values('admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return null;
+    }
 }
