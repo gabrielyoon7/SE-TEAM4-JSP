@@ -90,4 +90,5 @@ INSERT INTO `table` VALUES(102,2,2,4);
 INSERT INTO `table` VALUES(103,3,3,2);
 INSERT INTO `customer` VALUES(1, 'Gab', '010-4413-5698','Gab','1111',false);
 INSERT INTO `customer` VALUES(2, 'Arthur', '010-0000-0000','Arthur','2222',true);
-INSERT INTO `customer` VALUES(3, 'Dutch', '010-1111-1111','Dutch','3333',false);
+INSERT INTO `customer` VALUES(3, 'Dutch', '010-1111-1111','Dutch','3333',FALSE);
+insert into User(id, password, type, name, birthDay, phoneNumber, blackList) values('admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', false);
