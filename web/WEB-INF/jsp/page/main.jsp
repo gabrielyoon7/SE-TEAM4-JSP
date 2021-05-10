@@ -9,15 +9,20 @@
 <!doctype html>
 <html>
 <body>
+<%--header를 이런식으로 include해서 끼워넣습니다. 이 작업은 매 페이지마다 필요해요.--%>
 <%@include file="../common/header.jsp" %>
 <main>
+
+<%--   이미지 슬라이더 div 시작지점 --%>
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<%--        여기서 버튼을 다음에 나올 슬라이드 갯수만큼 만들어줘야 오류가 없습니다. --%>
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
+<%--    슬라이드에 등록할 사진과 설명을 정해줍니다.--%>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
@@ -73,14 +78,13 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <%--   이미지 슬라이더 div 종료지점 --%>
 
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
     <div class="container marketing">
-
         <!-- Three columns of text below the carousel -->
         <div class="row">
             <div class="col-lg-4">
@@ -108,7 +112,6 @@
 
 
         <!-- START THE FEATURETTES -->
-
         <hr class="featurette-divider">
 
         <div class="row featurette">

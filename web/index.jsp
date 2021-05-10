@@ -14,6 +14,11 @@
 </head>
 <body></body>
 <script>
+  /**
+   * [윤주현]
+   * 웹 서버가 처음으로 열려고 시도하는 페이지입니다.
+ * 일단 main.do로 보냅니다. (.do는 web/WEB-INF/booksys.properties에서 찾습니다.)
+ */
   window.location.href = 'main.do';
 </script>
 

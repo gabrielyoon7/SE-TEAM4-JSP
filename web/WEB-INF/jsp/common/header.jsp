@@ -7,6 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+	/**[윤주현]
+	 * session에서 user의 정보를 받아옵니다.
+	 * user를 setAttribute하고 있는 곳은 src/com/se/team4/application/domain/AjaxAction 클래스의
+	 * session.setAttribute("user", gson.toJson(HomeDAO.getInstance().getUserInfo(id))); 입니다.
+	 * 로그인을 하지 않은 경우 user는 null입니다.
+	 * 즉, 로그인 정보는 이 header.jsp가 include되는 어느 곳에서든 따라다니게 되므로 user 사용이 어디서나 가능하게 됩니다.
+	 */
 	String user =  (String)session.getAttribute("user");
 %>
 <head>
@@ -76,12 +83,12 @@
 </header>
 
 <script>
-	$(document).ready(function(){
+	$(document).ready(function(){ //이 파일이 시작되면 자동으로 실행됩니다.
 		loginInfo();
 	})
-	function loginInfo(){
+	function loginInfo(){ //로그인 여부에 따라 버튼을 바꿔주는 역할
 		var user = <%=user%>;
-		var list = $('#login');
+		var list = $('#login'); //위의 div id="login"에 집어넣습니다.
 		var a = '';
 		if (user==null){//미로그인 상태
 			a+= '<button class="btn btn-outline-success" onclick="goToLoginPage()">LOGIN</button>';
@@ -91,10 +98,10 @@
 		}
 		list.append(a);
 	}
-	function goToLoginPage(){
+	function goToLoginPage(){ //버튼에 바로가기 키를 넣기 위한 조치. (버튼은 url 넣기가 불편합니다. 더 좋은 방법이 있으신분은 개선해주세요.)
 		location.href='loginPage.do';
 	}
-	function logout(){
+	function logout(){ //버튼에 바로가기 키를 넣기 위한 조치
 		location.href='logout.do';
 	}
 </script>

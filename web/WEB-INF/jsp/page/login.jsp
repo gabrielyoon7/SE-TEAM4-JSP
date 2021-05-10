@@ -62,22 +62,22 @@
 
 <script src="js/bootstrap.bundle.min.js"></script>
 
-<%--footer 적용시 레이아웃 깨지는 문제가 있어서 주석처리--%>
+<%--footer 적용시 레이아웃 깨지는 문제가 있어서 주석처리. 원인은 모르겠음--%>
 <%--<%@include file="../common/footer.jsp" %>--%>
 </body>
 <script>
   function button(){
     var id = $('#floatingInput').val();
     var pw = $('#floatingPassword').val();
-    var data = id+"-/-/-"+pw;
+    var data = id+"-/-/-"+pw; //데이터를 1줄로 합침.
     $.ajax({
       url: "ajax.do",
       type: "post",
       data: {
-        req: "login",
-        data: data
+        req: "login", //AjaxAction 클래스에다가 req값을 전달해줍니다.
+        data: data //AjaxAction 클래스에다가 data값을 전달해줍니다.
       },
-      success: function (login) {
+      success: function (login) { //login은 ajaxAction 클래스가 return해준 값을 담는 변수 이름입니다.
         if(login=="성공"){
           alert("로그인 성공");
           window.location.href="main.do"
