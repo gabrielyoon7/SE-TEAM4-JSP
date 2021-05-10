@@ -75,7 +75,7 @@ public class HomeDAO {
 
     public String signUp(String data) {//회원가입
         Connection conn = Config.getInstance().sqlLogin();
-        System.out.println(data);
+//        System.out.println(data);
         String arr[] = data.split("-/-/-"); // 0 name, 1 birthDay, 2 id, 3 password, 4 phoneNumber
         String name = arr[0];
         String birthDay = arr[1];
@@ -94,5 +94,74 @@ public class HomeDAO {
             DbUtils.closeQuietly(conn);
         }
         return null;
+    }
+
+    public ArrayList<UserDTO> getUserList() { //User 정보 전부 돌려줌
+//        ArrayList<UserDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM User", new MapListHandler());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        ArrayList<UserDTO> selected = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
+        }.getType());
+        if (selected.size() > 0) {
+            return selected;
+        } else{
+            System.out.println("Not selected");
+            return null;
+        }
+    }
+    public void deleteUser(String id) { //회원 정보 삭제
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            queryRunner.query(conn, "DELETE FROM User WHERE id=?", new MapListHandler(),id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+
+    }
+
+    public void passwordReset(String id){ //비밀번호 0000으로 초기화
+        Connection conn = Config.getInstance().sqlLogin();
+        String password = "0000";
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            queryRunner.query(conn, "UPDATE User SET password=? WHERE id=?", new MapListHandler(), password, id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+    }
+
+    public void typeChange(String data) { //Type 변경     관리자 <-> 손님
+        String arr[] = data.split("-/-/-"); // 0 id, 1 type
+        String id = arr[0];
+        String type = arr[1];
+//        System.out.println(id +" "+ type);
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            if (type.equals("관리자")){
+                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(),"손님",id);
+            }
+            else { //손님
+                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(),"관리자",id);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
     }
 }

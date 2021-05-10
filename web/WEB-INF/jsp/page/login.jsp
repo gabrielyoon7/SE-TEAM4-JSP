@@ -5,6 +5,12 @@
   Time: 오후 4:34
   To change this template use File | Settings | File Templates.
 --%>
+<%
+  /**
+   * login시 입력한 ID와 PW를 한줄의 String으로 만들어서 AjaxAction 클래스로 보냅니다.
+   * */
+%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!doctype html>

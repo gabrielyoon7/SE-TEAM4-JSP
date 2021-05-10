@@ -94,7 +94,12 @@
 			a+= '<button class="btn btn-outline-success" onclick="goToLoginPage()">LOGIN</button>';
 		}
 		else {//로그인 상태
-			a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+			if(user.type='관리자'){
+				a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="manager()">관리페이지</button> <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+			}
+			else{
+				a+='안녕하세요 '+user.name+'님!  <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+			}
 		}
 		list.append(a);
 	}
@@ -103,5 +108,8 @@
 	}
 	function logout(){ //버튼에 바로가기 키를 넣기 위한 조치
 		location.href='logout.do';
+	}
+	function manager(){ //관리자 메뉴 진입
+		location.href='userManager.do';
 	}
 </script>

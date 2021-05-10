@@ -40,6 +40,8 @@ public class AjaxAction implements Action {
             case "updateTestInfo":   //테스트용
                 result = TestDAO.getInstance().modifyContent(data); //수정된 데이터를 보냅니다.
                 break;
+
+            //User 정보 관련
             case "login": //로그인을 가능 여부를 판단하고, 로그인에 성공하는 경우 세션을 업데이트 합니다.
                 LoginManager manager = LoginManager.getInstance();
                 Boolean check = HomeDAO.getInstance().loginCheck(data); //받은 데이터를 일단 loginCheck으로 넘겨서 이 아이디와 비밀번호가 유효한지 검사합니다.
@@ -59,7 +61,15 @@ public class AjaxAction implements Action {
             case "signup"://회원가입 시 입력된 정보를 한 줄로 보내줍니다.
                 result = HomeDAO.getInstance().signUp(data);
                 break;
-
+            case "deleteUser"://특정 id의 계정을 삭제합니다.
+                HomeDAO.getInstance().deleteUser(data);
+                break;
+            case "pwReset": //특정 id의 password를 리셋 합니다.
+                HomeDAO.getInstance().passwordReset(data);
+                break;
+            case "typeChange": //특정 id의 type을 변경합니다.
+                HomeDAO.getInstance().typeChange(data);
+                break;
         }
         return result;
     }
