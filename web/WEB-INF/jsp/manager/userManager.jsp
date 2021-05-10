@@ -25,10 +25,7 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
-<table class="boardtable" id="table" data-toggle="table"
-       data-pagination="true" data-toolbar="#toolbar"
-       data-search="true" data-side-pagination="true" data-click-to-select="true"
-       data-page-list="[10]">
+<table  class="boardtable" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
     <thead>
     <tr>
         <th data-field="action">설정</th>
