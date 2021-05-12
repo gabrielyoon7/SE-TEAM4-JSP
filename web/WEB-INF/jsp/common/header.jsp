@@ -61,7 +61,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav me-auto mb-2 mb-md-0">
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="test.do">Brand</a>
+						<a class="nav-link active" aria-current="page" href="brand.do">Brand</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="menu.do">Menu</a>
