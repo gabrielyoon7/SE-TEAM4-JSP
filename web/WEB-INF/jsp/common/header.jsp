@@ -64,7 +64,7 @@
 						<a class="nav-link active" aria-current="page" href="test.do">Brand</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="test.do">Menu</a>
+						<a class="nav-link" href="menu.do">Menu</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Reservation</a>
