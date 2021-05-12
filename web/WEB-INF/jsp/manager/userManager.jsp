@@ -25,6 +25,7 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
+<div>현재 테이블 띄우는거 오류 있습니다. 수정 예정!!</div>
 <table  class="boardtable" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
     <thead>
     <tr>

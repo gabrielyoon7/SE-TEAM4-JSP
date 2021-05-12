@@ -28,7 +28,7 @@ public class menuDAO {
         try {
             QueryRunner queryRunner = new QueryRunner();
 
-                list = queryRunner.query(conn, "SELECT * FROM menu", new MapListHandler());
+                list = queryRunner.query(conn, "SELECT * FROM Menu", new MapListHandler());
 
 
         } catch (SQLException e) {

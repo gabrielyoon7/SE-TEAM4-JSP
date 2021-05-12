@@ -64,13 +64,19 @@
 						<a class="nav-link active" aria-current="page" href="test.do">Brand</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="menu.do">Menu</a>
+						<a class="nav-link active" aria-current="page" href="menu.do">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Reservation</a>
+						<a class="nav-link active" aria-current="page" href="test.do">Reservation</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Packing</a>
+						<a class="nav-link active" aria-current="page" href="test.do">Packing</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="test.do">TEST</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Disabled</a>
 					</li>
 				</ul>
 				<div class="d-flex">

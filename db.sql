@@ -21,7 +21,7 @@ CREATE TABLE Customer (
                           phoneNumber  CHAR(13) NOT NULL,
                           id            CHAR(13) NOT NULL,
                           PW            CHAR(13) NOT NULL,
-                          blackList      BOOLEAN NOT NULL
+                          blackList      VARCHAR(13) NOT NULL
 ) ;
 
 CREATE TABLE WalkIn (
@@ -79,31 +79,36 @@ CREATE TABLE User (
                           name        VARCHAR(32) NOT NULL,
                           birthDay   DATE,
                           phoneNumber  CHAR(13) NOT NULL,
-                          blackList      BOOLEAN NOT NULL
+                          blackList      VARCHAR(13) NOT NULL
 ) ;
 
-INSERT INTO `user` VALUES(1000,201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698',false);
-INSERT INTO `user` VALUES(1001,201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620',false);
-INSERT INTO `user` VALUES(1002,201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231',FALSE);
 
-INSERT INTO `menu` VALUES(500,'치킨','후라이드치킨',20000,'후라이드 치킨입니다.','500.png');
-INSERT INTO `menu` VALUES(501,'치킨','양념치킨',21000,'맛있는 양념치킨입니다.','501.png');
-INSERT INTO `menu` VALUES(502,'치킨','간장치킨',21000,'맛있는 간장치킨입니다.','502.png');
-INSERT INTO `menu` VALUES(503,'피자','하와이안쉬림프피자',18000,'하와이안 쉬림프 피자입니다.','503.png');
-INSERT INTO `menu` VALUES(504,'피자','시카고스테이크피자',25000,'시카고스테이크 피자입니다.','504.png');
-INSERT INTO `menu` VALUES(505,'피자','불고기피피자',13000,'불고기피피자입니다.','505.png');
-INSERT INTO `menu` VALUES(507,'고기', '스테이크', 40000, '맛있는 스테이크입니다.', '507.png');
-INSERT INTO `menu` VALUES(508,'고기', '갈릭스테이크', 45000, '맛있는 갈릭스테이크입니다.', '508.png');
-INSERT INTO `menu` VALUES(520,'파스타','투움바 파스타',18000,'투움바 파스타입입니다.','500.png');
-INSERT INTO `menu` VALUES(521,'파스타','까르보나라',16000,'까르보나라 입입니다.','500.png');
-INSERT INTO `menu` VALUES(522,'파스타','토마토 스파게티입니다.',14000,'토마토 스파게티 입입니다.','500.png');
+
 
 
 
 INSERT INTO `table` VALUES(101,1,1,4);
 INSERT INTO `table` VALUES(102,2,2,4);
 INSERT INTO `table` VALUES(103,3,3,2);
-INSERT INTO `customer` VALUES(1, 'Gab', '010-4413-5698','Gab','1111',false);
-INSERT INTO `customer` VALUES(2, 'Arthur', '010-0000-0000','Arthur','2222',true);
-INSERT INTO `customer` VALUES(3, 'Dutch', '010-1111-1111','Dutch','3333',FALSE);
-insert into User(id, password, type, name, birthDay, phoneNumber, blackList) values('admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', FALSE);
+INSERT INTO `customer` VALUES(1, 'Gab', '010-4413-5698','Gab','1111','false');
+INSERT INTO `customer` VALUES(2, 'Arthur', '010-0000-0000','Arthur','2222','true');
+INSERT INTO `customer` VALUES(3, 'Dutch', '010-1111-1111','Dutch','3333','false');
+
+INSERT INTO User(oid, id, PASSWORD, type, name, birthDay, phoneNumber, blackList) VALUES(1000, 'admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', 'false');
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VALUES(201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698','false');
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VALUES(201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620','false');
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VALUES(201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231','false');
+
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL) VALUES(500,'치킨','후라이드치킨',20000,'후라이드 치킨입니다.','500.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('치킨','양념치킨',21000,'맛있는 양념치킨입니다.','501.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('치킨','간장치킨',21000,'맛있는 간장치킨입니다.','502.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('피자','하와이안쉬림프피자',18000,'하와이안 쉬림프 피자입니다.','503.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('피자','시카고스테이크피자',25000,'시카고스테이크 피자입니다.','504.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('피자','불고기피피자',13000,'불고기피피자입니다.','505.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('고기', '스테이크', 40000, '맛있는 스테이크입니다.', '507.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('고기', '갈릭스테이크', 45000, '맛있는 갈릭스테이크입니다.', '508.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('파스타','투움바 파스타',18000,'투움바 파스타입니다.','520.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('파스타','까르보나라',16000,'까르보나라 입니다.','521.png');
+INSERT INTO Menu(TYPE, NAME, price, notice, imageURL) VALUES('파스타','토마토 스파게티',14000,'토마토 스파게티 입니다.','522.png');
+
+
