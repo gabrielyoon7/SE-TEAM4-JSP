@@ -18,6 +18,8 @@ Restaurant Booking System of TEAM4
 ## History
 - 2021.05.12
   - [전 체] Menu 페이지 제작 및 DB 연동 / 일부 DB구조 개선 / 블랙리스트 관리 기능 추가
+- 2021.05.11
+  - [윤주현] 서버용 PC에 ubuntu20.04 LTS, Tomcat9.0, mariaDB, openJDK14로 환경 구축 후, 서버 업로드 완료. (발표 및 평가 기간에 사용 예정)
 - 2021.05.10
   - [윤주현] 회원가입 기능 추가 / 관리자 페이지 및 기능 추가
 - 2021.05.08
