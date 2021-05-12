@@ -61,6 +61,7 @@ CREATE TABLE Menu(
                               type   CHAR(13)   NOT NULL,
                               name VARCHAR(32) NOT NULL,
                               price INT NOT NULL,
+                              notice VARCHAR(100) NOT NULL,
                               imageURL VARCHAR(100)
 );
 CREATE TABLE pickup(
@@ -83,7 +84,21 @@ CREATE TABLE User (
 
 INSERT INTO `user` VALUES(1000,201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698',false);
 INSERT INTO `user` VALUES(1001,201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620',false);
-INSERT INTO `user` VALUES(1002,201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231',false);
+INSERT INTO `user` VALUES(1002,201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231',FALSE);
+
+INSERT INTO `menu` VALUES(500,'치킨','후라이드치킨',20000,'후라이드 치킨입니다.','500.png');
+INSERT INTO `menu` VALUES(501,'치킨','양념치킨',21000,'맛있는 양념치킨입니다.','501.png');
+INSERT INTO `menu` VALUES(502,'치킨','간장치킨',21000,'맛있는 간장치킨입니다.','502.png');
+INSERT INTO `menu` VALUES(503,'피자','하와이안쉬림프피자',18000,'하와이안 쉬림프 피자입니다.','503.png');
+INSERT INTO `menu` VALUES(504,'피자','시카고스테이크피자',25000,'시카고스테이크 피자입니다.','504.png');
+INSERT INTO `menu` VALUES(505,'피자','불고기피피자',13000,'불고기피피자입니다.','505.png');
+INSERT INTO `menu` VALUES(507,'고기', '스테이크', 40000, '맛있는 스테이크입니다.', '507.png');
+INSERT INTO `menu` VALUES(508,'고기', '갈릭스테이크', 45000, '맛있는 갈릭스테이크입니다.', '508.png');
+INSERT INTO `menu` VALUES(520,'파스타','투움바 파스타',18000,'투움바 파스타입입니다.','500.png');
+INSERT INTO `menu` VALUES(521,'파스타','까르보나라',16000,'까르보나라 입입니다.','500.png');
+INSERT INTO `menu` VALUES(522,'파스타','토마토 스파게티입니다.',14000,'토마토 스파게티 입입니다.','500.png');
+
+
 
 INSERT INTO `table` VALUES(101,1,1,4);
 INSERT INTO `table` VALUES(102,2,2,4);
