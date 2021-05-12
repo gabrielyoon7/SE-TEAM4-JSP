@@ -16,18 +16,20 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.05.12
+  - [전 체] Menu 페이지 제작 및 DB 연동 / 일부 DB구조 개선 / 블랙리스트 관리 기능 추가
 - 2021.05.10
   - [윤주현] 회원가입 기능 추가 / 관리자 페이지 및 기능 추가
 - 2021.05.08
-  - [최예슬] 헤더 디자인 개선, 푸터 추가, 이미지 슬라이더 추가
-  - [윤주현] 로그아웃 기능 추가, 부트스트랩 아이콘 추가
+  - [최예슬] 헤더 디자인 개선/ 푸터 추가/ 이미지 슬라이더 추가
+  - [윤주현] 로그아웃 기능 추가/ 부트스트랩 아이콘 추가
 - 2021.05.07
-  - [윤주현] 로그인 기능 추가, User 테이블 추가, 임시 헤더 작성
+  - [윤주현] 로그인 기능 추가/ User 테이블 추가, 임시 헤더 작성
 - 2021.05.06
   - [윤주현] Readme 업데이트
-  - [송성호] DB 업데이트
+  - [송성호] 회의결과에 따른 DB 구조 업데이트
 - 2021.05.05
-  - Spring 에서 JSP로 변경
+  - [전 체] Spring 에서 JSP로 변경
   - [윤주현] Java ee와 Tomcat으로 JSP 프로젝트 구축 및 기본 구조 입력
 * * *
 ## Rules of Project development
@@ -196,5 +198,8 @@ Restaurant Booking System of TEAM4
   > https://withthisclue.tistory.com/entry/JSP-%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EC%97%90%EC%84%9C-%EA%B6%81%EA%B8%88%ED%96%88%EB%8D%98-do-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%9D%98%EB%AF%B8
 - Action 클래스
   > https://m.blog.naver.com/PostView.nhn?blogId=eroicaplus&logNo=90029919122&proxyReferer=http:%2F%2F210.217.72.119%2F
-- 
+- Servlet
+  > https://themach.tistory.com/68
+- Servlet 과 JSP의 비교
+  > https://m.blog.naver.com/acornedu/221128616501
 * * *
