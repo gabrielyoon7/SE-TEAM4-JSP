@@ -24,6 +24,7 @@ public class HomeDAO {
             it = new HomeDAO();
         return it;
     }
+
     //테스트 메소드
     public Boolean loginCheck(String data) {
         String arr[] = data.split("-/-/-"); // 0 id, 1 password
@@ -35,18 +36,19 @@ public class HomeDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner que = new QueryRunner();
-            list = que.query(conn, "SELECT * FROM User WHERE id=?;", new MapListHandler(),id);
+            list = que.query(conn, "SELECT * FROM User WHERE id=?;", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DbUtils.closeQuietly(conn);
         }
 //        System.out.println(list);
-        if(list.size()>0){//입력한 id가 존재할 때
+        if (list.size() > 0) {//입력한 id가 존재할 때
             Gson gson = new Gson();
-            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {            }.getType());
-            String realPassword=result.get(0).getPassword();
-            if(password.equals(realPassword)){
+            result = gson.fromJson(gson.toJson(list), new TypeToken<List<UserDTO>>() {
+            }.getType());
+            String realPassword = result.get(0).getPassword();
+            if (password.equals(realPassword)) {
                 return true; //로그인 성공
             }
             return false;//로그인 실패
@@ -113,16 +115,17 @@ public class HomeDAO {
         }.getType());
         if (selected.size() > 0) {
             return selected;
-        } else{
+        } else {
             System.out.println("Not selected");
             return null;
         }
     }
+
     public void deleteUser(String id) { //회원 정보 삭제
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            queryRunner.query(conn, "DELETE FROM User WHERE id=?", new MapListHandler(),id);
+            queryRunner.query(conn, "DELETE FROM User WHERE id=?", new MapListHandler(), id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -131,7 +134,7 @@ public class HomeDAO {
 
     }
 
-    public void passwordReset(String id){ //비밀번호 0000으로 초기화
+    public void passwordReset(String id) { //비밀번호 0000으로 초기화
         Connection conn = Config.getInstance().sqlLogin();
         String password = "0000";
         try {
@@ -152,11 +155,10 @@ public class HomeDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            if (type.equals("관리자")){
-                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(),"손님",id);
-            }
-            else { //손님
-                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(),"관리자",id);
+            if (type.equals("관리자")) {
+                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(), "손님", id);
+            } else { //손님
+                queryRunner.query(conn, "UPDATE User SET type=? WHERE id=?", new MapListHandler(), "관리자", id);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -164,4 +166,28 @@ public class HomeDAO {
             DbUtils.closeQuietly(conn);
         }
     }
+
+    public String changeBlacklist(String data) { //Type 변경     관리자 <-> 손님
+        String arr[] = data.split("-/-/-"); // 0 id, 1 type
+        String id = arr[0];
+        String blackList = arr[1];
+        //System.out.println(id +" "+ blackList);
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            if (blackList.equals("true")) {
+                queryRunner.query(conn, "UPDATE User SET blackList=? WHERE id=?", new MapListHandler(), "false", id);
+                return "false";
+            } else { //손님
+                queryRunner.query(conn, "UPDATE User SET blackList=? WHERE id=?", new MapListHandler(), "true", id);
+                return "true";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return "";
+    }
+
 }

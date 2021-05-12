@@ -67,6 +67,9 @@ public class AjaxAction implements Action {
             case "pwReset": //특정 id의 password를 리셋 합니다.
                 HomeDAO.getInstance().passwordReset(data);
                 break;
+            case"changeBlacklist":  //특정 id의 blackList 여부를 수정합니다.
+                result = HomeDAO.getInstance().changeBlacklist(data);
+                break;
             case "typeChange": //특정 id의 type을 변경합니다.
                 HomeDAO.getInstance().typeChange(data);
                 break;

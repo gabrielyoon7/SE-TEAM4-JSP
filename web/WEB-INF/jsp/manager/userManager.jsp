@@ -54,7 +54,7 @@
         for(var i=0;i<userList.length;i++){
             var user=userList[i];
              text+='<tr>'
-                 + '<th><button onclick="deleteUser('+i+')">삭제</button><button onclick="pwReset('+i+')">pw초기화</button><button onclick="changeType('+i+')">타입변경</button></th>'
+                 + '<th><button onclick="deleteUser('+i+')">삭제</button><button onclick="pwReset('+i+')">pw초기화</button><button onclick="changeType('+i+')">타입변경</button><button onclick="blackList('+i+')">블랙리스트 전환</button></th>'
                  + '<th>'+user.type+'</th>'
                  + '<th>'+user.name+'</th>'
                  + '<th>'+user.id+'</th>'
@@ -65,6 +65,38 @@
                  +'</tr>';
         }
         list.append(text);
+    }
+    function blackList(i){ //대상자에서 삭제
+        var user =userList[i];
+        var data = userList[i].id+"-/-/-"+userList[i].blackList;
+        if(userList[i].blackList=='false'){
+            var check = confirm(user.name+"["+user.id+"]님의 계정을 블랙리스트에 추가하시겠습니까?");
+        }
+        else{
+            var check = confirm(user.name+"["+user.id+"]님의 계정을 블랙리스트에 삭제하시겠습니까?");
+        }
+
+        if(check){
+            $.ajax({
+                url : "ajax.do", //AjaxAction
+                type : "post",
+                data : {
+                    req : "changeBlacklist",
+                    data : data
+                },
+                success :function(blackList){
+                    if(blackList=='true'){
+                        alert("블랙리스트에 추가되었습니다.");
+                        location.reload();
+                    }
+                    else{
+                        alert("블랙리스트에서 삭제되었습니다.");
+                        location.reload();
+                    }
+
+                }
+            })
+        }
     }
     function deleteUser(i){ //대상자에서 삭제
         var user =userList[i];
