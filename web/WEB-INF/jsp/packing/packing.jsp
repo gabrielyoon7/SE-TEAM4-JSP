@@ -116,6 +116,8 @@
   function basketClicked(i){
     var id="#menu"+i;
     if($(id).hasClass("clicked")){
+      const index = selectedMenu.indexOf(data[i].name);
+      selectedMenu.splice(index, 1);
       $(id).removeClass("clicked");
     }
     else {
