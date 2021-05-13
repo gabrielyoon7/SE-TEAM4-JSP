@@ -70,7 +70,7 @@
 						<a class="nav-link active" aria-current="page" href="reservation.do">Reservation</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="test.do">Packing</a>
+						<a class="nav-link active" aria-current="page" href="packing.do">Packing</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="test.do">TEST</a>

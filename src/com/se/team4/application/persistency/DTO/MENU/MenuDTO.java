@@ -1,6 +1,6 @@
 package com.se.team4.application.persistency.DTO.MENU;
 
-public class menuDTO {
+public class MenuDTO {
     private String oid;
     private String type;
     private String name;

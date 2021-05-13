@@ -16,6 +16,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.05.13
+  - [김우중] Packing, Basket 페이지 제작
 - 2021.05.12
   - [최예슬] Brand 페이지 제작
   - [전 체] Menu 페이지 제작 및 DB 연동 / 일부 DB구조 개선 / 블랙리스트 관리 기능 추가
