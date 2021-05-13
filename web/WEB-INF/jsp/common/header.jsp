@@ -67,7 +67,7 @@
 						<a class="nav-link active" aria-current="page" href="menu.do">Menu</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="test.do">Reservation</a>
+						<a class="nav-link active" aria-current="page" href="reservation.do">Reservation</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="test.do">Packing</a>
