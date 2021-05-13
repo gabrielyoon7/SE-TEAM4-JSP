@@ -8,9 +8,8 @@ import java.util.Hashtable;
 
 public class LoginManager implements HttpSessionBindingListener {
     private static LoginManager loginManager = null;
-    //로그인한 접속자를 담기위한 해시테이블
-    private static Hashtable loginUsers = new Hashtable();
-    public static synchronized LoginManager getInstance(){
+    private static Hashtable loginUsers = new Hashtable();//로그인한 접속자를 담기위한 해시테이블
+    public static synchronized LoginManager getInstance(){ //싱글톤
         if(loginManager == null){
             loginManager = new LoginManager();
         }
