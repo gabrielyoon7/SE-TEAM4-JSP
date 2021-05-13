@@ -44,8 +44,19 @@
       background-color: #2a6496;
       color: white;
     }
-  </style>
 
+    .bottom_bar{
+      background: lightgrey;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      height: 50px;
+      text-align: center;
+    }
+
+    .bottom_bar>button{
+    }
+
+  </style>
 
 </head>
 <body>
@@ -74,6 +85,10 @@
 
       </div>
     </div>
+  </div>
+  <form></form>
+  <div class="bottom_bar">
+      <button onclick="orderClicked()">주문하기</button>
   </div>
 
 </main>
@@ -109,6 +124,11 @@
               +'</div></div></div></div>';
     }
     list.append(text);
+  }
+  
+  function orderClicked() {
+    location.href = 'basket.do';
+    
   }
 
   let selectedMenu = new Array();
