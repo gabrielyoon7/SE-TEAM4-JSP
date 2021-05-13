@@ -1,5 +1,8 @@
 Restaurant Booking System of TEAM4
 =============
+[홈페이지에서 확인하기](https://gabrielyoon7.github.io/2021_SE_Team4)
+
+(웹 서버가 종료되어 있는 경우에는 연결되지 않습니다.)
 >경기대학교 AI컴퓨터공학부
 > >권기현 교수님 2021-1 소프트웨어공학 4조
 * * *
@@ -16,7 +19,12 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.05.14
+  - [허수빈] Packing에서 Basket 페이지로 넘어가는 footer 제작
+  - [최예슬] Reservation 페이지에 일정 및 시간 선택 기능 추가
+  - [윤주현] Packing에서 장바구니 기능 추가
 - 2021.05.13
+  - [송성호] Reservation 페이지 연동
   - [김우중] Packing, Basket 페이지 제작
 - 2021.05.12
   - [최예슬] Brand 페이지 제작
@@ -31,11 +39,10 @@ Restaurant Booking System of TEAM4
 - 2021.05.07
   - [윤주현] 로그인 기능 추가/ User 테이블 추가, 임시 헤더 작성
 - 2021.05.06
-  - [윤주현] Readme 업데이트
   - [송성호] 회의결과에 따른 DB 구조 업데이트
 - 2021.05.05
   - [전 체] Spring 에서 JSP로 변경
-  - [윤주현] Java ee와 Tomcat으로 JSP 프로젝트 구축 및 기본 구조 입력
+  - [윤주현] Java ee와 Tomcat으로 JSP 프로젝트 구축 및 기본 구조 입력, README 초안 작성
 * * *
 ## Rules of Project development
 - Github 사용 시 Pull 먼저 하기
