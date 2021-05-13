@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String selectedMenuList = (String) request.getAttribute("selectedMenuList");
+%>
 <!doctype html>
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -67,41 +70,23 @@
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">Your cart</span>
-                    <span class="badge bg-primary rounded-pill">3</span>
+                    <span class="text-primary">장바구니</span>
+                    <span class="badge bg-primary rounded-pill" id="Count"></span>
                 </h4>
                 <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">Product name</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$12</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">Second product</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$8</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-sm">
-                        <div>
-                            <h6 class="my-0">Third item</h6>
-                            <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">$5</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between bg-light">
-                        <div class="text-success">
-                            <h6 class="my-0">Promo code</h6>
-                            <small>EXAMPLECODE</small>
-                        </div>
-                        <span class="text-success">−$5</span>
-                    </li>
+
+                    <li  id="selectedMenuList"></li>
+
+<%--                    <li class="list-group-item d-flex justify-content-between bg-light">--%>
+<%--                        <div class="text-success">--%>
+<%--                            <h6 class="my-0">Promo code</h6>--%>
+<%--                            <small>EXAMPLECODE</small>--%>
+<%--                        </div>--%>
+<%--                        <span class="text-success">−$5</span>--%>
+<%--                    </li>--%>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span>Total (USD)</span>
-                        <strong>$20</strong>
+                        <span>Total (KRW)</span>
+                        <strong id="Sum"></strong>
                     </li>
                 </ul>
 
@@ -272,10 +257,59 @@
     <%@include file="../common/footer.jsp" %>
 </div>
 
-
-<script src="js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<%--<script src="js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>--%>
 
 <script src="form-validation.js"></script>
 
 
-</body></html>
+</body>
+<script>
+    $(document).ready(function(){
+        makeCount();
+        makeCartInfo();
+        makeSum();
+    })
+
+    var selectedMenuList = <%=selectedMenuList%>;
+
+    function makeCount() {
+        var count = $('#Count');
+        var text = selectedMenuList.length;
+        count.append(text);
+    }
+    function makeCartInfo(){
+        var list = $('#selectedMenuList');
+        var text = '';
+
+        for(var i=0; i<selectedMenuList.length; i++){
+            text+= '<li class="list-group-item d-flex justify-content-between lh-sm"><div>'
+                +'<h6 class="my-0">'+selectedMenuList[i].name+'</h6>'
+                +'<small class="text-muted">Brief description</small></div>'
+                +'<span class="text-muted">'+selectedMenuList[i].price+'</span></li>'
+        }
+        list.append(text);
+    }
+    function makeSum(){
+        var count = $('#Sum');
+        var sum=0;
+        for(var i=0; i<selectedMenuList.length; i++){
+            var price=selectedMenuList[i].price;
+            price*=1;
+            sum+=price;
+        }
+        count.append(sum);
+    }
+
+
+
+
+</script>
+
+</html>
+
+
+
+
+
+
+

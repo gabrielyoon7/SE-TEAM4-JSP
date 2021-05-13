@@ -127,7 +127,7 @@
   }
   
   function orderClicked() {
-    location.href = 'basket.do';
+    location.href = 'basket.do?carts='+selectedMenu;
     
   }
 
