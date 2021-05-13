@@ -40,6 +40,10 @@
         font-size: 3.5rem;
       }
     }
+    .clicked {
+      background-color: #2a6496;
+      color: white;
+    }
   </style>
 
 
@@ -100,11 +104,27 @@
               +'<div class="d-flex justify-content-between align-items-center">'
               +'<small class="text-muted">$'+data[i].price+'</small>'
               +'<div class="btn-group">'
-              +'<button type="button" class="btn btn-sm btn-outline-secondary" onclick=location.href=`basket.do`>주문하기</button></div>'
+              // +'<button type="button" class="btn btn-sm btn-outline-secondary" id="menu'+i+'" onclick=basketClicked('+i+')>장바구니에 추가</button></div>'
+              +'<button type="button" class="" id="menu'+i+'" onclick=basketClicked('+i+')>장바구니에 추가</button></div>'
               +'</div></div></div></div>';
     }
     list.append(text);
   }
+
+  let selectedMenu = new Array();
+
+  function basketClicked(i){
+    var id="#menu"+i;
+    if($(id).hasClass("clicked")){
+      $(id).removeClass("clicked");
+    }
+    else {
+      $(id).addClass("clicked")
+      selectedMenu.push(data[i].name);
+    }
+    console.log(selectedMenu);
+  }
+
 
 </script>
 
