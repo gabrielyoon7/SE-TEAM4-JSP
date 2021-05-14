@@ -20,9 +20,10 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2021.05.14
-  - [허수빈] Packing에서 Basket 페이지로 넘어가는 footer 제작
-  - [최예슬] Reservation 페이지에 일정 및 시간 선택 기능 추가
-  - [윤주현] Packing에서 장바구니 기능 추가, DB넘겨서 결제 화면에서 합계 출력까지 구현
+  - [김우중] 결제 완료 페이지 제작
+  - [허수빈] Packing에서 Basket 페이지로 넘어가는 footer 제작, 주문/결제페이지 제작, 하단 고정바, 상단 글 수정
+  - [최예슬] Reservation 페이지 레이아웃 및 예약완료 화면 추가
+  - [윤주현] Packing에서 장바구니 기능 추가(DB넘겨서 결제 화면에서 합계 출력까지 구현), 장바구니에서 결제완료 화면까지 DB를 넘기는 과정 제작, 오류 방지를 위한 error 페이지 및 로직 추가
 - 2021.05.13
   - [송성호] Reservation 페이지 연동
   - [김우중] Packing, Basket 페이지 제작

@@ -22,16 +22,16 @@
 
 
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+<%--    <!-- Bootstrap core CSS -->--%>
+<%--    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">--%>
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<%--    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">--%>
+<%--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">--%>
+<%--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">--%>
+<%--    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">--%>
+<%--    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">--%>
+<%--    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">--%>
     <meta name="theme-color" content="#7952b3">
 
 
@@ -54,7 +54,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+    <link href="css/form-validation.css" rel="stylesheet">
 </head>
 <body class="bg-light vsc-initialized">
 
@@ -97,12 +97,12 @@
 
                     <div class="my-3">
                         <div class="pay-form">
-                            <input id="On-site" name="paymentMethod" type="radio" class="pay-form-input" checked="" required="">
-                            <label class="form-check-label" for="On-site">현장 결제</label>
+                            <input id="offlinePayment" name="paymentMethod" type="radio" class="pay-form-input" checked="" required="" value="offlinePayment">
+                            <label class="form-check-label" for="offlinePayment">현장 결제</label>
                         </div>
                         <div class="pay-form">
-                            <input id="Online" name="paymentMethod" type="radio" class="pay-form-input" required="">
-                            <label class="form-check-label" for="Online">온라인 결제</label>
+                            <input id="onlinePayment" name="paymentMethod" type="radio" class="pay-form-input" required="" value="onlinePayment">
+                            <label class="form-check-label" for="onlinePayment">온라인 결제</label>
                         </div>
                     </div>
                     <br>
@@ -140,6 +140,7 @@
     })
 
     var selectedMenuList = <%=selectedMenuList%>;
+    var totalPrice=0;
 
     function makeCount() {
         var count = $('#Count');
@@ -166,12 +167,38 @@
             price*=1;
             sum+=price;
         }
+        totalPrice=sum;
         count.append(sum);
     }
     function orderCheck(){
+        var user = <%=user%> //user는 header에서 정의했으므로 사용 가능.
+        var payment=$('input[name=paymentMethod]:checked').val();
+        var message=$('#request').val();
+        var orderedList="";
+        for(var i=0;i<selectedMenuList.length;i++) {
+            orderedList+=selectedMenuList[i].name+' / ';
+        }
+        var data = user.id+"~!~!~"+user.name+"~!~!~"+orderedList+"~!~!~"+payment+"~!~!~"+totalPrice+"~!~!~"+message;
+        // alert(data);
         var check = confirm("주문을 하시겠습니까?");
-        if(check)
-            location.href = 'complete.do';
+        if(check) {
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "packingOrder",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("[주문번호:"+oid+"]의 방문포장 주문이 정상적으로 요청되었습니다.");
+                    location.href = 'complete.do?oid='+oid;
+                }
+            })
+        }
+
+
+
+
     }
 
 

@@ -72,8 +72,8 @@ CREATE TABLE Pickup(
                               orderedList VARCHAR(200) NOT NULL,
                               payment VARCHAR(32) NOT NULL,
                               totalPrice INT NOT NULL,
-                              message VARCHAR(100)
-
+                              message VARCHAR(100),
+                              verifyCode INT
 );
 
 CREATE TABLE User (
@@ -117,6 +117,6 @@ INSERT INTO `Table`(number, places, limits ) VALUES(3,3,4);
 INSERT INTO Customer(oid, name, phoneNumber,id,blackList ) VALUES(7000, 'TEST', '010-0000-0000','TEST','false');
 
 -- TEST DATA
-INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message) VALUES(8000, 'TEST', 'TEST','2021-05-10', '', '현장결제', 0, '맛있게 해주세요.');
-INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message) VALUES(8001, 'TEST', 'TEST','2021-05-10', '', '온라인결제', 0, '양 많이 주세요.');
+INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES(8000, 'TEST', 'TEST','2021-05-10', '', '현장결제', 0, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES(8001, 'TEST', 'TEST','2021-05-10', '', '온라인결제', 0, '양 많이 주세요.', 0);
 

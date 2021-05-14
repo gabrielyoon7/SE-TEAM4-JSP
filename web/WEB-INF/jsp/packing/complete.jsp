@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-   // String selectedMenuList = (String) request.getAttribute("selectedMenuList");
+    String orderInfo = (String) request.getAttribute("orderInfo");
 %>
 <!doctype html>
 <html lang="en"><head>

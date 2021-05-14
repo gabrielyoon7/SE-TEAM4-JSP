@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import com.se.team4.application.persistency.DAO.Home.HomeDAO;
+import com.se.team4.application.persistency.DAO.Packing.PackingDAO;
 import com.se.team4.application.persistency.DAO.TestDAO;
 import com.se.team4.common.controller.Action;
 import com.se.team4.common.controller.LoginManager;
@@ -72,6 +73,9 @@ public class AjaxAction implements Action {
                 break;
             case "typeChange": //특정 id의 type을 변경합니다.
                 HomeDAO.getInstance().typeChange(data);
+                break;
+            case "packingOrder":
+                result=PackingDAO.getInstance().packingOrder(data);
                 break;
         }
         return result;
