@@ -119,7 +119,7 @@
         <hr class="my-12">
         <br>
         <div class="pay_button text-center">
-        <button class="w-25 btn-primary btn-lg" type="submit">결제하기</button>
+        <button class="w-25 btn-primary btn-lg" onclick="orderCheck()" type="submit">결제하기</button>
         </div>
     </main>
     <br>
@@ -167,6 +167,11 @@
             sum+=price;
         }
         count.append(sum);
+    }
+    function orderCheck(){
+        var check = confirm("주문을 하시겠습니까?");
+        if(check)
+            location.href = 'complete.do';
     }
 
 
