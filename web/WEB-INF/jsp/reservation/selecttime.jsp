@@ -7,7 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -18,9 +19,9 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/navbar-static/">
 
 
-
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -46,15 +47,18 @@
                 font-size: 3.5rem;
             }
         }
-        .bottom_bar{
+
+        .bottom_bar {
             background: lightgrey;
             position: fixed;
-            left: 0; right: 0; bottom: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             height: 50px;
             text-align: center;
         }
 
-        .bottom_bar>button{
+        .bottom_bar > button {
         }
     </style>
 
@@ -95,61 +99,97 @@
 <main class="container">
     <div class="bg-light p-5 rounded">
         <h1>Navbar example</h1>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
+        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll,
+            this navbar remains in its original position and moves with the rest of the page.</p>
         <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">View navbar docs »</a>
     </div>
-    <input type="date" class="form-control" id="bday" name = "new_date" value ='' placeholder="Date of Birth" required>
+    <input type="date" class="form-control" id="bday" name="new_date" value='' placeholder="Date of Birth" required>
+    <button type="button">조회 하기</button>
+
 </main>
 <div class="album py-5 bg-light">
     <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="card">
+        <div class="row row-cols-3 row-cols-sm-4 row-cols-md-6 g-3" id="card">
 
             <div class="col">
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">10:00</button>
                 </div>
-
-
             </div>
             <div class="col">
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">11:00</button>
                 </div>
-
-
             </div>
             <div class="col">
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-
                     <button type="button" class="btn btn-outline-secondary btn-lg px-4">12:00</button>
                 </div>
-
-
             </div>
             <div class="col">
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">1:00</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">13:00</button>
                 </div>
-
-
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">14:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">15:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">16:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">17:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">18:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">19:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">20:00</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">21:00</button>
+                </div>
             </div>
 
-
-            </div>
-
-
-            </div>
+        </div>
+    </div>
 </div>
 </div>
 <script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<%--<script src="js/bootstrap.bundle.min.js"--%>
+<%--        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"--%>
+<%--        crossorigin="anonymous"></script>--%>
 <div class="bottom_bar">
     <button class="w-25 btn-primary btn-lg" onclick="orderClicked()">예약 하기</button>
 </div>
 
 
 </body>
+<script>
+    function orderClicked() {
+        location.href = 'userinfo.do';
+    }
+
+</script>
 </html>
