@@ -19,6 +19,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.05.15
+  - [최예슬] 일정 조회 페이지 레이아웃 추가
 - 2021.05.14
   - [김우중] 결제 완료 페이지 제작
   - [허수빈] Packing에서 Basket 페이지로 넘어가는 footer 제작, 주문/결제페이지 제작, 하단 고정바, 상단 글 수정
