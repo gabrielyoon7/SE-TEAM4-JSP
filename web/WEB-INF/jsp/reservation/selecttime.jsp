@@ -46,11 +46,22 @@
                 font-size: 3.5rem;
             }
         }
+        .bottom_bar{
+            background: lightgrey;
+            position: fixed;
+            left: 0; right: 0; bottom: 0;
+            height: 50px;
+            text-align: center;
+        }
+
+        .bottom_bar>button{
+        }
     </style>
 
 
     <!-- Custom styles for this template -->
     <link href="navbar-top.css" rel="stylesheet">
+    <link href="css/heroes.css" rel="stylesheet">
 </head>
 <%@include file="../common/header.jsp" %>
 <body>
@@ -87,12 +98,58 @@
         <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
         <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">View navbar docs »</a>
     </div>
+    <input type="date" class="form-control" id="bday" name = "new_date" value ='' placeholder="Date of Birth" required>
 </main>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="card">
+
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">10:00</button>
+                </div>
 
 
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">11:00</button>
+                </div>
+
+
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">12:00</button>
+                </div>
+
+
+            </div>
+            <div class="col">
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">1:00</button>
+                </div>
+
+
+            </div>
+
+
+            </div>
+
+
+            </div>
+</div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<div class="bottom_bar">
+    <button class="w-25 btn-primary btn-lg" onclick="orderClicked()">예약 하기</button>
+</div>
 
 
-
-
-</body></html>
+</body>
+</html>
