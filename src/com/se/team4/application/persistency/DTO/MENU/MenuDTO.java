@@ -4,8 +4,18 @@ public class MenuDTO {
     private String oid;
     private String type;
     private String name;
+
+    public String getCookingTime() {
+        return cookingTime;
+    }
+
+    public void setCookingTime(String cookingTime) {
+        this.cookingTime = cookingTime;
+    }
+
     private String price;
     private String notice;
+    private String cookingTime;
 
     public String getOid() {
         return oid;
