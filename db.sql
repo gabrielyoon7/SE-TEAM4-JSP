@@ -98,16 +98,16 @@ INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VAL
 
 -- 이미지 URL 이탈 가능성이 있어, oid를 일부러 강제로 지정함.
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5000,'치킨','후라이드치킨',20000,'후라이드 치킨입니다.','5000.png', 15);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5001,'치킨','양념치킨',21000,'맛있는 양념치킨입니다.','5001.png', 20);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5002,'치킨','간장치킨',21000,'맛있는 간장치킨입니다.','5002.png', 20);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5003,'피자','하와이안쉬림프피자',18000,'하와이안 쉬림프 피자입니다.','5003.png', 15);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5004,'피자','시카고스테이크피자',25000,'시카고스테이크 피자입니다.','5004.png', 10);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5005,'피자','불고기피피자',13000,'불고기피피자입니다.','5005.png', 15);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5006,'고기', '스테이크', 40000, '맛있는 스테이크입니다.', '5006.png', 11);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5001,'치킨','양념치킨',21000,'맛있는 양념치킨입니다.','5001.jpg', 20);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5002,'치킨','간장치킨',21000,'맛있는 간장치킨입니다.','5002.jpg', 20);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5003,'피자','하와이안쉬림프피자',18000,'하와이안 쉬림프 피자입니다.','5003.jpg', 15);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5004,'피자','시카고스테이크피자',25000,'시카고스테이크 피자입니다.','5004.jpg', 10);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5005,'피자','불고기피피자',13000,'불고기피피자입니다.','5005.jpg', 15);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5006,'고기', '스테이크', 40000, '맛있는 스테이크입니다.', '5006.jpg', 11);
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5007,'고기', '갈릭스테이크', 45000, '맛있는 갈릭스테이크입니다.', '5007.png', 12);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5008,'파스타','투움바 파스타',18000,'투움바 파스타입니다.','5008.png', 10);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5008,'파스타','투움바 파스타',18000,'투움바 파스타입니다.','5008.jpg', 10);
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5009,'파스타','까르보나라',16000,'까르보나라 입니다.','5009.png', 12);
-INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5010,'파스타','토마토 스파게티',14000,'토마토 스파게티 입니다.','5010.png', 13);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5010,'파스타','토마토 스파게티',14000,'토마토 스파게티 입니다.','5010.jpg', 13);
 
 INSERT INTO `Table`(oid, number, places, limits ) VALUES(6000,1,1,4);
 INSERT INTO `Table`(number, places, limits ) VALUES(2,2,4);
