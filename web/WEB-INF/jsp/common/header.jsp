@@ -100,7 +100,8 @@
 			a+= '<button class="btn btn-outline-success" onclick="goToLoginPage()">LOGIN</button>';
 		}
 		else {//로그인 상태
-			if(user.type='관리자'){
+			// alert(user.type+'의 접속');
+			if(user.type=='관리자'){
 				// a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="manager()">관리페이지</button> <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
 				a+='안녕하세요 '+user.name+'님! '
 						+'<div class="dropdown" style="display: inline-block"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</button>'
