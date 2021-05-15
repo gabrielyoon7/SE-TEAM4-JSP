@@ -100,8 +100,8 @@
                 +'<div class="btn-group">'
                 +'<button type="button" class="btn btn-sm btn-outline-secondary">View</button>'
                 +'<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></div>'
-                +'<small class="text-muted">'+data[i].price+'</small>'
-                +'<small class="text-muted">'+data[i].cookingTime+'</small>'
+                +'<small class="text-muted">'+data[i].price+' 원</small>'
+                +'<small class="text-muted">조리시간 : '+data[i].cookingTime+'분</small>'
                 +'</div></div></div></div>';
         }
         list.append(text);
