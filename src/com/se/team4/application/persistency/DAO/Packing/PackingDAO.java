@@ -113,4 +113,35 @@ public class PackingDAO {
         }.getType());
         return result;
     }
+
+    public ArrayList<PickupDTO> getOrderList(){
+        ArrayList<PickupDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM Pickup", new MapListHandler());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<PickupDTO>>() {
+        }.getType());
+        return result;
+    }
+
+    public void completeOrder(String id) {
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            queryRunner.query(conn, "DELETE FROM Pickup WHERE oid=?", new MapListHandler(), id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+
+    }
 }

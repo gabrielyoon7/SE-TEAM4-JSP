@@ -63,9 +63,9 @@
 <div class="container">
     <main>
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">주문이 완료되었습니다!</h4>
+            <h4 id="user" class="alert-heading"></h4>
             <hr>
-            <p class="mb-0">ㅁㅁ</p>
+            <p id="orderContent" class="mb-0"></p>
         </div>
         <div class="pay_button text-center">
             <button class="w-25 btn-primary btn-lg" onclick="goMain()" type="submit">메인으로 돌아가기</button>
@@ -77,9 +77,33 @@
 <script src="form-validation.js"></script>
 </body>
 <script>
-    function goMain(){
+    $(document).ready(function (){
+        makeOrder();
+        makeUser();
+    })
+
+    var orderInfo=<%=orderInfo%>;
+    var user=<%=user%>;
+    function makeOrder(){
+        var orderList=$('#orderContent');
+        var text='';
+        var menu=orderInfo[0].orderedList.split('/');
+
+        for(var i=0; i<menu.length; i++)
+            text+=menu[i]+`<br>`;
+
+        orderList.append(text);
+    }
+    function makeUser(){
+        var userId=$('#user');
+        var text=user.id+'님의 주문이 완료되었습니다!';
+
+        userId.append(text);
+    }
+    function goMain() {
         location.href = 'main.do';
     }
+
 </script>
 </html>
 

@@ -77,6 +77,9 @@ public class AjaxAction implements Action {
             case "packingOrder":
                 result=PackingDAO.getInstance().packingOrder(data);
                 break;
+            case "completeOrder":
+                PackingDAO.getInstance().completeOrder(data);
+                break;
         }
         return result;
     }
