@@ -9,6 +9,7 @@
   /**
    * login시 입력한 ID와 PW를 한줄의 String으로 만들어서 AjaxAction 클래스로 보냅니다.
    * */
+  String errorMessage = (String) request.getAttribute("error");
 %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -72,6 +73,17 @@
 <%--<%@include file="../common/footer.jsp" %>--%>
 </body>
 <script>
+  $(document).ready(function(){ //이 파일이 시작되면 자동으로 실행됩니다.
+    errorAlert();
+  })
+
+  function errorAlert(){
+    var errorMessage = "<%=errorMessage%>";
+    if(errorMessage!='null')
+      alert(errorMessage);
+  }
+
+
   function button(){
     var id = $('#floatingInput').val();
     var pw = $('#floatingPassword').val();
