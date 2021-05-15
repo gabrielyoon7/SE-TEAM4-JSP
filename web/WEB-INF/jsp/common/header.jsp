@@ -101,7 +101,17 @@
 		}
 		else {//로그인 상태
 			if(user.type='관리자'){
-				a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="manager()">관리페이지</button> <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+				// a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="manager()">관리페이지</button> <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+				a+='안녕하세요 '+user.name+'님! '
+						+'<div class="dropdown" style="display: inline-block"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</button>'
+						// +'<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</button>'
+				  +'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">'
+				  +'<li><a class="dropdown-item" href="userManager.do">사용자관리</a></li>'
+				  +'<li><a class="dropdown-item" href="pickupManager.do">포장관리</a></li>'
+				  +'<li><a class="dropdown-item" href="#">Something else here</a></li>'
+						+'</ul></div>'
+						// +'</ul>'
+				  +' <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
 			}
 			else{
 				a+='안녕하세요 '+user.name+'님!  <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
