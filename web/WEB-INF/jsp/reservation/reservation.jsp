@@ -34,8 +34,12 @@
     <main class="px-3">
         <h1>Cover your page.</h1>
         <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        <div class="col-md-12">
+<%--            <label for="reservationDate">예약 일정 조회</label>--%>
+            <input type="date" class="form-control" id="reservationDate" name="new_date" value='' placeholder="Date of Birth" required>
+        </div>
         <p class="lead">
-            <a href="selecttime.do" class="btn btn-lg btn-secondary fw-bold border-white bg-black">Learn more</a>
+            <button class="btn btn-lg btn-secondary fw-bold border-white bg-black" onclick="goToSelectTime()">이 날짜로 예약하기</button>
         </p>
     </main>
 </div>
@@ -43,4 +47,16 @@
 
 <%--<%@include file="../common/footer.jsp" %>--%>
 </body>
+<script>
+function goToSelectTime(){
+    var date=$('#reservationDate').val();
+    if(date!=''){
+        location.href='selectTime.do?date='+date;
+    }
+    else {
+        // alert(date);
+        alert("날짜를 선택해주세요!");
+    }
+}
+</script>
 </html>

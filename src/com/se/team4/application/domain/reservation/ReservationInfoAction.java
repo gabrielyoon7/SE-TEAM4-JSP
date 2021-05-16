@@ -5,9 +5,9 @@ import com.se.team4.common.controller.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class UserInfoAction implements Action {
+public class ReservationInfoAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return "RequestDispatcher:jsp/reservation/userinfo.jsp";
+        return "RequestDispatcher:jsp/reservation/reservationInfo.jsp";
     }
 }
