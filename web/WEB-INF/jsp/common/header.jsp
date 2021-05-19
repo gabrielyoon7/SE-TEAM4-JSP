@@ -109,7 +109,7 @@
 				  +'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">'
 				  +'<li><a class="dropdown-item" href="userManager.do">사용자관리</a></li>'
 				  +'<li><a class="dropdown-item" href="pickupManager.do">포장관리</a></li>'
-				  +'<li><a class="dropdown-item" href="#">Something else here</a></li>'
+				  +'<li><a class="dropdown-item" href="customerManager.do">고객관리</a></li>'
 						+'</ul></div>'
 						// +'</ul>'
 				  +' <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';

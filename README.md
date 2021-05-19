@@ -19,6 +19,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.05.19
+  - [김우중] Table관리 페이지 제작
 - 2021.05.16
   - [허수빈] 메뉴 DB 및 이미지 전면 개편
   - [윤주현] 예약페이지 일자 넘기는 기능 추가, 클릭 기능 일부 구현 (개선 필요)
