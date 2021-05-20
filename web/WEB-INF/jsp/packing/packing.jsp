@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String menuList = (String) request.getAttribute("menuList");
+  String menuList = (String) request.getAttribute("menuList");
 %>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,10 +18,6 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.83.1">
   <title>Album example · Bootstrap v5.0</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-
-
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -59,9 +55,12 @@
   </style>
 
 </head>
-<body>
 
+
+<body>
+<%--header를 이런식으로 include해서 끼워넣습니다. 이 작업은 매 페이지마다 필요해요.--%>
 <%@include file="../common/header.jsp" %>
+
 
 <main>
 
@@ -82,19 +81,16 @@
   </div>
   <form></form>
   <div class="bottom_bar">
-      <button class="w-25 btn-primary btn-lg" onclick="orderClicked()">주문하기</button>
+    <button class="w-25 btn-primary btn-lg" onclick="orderClicked()">주문하기</button>
   </div>
 
 </main>
 
+<script src="js/bootstrap.bundle.min.js"></script>
+
 <%@include file="../common/footer.jsp" %>
-
-<script src="js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-
-
-
-
 </body>
+
 <script>
   $(document).ready(function(){
     makeinfoAll();
@@ -119,10 +115,10 @@
     }
     list.append(text);
   }
-  
+
   function orderClicked() {
     location.href = 'basket.do?carts='+selectedMenu;
-    
+
   }
 
   let selectedMenu = new Array();
@@ -143,5 +139,6 @@
 
 
 </script>
+
 
 </html>
