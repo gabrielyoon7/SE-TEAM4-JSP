@@ -40,6 +40,15 @@ CREATE TABLE Reservation (
                              customer_id  int,
                              arrivalTime  TIME
 ) ;
+CREATE TABLE ReservationRequest	(
+										oid			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+										covers		INT,
+										date			DATE,
+										time			TIME,
+										table_id		int,
+										customer_id		int,
+										arrivalTime		TIME
+);
 CREATE TABLE CovidLog(
                               name VARCHAR(32)    NOT NULL,
                               address VARCHAR(32) NOT NULL,
