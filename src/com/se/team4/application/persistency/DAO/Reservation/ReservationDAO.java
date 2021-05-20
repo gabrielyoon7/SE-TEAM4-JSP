@@ -54,7 +54,7 @@ public class ReservationDAO {
 
         try{
             QueryRunner que = new QueryRunner();
-            que.update(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,table_id=?,customer_id=?,arrivalTime=?; WHERE oid=?;",covers,date,time,table_id,customer_id,arrivalTime );
+            que.update(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,table_id=?,customer_id=?,arrivalTime=?; WHERE oid=?;",covers,date,time,table_id,customer_id,arrivalTime,oid );
         }catch(SQLException e){
             e.printStackTrace();
         }
