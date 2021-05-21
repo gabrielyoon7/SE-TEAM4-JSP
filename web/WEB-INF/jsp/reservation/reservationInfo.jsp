@@ -64,84 +64,49 @@
 
 
             <div>
-                <h4 class="mb-3">Billing address</h4>
+                <h4 class="mb-3">예약 정보 입력</h4>
                 <form class="needs-validation was-validated" novalidate="">
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="firstName" class="form-label">First name</label>
+                            <label for="firstName" class="form-label">방문 날짜</label>
                             <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
                             <div class="invalid-feedback">
-                                Valid first name is required.
+                                방문하실 날짜를 입력하세요.
                             </div>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Last name</label>
+                            <label for="lastName" class="form-label">방문 시간</label>
                             <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                             <div class="invalid-feedback">
-                                Valid last name is required.
+                                방문하실 시간을 입력하세요.
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username" class="form-label">고객 아이디</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="username" placeholder="Username" required="">
+                                <input type="text" class="form-control" id="username" placeholder="Customer ID" required="">
                                 <div class="invalid-feedback">
-                                    Your username is required.
+                                    고객 아이디를 입력하세요
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <label for="email" class="form-label">인원수</label>
+                            <input type="email" class="form-control" id="email" placeholder="인원수를 입력하세요">
                             <div class="invalid-feedback">
-                                Please enter a valid email address for shipping updates.
+                                함께 오시는 인원 수를 입력하세요.
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                            <label for="address" class="form-label">Message</label>
+                            <input type="text" class="form-control" id="address" placeholder="추가 요구사항을 입력하세요" required="">
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                        </div>
-
-                        <div class="col-md-5">
-                            <label for="country" class="form-label">Country</label>
-                            <select class="form-select" id="country" required="">
-                                <option value="">Choose...</option>
-                                <option>United States</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="state" class="form-label">State</label>
-                            <select class="form-select" id="state" required="">
-                                <option value="">Choose...</option>
-                                <option>California</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please provide a valid state.
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="zip" class="form-label">Zip</label>
-                            <input type="text" class="form-control" id="zip" placeholder="" required="">
-                            <div class="invalid-feedback">
-                                Zip code required.
+                                예약 시 추가로 필요한 사항을 입력해주세요.
                             </div>
                         </div>
                     </div>
