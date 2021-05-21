@@ -42,19 +42,17 @@ public class ReservationDAO {
     }
     public void addReservationRequest(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-");
-        String oid = arr[0];
-        String covers = arr[1];
-        String date = arr[2];
-        String time = arr[3];
-        String table_id = arr[4];
-        String customer_id = arr[5];
-        String arrivalTime = arr[6];
+        String covers = arr[0];
+        String date = arr[1];
+        String time = arr[2];
+        String customer_id = arr[3];
+        String message = arr[4];
 
         Connection conn = Config.getInstance().sqlLogin();
 
         try{
             QueryRunner que = new QueryRunner();
-            que.update(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,table_id=?,customer_id=?,arrivalTime=?; WHERE oid=?;",covers,date,time,table_id,customer_id,arrivalTime,oid );
+            que.update(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,customer_id=?, message=?;",covers,date,time,customer_id,message );
         }catch(SQLException e){
             e.printStackTrace();
         }

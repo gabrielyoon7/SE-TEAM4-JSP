@@ -19,8 +19,11 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2020.05.21
+  - [송성호] ReservationRequest DB 테이블 수정(table_id, arrivalTime 삭제, message 추가
+  - [최예슬] reservationinfo 수정
 - 2021.05.20
-  -[송성호] ReservationDTO 추가, ReservationDAO 고객 예약 데이터 DB로 보내주는 메소드(addReservationRequest) 추가, DB 고객 예약 요청(ReservationRequest) TABLE 추가
+  - [송성호] ReservationDTO 추가, ReservationDAO 고객 예약 데이터 DB로 보내주는 메소드(addReservationRequest) 추가, DB 고객 예약 요청(ReservationRequest) TABLE 추가
 - 2021.05.19
   - [김우중] Table관리 페이지 제작
 - 2021.05.16
