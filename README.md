@@ -1,5 +1,7 @@
-Restaurant Booking System of TEAM4
+Little4 Restaurant
 =============
+Restaurant Booking System of TEAM4
+
 [홈페이지에서 확인하기](https://gabrielyoon7.github.io/2021_SE_Team4)
 
 (웹 서버가 종료되어 있는 경우에는 연결되지 않습니다.)
@@ -20,9 +22,11 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2020.05.21
+  - [윤주현] Reservation에 정보 넘기기 및 로그인 정보 띄우는 기능 추가
   - [송성호] ReservationRequest DB 테이블 수정(table_id, arrivalTime 삭제, message 추가, reservationinfo 레이아웃 수정
   - [최예슬] reservationinfo 수정
 - 2021.05.20
+  - [전 체] 프로젝트 명을 Little4 Restaurant로 변경
   - [송성호] ReservationDTO 추가, ReservationDAO 고객 예약 데이터 DB로 보내주는 메소드(addReservationRequest) 추가, DB 고객 예약 요청(ReservationRequest) TABLE 추가
 - 2021.05.19
   - [김우중] Table관리 페이지 제작
@@ -213,6 +217,7 @@ Restaurant Booking System of TEAM4
 - Tomcat 9.0.45
 - JSP
 - MariaDB (버전 까먹음)
+- DBUtils  
 - Java EE
 - Bootstrap
 - JQuery
