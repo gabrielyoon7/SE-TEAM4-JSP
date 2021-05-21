@@ -30,6 +30,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  /*  슬라이드 이미지 크기 여기에서 조절*/
   min-width: 100%;
   height: 32rem;
 }
