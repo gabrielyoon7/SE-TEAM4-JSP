@@ -82,7 +82,8 @@ public class AjaxAction implements Action {
                 PackingDAO.getInstance().completeOrder(data);
                 break;
             case "reservationRequest":
-                ReservationDAO.getInstance().addReservationRequest(data);
+                result=ReservationDAO.getInstance().addReservationRequest(data);
+                break;
         }
         return result;
     }

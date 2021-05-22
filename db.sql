@@ -44,9 +44,11 @@ CREATE TABLE ReservationRequest	(
 										oid			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 										covers		INT,
 										date			DATE,
-										time			TIME,
-										table_id		int,
-                                        message VARCHAR(100)
+										time			INT,
+                                        customer_name		VARCHAR(32),
+										customer_id		VARCHAR(32),
+                                        message VARCHAR(100),
+                                        verifyCode INT
 );
 CREATE TABLE CovidLog(
                               name VARCHAR(32)    NOT NULL,

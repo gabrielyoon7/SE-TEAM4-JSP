@@ -82,7 +82,7 @@ public class PackingDAO {
             que.query(conn, "INSERT Pickup SET id=?, name=?, date=?, orderedList=?, payment=?, totalPrice=?, message=?, verifyCode=?;", new MapListHandler(),
                     id, name, date, orderedList, payment, totalPrice, message, verifyCode);
             list = que.query(conn, "SELECT * FROM Pickup WHERE verifyCode=?", new MapListHandler(), verifyCode);
-            System.out.println(list);
+//            System.out.println(list);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -92,7 +92,7 @@ public class PackingDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<PickupDTO>>() {}.getType());
 
-        System.out.println(result.get(0).getOid());
+//        System.out.println(result.get(0).getOid());
         return result.get(0).getOid();
     }
 

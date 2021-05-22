@@ -9,8 +9,6 @@
 <%
     String date = (String) request.getAttribute("date");
     String time = (String) request.getAttribute("time");
-    String covers = (String) request.getAttribute("covers");
-    String message = (String) request.getAttribute("message");
 %>
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -93,16 +91,16 @@
                         <div class="col-sm-6" id="userName"></div>
 
                         <div class="col-12">
-                            <label for="email" class="form-label">인원수</label>
-                            <input type="email" class="form-control" id="email" placeholder="인원수를 입력하세요" value=<%=covers%> required="" readonly>
+                            <label for="covers" class="form-label">인원수</label>
+                            <input type="text" class="form-control" id="covers" placeholder="인원수를 입력하세요" required="" >
                             <div class="invalid-feedback">
                                 함께 오시는 인원 수를 입력하세요.
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="address" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="address" placeholder="추가 요구사항을 입력하세요" value=<%=message%>> required="" readonly>
+                            <label for="message" class="form-label">Message</label>
+                            <input type="text" class="form-control" id="message" placeholder="추가 요구사항을 입력하세요" required="" >
                             <div class="invalid-feedback">
                                 예약 시 추가로 필요한 사항을 입력해주세요.
                             </div>
@@ -130,7 +128,7 @@
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                    <button class="w-100 btn btn-primary btn-lg" onclick="completeReservationRequest()">Continue to checkout</button>
                 </form>
             </div>
 
@@ -176,11 +174,12 @@
         list.append(text);
     }
     function completeReservationRequest(){  //예약요청 데이터를 ajax로 전달하는 함수
+        var user=<%=user%>;
         var date = <%=date%>
         var time = <%=time%>
-        var covers = <%=covers%>
-        var message = <%=message%>
-        var data = covers+"~!~!~"+date+"~!~!~"+time+"~!~!~"+message;
+        var covers = $('#covers').val();
+        var message = $('#message').val();
+        var data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
 
         var check = confirm("예약을 하시겠습니까?");
         if(check){
@@ -193,7 +192,7 @@
                 },
                 success: function (oid) {
                     alert("[예약번호:"+oid+"]의 예약 요청이 정상적으로 요청되었습니다.");
-                    location.href = 'complete.do?oid='+oid;
+                    location.href = 'main.do';
                 }
             })
         }
