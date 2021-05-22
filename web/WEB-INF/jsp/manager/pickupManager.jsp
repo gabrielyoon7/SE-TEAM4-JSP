@@ -38,6 +38,7 @@
   </tbody>
 </table>
 </body>
+<script src="js/bootstrap.bundle.min.js"></script>
 <script>
   $(document).ready(function(){
     MakeTableData();
@@ -80,4 +81,5 @@
     }
   }
 </script>
+
 </html>

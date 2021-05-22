@@ -3,6 +3,7 @@ package com.se.team4.application.persistency.DAO.Reservation;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.se.team4.application.persistency.DTO.Reservation.ReservationDTO;
+import com.se.team4.application.persistency.DTO.Reservation.TableDTO;
 import com.se.team4.common.sql.Config;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -63,5 +64,23 @@ public class ReservationDAO {
 
     public ArrayList<?> getSchedule(String date) {
         return null;
+    }
+
+    public ArrayList<TableDTO> getTables() {  //테이블 받아오기
+        ArrayList<TableDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM `Table`", new MapListHandler());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<TableDTO>>() {
+        }.getType());
+        return result;
     }
 }

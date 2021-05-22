@@ -46,8 +46,7 @@ CREATE TABLE ReservationRequest	(
 										date			DATE,
 										time			TIME,
 										table_id		int,
-										customer_id		int,
-										arrivalTime		TIME
+                                        message VARCHAR(100)
 );
 CREATE TABLE CovidLog(
                               name VARCHAR(32)    NOT NULL,

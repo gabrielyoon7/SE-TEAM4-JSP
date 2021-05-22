@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String TableList = (String) request.getAttribute("TableList");
+%>
 <html>
 <head>
     <title>Title</title>
@@ -30,48 +33,49 @@
     </div>
     <div>
         <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">No.</th>
-                <th scope="col">18:00-19:00</th>
-                <th scope="col">19:00-20:00</th>
-                <th scope="col">20:00-21:00</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">Table-1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">Table-2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">Table-3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">Table-4</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            <tr>
-                <th scope="row">Table-5</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
+            <thead id="TableHead"></thead>
+            <tbody id="TableData"></tbody>
         </table>
         <div class="pay_button text-center">
             <button class="w-25 btn-primary btn-lg" type="submit">테이블 갱신</button>
         </div>
     </div>
+    <div>
+
+    </div>
 </main>
 </body>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function(){
+        MakeTableHead();
+        MakeTableData();
+    })
+    var openingTime = 10;
+    var closingTime = 22;
+    function MakeTableHead(){
+        var list = $('#TableHead');
+        var text = '<tr><th scope="col">No.</th>';
+        for(var i=openingTime;i<closingTime;i++){
+            text+='<th scope="col">'+i+':00</th>';
+        }
+        text+='</tr>';
+        list.append(text);
+    }
+    function MakeTableData(){
+        var tableList = <%=TableList%>
+        var list = $('#TableData');
+        var text = '';
+        for(var i=0;i<tableList.length;i++){
+            var table=tableList[i];
+            text+='<tr>'
+                +'<td>'+table.number+'</td>';
+            for(var j=openingTime;j<closingTime;j++){
+                text+='<td>-</td>'
+            }
+            text+='</tr>';
+        }
+        list.append(text);
+    }
+</script>
 </html>
