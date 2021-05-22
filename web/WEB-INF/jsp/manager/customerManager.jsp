@@ -53,6 +53,7 @@
                 <th>이름</th>
                 <th>아이디</th>
                 <th>요청사항</th>
+                <th>버튼</th>
             </tr>
             </thead>
             <tbody id="DataList"></tbody>
@@ -107,9 +108,14 @@
                 + '<th>'+order.customer_name+'</th>'
                 + '<th>'+order.customer_id+'</th>'
                 + '<th>'+order.message+'</th>'
+                + '<th><button onclick="addReservation('+i+')">예약 배정</button></th>'
                 +'</tr>';
         }
         list.append(text);
     }
+    function addReservation(i){
+
+    }
+
 </script>
 </html>
