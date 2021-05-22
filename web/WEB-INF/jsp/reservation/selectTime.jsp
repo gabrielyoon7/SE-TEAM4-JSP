@@ -55,9 +55,14 @@
 
 <main class="container">
     <div class="bg-light p-5 rounded">
-        <h1>Navbar example</h1>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll,
-            this navbar remains in its original position and moves with the rest of the page.</p>
+        <h1>Reservation</h1>
+        <p class="lead" style="color: red">! 알립니다.</p>
+        <p class="lead">- 매주 월요일 휴무</p>
+        <p class="lead">- 근무 시간 </p>
+        <p class="lead">* 화 ~ 금 : 16:00 ~ 22:00</p>
+        <p class="lead">* 토,일 : 16:00 ~ 21:00</p>
+        <p class="lead">예약 방문 시간 15분 이후에는 예약이 취소될 수 있습니다.</p>
+        <p class="lead">단체 예약은 매장으로 전화 부탁드립니다. (02-9999-4444) </p>
         <a class="btn btn-lg btn-primary" href="#" role="button">View navbar docs »</a>
     </div>
     <div class="col-md-12">
