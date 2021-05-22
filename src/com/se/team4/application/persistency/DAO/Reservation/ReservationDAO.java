@@ -46,14 +46,13 @@ public class ReservationDAO {
         String covers = arr[0];
         String date = arr[1];
         String time = arr[2];
-        String customer_id = arr[3];
-        String message = arr[4];
+        String message = arr[3];
 
         Connection conn = Config.getInstance().sqlLogin();
 
         try{
             QueryRunner que = new QueryRunner();
-            que.update(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,customer_id=?, message=?;",covers,date,time,customer_id,message );
+            que.update(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,customer_id=?, message=?;",covers,date,time,message );
         }catch(SQLException e){
             e.printStackTrace();
         }

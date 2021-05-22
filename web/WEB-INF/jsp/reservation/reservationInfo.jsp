@@ -9,6 +9,8 @@
 <%
     String date = (String) request.getAttribute("date");
     String time = (String) request.getAttribute("time");
+    String covers = (String) request.getAttribute("covers");
+    String message = (String) request.getAttribute("message");
 %>
 <html lang="en"><head>
     <meta charset="utf-8">
@@ -92,7 +94,7 @@
 
                         <div class="col-12">
                             <label for="email" class="form-label">인원수</label>
-                            <input type="email" class="form-control" id="email" placeholder="인원수를 입력하세요">
+                            <input type="email" class="form-control" id="email" placeholder="인원수를 입력하세요" value=<%=covers%> required="" readonly>
                             <div class="invalid-feedback">
                                 함께 오시는 인원 수를 입력하세요.
                             </div>
@@ -100,7 +102,7 @@
 
                         <div class="col-12">
                             <label for="address" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="address" placeholder="추가 요구사항을 입력하세요" required="">
+                            <input type="text" class="form-control" id="address" placeholder="추가 요구사항을 입력하세요" value=<%=message%>> required="" readonly>
                             <div class="invalid-feedback">
                                 예약 시 추가로 필요한 사항을 입력해주세요.
                             </div>
@@ -172,6 +174,29 @@
             +'<input type="text" class="form-control" id="username" placeholder="" value="'+user.name+'" required="" readonly>'
             +'<div class="invalid-feedback">방문하실 시간을 입력하세요.</div>';
         list.append(text);
+    }
+    function completeReservationRequest(){  //예약요청 데이터를 ajax로 전달하는 함수
+        var date = <%=date%>
+        var time = <%=time%>
+        var covers = <%=covers%>
+        var message = <%=message%>
+        var data = covers+"~!~!~"+date+"~!~!~"+time+"~!~!~"+message;
+
+        var check = confirm("예약을 하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "reservationRequest",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("[예약번호:"+oid+"]의 예약 요청이 정상적으로 요청되었습니다.");
+                    location.href = 'complete.do?oid='+oid;
+                }
+            })
+        }
     }
 </script>
 

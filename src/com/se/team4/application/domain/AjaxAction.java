@@ -17,6 +17,7 @@ import com.google.gson.JsonParser;
 
 import com.se.team4.application.persistency.DAO.Home.HomeDAO;
 import com.se.team4.application.persistency.DAO.Packing.PackingDAO;
+import com.se.team4.application.persistency.DAO.Reservation.ReservationDAO;
 import com.se.team4.application.persistency.DAO.TestDAO;
 import com.se.team4.common.controller.Action;
 import com.se.team4.common.controller.LoginManager;
@@ -80,6 +81,8 @@ public class AjaxAction implements Action {
             case "completeOrder":
                 PackingDAO.getInstance().completeOrder(data);
                 break;
+            case "reservationRequest":
+                ReservationDAO.getInstance().addReservationRequest(data);
         }
         return result;
     }
