@@ -22,6 +22,8 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2020.05.22
+  - [김우중] customerManager에 요청 리스트 받는 레이아웃 완성 및 연결 성공
+  - [윤주현] customerManager에 스케쥴 표가 자동으로 그려지도록 레이아웃 개선, ReservationRequest관련 오류 수정
   - [송성호]jsp에서 Ajaxaction으로 예약 요청 데이터 보내는 function(completeReservationRequest) 구현, AjaxAction에서 case문 reservationRequest case 추가
 - 2020.05.21
   - [윤주현] Reservation에 정보 넘기기 및 로그인 정보 띄우는 기능 추가

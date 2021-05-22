@@ -26,8 +26,8 @@ public class ReservationDAO {
             it = new ReservationDAO();
         return it;
     }
-    public ArrayList<ReservationDTO> getReservatoinRequestList() {  //고객 예약 요청 리스트 db 불러오기
-        ArrayList<ReservationDTO> result = null;
+    public ArrayList<ReservationRequestDTO> getReservatoinRequestList() {  //고객 예약 요청 리스트 db 불러오기
+        ArrayList<ReservationRequestDTO> result = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
@@ -39,7 +39,7 @@ public class ReservationDAO {
             DbUtils.closeQuietly(conn);
         }
         Gson gson = new Gson();
-        result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {
         }.getType());
 //        System.out.println(list);
         return result;

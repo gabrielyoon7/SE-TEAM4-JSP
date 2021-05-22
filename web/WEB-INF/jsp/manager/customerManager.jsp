@@ -46,11 +46,12 @@
         <table class="table">
             <thead>
             <tr>
-                <th>oid</th> <!--이름을 넣는거는 어떨까요?-->
+                <th>oid</th> <!--이름을 넣는거는 어떨까요? >>>> 넣었습니다-->
                 <th>인원수</th>
                 <th>날짜</th>
                 <th>시간</th>
-                <th>테이블</th>
+                <th>이름</th>
+                <th>아이디</th>
                 <th>요청사항</th>
             </tr>
             </thead>
@@ -103,8 +104,9 @@
                 + '<th>'+order.covers+'</th>'
                 + '<th>'+order.date+'</th>'
                 + '<th>'+order.time+'</th>'
-                + '<th>'+order.table_id+'</th>'
-                + '<th>'+'-'+'</th>'
+                + '<th>'+order.customer_name+'</th>'
+                + '<th>'+order.customer_id+'</th>'
+                + '<th>'+order.message+'</th>'
                 +'</tr>';
         }
         list.append(text);
