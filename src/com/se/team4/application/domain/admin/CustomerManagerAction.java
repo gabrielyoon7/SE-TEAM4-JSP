@@ -13,6 +13,7 @@ public class CustomerManagerAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Gson gson = new Gson();
         request.setAttribute("TableList", gson.toJson(ReservationDAO.getInstance().getTables()));
+        request.setAttribute("NewOrderList", gson.toJson(ReservationDAO.getInstance().getReservatoinRequestList()));
         return "RequestDispatcher:jsp/manager/customerManager.jsp";
     }
 }

@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String TableList = (String) request.getAttribute("TableList");
+    String NewOrderList = (String) request.getAttribute("NewOrderList");
 %>
 <html>
 <head>
@@ -41,7 +42,20 @@
         </div>
     </div>
     <div>
-
+        <p>갱신리스트</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>oid</th> <!--이름을 넣는거는 어떨까요?-->
+                <th>인원수</th>
+                <th>날짜</th>
+                <th>시간</th>
+                <th>테이블</th>
+                <th>요청사항</th>
+            </tr>
+            </thead>
+            <tbody id="DataList"></tbody>
+        </table>
     </div>
 </main>
 </body>
@@ -50,6 +64,7 @@
     $(document).ready(function(){
         MakeTableHead();
         MakeTableData();
+        MakeNewOrderTable();
     })
     var openingTime = 10;
     var closingTime = 22;
@@ -74,6 +89,23 @@
                 text+='<td>-</td>'
             }
             text+='</tr>';
+        }
+        list.append(text);
+    }
+    function MakeNewOrderTable(){
+        var orderList = <%=NewOrderList%>
+        var list = $('#DataList');
+        var text = '';
+        for(var i=0;i<orderList.length;i++){
+            var order=orderList[i];
+            text+='<tr>'
+                + '<th>'+order.oid+'</th>'
+                + '<th>'+order.covers+'</th>'
+                + '<th>'+order.date+'</th>'
+                + '<th>'+order.time+'</th>'
+                + '<th>'+order.table_id+'</th>'
+                + '<th>'+'-'+'</th>'
+                +'</tr>';
         }
         list.append(text);
     }
