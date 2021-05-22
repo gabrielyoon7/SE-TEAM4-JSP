@@ -21,6 +21,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2020.05.22
+  - [송성호]jsp에서 Ajaxaction으로 예약 요청 데이터 보내는 function(completeReservationRequest) 구현, AjaxAction에서 case문 reservationRequest case 추가
 - 2020.05.21
   - [윤주현] Reservation에 정보 넘기기 및 로그인 정보 띄우는 기능 추가
   - [송성호] ReservationRequest DB 테이블 수정(table_id, arrivalTime 삭제, message 추가, reservationinfo 레이아웃 수정
