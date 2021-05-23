@@ -29,7 +29,28 @@
             <div class="btn pull=left">
                 <input type="date" class="form-control" id="reservationDate" name="new_date" value='' placeholder="Date of Birth" required>
             </div>
-            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>
+<%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In</button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            input문 집어넣기
+                            날짜는 오늘로 고정, 시간은 현재로 default(수정가능), Covers, 테이블 번호
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                            <button type="button" class="btn btn-primary">추가하기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div>
@@ -116,20 +137,20 @@
     function addReservation(i){
 
     }
-    function goToWalkIn(){
-
-        var date=$('#reservationDate').val();
-
-
-        if(date!=''){
-            alert('');
-        }
-        else {
-            // alert(date);
-            alert("날짜를 선택해주세요!");
-        }
-
-    }
+    // function goToWalkIn(){
+    //
+    //     var date=$('#reservationDate').val();
+    //
+    //
+    //     if(date!=''){
+    //         alert('');
+    //     }
+    //     else {
+    //         // alert(date);
+    //         alert("날짜를 선택해주세요!");
+    //     }
+    //
+    // }
 
 </script>
 </html>
