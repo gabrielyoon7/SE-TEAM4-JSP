@@ -53,6 +53,9 @@ function goToSelectTime(){
     var date=$('#reservationDate').val();
     if(date!=''){
         location.href='selectTime.do?date='+date;
+
+
+
     }
     else {
         // alert(date);

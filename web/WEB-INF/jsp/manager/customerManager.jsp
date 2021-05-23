@@ -29,7 +29,7 @@
             <div class="btn pull=left">
                 <input type="date" class="form-control" id="reservationDate" name="new_date" value='' placeholder="Date of Birth" required>
             </div>
-            <button type="button" class="btn btn-primary btn-lg">Walk-In</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>
         </div>
     </div>
     <div>
@@ -114,6 +114,20 @@
         list.append(text);
     }
     function addReservation(i){
+
+    }
+    function goToWalkIn(){
+
+        var date=$('#reservationDate').val();
+
+
+        if(date!=''){
+            alert('');
+        }
+        else {
+            // alert(date);
+            alert("날짜를 선택해주세요!");
+        }
 
     }
 
