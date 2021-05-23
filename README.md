@@ -21,6 +21,9 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2020.05.23
+  - [최예슬] WalkIn 페이지에 modal 연결, Packing 페이지에 이미지 연동
+  - [윤주현] Modal 버그 수정 및 레이아웃 , reservation request관련 기능 비로그인자 접속 제한
 - 2020.05.22
   - [김우중] customerManager에 요청 리스트 받는 레이아웃 완성 및 연결 성공
   - [윤주현] customerManager에 스케쥴 표가 자동으로 그려지도록 레이아웃 개선, ReservationRequest관련 오류 수정
