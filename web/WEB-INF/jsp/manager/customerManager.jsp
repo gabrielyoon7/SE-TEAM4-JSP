@@ -9,6 +9,7 @@
 <%
     String TableList = (String) request.getAttribute("TableList");
     String NewOrderList = (String) request.getAttribute("NewOrderList");
+    String date = (String) request.getAttribute("date");
 %>
 <html>
 <head>
@@ -27,7 +28,7 @@
     <div class="py-5 text-center">
         <div class="row-fluid">
             <div class="btn pull=left">
-                <input type="date" class="form-control" id="reservationDate" name="new_date" value='' placeholder="Date of Birth" required>
+                <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date of Birth" required>
             </div>
 <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
             <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In</button>
@@ -165,6 +166,9 @@
         list.append(text);
     }
     function addReservation(i){
+        var orderList = <%=NewOrderList%>
+        var order=orderList[i];
+
 
     }
     // function goToWalkIn(){
