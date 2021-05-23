@@ -37,9 +37,8 @@
 <div class="container">
     <main>
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="icons/bootstrap-fill.svg" alt="" width="72" height="57">
-            <h2>회원가입</h2>
-            <p class="lead">회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. 회원가입에 대한 설명. </p>
+            <h2>회원 가입</h2>
+            <p class="lead"> 아래의 정보들을 모두 입력하시오. </p>
         </div>
             <div>
                 <h4 class="mb-3">기본 정보</h4>

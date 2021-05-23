@@ -40,8 +40,7 @@
 <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
 <main class="form-signin">
   <form>
-    <img class="mb-4" src="icons/bootstrap-fill.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal text-center">Log-In</h1>
 
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput" placeholder="id">
@@ -58,9 +57,9 @@
       </label>
     </div>
     <div class="mb-3">
-      <a href="signupPage.do">아직 회원이 아니세요?</a>
+      <a href="signupPage.do">회원 가입 하기</a>
     </div>
-    <button type="button" class="w-100 btn btn-lg btn-primary" onclick="button()">로그인</button>
+    <button type="button" class="w-100 btn btn-lg btn-primary" onclick="button()">로그인 하기</button>
 <%--    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>--%>
     <p class="mt-5 mb-3 text-muted">&copy; 2021 TEAM4.SE@KGU</p>
   </form>

@@ -25,7 +25,8 @@
 	<title>TEAM4 Booksys</title>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
 
 	<!-- Bootstrap core CSS -->
@@ -54,7 +55,7 @@
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="main.do">Little4 Restaurant</a>
+			<a class="navbar-brand" href="main.do" style="font-family: 'Caveat', cursive">Little4 Restaurant</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>

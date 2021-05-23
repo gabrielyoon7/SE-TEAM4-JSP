@@ -29,9 +29,9 @@
                 <img src="img/img1.jpg">
                 <div class="container">
                     <div class="carousel-caption text-start">
-                        <h1>첫번째 사진</h1>
-                        <p>Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                        <h1>WELCOME TO Little4 Restaurant</h1>
+                        <p>Little4 Restaurant에 오신 걸 환영합니다.</p>
+                        <p><a class="btn btn-lg btn-primary" href="loginPage.do">로그인 하러 가기</a></p>
                     </div>
                 </div>
             </div>
@@ -40,9 +40,9 @@
                 <img src="img/img2.jpg">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>두번째 사진</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                        <h1>Various menus</h1>
+                        <p>다양한 메뉴를 지금 바로 확인하세요!</p>
+                        <p><a class="btn btn-lg btn-primary" href="menu.do">메뉴 보러 가기</a></p>
                     </div>
                 </div>
             </div>
@@ -51,9 +51,9 @@
                 <img src="img/img3.jpg">
                 <div class="container">
                     <div class="carousel-caption text-end">
-                        <h1>세번째 사진</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                        <h1>Online-Order</h1>
+                        <p>기다릴 필요 없이 미리 주문하고, 포장해가세요!</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">주문 하러 가기</a></p>
                     </div>
                 </div>
             </div>
@@ -62,9 +62,9 @@
                 <img src="img/img4.jpg">
                 <div class="container">
                     <div class="carousel-caption text-end">
-                        <h1>네번째 사진</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                        <h1>Introduction</h1>
+                        <p>Little4 Restaurant의 이야기가 궁금하다면?</p>
+                        <p><a class="btn btn-lg btn-primary" href="brand.do">보러 가기</a></p>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
 
                 <h2>테이블 예약하기</h2>
                 <p>원하는 날짜와 시간에 예약을 하실 수 있습니다.</p>
-                <p><a class="btn btn-secondary" href="reservation.do">예약 하기 &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="reservation.do">예약 하기</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
