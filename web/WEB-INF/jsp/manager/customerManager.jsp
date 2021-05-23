@@ -39,11 +39,7 @@
                             <h5 class="modal-title" id="staticBackdropLabel">Walk-In</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            input문 집어넣기
-                            날짜는 오늘로 고정, 시간은 현재로 default(수정가능), Covers, 테이블 번호
-
-                        </div>
+                        <div class="modal-body" id = "walkInData"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
                             <button type="button" class="btn btn-primary">추가하기</button>
@@ -85,12 +81,46 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function(){
+        MakeModalData();
         MakeTableHead();
         MakeTableData();
         MakeNewOrderTable();
     })
     var openingTime = 10;
     var closingTime = 22;
+    function MakeModalData(){
+        let today = new Date();
+        var hour = today.getHours()
+        var list = $('#walkInData');
+        //날짜
+        var text = '날짜<input type="date" class="form-control" id="walkInDate" name="new_date" value="" placeholder="Date" required>';
+        //시간
+        if(hour>=openingTime && hour<closingTime){
+            text += '시간<select id="walkInDate" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';
+        }
+        else {//영업시간이 아닐 때
+            text += '시간<select id="walkInDate" class="form-control"><option value="">--시간을 선택하세요--</option>';
+        }
+        for(var i=openingTime;i<closingTime;i++){
+            text+='<option value="'+i+'">'+i+':00</option>';
+        }
+        text+='</select>';
+        //인원수
+        text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';
+        for(var i=2;i<6;i++){
+            text+='<option value="'+i+'">'+i+'명</option>';
+        }
+        text+='</select>';
+        //테이블 번호
+        var tableList = <%=TableList%>
+        text += '테이블번호<select id="walkInTable" class="form-control">';
+        for(var i=0;i<tableList.length;i++){
+            var table=tableList[i];
+            text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';
+        }
+        text+='</select>';
+        list.append(text);
+    }
     function MakeTableHead(){
         var list = $('#TableHead');
         var text = '<tr><th scope="col">No.</th>';
