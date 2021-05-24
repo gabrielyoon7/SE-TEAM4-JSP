@@ -30,7 +30,7 @@
             <div class="btn pull=left">
                 <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date of Birth" required>
             </div>
-<%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
+            <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
             <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -41,10 +41,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" id = "walkInData"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                            <button type="button" class="btn btn-primary">추가하기</button>
-                        </div>
+<%--                        <div class="modal-footer">--%>
+<%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+<%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
+<%--                        </div>--%>
                     </div>
                 </div>
             </div>
@@ -94,13 +94,13 @@
         var hour = today.getHours()
         var list = $('#walkInData');
         //날짜
-        var text = '날짜<input type="date" class="form-control" id="walkInDate" name="new_date" value="" placeholder="Date" required>';
+        var text = '날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="" placeholder="Date" required>';
         //시간
         if(hour>=openingTime && hour<closingTime){
-            text += '시간<select id="walkInDate" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';
+            text += '시간<select id="walkInDate2" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';
         }
         else {//영업시간이 아닐 때
-            text += '시간<select id="walkInDate" class="form-control"><option value="">--시간을 선택하세요--</option>';
+            text += '시간<select id="walkInDate2" class="form-control"><option value="">--시간을 선택하세요--</option>';
         }
         for(var i=openingTime;i<closingTime;i++){
             text+='<option value="'+i+'">'+i+':00</option>';
@@ -114,12 +114,18 @@
         text+='</select>';
         //테이블 번호
         var tableList = <%=TableList%>
-        text += '테이블번호<select id="walkInTable" class="form-control">';
+            text += '테이블번호<select id="walkInTable" class="form-control">';
         for(var i=0;i<tableList.length;i++){
             var table=tableList[i];
             text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';
         }
         text+='</select>';
+
+        text+='<div class="modal-footer">'
+            +'<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>'
+            +'<button type="button" class="btn btn-primary" onclick="MakeWalkIn()">추가하기</button>'
+            +'</div>'
+
         list.append(text);
     }
     function MakeTableHead(){
@@ -168,8 +174,30 @@
     function addReservation(i){
         var orderList = <%=NewOrderList%>
         var order=orderList[i];
+    }
+    function MakeWalkIn() {
+        var date = document.getElementById('walkInDate1').value;
+        var time = document.getElementById('walkInDate2').value;
+        time+=":00:00";
+        var cover = document.getElementById('walkInCovers').value;
+        var table = document.getElementById('walkInTable').value;
+        var data = date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table;
 
-
+        var check = confirm("배정 하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "walkInRequest",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.");
+                    location.href = 'main.do';
+                }
+            })
+        }
     }
     // function goToWalkIn(){
     //

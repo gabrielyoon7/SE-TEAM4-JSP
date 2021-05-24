@@ -19,6 +19,7 @@ import com.se.team4.application.persistency.DAO.Home.HomeDAO;
 import com.se.team4.application.persistency.DAO.Packing.PackingDAO;
 import com.se.team4.application.persistency.DAO.Reservation.ReservationDAO;
 import com.se.team4.application.persistency.DAO.TestDAO;
+import com.se.team4.application.persistency.DAO.WalkIn.WalkInDAO;
 import com.se.team4.common.controller.Action;
 import com.se.team4.common.controller.LoginManager;
 
@@ -83,6 +84,9 @@ public class AjaxAction implements Action {
                 break;
             case "reservationRequest":
                 result=ReservationDAO.getInstance().addReservationRequest(data);
+                break;
+            case "walkInRequest":
+                result= WalkInDAO.getInstance().addWalkInRequest(data);
                 break;
         }
         return result;

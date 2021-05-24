@@ -8,6 +8,7 @@ public class ReservationDTO {
     private String table_id;
     private String customer_id;
     private String arrivalTime;
+    private String message;
 
     public String getOid() {
         return oid;
@@ -65,5 +66,7 @@ public class ReservationDTO {
         this.arrivalTime = arrivalTime;
     }
 
+    public String getMessage() { return message; }
 
+    public void setMessage(String message) {this.message = message; }
 }

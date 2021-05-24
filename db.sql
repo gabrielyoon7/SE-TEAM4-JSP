@@ -28,7 +28,8 @@ CREATE TABLE WalkIn (
                         covers    int,
                         date        DATE,
                         time        TIME,
-                        table_id    int
+                        table_id    int,
+                        verifyCode  int
 ) ;
 
 CREATE TABLE Reservation (

@@ -72,6 +72,7 @@ public class PackingDAO {
         String payment=arr[3];
         String totalPrice=arr[4];
         String message=arr[5];
+        System.out.println(name);
         Date date=new Date();
         Random random = new Random();
         int verifyCode=random.nextInt(100000000);
