@@ -19,6 +19,9 @@
   <meta name="generator" content="Hugo 0.83.1">
   <title>Album example · Bootstrap v5.0</title>
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -68,7 +71,7 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Choose the menu</h1>
-        <p class="lead text-muted">원하는 메뉴를 골라 장바구니에 추가한 뒤, 하단의 주문하기를 누르세요.</p>
+        <p style="font-family: 'Noto Serif KR', serif;" class="lead text-muted">원하는 메뉴를 골라 장바구니에 추가한 뒤, 하단의 주문하기를 누르세요.</p>
       </div>
     </div>
   </section>

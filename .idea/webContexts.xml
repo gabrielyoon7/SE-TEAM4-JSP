@@ -4,7 +4,9 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/brand/brand.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/brand" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/menu/menu.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/menu" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/packing/basket.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/packing" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/page/main.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/page" />
       </map>
     </option>
   </component>

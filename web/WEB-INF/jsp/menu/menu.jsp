@@ -20,6 +20,8 @@
     <title>Album example · Bootstrap v5.0</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
 
 
@@ -53,12 +55,8 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Album example</h1>
-                <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
+                <h1 class="fw-light">Check the menu</h1>
+                <p style="font-family: 'Noto Serif KR', serif;" class="lead text-muted">아래의 다양한 메뉴들을 직접 확인하세요.</p>
             </div>
         </div>
     </section>
@@ -93,7 +91,7 @@
             text+= ' <div class="col"><div class="card shadow-sm">'
                 // +'<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>'
                 +'<img class="bd-placeholder-img card-img-top" width="100%" height="225" src="img/menu/'+data[i].imageURL+'" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/>'
-                +'<text x="50%" y="50%" fill="#eceeef" dy=".3em">['+data[i].type+']'+data[i].name+'</text>'
+                +'<text "x="50%" y="50%" fill="#eceeef" dy=".3em">['+data[i].type+']'+data[i].name+'</text>'
                 +'<div class="card-body">'
                 +'<p class="card-text">'+data[i].notice+'</p>'
                 +'<div class="d-flex justify-content-between align-items-center">'

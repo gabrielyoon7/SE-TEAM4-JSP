@@ -98,7 +98,7 @@
 		var list = $('#login'); //위의 div id="login"에 집어넣습니다.
 		var a = '';
 		if (user==null){//미로그인 상태
-			a+= '<button class="btn btn-outline-success" onclick="goToLoginPage()">LOGIN</button>';
+			a+= '<button class="btn btn-outline-light" onclick="goToLoginPage()">LOGIN</button>';
 		}
 		else {//로그인 상태
 			// alert(user.type+'의 접속');
