@@ -23,10 +23,10 @@
 	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 	<meta name="generator" content="Hugo 0.83.1">
 	<title>TEAM4 Booksys</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
 
 	<!-- Bootstrap core CSS -->
@@ -113,10 +113,11 @@
 				if (day<10){
 					day = '0'+day;
 				}
+				style="font-family: 'Noto Serif KR', serif;"
 				var dateString = year+'-'+month+'-'+day;
 				// a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="manager()">관리페이지</button> <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
 				a+='안녕하세요 '+user.name+'님! '
-						+'<div class="dropdown" style="display: inline-block"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</button>'
+						+'<div class="dropdown" style="display: inline-block"><button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</button>'
 						// +'<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">관리자 메뉴</button>'
 				  +'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">'
 				  +'<li><a class="dropdown-item" href="userManager.do">사용자관리</a></li>'
@@ -124,7 +125,7 @@
 				  +'<li><a class="dropdown-item" href="customerManager.do?date='+dateString+'">고객관리</a></li>'
 						+'</ul></div>'
 						// +'</ul>'
-				  +' <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+				  +' <button class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}
 			else{
 				a+='안녕하세요 '+user.name+'님!  <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';

@@ -19,6 +19,7 @@
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <style>
   .bd-placeholder-img {
@@ -50,7 +51,7 @@
     <h1 class="h3 mb-3 fw-normal text-center " style="font-family: 'Noto Serif KR', serif;">Log-In</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control btn-outline-dark" id="floatingInput" placeholder="id">
+      <input type="text" class="form-control btn-outline-dark " id="floatingInput" placeholder="id">
       <label for="floatingInput">ID</label>
     </div>
     <div class="form-floating">
@@ -103,12 +104,26 @@
       },
       success: function (login) { //login은 ajaxAction 클래스가 return해준 값을 담는 변수 이름입니다.
         if(login=="성공"){
-          alert("로그인 성공");
-          window.location.href="main.do"
+          swal({
+            title : '로그인 성공!',
+            text : 'Little4 Restaurant에 오신 걸 환영합니다.',
+            icon : 'success',
+            button : '확인',
+          }).then(function ()
+          {
+            window.location.href = "main.do"
+          });
         }
         else{
-          alert("로그인 실패");
-          location.reload();
+          swal({
+            title : '로그인 실패!',
+            text : '다시 입력해주세요!',
+            icon : 'error',
+            button : '확인',
+          }).then(function ()
+          {
+            location.reload();
+          });
         }
       }
     })

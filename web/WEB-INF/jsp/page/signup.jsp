@@ -10,6 +10,10 @@
 <head>
     <title>Title</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
     <!-- Bootstrap core CSS -->
 <%--    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">--%>
@@ -34,58 +38,54 @@
 </head>
 <body class="bg-light">
 <%@include file="../common/header.jsp" %>
-<div class="container">
     <main>
+        <div class="container">
         <div class="py-5 text-center">
-            <h2>회원 가입</h2>
-            <p class="lead"> 아래의 정보들을 모두 입력하시오. </p>
+            <h2 style="font-family: 'Noto Serif KR', serif;">회원 가입</h2>
+            <p class="lead" style="font-family: 'Noto Serif KR', serif;"> 아래의 정보들을 모두 입력하시오. </p>
         </div>
             <div>
-                <h4 class="mb-3">기본 정보</h4>
+                <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">기본 정보</h4>
                 <form class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="name" class="form-label">이 름</label>
+                            <label for="name" class="form-label" style="font-family: 'Noto Serif KR', serif;">이 름</label>
                             <input type="text" class="form-control" id="name" placeholder="" value="" required>
                             <div class="invalid-feedback">
-                                Valid first name is required.
+                                이름을 입력해주세요.
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="bday">생년월일</label>
+                            <label for="bday" style="font-family: 'Noto Serif KR', serif;">생년월일</label>
                             <input type="date" class="form-control" id="bday" name = "new_date" value ='' placeholder="Date of Birth" required>
                         </div>
 
                         <div class="col-12">
-                            <label for="id" class="form-label">아이디</label>
+                            <label for="id" class="form-label" style="font-family: 'Noto Serif KR', serif;">아이디</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
                                 <input type="text" class="form-control" id="id" placeholder="Username" required>
                                 <div class="invalid-feedback">
-                                    Your username is required.
+                                    아이디를 입력해주세요.
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="password" class="form-label">비밀번호</label>
+                            <label for="password" class="form-label" style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
                             <input type="text" class="form-control" id="password" placeholder="1234 Main St" required>
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
+                                비밀번호를 입력해주세요.
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="phoneNumber" class="form-label">전화번호</label>
+                            <label for="phoneNumber" class="form-label" style="font-family: 'Noto Serif KR', serif;">전화번호</label>
                             <input type="text" class="form-control" id="phoneNumber" placeholder="Apartment or suite">
                         </div>
+                    </div>
 
                     <hr class="my-4">
-
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="same-address">
-                        <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                    </div>
 
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="save-info">
@@ -94,16 +94,16 @@
 
                     <hr class="my-4">
 
-                    <h4 class="mb-3">결제정보(미구현)</h4>
+                    <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">결제정보(미구현)</h4>
 
                     <div class="my-3">
                         <div class="form-check">
                             <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                            <label class="form-check-label" for="credit">체크 카드</label>
+                            <label class="form-check-label" for="credit" style="font-family: 'Noto Serif KR', serif;">체크 카드</label>
                         </div>
                         <div class="form-check">
                             <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="debit">신용 카드</label>
+                            <label class="form-check-label" for="debit" style="font-family: 'Noto Serif KR', serif;">신용 카드</label>
                         </div>
                         <div class="form-check">
                             <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
@@ -115,9 +115,9 @@
                         <div class="col-md-6">
                             <label for="cc-name" class="form-label">Name on card</label>
                             <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                            <small class="text-muted">Full name as displayed on card</small>
+                            <small class="text-muted">카드에 적혀 있는 영문 이름을 입력해주세요.</small>
                             <div class="invalid-feedback">
-                                Name on card is required
+                                카드에 적혀 있는 영문 이름을 입력해주세요.
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@
                             <label for="cc-number" class="form-label">Credit card number</label>
                             <input type="text" class="form-control" id="cc-number" placeholder="" required>
                             <div class="invalid-feedback">
-                                Credit card number is required
+                                카드 번호를 입력해주세요.
                             </div>
                         </div>
 
@@ -133,7 +133,7 @@
                             <label for="cc-expiration" class="form-label">Expiration</label>
                             <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
                             <div class="invalid-feedback">
-                                Expiration date required
+                                카드 만료일을 입력해주세요.
                             </div>
                         </div>
 
@@ -141,20 +141,19 @@
                             <label for="cc-cvv" class="form-label">CVV</label>
                             <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
                             <div class="invalid-feedback">
-                                Security code required
+                                CVV를 입력해주세요.
                             </div>
                         </div>
                     </div>
 
                     <hr class="my-4">
 
-                    <button class="w-100 btn btn-primary btn-lg" onclick="signUp()">회원가입 하기</button>
+                    <button class="w-100 btn btn-dark btn-lg" onclick="signUp()" style="font-family: 'Noto Serif KR', serif;">회원가입 하기</button>
                 </form>
             </div>
         </div>
     </main>
     <%@include file="../common/footer.jsp" %>
-</div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/form-validation.js"></script>
@@ -168,21 +167,46 @@
         var phoneNumber=$('#phoneNumber').val();
 
         var data = name+'-/-/-'+bday+"-/-/-"+id+"-/-/-"+password+"-/-/-"+phoneNumber;
-        var check = confirm("회원 가입 하시겠습니까?");
-        if(check) {
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "signup",
-                    data: data
-                },
-                success: function (data) {
-                    alert("회원가입이 완료됐습니다.");
-                    window.location.href = 'loginPage.do';
+        var check =
+            swal({
+                title : '회원 가입 하시겠습니까?',
+                icon : 'info',
+
+                buttons : {
+                    cancle : {
+                        text : '취소',
+                        value: false,
+                        className : 'btn btn-danger'
+                    },
+                    confirm: {
+                        text: '확인',
+                        value: true,
+                        className : 'btn btn-primary'
+                    },
                 }
-            })
-        }
+            }).then((check) => {
+                if(check) {
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "signup",
+                            data: data
+                        },
+                        success: function (data) {
+                            swal({
+                                title : '회원가입 성공!',
+                                text : 'Little4 Restaurant의 회원이 되신 걸 환영합니다.',
+                                icon : 'success',
+                                button : '확인'
+                            }).then(function ()
+                            {
+                                window.location.href = 'loginPage.do';
+                            });
+                        }
+                    })
+                }
+            });
     }
 </script>
 

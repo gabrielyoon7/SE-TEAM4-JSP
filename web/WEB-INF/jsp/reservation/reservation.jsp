@@ -26,6 +26,9 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+
 </head>
 <html>
 <body class="d-flex h-100 text-center text-white bg-dark">
@@ -33,14 +36,14 @@
 <%@include file="../common/header.jsp" %>
 <div  class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <main class="px-3">
-        <h1>Reservation</h1>
-        <p class="lead">예약하실 날짜를 선택해 주세요.</p>
+        <h1 style="font-family: 'Noto Serif KR', serif;" >Reservation</h1>
+        <p class="lead" style="font-family: 'Noto Serif KR', serif;">예약하실 날짜를 선택해 주세요.</p>
         <div class="col-md-12">
 <%--            <label for="reservationDate">예약 일정 조회</label>--%>
             <input type="date" class="form-control" id="reservationDate" name="new_date" value='' placeholder="Date of Birth" required>
         </div>
         <p class="lead">
-            <button class="btn btn-lg btn-secondary fw-bold border-white bg-black" onclick="goToSelectTime()">이 날짜로 예약하기</button>
+            <button class="btn btn-lg btn-outline-light fw-bold border-white bg-black" style="font-family: 'Noto Serif KR', serif;" onclick="goToSelectTime()">이 날짜로 예약하기</button>
         </p>
     </main>
 </div>
@@ -58,8 +61,11 @@ function goToSelectTime(){
 
     }
     else {
-        // alert(date);
-        alert("날짜를 선택해주세요!");
+        swal({
+            title : '날짜를 선택해주세요!',
+            icon : 'error',
+            button : '확인',
+        });
     }
 }
 </script>
