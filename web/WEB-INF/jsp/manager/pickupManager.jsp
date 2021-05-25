@@ -14,11 +14,11 @@
   <title>Title</title>
   <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
   <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
-  <script src="/js/jquery-3.2.1.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/bootstrap-table.js"></script>
-  <script src="/js/bootstrap-table-cookie.js"></script>
-  <script src="/js/bootstrap-table-export.min.js"></script>
+<%--  <script src="/js/jquery-3.2.1.min.js"></script>--%>
+<%--  <script src="/js/bootstrap.min.js"></script>--%>
+<%--  <script src="/js/bootstrap-table.js"></script>--%>
+<%--  <script src="/js/bootstrap-table-cookie.js"></script>--%>
+<%--  <script src="/js/bootstrap-table-export.min.js"></script>--%>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>

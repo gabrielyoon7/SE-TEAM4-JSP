@@ -14,6 +14,7 @@
 %>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Title</title>
     <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
@@ -26,7 +27,12 @@
 <body>
 <%@include file="../common/header.jsp" %>
 <div>현재 테이블 띄우는거 오류 있습니다. 수정 예정!!</div>
-<table  class="boardtable" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
+
+<%--<table  class="boardtable" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">--%>
+<table class="boardtable" id="table" data-toggle="table"
+       data-pagination="true" data-toolbar="#toolbar"
+       data-search="true" data-side-pagination="true" data-click-to-select="true"
+       data-page-list="[10]">
     <thead>
     <tr>
         <th data-field="action">설정</th>
@@ -39,34 +45,61 @@
         <th data-field="blackList" data-sortable="true">블랙리스트</th>
     </tr>
     </thead>
-    <tbody id="TableData">
-    </tbody>
+<%--    <tbody id="TableData">--%>
+<%--    </tbody>--%>
 </table>
 </body>
 <script>
     $(document).ready(function(){
-        MakeTableData();
+        // MakeTableData();
+        callSetupTableView();
     })
 
+
     var userList=<%=userList%>;
-    function MakeTableData(){
-        var list = $('#TableData');
-        var text = '';
+
+    function callSetupTableView(){
+        $('#table').bootstrapTable('load',data());
+        // $('#table').bootstrapTable('append',data());
+        $('#table').bootstrapTable('refresh');
+    }
+
+    function data(){
+        var rows = [];
         for(var i=0;i<userList.length;i++){
             var user=userList[i];
-             text+='<tr>'
-                 + '<th><button onclick="deleteUser('+i+')">삭제</button><button onclick="pwReset('+i+')">pw초기화</button><button onclick="changeType('+i+')">타입변경</button><button onclick="blackList('+i+')">블랙리스트 전환</button></th>'
-                 + '<th>'+user.type+'</th>'
-                 + '<th>'+user.name+'</th>'
-                 + '<th>'+user.id+'</th>'
-                 + '<th>'+user.password+'</th>'
-                 + '<th>'+user.birthDay+'</th>'
-                 + '<th>'+user.phoneNumber+'</th>'
-                 + '<th>'+user.blackList+'</th>'
-                 +'</tr>';
+            rows.push({
+                type: user.type,
+                name: user.name,
+                id: user.id,
+                password: user.password,
+                birthDay: user.birthDay,
+                phoneNumber: user.phoneNumber,
+                blackList: user.blackList,
+                action : '<button onclick="deleteUser('+i+')">삭제</button><button onclick="pwReset('+i+')">pw초기화</button><button onclick="changeType('+i+')">타입변경</button><button onclick="blackList('+i+')">블랙리스트 전환</button>'
+            });
         }
-        list.append(text);
+        return rows;
     }
+
+    // function MakeTableData(){
+    //     var list = $('#TableData');
+    //     var text = '';
+    //     for(var i=0;i<userList.length;i++){
+    //         var user=userList[i];
+    //          text+='<tr>'
+    //              + '<th><button onclick="deleteUser('+i+')">삭제</button><button onclick="pwReset('+i+')">pw초기화</button><button onclick="changeType('+i+')">타입변경</button><button onclick="blackList('+i+')">블랙리스트 전환</button></th>'
+    //              + '<th>'+user.type+'</th>'
+    //              + '<th>'+user.name+'</th>'
+    //              + '<th>'+user.id+'</th>'
+    //              + '<th>'+user.password+'</th>'
+    //              + '<th>'+user.birthDay+'</th>'
+    //              + '<th>'+user.phoneNumber+'</th>'
+    //              + '<th>'+user.blackList+'</th>'
+    //              +'</tr>';
+    //     }
+    //     list.append(text);
+    // }
     function blackList(i){ //대상자에서 삭제
         var user =userList[i];
         var data = userList[i].id+"-/-/-"+userList[i].blackList;
