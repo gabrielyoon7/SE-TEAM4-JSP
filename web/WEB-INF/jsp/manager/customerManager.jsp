@@ -9,6 +9,7 @@
 <%
     String TableList = (String) request.getAttribute("TableList");
     String NewOrderList = (String) request.getAttribute("NewOrderList");
+    String ReservationList = (String) request.getAttribute("ReservationList");
     String date = (String) request.getAttribute("date");
 %>
 <html>
@@ -140,7 +141,9 @@
     }
     function MakeTableData(){
         var tableList = <%=TableList%>
+        var reservationList=<%=ReservationList%>
         var list = $('#TableData');
+        var k=0;
         var text = '';
         for(var i=0;i<tableList.length;i++){
             var table=tableList[i];
@@ -149,7 +152,16 @@
             for(var j=openingTime;j<closingTime;j++){
                 text+='<td>-</td>'
             }
-            text+='</tr>';
+            // for(var j=openingTime;j<closingTime;j++){
+            //     var reservationData=reservationList[k];
+            //     if(reservationData.time==j && reservationData.table_id==i+1 || k<=reservationList.length) {
+            //         text += '<td>' + reservationData.customer_name + '</td>'
+            //         k++;
+            //     }
+            //     else
+            //         text += '<td>-</td>'
+            // }
+            +'</tr>';
         }
         list.append(text);
     }

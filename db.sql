@@ -38,7 +38,7 @@ CREATE TABLE Reservation (
                              date           DATE,
                              time           INT,
                              table_id       int,
-                             customer_id  int,
+                             customer_id  VARCHAR(32),
                              customer_name VARCHAR(32),
                              arrivalTime  TIME
 ) ;

@@ -24,7 +24,7 @@ public class ReservationDAO {
             it = new ReservationDAO();
         return it;
     }
-    public ArrayList<ReservationRequestDTO> getReservatoinRequestList() {  //고객 예약 요청 리스트 db 불러오기
+    public ArrayList<ReservationRequestDTO> getReservationRequestList() {  //고객 예약 요청 리스트 db 불러오기
         ArrayList<ReservationRequestDTO> result = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
@@ -41,6 +41,25 @@ public class ReservationDAO {
         }.getType());
        // System.out.println(list);
        // System.out.println(result.get(0).getDate());
+        return result;
+    }
+    public ArrayList<ReservationDTO> getReservationList() {  //고객 예약 리스트 db 불러오기
+        ArrayList<ReservationDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM Reservation", new MapListHandler());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {
+        }.getType());
+        // System.out.println(list);
+        // System.out.println(result.get(0).getDate());
         return result;
     }
     public String addReservationRequest(String data) {    //고객 예약 요청 리스트 추가
