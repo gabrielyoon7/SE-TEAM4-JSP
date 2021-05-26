@@ -110,12 +110,17 @@ public class ReservationDAO {
 //        String date = mmddyy[2]+"-"+mmddyy[0]+"-"+mmddyy[1];
 
         String date = arr[1];
-        String target = "월";
-        int target_num = date.indexOf(target);
-        String s1 = date.substring(0,3);
-        String s2 = date.substring(4,target_num-1);
-        String s3 = date.substring(target_num+1,date.length());
-        date = s1+s2+s3;
+
+        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
+
+
+        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
+
+
+        date = array2[1]+"-"+array[0]+"-"+array2[0];
+
+
+
 
         String time = arr[2];
         String id = arr[3];
@@ -140,7 +145,7 @@ public class ReservationDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {}.getType());
 
-        System.out.println(date);
+
         return result.get(0).getOid();
     }
 
