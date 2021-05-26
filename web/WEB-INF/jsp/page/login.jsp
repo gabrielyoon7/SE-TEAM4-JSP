@@ -87,7 +87,12 @@
   function errorAlert(){
     var errorMessage = "<%=errorMessage%>";
     if(errorMessage!='null')
-      alert(errorMessage);
+      swal({
+        title : '잠깐!',
+        text : errorMessage,
+        icon : 'info',
+        button : '확인',
+      });
   }
 
 

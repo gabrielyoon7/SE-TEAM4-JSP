@@ -31,24 +31,26 @@
 
 </head>
 <html>
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body class="d-flex h-100 text-center text-white bg-white">
 <%--header를 이런식으로 include해서 끼워넣습니다. 이 작업은 매 페이지마다 필요해요.--%>
 <%@include file="../common/header.jsp" %>
-<div  class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class= "cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <main class="px-3">
-        <h1 style="font-family: 'Noto Serif KR', serif;" >Reservation</h1>
-        <p class="lead" style="font-family: 'Noto Serif KR', serif;">예약하실 날짜를 선택해 주세요.</p>
+        <br>
+        <h1 style="font-family: 'Noto Serif KR', serif; color: black" >Reservation</h1>
+        <p class="lead" style="font-family: 'Noto Serif KR', serif; color: black">예약하실 날짜를 선택해 주세요.</p>
         <div class="col-md-12">
 <%--            <label for="reservationDate">예약 일정 조회</label>--%>
             <input type="date" class="form-control" id="reservationDate" name="new_date" value='' placeholder="Date of Birth" required>
         </div>
+        <br>
+        <br>
         <p class="lead">
-            <button class="btn btn-lg btn-outline-light fw-bold border-white bg-black" style="font-family: 'Noto Serif KR', serif;" onclick="goToSelectTime()">이 날짜로 예약하기</button>
+            <button class="btn btn-lg btn-dark fw-bold bg-black" style="font-family: 'Noto Serif KR', serif;" onclick="goToSelectTime()">이 날짜로 예약하기</button>
         </p>
     </main>
 </div>
 <script src="js/bootstrap.bundle.min.js"></script>
-
 <%--<%@include file="../common/footer.jsp" %>--%>
 </body>
 <script>
@@ -56,8 +58,6 @@ function goToSelectTime(){
     var date=$('#reservationDate').val();
     if(date!=''){
         location.href='selectTime.do?date='+date;
-
-
 
     }
     else {

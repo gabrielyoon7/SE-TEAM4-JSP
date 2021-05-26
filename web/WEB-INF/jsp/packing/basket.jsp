@@ -17,8 +17,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+
     <title>Checkout example · Bootstrap v5.0</title>
     <meta name="theme-color" content="#7952b3">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -47,18 +52,18 @@
 <div class="container">
     <main>
         <div class="py-5 text-center">
-            <h2>주문/결제하기</h2>
+            <h2 style="font-family: 'Noto Serif KR', serif;">주문/결제하기</h2>
         </div>
         <br>
 
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-primary">장바구니</span>
-                    <span class="badge bg-primary rounded-pill" id="Count"></span>
+                    <span class="text-dark border-dark" style="font-family: 'Noto Serif KR', serif;">장바구니</span>
+                    <span class="badge bg-dark rounded-pill" id="Count"></span>
                 </h4>
                 <ul class="list-group mb-3">
-                    <li id="selectedMenuList"></li>
+                    <li id="selectedMenuList" style="font-family: 'Noto Serif KR', serif;"></li>
 
                     <%--                    <li class="list-group-item d-flex justify-content-between bg-light">--%>
                     <%--                        <div class="text-success">--%>
@@ -68,7 +73,7 @@
                     <%--                        <span class="text-success">−$5</span>--%>
                     <%--                    </li>--%>
                     <li class="list-group-item d-flex justify-content-between">
-                        <span>합계 (KRW)</span>
+                        <span style="font-family: 'Noto Serif KR', serif;">합계 (KRW)</span>
                         <strong id="Sum"></strong>
                     </li>
                 </ul>
@@ -77,24 +82,24 @@
             <div class="col-md-7 col-lg-8">
                 <form class="needs-validation" novalidate="">
 
-                    <h4 class="mb-3">결제 방식</h4>
+                    <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">결제 방식</h4>
 
                     <div class="my-3">
                         <div class="pay-form">
                             <input id="offlinePayment" name="paymentMethod" type="radio" class="pay-form-input" checked="" required="" value="offlinePayment">
-                            <label class="form-check-label" for="offlinePayment">현장 결제</label>
+                            <label class="form-check-label" style="font-family: 'Noto Serif KR', serif;" for="offlinePayment">현장 결제</label>
                         </div>
                         <div class="pay-form">
                             <input id="onlinePayment" name="paymentMethod" type="radio" class="pay-form-input" required="" value="onlinePayment">
-                            <label class="form-check-label" for="onlinePayment">온라인 결제</label>
+                            <label class="form-check-label" style="font-family: 'Noto Serif KR', serif;" for="onlinePayment">온라인 결제</label>
                         </div>
                     </div>
                     <br>
 
                     <div class="row gy-3">
                         <div class="col-md-11">
-                            <label for="request" class="form-label">*요청 사항*</label>
-                            <input type="text" class="form-control" id="request" value="맵기, 일회용품 여부 등을 입력하세요." placeholder="" required="">
+                            <label for="request" class="form-label" style="font-family: 'Noto Serif KR', serif;">*요청 사항*</label>
+                            <input type="text" class="form-control" style="font-family: 'Noto Serif KR', serif;" id="request" value="맵기, 일회용품 여부 등을 입력하세요." placeholder="" required="">
                         </div>
                     </div>
                 </form>
@@ -103,7 +108,7 @@
         <hr class="my-12">
         <br>
         <div class="pay_button text-center">
-            <button class="w-25 btn-primary btn-lg" onclick="orderCheck()" type="submit">결제하기</button>
+            <button class="w-25 btn-dark btn-lg" style="font-family: 'Noto Serif KR', serif;" onclick="orderCheck()" type="submit">결제하기</button>
         </div>
     </main>
     <br>
@@ -149,32 +154,58 @@
         totalPrice=sum;
         count.append(sum);
     }
-    function orderCheck(){
-        var user = <%=user%> //user는 header에서 정의했으므로 사용 가능.
-        var payment=$('input[name=paymentMethod]:checked').val();
-        var message=$('#request').val();
-        var orderedList="";
-        for(var i=0;i<selectedMenuList.length;i++) {
-            orderedList+=selectedMenuList[i].name+' / ';
+    function orderCheck() {
+        var user =
+        <%=user%> //user는 header에서 정의했으므로 사용 가능.
+        var payment = $('input[name=paymentMethod]:checked').val();
+        var message = $('#request').val();
+        var orderedList = "";
+        for (var i = 0; i < selectedMenuList.length; i++) {
+            orderedList += selectedMenuList[i].name + ' / ';
         }
-        var data = user.id+"~!~!~"+user.name+"~!~!~"+orderedList+"~!~!~"+payment+"~!~!~"+totalPrice+"~!~!~"+message;
+        var data = user.id + "~!~!~" + user.name + "~!~!~" + orderedList + "~!~!~" + payment + "~!~!~" + totalPrice + "~!~!~" + message;
         // alert(data);
-        var check = confirm("주문을 하시겠습니까?");
-        if(check) {
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "packingOrder",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("[주문번호:"+oid+"]의 방문포장 주문이 정상적으로 요청되었습니다.");
-                    location.href = 'complete.do?oid='+oid;
+        var check =
+            swal({
+                title: '주문을 하시겠습니까?',
+                icon: 'info',
+
+                buttons: {
+                    cancle: {
+                        text: '취소',
+                        value: false,
+                        className: 'btn btn-danger'
+                    },
+                    confirm: {
+                        text: '확인',
+                        value: true,
+                        className: 'btn btn-primary'
+                    },
                 }
-            })
-        }
+            }).then((check) => {
+                if (check) {
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "packingOrder",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title: '주문 성공!',
+                                text: "[주문번호:" + oid + "]의 방문포장 주문이 정상적으로 요청되었습니다.",
+                                icon: 'success',
+                                button: '확인'
+                            }).then(function () {
+                                location.href = 'complete.do?oid=' + oid;
+                            });
+                        }
+                    })
+                }
+            });
     }
+
 </script>
 <script src="js/form-validation.js"></script>
 </html>

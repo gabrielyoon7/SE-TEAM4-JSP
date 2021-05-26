@@ -45,7 +45,7 @@
     }
 
     .bottom_bar{
-      background: lightgrey;
+      background: black;
       position: fixed;
       left: 0; right: 0; bottom: 0;
       height: 50px;
@@ -84,7 +84,7 @@
   </div>
   <form></form>
   <div class="bottom_bar">
-    <button class="w-25 btn-primary btn-lg" onclick="orderClicked()">주문하기</button>
+    <button class="w-25 btn-light btn-lg" style="font-family: 'Noto Serif KR', serif;" onclick="orderClicked()">주문하기</button>
   </div>
 
 </main>

@@ -120,7 +120,7 @@
 				if (day<10){
 					day = '0'+day;
 				}
-				style="font-family: 'Noto Serif KR', serif;"
+
 				var dateString = year+'-'+month+'-'+day;
 				// a+='안녕하세요 '+user.name+'님! <button class="btn btn-outline-success" onclick="manager()">관리페이지</button> <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
 				a+='안녕하세요 '+user.name+'님! '

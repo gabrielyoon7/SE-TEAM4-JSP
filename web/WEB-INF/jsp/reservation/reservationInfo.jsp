@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <%--    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">--%>
 
 
@@ -53,6 +54,8 @@
             }
         }
     </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->
@@ -64,28 +67,26 @@
 <div class="container">
     <main>
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="icons/bootstrap-fill.svg" alt="" width="72" height="57">
-            <h2>Checkout form</h2>
-            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            <h2 style="font-family: 'Noto Serif KR', serif;">예약 정보</h2>
+            <p class="lead" style="font-family: 'Noto Serif KR', serif;">예약하실 고객님의 정보를 입력해주세요.</p>
         </div>
 
 
             <div>
-                <h4 class="mb-3">예약 정보 입력</h4>
                 <form class="needs-validation was-validated" novalidate="">
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <label for="firstName" class="form-label">방문 날짜</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value=<%=date%> required="" readonly>
+                            <label for="firstName" class="form-label" style="font-family: 'Noto Serif KR', serif;">방문 날짜</label>
+                            <input type="text" class="form-control"style="font-family: 'Noto Serif KR', serif;"  id="firstName" placeholder="" value=<%=date%> required="" readonly>
                             <div class="invalid-feedback">
                                 방문하실 날짜를 입력하세요.
                             </div>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="lastName" class="form-label">방문 시간</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value=<%=time%> required="" readonly>
-                            <div class="invalid-feedback">
+                            <label for="lastName" class="form-label" style="font-family: 'Noto Serif KR', serif;">방문 시간</label>
+                            <input type="text" class="form-control" style="font-family: 'Noto Serif KR', serif;" id="lastName" placeholder="" value=<%=time%> required="" readonly>
+                            <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
                                 방문하실 시간을 입력하세요.
                             </div>
                         </div>
@@ -94,17 +95,17 @@
                         <div class="col-sm-6" id="userName"></div>
 
                         <div class="col-12">
-                            <label for="covers" class="form-label">인원수</label>
-                            <input type="text" class="form-control" id="covers" placeholder="인원수를 입력하세요" required="" >
-                            <div class="invalid-feedback">
+                            <label for="covers" class="form-label" style="font-family: 'Noto Serif KR', serif;">인원수</label>
+                            <input type="text" class="form-control" style="font-family: 'Noto Serif KR', serif;" id="covers" placeholder="인원수를 입력하세요" required="" >
+                            <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
                                 함께 오시는 인원 수를 입력하세요.
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <label for="message" class="form-label">Message</label>
-                            <input type="text" class="form-control" id="message" placeholder="추가 요구사항을 입력하세요" required="" >
-                            <div class="invalid-feedback">
+                            <label for="message" class="form-label" style="font-family: 'Noto Serif KR', serif;">Message</label>
+                            <input type="text" class="form-control" style="font-family: 'Noto Serif KR', serif;" id="message" placeholder="추가 요구사항을 입력하세요" required="" >
+                            <div class="invalid-feedback" style="font-family: 'Noto Serif KR', serif;">
                                 예약 시 추가로 필요한 사항을 입력해주세요.
                             </div>
                         </div>
@@ -113,39 +114,20 @@
                     <hr class="my-4">
 
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="same-address">
-                        <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-                    </div>
-
-                    <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="save-info">
-                        <label class="form-check-label" for="save-info">Save this information for next time</label>
+                        <label class="form-check-label" for="save-info" style="font-family: 'Noto Serif KR', serif;">이 정보를 다음에도 사용하시겠습니까?</label>
                     </div>
 
                     <hr class="my-4">
 
-
-
-
-
-
-                    <hr class="my-4">
-
-                    <button class="w-100 btn btn-primary btn-lg" onclick="completeReservationRequest()">Continue to checkout</button>
+                    <button class="w-100 btn btn-dark btn-lg" style="font-family: 'Noto Serif KR', serif;" onclick="completeReservationRequest()">예약하기</button>
                 </form>
             </div>
 
     </main>
 
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017–2021 Company Name</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-    </footer>
 </div>
+<%@include file="../common/footer.jsp" %>
 
 
 <script src="js/bootstrap.bundle.min.js"></script>
@@ -184,21 +166,47 @@
         var message = $('#message').val();
         var data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
 
-        var check = confirm("예약을 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "reservationRequest",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("[예약번호:"+oid+"]의 예약 요청이 정상적으로 요청되었습니다.");
-                    location.href = 'main.do';
+        var check =
+            swal({
+                title : '예약을 하시겠습니까?',
+                icon : 'info',
+
+                buttons : {
+                    cancle : {
+                        text : '취소',
+                        value: false,
+                        className : 'btn btn-danger'
+                    },
+                    confirm: {
+                        text: '확인',
+                        value: true,
+                        className : 'btn btn-primary'
+                    },
                 }
-            })
-        }
+            }).then((check)  => {
+                if(check) {
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "reservationRequest",
+                            ata: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title: '예약 성공!',
+                                text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
+                                icon: 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'main.do';
+                            });
+                        }
+                    })
+                }
+
+            });
     }
 </script>
 
