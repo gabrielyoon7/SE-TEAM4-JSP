@@ -58,7 +58,7 @@ public class ReservationDAO {
         List<Map<String, Object>> list = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn,"INSERT ReservationRequet SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;",new MapListHandler(),
+            que.query(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;",new MapListHandler(),
                     covers,date,time,name,id,message,verifyCode );
 //            System.out.println("ddd");
             list = que.query(conn, "SELECT * FROM ReservationRequest WHERE verifyCode=?", new MapListHandler(), verifyCode);
