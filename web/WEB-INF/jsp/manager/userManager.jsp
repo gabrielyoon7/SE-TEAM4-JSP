@@ -23,6 +23,11 @@
     <script src="/js/bootstrap-table.js"></script>
     <script src="/js/bootstrap-table-cookie.js"></script>
     <script src="/js/bootstrap-table-export.min.js"></script>
+    <style>
+        .bootstrap-table>.fixed-table-toolbar{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
