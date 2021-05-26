@@ -27,7 +27,7 @@ CREATE TABLE WalkIn (
                         oid        int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                         covers    int,
                         date        DATE,
-                        time        TIME,
+                        time        INT,
                         table_id    int,
                         verifyCode  int
 ) ;
@@ -36,66 +36,67 @@ CREATE TABLE Reservation (
                              oid           int NOT NULL AUTO_INCREMENT PRIMARY KEY,
                              covers       int,
                              date           DATE,
-                             time           TIME,
+                             time           INT,
                              table_id       int,
                              customer_id  int,
+                             customer_name VARCHAR(32),
                              arrivalTime  TIME
 ) ;
 CREATE TABLE ReservationRequest	(
-										oid  			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-										covers  		INT,
-										date  			DATE,
-										time  			INT,
-										customer_name  			VARCHAR(32),
-										customer_id  			VARCHAR(32),
-										message  			VARCHAR(100),
-										verifyCode  			INT
+                                       oid  			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                       covers  		INT,
+                                       date  			DATE,
+                                       time  			INT,
+                                       customer_name  			VARCHAR(32),
+                                       customer_id  			VARCHAR(32),
+                                       message  			VARCHAR(100),
+                                       verifyCode  			INT
 );
 CREATE TABLE CovidLog(
-                              name VARCHAR(32)    NOT NULL,
-                              address VARCHAR(32) NOT NULL,
-                              phoneNumber CHAR(13) NOT NULL,
-                              symptom BOOLEAN NOT NULL,
-                              temperature DOUBLE NOT NULL,
-                              tableNumber INT NOT NULL
-                  
+                         name VARCHAR(32)    NOT NULL,
+                         address VARCHAR(32) NOT NULL,
+                         phoneNumber CHAR(13) NOT NULL,
+                         symptom BOOLEAN NOT NULL,
+                         temperature DOUBLE NOT NULL,
+                         tableNumber INT NOT NULL
+
 );
 CREATE TABLE WaitingList(
-                              date   DATE,
-                              name VARCHAR(32) NOT NULL,
-                              covers INT NOT NULL,
-                              table_id int
+                            date   DATE,
+                            name VARCHAR(32) NOT NULL,
+                            covers INT NOT NULL,
+                            table_id int
 );
 CREATE TABLE Menu(
-                              oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                              type   CHAR(13)   NOT NULL,
-                              name VARCHAR(32) NOT NULL,
-                              price INT NOT NULL,
-                              notice VARCHAR(100) NOT NULL,
-                              imageURL VARCHAR(100),
-                              cookingTime INT NOT NULL
+                     oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                     type   CHAR(13)   NOT NULL,
+                     name VARCHAR(32) NOT NULL,
+                     price INT NOT NULL,
+                     notice VARCHAR(100) NOT NULL,
+                     imageURL VARCHAR(100),
+                     cookingTime INT NOT NULL
 );
 CREATE TABLE Pickup(
-                              oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                              id VARCHAR(32) NOT NULL,
-                              name VARCHAR(32) NOT NULL,
-                              date DATE,
-                              orderedList VARCHAR(200) NOT NULL,
-                              payment VARCHAR(32) NOT NULL,
-                              totalPrice INT NOT NULL,
-                              message VARCHAR(100),
-                              verifyCode INT
+                       oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                       id VARCHAR(32) NOT NULL,
+                       name VARCHAR(32) NOT NULL,
+                       date DATE,
+                       orderedList VARCHAR(200) NOT NULL,
+                       payment VARCHAR(32) NOT NULL,
+                       totalPrice INT NOT NULL,
+                       message VARCHAR(100),
+                       verifyCode INT
 );
 
 CREATE TABLE User (
-                          oid        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                          id            CHAR(13) NOT NULL,
-                          password    CHAR(13) NOT NULL,
-                          type VARCHAR (13) NOT NULL,
-                          name        VARCHAR(32) NOT NULL,
-                          birthDay   DATE,
-                          phoneNumber  CHAR(13) NOT NULL,
-                          blackList      VARCHAR(13) NOT NULL
+                      oid        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                      id            CHAR(13) NOT NULL,
+                      password    CHAR(13) NOT NULL,
+                      type VARCHAR (13) NOT NULL,
+                      name        VARCHAR(32) NOT NULL,
+                      birthDay   DATE,
+                      phoneNumber  CHAR(13) NOT NULL,
+                      blackList      VARCHAR(13) NOT NULL
 ) ;
 
 
@@ -154,6 +155,9 @@ INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5
 INSERT INTO `Table`(oid, number, places, limits ) VALUES(6000,1,1,4);
 INSERT INTO `Table`(number, places, limits ) VALUES(2,2,4);
 INSERT INTO `Table`(number, places, limits ) VALUES(3,3,4);
+
+INSERT INTO ReservationRequest(covers, DATE, TIME, customer_name, customer_id, message, verifycode) VALUES(3,'2021-05-26',13,'asd','asd','asd',12123);
+
 
 -- TEST DATA
 INSERT INTO Customer(oid, name, phoneNumber,id,blackList ) VALUES(7000, 'TEST', '010-0000-0000','TEST','false');
