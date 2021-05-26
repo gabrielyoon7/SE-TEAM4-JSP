@@ -158,6 +158,9 @@ INSERT INTO `Table`(number, places, limits ) VALUES(3,3,4);
 
 INSERT INTO ReservationRequest(covers, DATE, TIME, customer_name, customer_id, message, verifycode) VALUES(3,'2021-05-26',13,'asd','asd','asd',12123);
 
+INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',15,'as12d','asd',2);
+INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',18,'as323d','asd',3);
+INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',15,'as444d','asd',1);
 
 -- TEST DATA
 INSERT INTO Customer(oid, name, phoneNumber,id,blackList ) VALUES(7000, 'TEST', '010-0000-0000','TEST','false');

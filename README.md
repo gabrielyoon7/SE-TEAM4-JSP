@@ -21,6 +21,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2020.05.27
+  - [김우중] CustomerManager 페이지 Table 출력
 - 2020.05.26
   - [송성호] ReservationDAO addReservation 메소드 date 전달 수정
 - 2020.05.25

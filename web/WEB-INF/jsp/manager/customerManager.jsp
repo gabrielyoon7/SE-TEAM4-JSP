@@ -86,6 +86,7 @@
     $(document).ready(function(){
         MakeModalData();
         MakeTableHead();
+        MakeTableBody();
         MakeTableData();
         MakeNewOrderTable();
     })
@@ -139,31 +140,48 @@
         text+='</tr>';
         list.append(text);
     }
-    function MakeTableData(){
+    function MakeTableBody(){
         var tableList = <%=TableList%>
-        var reservationList=<%=ReservationList%>
         var list = $('#TableData');
-        var k=0;
         var text = '';
         for(var i=0;i<tableList.length;i++){
             var table=tableList[i];
             text+='<tr>'
                 +'<td>'+table.number+'</td>';
             for(var j=openingTime;j<closingTime;j++){
-                text+='<td>-</td>'
+                text+='<td id='+i+j+'>-</td>'
             }
-            // for(var j=openingTime;j<closingTime;j++){
-            //     var reservationData=reservationList[k];
-            //     if(reservationData.time==j && reservationData.table_id==i+1 || k<=reservationList.length) {
-            //         text += '<td>' + reservationData.customer_name + '</td>'
-            //         k++;
-            //     }
-            //     else
-            //         text += '<td>-</td>'
-            // }
             +'</tr>';
         }
         list.append(text);
+    }
+    function MakeTableData(){
+        var tableList = <%=TableList%>
+        var reservationList=<%=ReservationList%>
+       // var list = $('#TableData');
+       // var k=0;
+        var text = '';
+        for(var i=0;i<tableList.length;i++){
+            // var table=tableList[i];
+            // text+='<tr>'
+            //     +'<td>'+table.number+'</td>';
+            // for(var j=openingTime;j<closingTime;j++){
+            //     text+='<td>-</td>'
+            // }
+            for(var j=openingTime;j<closingTime;j++){
+                text='';
+                for(var k=0; k<reservationList.length; k++) {
+                    var reservationData = reservationList[k];
+                    if (reservationData.time == j && reservationData.table_id == i + 1) {
+                        text+=i+""+j;
+                        document.getElementById(eval("'"+text+"'")).innerText=reservationData.customer_id;
+                        // text += '<td>' + reservationData.customer_name + '</td>'
+                    }
+                }
+            }
+            // +'</tr>';
+        }
+        // list.append(text);
     }
     function MakeNewOrderTable(){
         var orderList = <%=NewOrderList%>
