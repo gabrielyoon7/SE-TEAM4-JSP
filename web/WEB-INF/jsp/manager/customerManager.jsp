@@ -175,11 +175,26 @@
     function addReservation(i){
         var orderList = <%=NewOrderList%>
         var order=orderList[i];
+        var data = order.covers+"-/-/-"+order.date+"-/-/-"+order.time+"-/-/-"+order.customer_id+"-/-/-"+order.customer_name;
+        var check=confirm("배정 하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "addReservation",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.");
+                    location.href = 'customerManager.do?date='+<%=date%>;
+                }
+            })
+        }
     }
     function MakeWalkIn() {
         var date = document.getElementById('walkInDate1').value;
         var time = document.getElementById('walkInDate2').value;
-        time+=":00:00";
         var cover = document.getElementById('walkInCovers').value;
         var table = document.getElementById('walkInTable').value;
         var data = date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table;
@@ -195,7 +210,7 @@
                 },
                 success: function (oid) {
                     alert("[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.");
-                    location.href = 'main.do';
+                    location.href = 'customerManager.do?date='+<%=date%>;
                 }
             })
         }

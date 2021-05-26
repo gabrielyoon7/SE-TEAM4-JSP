@@ -7,8 +7,17 @@ public class ReservationDTO {
     private String time;
     private String table_id;
     private String customer_id;
+    private String customer_name;
     private String arrivalTime;
     private String message;
+
+    public String getCustomer_name() {
+        return customer_name;
+    }
+
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
+    }
 
     public String getOid() {
         return oid;
