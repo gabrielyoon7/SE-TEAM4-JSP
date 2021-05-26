@@ -7,12 +7,12 @@ import com.se.team4.common.controller.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MenuAction implements Action {
+public class MenuInfoAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Gson gson = new Gson();
-        String type = request.getParameter("type");
-        request.setAttribute("menuList", gson.toJson(MenuDAO.getInstance().getMenuList(type)));
-        return "RequestDispatcher:jsp/menu/menu.jsp";
+        String oid = request.getParameter("oid");
+        request.setAttribute("menu", gson.toJson(MenuDAO.getInstance().getMenu(oid)));
+        return "RequestDispatcher:jsp/menu/menuInfo.jsp";
     }
 }

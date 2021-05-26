@@ -21,16 +21,18 @@ public class MenuDAO {
             it = new MenuDAO();
         return it;
     }
-    public ArrayList<MenuDTO> getMenuList() {
+    public ArrayList<MenuDTO> getMenuList(String type) {
         ArrayList<MenuDTO> result = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-
+            if(type.equals("all")){
                 list = queryRunner.query(conn, "SELECT * FROM Menu", new MapListHandler());
-
-
+            }
+            else{
+                list = queryRunner.query(conn, "SELECT * FROM Menu WHERE type =?", new MapListHandler(), type);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -44,5 +46,21 @@ public class MenuDAO {
     }
 
 
-
+    public MenuDTO getMenu(String oid) {
+        ArrayList<MenuDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM Menu WHERE oid =?", new MapListHandler(), oid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<MenuDTO>>() {
+        }.getType());
+        return result.get(0);
+    }
 }

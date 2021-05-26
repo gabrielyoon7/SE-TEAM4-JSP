@@ -22,10 +22,14 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2020.05.27
+  - [허수빈] 경고문 알림 개선
   - [김우중] CustomerManager 페이지 Table 출력
+  - [윤주현] 메뉴 View 버튼 활성화 (메뉴 정보 단독페이지 출력 가능토록 구현), 메뉴 타입별 출력 기능 추가
 - 2020.05.26
   - [송성호] ReservationDAO addReservation 메소드 date 전달 수정
+  - [윤주현] bootstrapTable 버그수정 및 기능 활성화
 - 2020.05.25
+  - [허수빈] 각종 디자인 전면 개편
   - [김우중] customerManager페이지 walkIn버튼 구현
 - 2020.05.23
   - [최예슬] WalkIn 페이지에 modal 연결, Packing 페이지에 이미지 연동

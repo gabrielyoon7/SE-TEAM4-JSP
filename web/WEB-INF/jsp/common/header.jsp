@@ -72,7 +72,7 @@
 						<a class="nav-link active" aria-current="page" href="brand.do">Brand</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="menu.do">Menu</a>
+						<a class="nav-link active" aria-current="page" href="menu.do?type=all">Menu</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="reservation.do">Reservation</a>

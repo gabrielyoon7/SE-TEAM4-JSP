@@ -58,6 +58,14 @@
                 <h1 class="fw-light">Check the menu</h1>
                 <p style="font-family: 'Noto Serif KR', serif;" class="lead text-muted">아래의 다양한 메뉴들을 직접 확인하세요.</p>
             </div>
+            <div>
+                <a href="menu.do?type=all">메뉴 전체보기</a>
+                <a href="menu.do?type=치킨">치킨</a>
+                <a href="menu.do?type=피자">피자</a>
+                <a href="menu.do?type=스테이크">스테이크</a>
+                <a href="menu.do?type=파스타">파스타</a>
+                <a href="menu.do?type=음료">음료</a>
+            </div>
         </div>
     </section>
 
@@ -96,13 +104,16 @@
                 +'<p class="card-text">'+data[i].notice+'</p>'
                 +'<div class="d-flex justify-content-between align-items-center">'
                 +'<div class="btn-group">'
-                +'<button type="button" class="btn btn-sm btn-outline-secondary">View</button>'
+                +'<button type="button" class="btn btn-sm btn-outline-secondary" onclick="gotoMenuInfo('+data[i].oid+')">View</button>'
                 +'<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></div>'
                 +'<small class="text-muted">'+data[i].price+' 원</small>'
                 +'<small class="text-muted">조리시간 : '+data[i].cookingTime+'분</small>'
                 +'</div></div></div></div>';
         }
         list.append(text);
+    }
+    function gotoMenuInfo(oid){
+        location.href='menuInfo.do?oid='+oid;
     }
 </script>
 </html>
