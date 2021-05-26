@@ -63,21 +63,42 @@
     </div>
     <div>
         <p>갱신리스트</p>
-        <table class="table">
+<%--        <table class="table">--%>
+<%--            <thead>--%>
+<%--            <tr>--%>
+<%--                <th>oid</th> <!--이름을 넣는거는 어떨까요? >>>> 넣었습니다-->--%>
+<%--                <th>인원수</th>--%>
+<%--                <th>날짜</th>--%>
+<%--                <th>시간</th>--%>
+<%--                <th>이름</th>--%>
+<%--                <th>아이디</th>--%>
+<%--                <th>요청사항</th>--%>
+<%--                <th>버튼</th>--%>
+<%--            </tr>--%>
+<%--            </thead>--%>
+<%--            <tbody id="DataList"></tbody>--%>
+<%--        </table>--%>
+
+        <table class="boardtable" id="table" data-toggle="table"
+               data-pagination="true" data-toolbar="#toolbar"
+               data-search="true" data-side-pagination="true" data-click-to-select="true"
+               data-page-list="[10]">
             <thead>
             <tr>
-                <th>oid</th> <!--이름을 넣는거는 어떨까요? >>>> 넣었습니다-->
-                <th>인원수</th>
-                <th>날짜</th>
-                <th>시간</th>
-                <th>이름</th>
-                <th>아이디</th>
-                <th>요청사항</th>
-                <th>버튼</th>
+                <th data-field="action">설정</th>
+                <th data-field="oid" data-sortable="true">oid</th>
+                <th data-field="covers" data-sortable="true">인원수</th>
+                <th data-field="date" data-sortable="true">날짜</th>
+                <th data-field="time" data-sortable="true">시간</th>
+                <th data-field="customer_name" data-sortable="true">이름</th>
+                <th data-field="customer_id" data-sortable="true">아이디</th>
+                <th data-field="message" data-sortable="true">요청사항</th>
             </tr>
             </thead>
-            <tbody id="DataList"></tbody>
+            <%--    <tbody id="TableData">--%>
+            <%--    </tbody>--%>
         </table>
+
     </div>
 </main>
 </body>
@@ -88,8 +109,10 @@
         MakeTableHead();
         MakeTableBody();
         MakeTableData();
-        MakeNewOrderTable();
+        // MakeNewOrderTable();
+        callSetupTableView();
     })
+
     var openingTime = 10;
     var closingTime = 22;
     function MakeModalData(){
@@ -183,25 +206,55 @@
         }
         // list.append(text);
     }
-    function MakeNewOrderTable(){
+
+
+    <%--function MakeNewOrderTable(){--%>
+    <%--    var orderList = <%=NewOrderList%>--%>
+    <%--    var list = $('#DataList');--%>
+    <%--    var text = '';--%>
+    <%--    for(var i=0;i<orderList.length;i++){--%>
+    <%--        var order=orderList[i];--%>
+    <%--        text+='<tr>'--%>
+    <%--            + '<th>'+order.oid+'</th>'--%>
+    <%--            + '<th>'+order.covers+'</th>'--%>
+    <%--            + '<th>'+order.date+'</th>'--%>
+    <%--            + '<th>'+order.time+'</th>'--%>
+    <%--            + '<th>'+order.customer_name+'</th>'--%>
+    <%--            + '<th>'+order.customer_id+'</th>'--%>
+    <%--            + '<th>'+order.message+'</th>'--%>
+    <%--            + '<th><button onclick="addReservation('+i+')">예약 배정</button></th>'--%>
+    <%--            +'</tr>';--%>
+    <%--    }--%>
+    <%--    list.append(text);--%>
+    <%--}--%>
+
+    function callSetupTableView(){
+        $('#table').bootstrapTable('load',data());
+        // $('#table').bootstrapTable('append',data());
+        $('#table').bootstrapTable('refresh');
+    }
+
+    function data(){
         var orderList = <%=NewOrderList%>
-        var list = $('#DataList');
-        var text = '';
+        var rows = [];
         for(var i=0;i<orderList.length;i++){
             var order=orderList[i];
-            text+='<tr>'
-                + '<th>'+order.oid+'</th>'
-                + '<th>'+order.covers+'</th>'
-                + '<th>'+order.date+'</th>'
-                + '<th>'+order.time+'</th>'
-                + '<th>'+order.customer_name+'</th>'
-                + '<th>'+order.customer_id+'</th>'
-                + '<th>'+order.message+'</th>'
-                + '<th><button onclick="addReservation('+i+')">예약 배정</button></th>'
-                +'</tr>';
+            rows.push({
+                oid: order.oid,
+                covers: order.covers,
+                date: order.date,
+                time: order.time,
+                customer_name: order.customer_name,
+                customer_id: order.customer_id,
+                message: order.message,
+                action : '<button onclick="addReservation('+i+')">예약 배정</button>'
+            });
         }
-        list.append(text);
+        return rows;
     }
+
+
+
     function addReservation(i){
         var orderList = <%=NewOrderList%>
         var order=orderList[i];

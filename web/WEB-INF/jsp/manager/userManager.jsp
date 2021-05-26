@@ -28,6 +28,52 @@
 <%--            display: none;--%>
 <%--        }--%>
 <%--    </style>--%>
+
+<%--    <style>--%>
+<%--        #maincontent {--%>
+<%--            padding: 0;--%>
+<%--        }--%>
+
+<%--        #maincontent>ul {--%>
+<%--            padding: 10px;--%>
+<%--        }--%>
+<%--        .boardtable > thead > tr > th:nth-child(2) {--%>
+<%--            min-width: 30px;--%>
+<%--        }--%>
+
+<%--        .boardtable > tbody > tr > td:nth-child(2) {--%>
+<%--            min-width: 30px;--%>
+<%--        }--%>
+<%--        .boardtable > thead > tr > th:nth-child(3) {--%>
+<%--            min-width: 100px;--%>
+<%--        }--%>
+
+<%--        .boardtable > thead > tr > th:nth-child(5) {--%>
+<%--            width: 120px;--%>
+<%--            min-width:120px;--%>
+<%--        }--%>
+
+<%--        .boardtable > tbody > tr > td:nth-child(3) {--%>
+<%--            font-family: 'Nanum Gothic', sans-serif;--%>
+<%--            min-width: 100px;--%>
+<%--        }--%>
+
+<%--        .boardtable > tbody > tr > td:nth-child(5) {--%>
+<%--            width: 120px;--%>
+<%--            min-width:120px;--%>
+<%--        }--%>
+<%--        .boardtable > thead > tr > th:nth-child(2) {--%>
+<%--            min-width: 150px;--%>
+<%--        }--%>
+<%--        .boardtable > thead > tr > th:nth-child(7), .boardtable > tbody > tr > td:nth-child(7){--%>
+<%--            width:60px;--%>
+<%--            min-width:60px;--%>
+<%--        }--%>
+<%--        .boardtable > thead > tr > th:nth-child(1), .boardtable > tbody > tr > td:nth-child(1){--%>
+<%--            width:50px;--%>
+<%--            min-width:50px;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
