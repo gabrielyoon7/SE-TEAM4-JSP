@@ -39,8 +39,8 @@ public class ReservationDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {
         }.getType());
-        System.out.println(list);
-        System.out.println(result.get(0).getDate());
+       // System.out.println(list);
+       // System.out.println(result.get(0).getDate());
         return result;
     }
     public String addReservationRequest(String data) {    //고객 예약 요청 리스트 추가
@@ -101,8 +101,22 @@ public class ReservationDAO {
     public String addReservation(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-"); //order.covers+"-/-/-"+order.date+"-/-/-"+order.time+"-/-/-"+order.customer_id;+"-/-/-"+order.customer_name
         String covers = arr[0];
-        String date = arr[1];//	5월 26, 2021
-        //String newDate
+        //	5월 26, 2021
+//        String newDate[]=arr[1].split(", ");
+//        String mmddyy[]=newDate[0].split("월 ");
+//        mmddyy[2]=newDate[1];
+//        if(mmddyy[1].length()<2)
+//            mmddyy[1]="0"+mmddyy[1];
+//        String date = mmddyy[2]+"-"+mmddyy[0]+"-"+mmddyy[1];
+
+        String date = arr[1];
+        String target = "월";
+        int target_num = date.indexOf(target);
+        String s1 = date.substring(0,3);
+        String s2 = date.substring(4,target_num-1);
+        String s3 = date.substring(target_num+1,date.length());
+        date = s1+s2+s3;
+
         String time = arr[2];
         String id = arr[3];
         String name=arr[4];
@@ -113,7 +127,7 @@ public class ReservationDAO {
         try{
             QueryRunner que = new QueryRunner();
             que.query(conn,"INSERT Reservation SET covers=?, date=?,time=?,customer_name=?,customer_id=?, table_id=?;",new MapListHandler(),
-                    covers,date,time,name,id,"1" );
+                    covers,date,time,name,id, 1 );
 //            System.out.println("ddd");
 //            System.out.println(list);
         }catch(SQLException e){
@@ -126,12 +140,13 @@ public class ReservationDAO {
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {}.getType());
 
-//        System.out.println(result.get(0).getOid());
+        System.out.println(date);
         return result.get(0).getOid();
     }
-    public static String dateToString(Date date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(date);
-    }
+
+//    public static String dateToString(Date date) {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        return sdf.format(date);
+//    }
 
 }
