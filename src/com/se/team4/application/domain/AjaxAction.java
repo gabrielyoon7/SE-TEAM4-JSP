@@ -84,6 +84,7 @@ public class AjaxAction implements Action {
                 break;
             case "reservationRequest":
                 result=ReservationDAO.getInstance().addReservationRequest(data);
+                System.out.println(result);
                 break;
             case "walkInRequest":
                 result= WalkInDAO.getInstance().addWalkInRequest(data);

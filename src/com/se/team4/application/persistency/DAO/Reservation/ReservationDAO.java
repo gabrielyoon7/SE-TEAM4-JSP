@@ -63,7 +63,8 @@ public class ReservationDAO {
         return result;
     }
     public String addReservationRequest(String data) {    //고객 예약 요청 리스트 추가
-        String arr[] = data.split("-/-/-");
+        System.out.println(data);
+        String arr[] = data.split("-/-/-"); //data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
         String covers = arr[0];
         String date = arr[1];
         String time = arr[2];
@@ -90,9 +91,9 @@ public class ReservationDAO {
         ArrayList<ReservationRequestDTO> result = null;
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {}.getType());
-
-//        System.out.println(result.get(0).getOid());
-        return result.get(0).getOid();
+        System.out.println(result.get(0).getOid());
+        String oid = result.get(0).getOid();
+        return oid;
     }
 
     public ArrayList<?> getSchedule(String date) {

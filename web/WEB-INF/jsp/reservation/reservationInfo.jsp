@@ -158,56 +158,85 @@
             +'<div class="invalid-feedback">방문하실 시간을 입력하세요.</div>';
         list.append(text);
     }
-    function completeReservationRequest(){  //예약요청 데이터를 ajax로 전달하는 함수
+    <%--function completeReservationRequest(){  //예약요청 데이터를 ajax로 전달하는 함수--%>
+    <%--    var user=<%=user%>;--%>
+    <%--    var date = <%=date%>--%>
+    <%--    var time = <%=time%>--%>
+    <%--    var covers = $('#covers').val();--%>
+    <%--    var message = $('#message').val();--%>
+    <%--    var data = covers+'-/-/-'+date+'-/-/-'+time+'-/-/-'+user.name+'-/-/-'+user.id+'-/-/-'+message;--%>
+    <%--    alert(data);--%>
+    <%--    --%>
+    <%--    var check =--%>
+    <%--        swal({--%>
+    <%--            title : '예약을 하시겠습니까?',--%>
+    <%--            icon : 'info',--%>
+
+    <%--            buttons : {--%>
+    <%--                cancel : {--%>
+    <%--                    text : '취소',--%>
+    <%--                    value: false,--%>
+    <%--                    className : 'btn btn-danger'--%>
+    <%--                },--%>
+    <%--                confirm: {--%>
+    <%--                    text: '확인',--%>
+    <%--                    value: true,--%>
+    <%--                    className : 'btn btn-primary'--%>
+    <%--                },--%>
+    <%--            }--%>
+    <%--        }).then((check)  => {--%>
+    <%--            alert(data);--%>
+    <%--            if(check) {--%>
+    <%--                $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.--%>
+    <%--                    url: "ajax.do", //ajax.do(ajaxAction)에 있는--%>
+    <%--                    type: "post",--%>
+    <%--                    data: {--%>
+    <%--                        req: "reservationRequest",--%>
+    <%--                        data: data--%>
+    <%--                    },--%>
+    <%--                    success: function (oid) {--%>
+    <%--                        swal({--%>
+    <%--                            title: '예약 성공!',--%>
+    <%--                            text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",--%>
+    <%--                            icon: 'success',--%>
+    <%--                            button: '확인'--%>
+    <%--                        }).then(function ()--%>
+    <%--                        {--%>
+    <%--                            location.href = 'main.do';--%>
+    <%--                        });--%>
+    <%--                    }--%>
+    <%--                })--%>
+    <%--            }--%>
+
+    <%--        });--%>
+    <%--}--%>
+
+
+    function completeReservationRequest(){ //왜 오류나는지 모르겠음!
         var user=<%=user%>;
         var date = <%=date%>
         var time = <%=time%>
         var covers = $('#covers').val();
         var message = $('#message').val();
-        var data = covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message;
-
-        var check =
-            swal({
-                title : '예약을 하시겠습니까?',
-                icon : 'info',
-
-                buttons : {
-                    cancle : {
-                        text : '취소',
-                        value: false,
-                        className : 'btn btn-danger'
-                    },
-                    confirm: {
-                        text: '확인',
-                        value: true,
-                        className : 'btn btn-primary'
-                    },
+        var data = covers+'-/-/-'+date+'-/-/-'+time+'-/-/-'+user.name+'-/-/-'+user.id+'-/-/-'+message;
+        var check = confirm("냥?");
+        if(check){
+            $.ajax({
+                url : "ajax.do", //AjaxAction
+                type : "post",
+                data : {
+                    req : "reservationRequest",
+                    data : data
+                },
+                success :function(oid){
+                    console.log(oid);
+                    alert(oid);
+                    location.href='main.do';
                 }
-            }).then((check)  => {
-                if(check) {
-                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                        type: "post",
-                        data: {
-                            req: "reservationRequest",
-                            ata: data
-                        },
-                        success: function (oid) {
-                            swal({
-                                title: '예약 성공!',
-                                text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
-                                icon: 'success',
-                                button: '확인'
-                            }).then(function ()
-                            {
-                                location.href = 'main.do';
-                            });
-                        }
-                    })
-                }
-
-            });
+            })
+        }
     }
+
 </script>
 
 </body></html>

@@ -173,7 +173,7 @@
                 icon : 'info',
 
                 buttons : {
-                    cancle : {
+                    cancel : {
                         text : '취소',
                         value: false,
                         className : 'btn btn-danger'
