@@ -108,7 +108,7 @@
                 <rect width="100%" height="100%" fill="#777"/>
                 <h2 style="font-family: 'Noto Serif KR', serif;">메뉴 보기</h2>
                 <p style="font-family: 'Noto Serif KR', serif;">Little4 Restaurnt의 메뉴를 구경하세요!</p>
-                <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-dark" href="menu.do">메뉴 보기 &raquo;</a></p>
+                <p style="font-family: 'Noto Serif KR', serif;"><a class="btn btn-dark" href="menu.do?type=all">메뉴 보기 &raquo;</a></p>
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img src="img/table.png" width="110" height="110">

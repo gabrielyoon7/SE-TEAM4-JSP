@@ -43,13 +43,13 @@ public class ReservationDAO {
        // System.out.println(result.get(0).getDate());
         return result;
     }
-    public ArrayList<ReservationDTO> getReservationList() {  //고객 예약 리스트 db 불러오기
+    public ArrayList<ReservationDTO> getReservationList(String date) {  //고객 예약 리스트 db 불러오기
         ArrayList<ReservationDTO> result = null;
         List<Map<String, Object>> list = null;
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM Reservation", new MapListHandler());
+            list = queryRunner.query(conn, "SELECT * FROM Reservation WHERE date=?", new MapListHandler(), date);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

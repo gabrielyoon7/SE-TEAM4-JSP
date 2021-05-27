@@ -16,7 +16,7 @@ public class CustomerManagerAction implements Action {
         request.setAttribute("date", gson.toJson(date));//다음 페이지로 date 파라미터를 그대로 넘김
         request.setAttribute("TableList", gson.toJson(ReservationDAO.getInstance().getTables()));
         request.setAttribute("NewOrderList", gson.toJson(ReservationDAO.getInstance().getReservationRequestList()));
-        request.setAttribute("ReservationList", gson.toJson(ReservationDAO.getInstance().getReservationList()));
+        request.setAttribute("ReservationList", gson.toJson(ReservationDAO.getInstance().getReservationList(date)));
         return "RequestDispatcher:jsp/manager/customerManager.jsp";
     }
 }

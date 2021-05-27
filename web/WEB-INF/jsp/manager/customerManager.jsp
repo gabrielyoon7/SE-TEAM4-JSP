@@ -33,6 +33,7 @@
                 <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date of Birth" required>
             </div>
             <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
+            <button type="button" class="btn btn-primary btn-lg" onclick="reload()" >날짜 이동하기</button>
             <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -112,6 +113,7 @@
         // MakeNewOrderTable();
         callSetupTableView();
     })
+
 
     var openingTime = 10;
     var closingTime = 22;
@@ -298,20 +300,17 @@
             })
         }
     }
-    // function goToWalkIn(){
-    //
-    //     var date=$('#reservationDate').val();
-    //
-    //
-    //     if(date!=''){
-    //         alert('');
-    //     }
-    //     else {
-    //         // alert(date);
-    //         alert("날짜를 선택해주세요!");
-    //     }
-    //
-    // }
+    function reload(){
+        var date=$('#reservationDate').val();
+        if(date!=''){
+            location.href = 'customerManager.do?date='+date;
+        }
+        else {
+            // alert(date);
+            alert("날짜를 선택해주세요!");
+        }
+
+    }
 
 </script>
 </html>
