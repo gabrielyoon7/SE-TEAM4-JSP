@@ -128,20 +128,10 @@ public class ReservationDAO {
 //        if(mmddyy[1].length()<2)
 //            mmddyy[1]="0"+mmddyy[1];
 //        String date = mmddyy[2]+"-"+mmddyy[0]+"-"+mmddyy[1];
-
         String date = arr[1];
-
         String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
-
-
         String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
-
-
         date = array2[1]+"-"+array[0]+"-"+array2[0];
-
-
-
-
         String time = arr[2];
         String id = arr[3];
         String name=arr[4];
@@ -149,12 +139,19 @@ public class ReservationDAO {
         int verifyCode=random.nextInt(100000000);
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
+        List<Map<String, Object>> table = null;
+        List<Map<String, Object>> check_reservation = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn,"INSERT Reservation SET covers=?, date=?,time=?,customer_name=?,customer_id=?, table_id=?;",new MapListHandler(),
-                    covers,date,time,name,id, 1 );
-//            System.out.println("ddd");
-//            System.out.println(list);
+            table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
+            for(int table_id = 1; table_id<=table.size();table_id++){//모든 테이블 좌석 검사
+                check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=? AND table_id=?", new MapListHandler(),date,time,table_id);
+                if(check_reservation.size()==0){
+                    que.query(conn,"INSERT Reservation SET covers=?, date=?,time=?,customer_name=?,customer_id=?, table_id=?;",new MapListHandler(),
+                            covers,date,time,name,id, table_id );
+                    break;
+                }
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -164,8 +161,6 @@ public class ReservationDAO {
         ArrayList<ReservationDTO> result = null;
         Gson gson = new Gson();
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {}.getType());
-
-
         return result.get(0).getOid();
     }
 
