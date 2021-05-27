@@ -22,7 +22,7 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2020.05.28
-  - [윤주현] 부트스트랩 테이블 버그 전면 수정
+  - [윤주현] 부트스트랩 테이블 버그 전면 수정, Reservation 테이블 자동 배정 기능 추가
 - 2020.05.27
   - [허수빈] 경고문 알림 개선
   - [김우중] CustomerManager 페이지 Table 출력
