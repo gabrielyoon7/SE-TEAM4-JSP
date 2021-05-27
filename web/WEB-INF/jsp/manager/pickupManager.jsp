@@ -34,34 +34,60 @@
     <th data-field="payment" data-sortable="true">결제수단</th>
   </tr>
   </thead>
-  <tbody id="TableData">
-  </tbody>
 </table>
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
   $(document).ready(function(){
-    MakeTableData();
+    // MakeTableData();
+    callSetupTableView();
   })
 
   var orderInfo=<%=orderInfo%>;
-  function MakeTableData() {
-    var list = $('#TableData');
-    var text = '';
 
-    for(var i=0;i<orderInfo.length;i++){
-      text += '<tr>'
-              + '<th><button onclick="completeOrder('+i+')">주문완료</button></th>'
-              + '<th>' + orderInfo[i].name + '</th>'
-              + '<th>' + orderInfo[i].id + '</th>'
-              + '<th>' + orderInfo[i].orderedList + '</th>'
-              + '<th>' + orderInfo[i].totalPrice + '</th>'
-              + '<th>' + orderInfo[i].message + '</th>'
-              + '<th>' + orderInfo[i].payment + '</th>'
-              + '</tr>';
-    }
-    list.append(text);
+  function callSetupTableView(){
+    $('#table').bootstrapTable('load',data());
+    // $('#table').bootstrapTable('append',data());
+    $('#table').bootstrapTable('refresh');
   }
+
+  function data(){
+    var rows = [];
+    for(var i=0;i<orderInfo.length;i++){
+      var order=orderInfo[i];
+      rows.push({
+        name: order.name,
+        id: order.id,
+        orderedList: order.orderedList,
+        totalPrice: order.totalPrice,
+        message: order.message,
+        payment: order.payment,
+        action : '<button onclick="completeOrder('+i+')">주문완료</button>'
+      });
+    }
+    return rows;
+  }
+
+
+  // function MakeTableData() {
+  //   var list = $('#table');
+  //   var text = '';
+  //
+  //   for(var i=0;i<orderInfo.length;i++){
+  //     text += '<tr>'
+  //             + '<th><button onclick="completeOrder('+i+')">주문완료</button></th>'
+  //             + '<th>' + orderInfo[i].name + '</th>'
+  //             + '<th>' + orderInfo[i].id + '</th>'
+  //             + '<th>' + orderInfo[i].orderedList + '</th>'
+  //             + '<th>' + orderInfo[i].totalPrice + '</th>'
+  //             + '<th>' + orderInfo[i].message + '</th>'
+  //             + '<th>' + orderInfo[i].payment + '</th>'
+  //             + '</tr>';
+  //   }
+  //   list.append(text);
+  // }
+
+
   function completeOrder(i){ //대상자에서 삭제
     var order =orderInfo[i];
     var check = confirm(order.name+"["+order.id+"]의 주문을 완료하시겠습니까? (취소 불가능)");

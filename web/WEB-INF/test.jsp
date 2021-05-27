@@ -21,8 +21,30 @@
     <link href='../css/bootstrap.css' rel='stylesheet' type='text/css'>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/bootstrap.js"></script>
+    <link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 </head>
 <body>
+<div id="toolbar">
+    <button id="button" class="btn btn-secondary">getData</button>
+</div>
+<table
+        id="table"
+        data-toggle="table"
+        data-toolbar="#toolbar"
+        data-height="460"
+        data-side-pagination="server"
+        data-pagination="true"
+        data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data">
+    <thead>
+    <tr>
+        <th data-field="id">ID</th>
+        <th data-field="name">Item Name</th>
+        <th data-field="price">Item Price</th>
+    </tr>
+    </thead>
+</table>
 web/WEB-INF/test.jsp<br>
 테스트용 페이지.<br>
 --------DB연동 TEST-----------------<br>
@@ -39,6 +61,16 @@ web/WEB-INF/test.jsp<br>
 ----------------------로그인 테스트----------------------<br>
 <div id="loginTestMessage"></div>
 </body>
+<script>
+    var $table = $('#table')
+    var $button = $('#button')
+
+    $(function() {
+        $button.click(function () {
+            alert(JSON.stringify($table.bootstrapTable('getData')))
+        })
+    })
+</script>
 <script>
     $(document).ready(function(){
         makeinfoAll();

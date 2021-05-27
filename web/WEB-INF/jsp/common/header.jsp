@@ -32,6 +32,9 @@
 	<script src="/js/bootstrap-table-cookie.js"></script>
 	<script src="/js/bootstrap-table-export.min.js"></script>
 
+<%--	<link href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css" rel="stylesheet">--%>
+<%--	<script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>--%>
+
 
 	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 

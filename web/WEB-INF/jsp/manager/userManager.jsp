@@ -20,9 +20,9 @@
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-table.js"></script>
-    <script src="/js/bootstrap-table-cookie.js"></script>
-    <script src="/js/bootstrap-table-export.min.js"></script>
+<%--    <script src="/js/bootstrap-table.js"></script>--%>
+<%--    <script src="/js/bootstrap-table-cookie.js"></script>--%>
+<%--    <script src="/js/bootstrap-table-export.min.js"></script>--%>
 <%--    <style>--%>
 <%--        .bootstrap-table>.pull-right{--%>
 <%--            display: none;--%>
@@ -79,6 +79,28 @@
 <%@include file="../common/header.jsp" %>
 <div>현재 테이블 띄우는거 오류 있습니다. 수정 예정!!</div>
 
+<%--<table--%>
+<%--        id="table"--%>
+<%--        data-toggle="table"--%>
+<%--        data-toolbar="#toolbar"--%>
+<%--        data-height="460"--%>
+<%--        data-side-pagination="server"--%>
+<%--        data-pagination="true"--%>
+<%-->--%>
+<%--    <thead>--%>
+<%--    <tr>--%>
+<%--        <th data-field="action">설정</th>--%>
+<%--        <th data-field="type" data-sortable="true">타입</th>--%>
+<%--        <th data-field="name" data-sortable="true">이름</th>--%>
+<%--        <th data-field="id" data-sortable="true">아이디</th>--%>
+<%--        <th data-field="password" data-sortable="true">비밀번호</th>--%>
+<%--        <th data-field="birthDay" data-sortable="true">생년월일</th>--%>
+<%--        <th data-field="phoneNumber" data-sortable="true">연락처</th>--%>
+<%--        <th data-field="blackList" data-sortable="true">블랙리스트</th>--%>
+<%--    </tr>--%>
+<%--    </thead>--%>
+<%--</table>--%>
+
 <%--<table  class="boardtable" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">--%>
 <table class="boardtable" id="table" data-toggle="table"
        data-pagination="true" data-toolbar="#toolbar"
@@ -99,6 +121,8 @@
 <%--    <tbody id="TableData">--%>
 <%--    </tbody>--%>
 </table>
+
+
 </body>
 <script>
     $(document).ready(function(){
