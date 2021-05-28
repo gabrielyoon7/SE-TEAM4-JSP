@@ -151,6 +151,12 @@ INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5039,'파스타','라비올리',18000,'시금치와 리코타 치즈를 섞어 속을 채우고 납작하게 빚어낸 파스타입니다.','5039.jpg', 25);
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5040,'파스타','명란 크림 로제 파스타',16000,'부드러운 크림과 명란이 어우러진 파스타입니다.','5040.jpg', 20);
 
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5041,'음료수','사이다',2000,'사이다 입니다.','5041.jpg', 1);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5042,'음료수','콜라',2000,'콜라입니다.','5042.jpg', 1);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5043,'음료수','환타',2000,'사이다 입니다.','5043.jpg', 1);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5044,'음료수','레몬 에이드',3500,'레몬 에이드 입니다.','5044.jpg', 5);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5045,'음료수','한라봉 에이드',3500,'한라봉 에이드 입니다.','5045.jpg', 5);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5046,'음료수','청포도 에이드',3500,'청포도 에이드 입니다.','5046.jpg', 5);
 
 INSERT INTO `Table`(oid, number, places, limits ) VALUES(6000,1,1,4);
 INSERT INTO `Table`(number, places, limits ) VALUES(2,2,4);

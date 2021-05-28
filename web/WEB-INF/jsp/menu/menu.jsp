@@ -71,7 +71,7 @@
                 <a href="menu.do?type=피자">피자</a>
                 <a href="menu.do?type=스테이크">스테이크</a>
                 <a href="menu.do?type=파스타">파스타</a>
-                <a href="menu.do?type=음료">음료</a>
+                <a href="menu.do?type=음료수">음료</a>
             </div>
         </div>
     </section>
