@@ -34,7 +34,7 @@
         data-height="460"
         data-search="true"
         data-show-search-button="true"
-        data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"
+<%--        data-url="https://examples.wenzhixin.net.cn/examples/bootstrap_table/data"--%>
         data-pagination="true"
         data-side-pagination="server">
     <thead>
@@ -50,4 +50,5 @@
 <%@include file="../common/footer.jsp" %>
 </body>
 <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </html>
