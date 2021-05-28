@@ -10,7 +10,6 @@
     String TableList = (String) request.getAttribute("TableList");
     String NewOrderList = (String) request.getAttribute("NewOrderList");
     String ReservationList = (String) request.getAttribute("ReservationList");
-    String WalkInList = (String) request.getAttribute("WalkInList");
     String date = (String) request.getAttribute("date");
 %>
 <html>
@@ -20,9 +19,9 @@
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-<%--    <script src="/js/bootstrap-table.js"></script>--%>
-<%--    <script src="/js/bootstrap-table-cookie.js"></script>--%>
-<%--    <script src="/js/bootstrap-table-export.min.js"></script>--%>
+    <script src="/js/bootstrap-table.js"></script>
+    <script src="/js/bootstrap-table-cookie.js"></script>
+    <script src="/js/bootstrap-table-export.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -34,7 +33,6 @@
                 <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date of Birth" required>
             </div>
             <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
-            <button type="button" class="btn btn-primary btn-lg" onclick="reload()" >날짜 이동하기</button>
             <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -65,42 +63,21 @@
     </div>
     <div>
         <p>갱신리스트</p>
-<%--        <table class="table">--%>
-<%--            <thead>--%>
-<%--            <tr>--%>
-<%--                <th>oid</th> <!--이름을 넣는거는 어떨까요? >>>> 넣었습니다-->--%>
-<%--                <th>인원수</th>--%>
-<%--                <th>날짜</th>--%>
-<%--                <th>시간</th>--%>
-<%--                <th>이름</th>--%>
-<%--                <th>아이디</th>--%>
-<%--                <th>요청사항</th>--%>
-<%--                <th>버튼</th>--%>
-<%--            </tr>--%>
-<%--            </thead>--%>
-<%--            <tbody id="DataList"></tbody>--%>
-<%--        </table>--%>
-
-        <table class="boardtable" id="table" data-toggle="table"
-               data-pagination="true" data-toolbar="#toolbar"
-               data-search="true" data-side-pagination="true" data-click-to-select="true"
-               data-page-list="[10]">
+        <table class="table">
             <thead>
             <tr>
-                <th data-field="action">설정</th>
-                <th data-field="oid" data-sortable="true">oid</th>
-                <th data-field="covers" data-sortable="true">인원수</th>
-                <th data-field="date" data-sortable="true">날짜</th>
-                <th data-field="time" data-sortable="true">시간</th>
-                <th data-field="customer_name" data-sortable="true">이름</th>
-                <th data-field="customer_id" data-sortable="true">아이디</th>
-                <th data-field="message" data-sortable="true">요청사항</th>
+                <th>oid</th> <!--이름을 넣는거는 어떨까요? >>>> 넣었습니다-->
+                <th>인원수</th>
+                <th>날짜</th>
+                <th>시간</th>
+                <th>이름</th>
+                <th>아이디</th>
+                <th>요청사항</th>
+                <th>버튼</th>
             </tr>
             </thead>
-            <%--    <tbody id="TableData">--%>
-            <%--    </tbody>--%>
+            <tbody id="DataList"></tbody>
         </table>
-
     </div>
 </main>
 </body>
@@ -110,13 +87,9 @@
         MakeModalData();
         MakeTableHead();
         MakeTableBody();
-        MakeReservationData();
-        MakeWalkInData();
-        // MakeNewOrderTable();
-        callSetupTableView();
+        MakeTableData();
+        MakeNewOrderTable();
     })
-
-
     var openingTime = 10;
     var closingTime = 22;
     function MakeModalData(){
@@ -182,11 +155,19 @@
         }
         list.append(text);
     }
-    function MakeReservationData(){
+    function MakeTableData(){
         var tableList = <%=TableList%>
         var reservationList=<%=ReservationList%>
+       // var list = $('#TableData');
+       // var k=0;
         var text = '';
         for(var i=0;i<tableList.length;i++){
+            // var table=tableList[i];
+            // text+='<tr>'
+            //     +'<td>'+table.number+'</td>';
+            // for(var j=openingTime;j<closingTime;j++){
+            //     text+='<td>-</td>'
+            // }
             for(var j=openingTime;j<closingTime;j++){
                 text='';
                 for(var k=0; k<reservationList.length; k++) {
@@ -198,73 +179,29 @@
                     }
                 }
             }
+            // +'</tr>';
         }
+        // list.append(text);
     }
-    function MakeWalkInData(){
-        var tableList = <%=TableList%>
-        var walkInList=<%=WalkInList%>
-        var text = '';
-        for(var i=0;i<tableList.length;i++){
-            for(var j=openingTime;j<closingTime;j++){
-                text='';
-                for(var k=0; k<walkInList.length; k++) {
-                    var walkInData = walkInList[k];
-                    if (walkInData.time == j && walkInData.table_id == i + 1) {
-                        text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText=walkInData.covers+"명";
-                        // text += '<td>' + reservationData.customer_name + '</td>'
-                    }
-                }
-            }
-        }
-    }
-
-    <%--function MakeNewOrderTable(){--%>
-    <%--    var orderList = <%=NewOrderList%>--%>
-    <%--    var list = $('#DataList');--%>
-    <%--    var text = '';--%>
-    <%--    for(var i=0;i<orderList.length;i++){--%>
-    <%--        var order=orderList[i];--%>
-    <%--        text+='<tr>'--%>
-    <%--            + '<th>'+order.oid+'</th>'--%>
-    <%--            + '<th>'+order.covers+'</th>'--%>
-    <%--            + '<th>'+order.date+'</th>'--%>
-    <%--            + '<th>'+order.time+'</th>'--%>
-    <%--            + '<th>'+order.customer_name+'</th>'--%>
-    <%--            + '<th>'+order.customer_id+'</th>'--%>
-    <%--            + '<th>'+order.message+'</th>'--%>
-    <%--            + '<th><button onclick="addReservation('+i+')">예약 배정</button></th>'--%>
-    <%--            +'</tr>';--%>
-    <%--    }--%>
-    <%--    list.append(text);--%>
-    <%--}--%>
-
-    function callSetupTableView(){
-        $('#table').bootstrapTable('load',data());
-        // $('#table').bootstrapTable('append',data());
-        $('#table').bootstrapTable('refresh');
-    }
-
-    function data(){
+    function MakeNewOrderTable(){
         var orderList = <%=NewOrderList%>
-        var rows = [];
+        var list = $('#DataList');
+        var text = '';
         for(var i=0;i<orderList.length;i++){
             var order=orderList[i];
-            rows.push({
-                oid: order.oid,
-                covers: order.covers,
-                date: order.date,
-                time: order.time,
-                customer_name: order.customer_name,
-                customer_id: order.customer_id,
-                message: order.message,
-                action : '<button onclick="addReservation('+i+')">예약 배정</button>'
-            });
+            text+='<tr>'
+                + '<th>'+order.oid+'</th>'
+                + '<th>'+order.covers+'</th>'
+                + '<th>'+order.date+'</th>'
+                + '<th>'+order.time+'</th>'
+                + '<th>'+order.customer_name+'</th>'
+                + '<th>'+order.customer_id+'</th>'
+                + '<th>'+order.message+'</th>'
+                + '<th><button onclick="addReservation('+i+')">예약 배정</button></th>'
+                +'</tr>';
         }
-        // alert(rows);
-        return rows;
+        list.append(text);
     }
-
     function addReservation(i){
         var orderList = <%=NewOrderList%>
         var order=orderList[i];
@@ -302,28 +239,26 @@
                     data: data
                 },
                 success: function (oid) {
-                    if(oid=="-1"){
-                        alert("이미 입석한 손님이 존재합니다.");
-                    }
-                    else {
-                        alert("[예약번호:" + oid + "]의 현장 예약이 정상적으로 요청되었습니다.");
-                    }
+                    alert("[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.");
                     location.href = 'customerManager.do?date='+<%=date%>;
                 }
             })
         }
     }
-    function reload(){
-        var date=$('#reservationDate').val();
-        if(date!=''){
-            location.href = 'customerManager.do?date='+date;
-        }
-        else {
-            // alert(date);
-            alert("날짜를 선택해주세요!");
-        }
-
-    }
+    // function goToWalkIn(){
+    //
+    //     var date=$('#reservationDate').val();
+    //
+    //
+    //     if(date!=''){
+    //         alert('');
+    //     }
+    //     else {
+    //         // alert(date);
+    //         alert("날짜를 선택해주세요!");
+    //     }
+    //
+    // }
 
 </script>
 </html>

@@ -8,13 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
     <title>Title</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+   <%-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/"> --%> 아직
     <!-- Bootstrap core CSS -->
 <%--    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">--%>
 
@@ -73,7 +78,7 @@
 
                         <div class="col-12">
                             <label for="password" class="form-label" style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
-                            <input type="text" class="form-control" id="password" placeholder="1234 Main St" required>
+                            <input type="text" class="form-control" id="password" placeholder="1234 Main St" required="">
                             <div class="invalid-feedback">
                                 비밀번호를 입력해주세요.
                             </div>

@@ -21,7 +21,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+
+
+  <style>
   .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -45,6 +54,7 @@
    is template -->
 <link href="css/signin.css" rel="stylesheet">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
 <main class="form-signin">
 
   <form>
