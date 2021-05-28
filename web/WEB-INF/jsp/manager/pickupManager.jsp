@@ -14,6 +14,8 @@
   <title>Title</title>
   <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
   <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
 <%--  <script src="/js/jquery-3.2.1.min.js"></script>--%>
 <%--  <script src="/js/bootstrap.min.js"></script>--%>
 <%--  <script src="/js/bootstrap-table.js"></script>--%>
@@ -22,7 +24,8 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
-<table  class="boardtable" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
+<div id="container" class="py-5 row text-center" style="font-family: 'Noto Serif KR', serif;">
+<table  class="boardtable" style="font-family: 'Noto Serif KR', serif;" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
   <thead>
   <tr>
     <th data-field="action">설정</th>
@@ -35,6 +38,8 @@
   </tr>
   </thead>
 </table>
+  </div>
+</div>
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
