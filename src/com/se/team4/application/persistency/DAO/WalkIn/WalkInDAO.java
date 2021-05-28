@@ -37,17 +37,20 @@ public class WalkInDAO {
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
         List<Map<String, Object>> check_walkIn = null;
+        List<Map<String, Object>> check_reservation = null;
         try{
             QueryRunner que = new QueryRunner();
             check_walkIn=que.query(conn,"SELECT * FROM WalkIn WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
                     date,time,table);
-            if(check_walkIn.size()==0) {
+            check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
+                    date,time,table);
+            if(check_walkIn.size()+check_reservation.size()==0) {
                 que.query(conn, "INSERT WalkIn SET covers=?, date=?, time=?, table_id=?, verifyCode=?;", new MapListHandler(),
                         covers, date, time, table, verifyCode);
             }
             else {
                 System.out.println("이미 입석한 손님 존재");
-                return "-1";
+                return "-1"; // 오류의 표시
             }
 //            System.out.println("ddd");
 //            list = que.query(conn, "SELECT * FROM WalkIn WHERE verifyCode=?", new MapListHandler(), verifyCode);

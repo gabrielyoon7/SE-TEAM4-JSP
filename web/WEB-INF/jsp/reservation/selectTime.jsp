@@ -145,15 +145,35 @@
 
     function reservationRequest() {
         var date=$('#reservationDate').val();
-        if(date!=''&&selectedTime.length!=0){
-            location.href = 'reservationInfo.do?date='+date+'&&time='+selectedTime[0];
-        }
-        else{
-            swal({
-                title : '날짜 혹은 일정을 선택해주세요!',
-                icon : 'error',
-                button : '확인',
-            });
+        var time=selectedTime;
+        var data=time+"-/-/-"+date;
+        var check = confirm("냥?");
+        if(check){
+            $.ajax({
+                url : "ajax.do", //AjaxAction
+                type : "post",
+                data : {
+                    req : "checkReservationRequest",
+                    data : data
+                },
+                success :function(oid){
+                    if(oid=="-1"){
+                        alert("해당 시간은 만석입니다");
+                    }
+                    else{
+                        if(date!=''&&selectedTime.length!=0){
+                            location.href = 'reservationInfo.do?date='+date+'&&time='+selectedTime[0];
+                        }
+                        else{
+                            swal({
+                                title : '날짜 혹은 일정을 선택해주세요!',
+                                icon : 'error',
+                                button : '확인',
+                            });
+                        }
+                    } //if else끝
+                }
+            }) // ajax끝
         }
     }
 

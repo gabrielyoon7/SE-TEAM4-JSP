@@ -77,11 +77,11 @@ public class ReservationDAO {
         List<Map<String, Object>> list = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn,"INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;",new MapListHandler(),
-                    covers,date,time,name,id,message,verifyCode );
-//            System.out.println("ddd");
+            que.query(conn, "INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;", new MapListHandler(),
+                      covers, date, time, name, id, message, verifyCode);
+//          System.out.println("ddd");
             list = que.query(conn, "SELECT * FROM ReservationRequest WHERE verifyCode=?", new MapListHandler(), verifyCode);
-//            System.out.println(list);
+//          System.out.println(list);
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -165,6 +165,34 @@ public class ReservationDAO {
         return result.get(0).getOid();
     }
 
+    public String checkReservationRequest(String data){
+        String arr[] = data.split("-/-/-");
+        String time=arr[0];
+        String date=arr[1];
+        System.out.println(time);
+        Connection conn = Config.getInstance().sqlLogin();
+        List<Map<String, Object>> list = null;
+        List<Map<String, Object>> table = null;
+        List<Map<String, Object>> check_reservation_request = null;
+        try{
+            QueryRunner que = new QueryRunner();
+            table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
+            check_reservation_request=que.query(conn,"SELECT * FROM ReservationRequest WHERE date=? AND time=?", new MapListHandler(),date,time);
+                if(check_reservation_request.size()==table.size()){
+                    return "-1";
+                }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            DbUtils.closeQuietly(conn);
+        }
+//        ArrayList<ReservationDTO> result = null;
+//        Gson gson = new Gson();
+//        result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationDTO>>() {}.getType());
+        return "";
+    }
 //    public static String dateToString(Date date) {
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //        return sdf.format(date);
