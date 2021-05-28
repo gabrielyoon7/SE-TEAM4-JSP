@@ -140,13 +140,16 @@ public class ReservationDAO {
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
         List<Map<String, Object>> table = null;
+        List<Map<String, Object>> check_walkIn = null;
         List<Map<String, Object>> check_reservation = null;
         try{
             QueryRunner que = new QueryRunner();
             table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
             for(int table_id = 1; table_id<=table.size();table_id++){//모든 테이블 좌석 검사
+                check_walkIn=que.query(conn,"SELECT * FROM WalkIn WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
+                        date,time,table_id);
                 check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=? AND table_id=?", new MapListHandler(),date,time,table_id);
-                if(check_reservation.size()==0){
+                if(check_walkIn.size()+check_reservation.size()==0){
                     que.query(conn,"INSERT Reservation SET covers=?, date=?,time=?,customer_name=?,customer_id=?, table_id=?;",new MapListHandler(),
                             covers,date,time,name,id, table_id );
                     que.query(conn, "DELETE FROM ReservationRequest WHERE customer_id=? AND time=?", new MapListHandler(), id, time);
