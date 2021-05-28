@@ -3,6 +3,7 @@ package com.se.team4.application.domain.admin;
 import com.google.gson.Gson;
 import com.se.team4.application.persistency.DAO.Home.HomeDAO;
 import com.se.team4.application.persistency.DAO.Reservation.ReservationDAO;
+import com.se.team4.application.persistency.DAO.WalkIn.WalkInDAO;
 import com.se.team4.common.controller.Action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ public class CustomerManagerAction implements Action {
         request.setAttribute("TableList", gson.toJson(ReservationDAO.getInstance().getTables()));
         request.setAttribute("NewOrderList", gson.toJson(ReservationDAO.getInstance().getReservationRequestList()));
         request.setAttribute("ReservationList", gson.toJson(ReservationDAO.getInstance().getReservationList(date)));
+        request.setAttribute("WalkInList", gson.toJson(WalkInDAO.getInstance().getWalkInList(date)));
         return "RequestDispatcher:jsp/manager/customerManager.jsp";
     }
 }

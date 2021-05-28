@@ -3,6 +3,7 @@ package com.se.team4.application.persistency.DAO.WalkIn;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.se.team4.application.persistency.DAO.Reservation.ReservationDAO;
+import com.se.team4.application.persistency.DTO.Reservation.ReservationDTO;
 import com.se.team4.application.persistency.DTO.Reservation.ReservationRequestDTO;
 import com.se.team4.application.persistency.DTO.WalkIn.WalkInDTO;
 import com.se.team4.common.sql.Config;
@@ -35,12 +36,21 @@ public class WalkInDAO {
         int verifyCode=random.nextInt(100000000);
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
+        List<Map<String, Object>> check_walkIn = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn,"INSERT WalkIn SET covers=?, date=?, time=?, table_id=?, verifyCode=?;",new MapListHandler(),
-                    covers,date,time,table, verifyCode );
+            check_walkIn=que.query(conn,"SELECT * FROM WalkIn WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
+                    date,time,table);
+            if(check_walkIn.size()==0) {
+                que.query(conn, "INSERT WalkIn SET covers=?, date=?, time=?, table_id=?, verifyCode=?;", new MapListHandler(),
+                        covers, date, time, table, verifyCode);
+            }
+            else {
+                System.out.println("이미 입석한 손님 존재");
+                return "-1";
+            }
 //            System.out.println("ddd");
-            list = que.query(conn, "SELECT * FROM WalkIn WHERE verifyCode=?", new MapListHandler(), verifyCode);
+//            list = que.query(conn, "SELECT * FROM WalkIn WHERE verifyCode=?", new MapListHandler(), verifyCode);
 //            System.out.println(list);
         }catch(SQLException e){
             e.printStackTrace();
@@ -55,5 +65,24 @@ public class WalkInDAO {
 
 //        System.out.println(result.get(0).getOid());
         return result.get(0).getOid();
+    }
+    public ArrayList<WalkInDTO> getWalkInList(String date) {  //고객 예약 리스트 db 불러오기
+        ArrayList<WalkInDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM WalkIn WHERE date=?", new MapListHandler(), date);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<WalkInDTO>>() {
+        }.getType());
+        // System.out.println(list);
+        // System.out.println(result.get(0).getDate());
+        return result;
     }
 }

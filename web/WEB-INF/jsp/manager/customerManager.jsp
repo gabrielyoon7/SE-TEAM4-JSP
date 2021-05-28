@@ -10,6 +10,7 @@
     String TableList = (String) request.getAttribute("TableList");
     String NewOrderList = (String) request.getAttribute("NewOrderList");
     String ReservationList = (String) request.getAttribute("ReservationList");
+    String WalkInList = (String) request.getAttribute("WalkInList");
     String date = (String) request.getAttribute("date");
 %>
 <html>
@@ -109,7 +110,8 @@
         MakeModalData();
         MakeTableHead();
         MakeTableBody();
-        MakeTableData();
+        MakeReservationData();
+        MakeWalkInData();
         // MakeNewOrderTable();
         callSetupTableView();
     })
@@ -180,19 +182,11 @@
         }
         list.append(text);
     }
-    function MakeTableData(){
+    function MakeReservationData(){
         var tableList = <%=TableList%>
         var reservationList=<%=ReservationList%>
-       // var list = $('#TableData');
-       // var k=0;
         var text = '';
         for(var i=0;i<tableList.length;i++){
-            // var table=tableList[i];
-            // text+='<tr>'
-            //     +'<td>'+table.number+'</td>';
-            // for(var j=openingTime;j<closingTime;j++){
-            //     text+='<td>-</td>'
-            // }
             for(var j=openingTime;j<closingTime;j++){
                 text='';
                 for(var k=0; k<reservationList.length; k++) {
@@ -204,11 +198,26 @@
                     }
                 }
             }
-            // +'</tr>';
         }
-        // list.append(text);
     }
-
+    function MakeWalkInData(){
+        var tableList = <%=TableList%>
+        var walkInList=<%=WalkInList%>
+        var text = '';
+        for(var i=0;i<tableList.length;i++){
+            for(var j=openingTime;j<closingTime;j++){
+                text='';
+                for(var k=0; k<walkInList.length; k++) {
+                    var walkInData = walkInList[k];
+                    if (walkInData.time == j && walkInData.table_id == i + 1) {
+                        text+=i+""+j;
+                        document.getElementById(eval("'"+text+"'")).innerText=walkInData.covers+"명";
+                        // text += '<td>' + reservationData.customer_name + '</td>'
+                    }
+                }
+            }
+        }
+    }
 
     <%--function MakeNewOrderTable(){--%>
     <%--    var orderList = <%=NewOrderList%>--%>
@@ -256,8 +265,6 @@
         return rows;
     }
 
-
-
     function addReservation(i){
         var orderList = <%=NewOrderList%>
         var order=orderList[i];
@@ -295,7 +302,12 @@
                     data: data
                 },
                 success: function (oid) {
-                    alert("[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.");
+                    if(oid=="-1"){
+                        alert("이미 입석한 손님이 존재합니다.");
+                    }
+                    else {
+                        alert("[예약번호:" + oid + "]의 현장 예약이 정상적으로 요청되었습니다.");
+                    }
                     location.href = 'customerManager.do?date='+<%=date%>;
                 }
             })

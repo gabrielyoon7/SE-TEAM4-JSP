@@ -149,6 +149,7 @@ public class ReservationDAO {
                 if(check_reservation.size()==0){
                     que.query(conn,"INSERT Reservation SET covers=?, date=?,time=?,customer_name=?,customer_id=?, table_id=?;",new MapListHandler(),
                             covers,date,time,name,id, table_id );
+                    que.query(conn, "DELETE FROM ReservationRequest WHERE customer_id=? AND time=?", new MapListHandler(), id, time);
                     break;
                 }
             }

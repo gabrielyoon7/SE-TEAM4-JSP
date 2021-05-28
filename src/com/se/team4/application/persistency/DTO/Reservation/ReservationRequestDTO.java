@@ -8,9 +8,7 @@ public class ReservationRequestDTO {
     private String customer_name;
     private String customer_id;
 
-    public String getOid() {
-        return oid;
-    }
+    public String getOid() { return oid; }
 
     public void setOid(String oid) {
         this.oid = oid;
