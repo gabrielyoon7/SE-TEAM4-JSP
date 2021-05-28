@@ -138,7 +138,14 @@
 				  +' <button class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}
 			else{
-				a+='안녕하세요 '+user.name+'님!  <button class="btn btn-outline-success" onclick="logout()">LOGOUT</button>';
+				a+='안녕하세요 '+user.name+'님! '
+						+'<div class="dropdown" style="display: inline-block"><button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">사용자 메뉴</button>'
+
+						+'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">'
+						+'<li><a class="dropdown-item" href="userReservationInfo.do">예약 정보 관리</a></li>'
+						+'</ul></div>'
+
+						+ '<button class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}
 		}
 		list.append(a);

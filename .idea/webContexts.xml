@@ -9,6 +9,8 @@
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/packing/basket.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/packing" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/page/main.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/page" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/page/signup.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/page" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/reservation/reservationInfo.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/reservation" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/userReservationInfo.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/user" />
       </map>
     </option>
   </component>

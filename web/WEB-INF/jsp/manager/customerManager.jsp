@@ -23,12 +23,13 @@
     <%--    <script src="/js/bootstrap-table.js"></script>--%>
     <%--    <script src="/js/bootstrap-table-cookie.js"></script>--%>
     <%--    <script src="/js/bootstrap-table-export.min.js"></script>--%>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
 <main class="container">
-    <div class="py-5 text-center">
+    <div class="py-5 text-center" style="font-family: 'Noto Serif KR', serif;">
         <div class="row-fluid">
             <div class="btn pull=left">
                 <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date of Birth" required>

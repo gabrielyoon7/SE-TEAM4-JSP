@@ -18,6 +18,8 @@
     <title>Title</title>
     <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 <%--    <script src="/js/bootstrap-table.js"></script>--%>
@@ -77,6 +79,7 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
+<br>
 <div>현재 테이블 띄우는거 오류 있습니다. 수정 예정!!</div>
 
 <%--<table--%>
@@ -105,7 +108,8 @@
 <table class="boardtable" id="table" data-toggle="table"
        data-pagination="true" data-toolbar="#toolbar"
        data-search="true" data-side-pagination="true" data-click-to-select="true"
-       data-page-list="[10]">
+       data-page-list="[10]"
+       style="font-family: 'Noto Serif KR', serif;">
     <thead>
     <tr>
         <th data-field="action">설정</th>
@@ -151,7 +155,10 @@
                 birthDay: user.birthDay,
                 phoneNumber: user.phoneNumber,
                 blackList: user.blackList,
-                action : '<button onclick="deleteUser('+i+')">삭제</button><button onclick="pwReset('+i+')">pw초기화</button><button onclick="changeType('+i+')">타입변경</button><button onclick="blackList('+i+')">블랙리스트 전환</button>'
+                action : '<button class="btn btn-outline-dark" onclick="deleteUser('+i+')">삭제</button>' +
+                    '<button class="btn btn-outline-dark" onclick="pwReset('+i+')">pw초기화</button>' +
+                    '<button class="btn btn-outline-dark" onclick="changeType('+i+')">타입변경</button>' +
+                    '<button class="btn btn-outline-dark" onclick="blackList('+i+')">블랙리스트 전환</button>'
             });
         }
         return rows;
