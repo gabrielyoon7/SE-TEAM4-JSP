@@ -22,6 +22,8 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2020.05.28
+  - [최예슬] 음료 DB 추가, 주문 시 페이지 분류 개선
+  - [허수빈] 손님용 헤더 수정, 예약 조회 페이지 레이아웃 추가
   - [김우중] WalkIn 데이터 출력 및 WalkIn, Reservation 중복 방지 기능 추가
   - [윤주현] 부트스트랩 테이블 버그 전면 수정, Reservation 테이블 자동 배정 기능 추가
 - 2020.05.27
