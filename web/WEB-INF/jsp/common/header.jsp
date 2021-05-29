@@ -22,9 +22,10 @@
 	<meta name="description" content="">
 	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 	<meta name="generator" content="Hugo 0.83.1">
-	<title>TEAM4 Booksys</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+
+	<title>TEAM4 Booksys</title>
 	<script src="js/jquery-3.2.1.min.js"></script>
 
 	<script src="/js/bootstrap.min.js"></script>
@@ -55,6 +56,10 @@
 			.bd-placeholder-img-lg {
 				font-size: 3.5rem;
 			}
+		}
+
+		#login, #logout, .dropdown-item, #dropdownMenuButton2{
+			font-family: 'Noto Serif KR', serif;
 		}
 	</style>
 
@@ -108,7 +113,7 @@
 		var list = $('#login'); //위의 div id="login"에 집어넣습니다.
 		var a = '';
 		if (user==null){//미로그인 상태
-			a+= '<button class="btn btn-outline-light" onclick="goToLoginPage()">LOGIN</button>';
+			a+= '<button id="login" class="btn btn-outline-light" onclick="goToLoginPage()">LOGIN</button>';
 		}
 		else {//로그인 상태
 			// alert(user.type+'의 접속');
@@ -135,7 +140,7 @@
 				  +'<li><a class="dropdown-item" href="customerManager.do?date='+dateString+'">고객관리</a></li>'
 						+'</ul></div>'
 						// +'</ul>'
-				  +' <button class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
+				  +' <button id="logout" class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}
 			else{
 				a+='안녕하세요 '+user.name+'님! '
@@ -145,7 +150,7 @@
 						+'<li><a class="dropdown-item" href="userReservationInfo.do">예약 정보 관리</a></li>'
 						+'</ul></div>'
 
-						+ '<button class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
+						+ '<button id="logout" class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}
 		}
 		list.append(a);

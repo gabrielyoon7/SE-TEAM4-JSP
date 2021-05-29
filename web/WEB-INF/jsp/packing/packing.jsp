@@ -76,11 +76,11 @@
 
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Choose the menu</h1>
-        <p style="font-family: 'Noto Serif KR', serif;" class="lead text-muted">원하는 메뉴를 골라 장바구니에 추가한 뒤, 하단의 주문하기를 누르세요.</p>
+      <div class="col-lg-8 col-md-8 mx-auto">
+        <h1 class="fw-light" style="font-family: 'Noto Serif KR', serif; font-size: 55px; font-weight: bold">Choose the menu</h1>
+        <p style="font-size: 25px; font-family: 'Noto Serif KR', serif;" class="lead text-muted">원하는 메뉴를 골라 장바구니에 추가한 뒤, 하단의 주문하기를 누르세요.</p>
       </div>
-      <div style="font-family: 'Noto Serif KR', serif;">
+      <div style="font-family: 'Noto Serif KR', serif; font-weight: bold">
         <a href="menu.do?type=all">메뉴 전체보기</a>
         <a href="menu.do?type=치킨">치킨</a>
         <a href="menu.do?type=피자">피자</a>

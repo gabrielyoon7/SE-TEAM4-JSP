@@ -25,6 +25,12 @@
     <%--    <script src="/js/bootstrap-table-export.min.js"></script>--%>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+
+    <style>
+        #bt{
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
@@ -32,11 +38,11 @@
     <div class="py-5 text-center" style="font-family: 'Noto Serif KR', serif;">
         <div class="row-fluid">
             <div class="btn pull=left">
-                <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date of Birth" required>
+                <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> required>
             </div>
             <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
-            <button type="button" class="btn btn-primary btn-lg" onclick="reload()" >날짜 이동하기</button>
-            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>
+            <button  id="bt" type="button" class="btn btn-outline-dark btn-lg" onclick="reload()" >날짜 이동하기</button>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -78,11 +84,13 @@
             <tbody id="TableData"></tbody>
         </table>
         <div class="pay_button text-center">
-            <button class="w-25 btn-primary btn-lg" type="submit">테이블 갱신</button>
+            <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>
         </div>
     </div>
     <div>
-        <p>갱신리스트</p>
+        <br>
+        <br>
+        <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >갱신리스트</p>
         <%--        <table class="table">--%>
         <%--            <thead>--%>
         <%--            <tr>--%>
@@ -99,7 +107,7 @@
         <%--            <tbody id="DataList"></tbody>--%>
         <%--        </table>--%>
 
-        <table class="boardtable" id="table" data-toggle="table"
+        <table class="boardtable" id="table"  style="font-family: 'Noto Serif KR', serif;" data-toggle="table"
                data-pagination="true" data-toolbar="#toolbar"
                data-search="true" data-side-pagination="true" data-click-to-select="true"
                data-page-list="[10]">
@@ -167,8 +175,8 @@
         }
         text+='</select>';
         text+='<div class="modal-footer">'
-            +'<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>'
-            +'<button type="button" class="btn btn-primary" onclick="MakeWalkIn()">추가하기</button>'
+            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+            +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'
             +'</div>'
         list.append(text);
     }
@@ -190,7 +198,7 @@
             text+='<tr>'
                 +'<td>'+table.number+'</td>';
             for(var j=openingTime;j<closingTime;j++){
-                text+='<td><button id='+i+j+' type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">-</button></td>'
+                text+='<td><button id='+i+j+' type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">-</button></td>'
             }
             +'</tr>';
         }
@@ -269,7 +277,7 @@
                 customer_name: order.customer_name,
                 customer_id: order.customer_id,
                 message: order.message,
-                action : '<button onclick="addReservation('+i+')">예약 배정</button>'
+                action : '<button class="btn btn-dark" onclick="addReservation('+i+')">예약 배정</button>'
             });
         }
         // alert(rows);

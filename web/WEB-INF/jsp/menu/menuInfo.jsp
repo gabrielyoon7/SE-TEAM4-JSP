@@ -20,6 +20,7 @@
   <title>Album example · Bootstrap v5.0</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
@@ -41,6 +42,10 @@
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
+    }
+
+    #menu, #notice, #content{
+      font-family: 'Noto Serif KR', serif;
     }
   </style>
 
@@ -71,10 +76,10 @@
     var data = <%=menu%>;
     var list = $('#menuInfo');
     var text = '<div class="col-lg-5 p-3 p-lg-5 pt-lg-3">'
-            +'<h1 class="display-4 fw-bold lh-1">'+data.name+'</h1>'
-            +'<p class="lead">'+data.notice+'</p>'
-            +'<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">'
-            +'<button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">'+data.price+'원</button>'
+            +'<h1 id="menu" class="display-4 fw-bold lh-1">'+data.name+'</h1>'
+            +'<p id="notice" class="lead">'+data.notice+'</p>'
+            +'<div id="content" class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">'
+            +'<button type="button" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">'+data.price+'원</button>'
             +'<button type="button" class="btn btn-outline-secondary btn-lg px-4">조리시간 '+data.cookingTime+'분</button>'
             +'</div></div>'
             +'<div class="col-lg-4 offset-lg-1 p-0 position-relative overflow-hidden shadow-lg">'
