@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    String ReservationList = (String) request.getAttribute("ReservationList");
+    String ReservationRequest = (String) request.getAttribute("ReservationRequest");
 %>
 <html>
 <head>
@@ -29,7 +29,7 @@
 <div id="container" class="py-5 row text-center" style="font-family: 'Noto Serif KR', serif;">
 <div class="col-lg-7 mx-auto">
 <table
-        id="table"
+        id="reservationRequestTable"
         data-toggle="table"
         data-height="460"
         data-search="true"
@@ -39,9 +39,12 @@
         data-side-pagination="server">
     <thead>
     <tr>
-        <th data-field="id">ID</th>
-        <th data-field="name">Item Name</th>
-        <th data-field="price">Item Price</th>
+        <th data-field="action">설정</th>
+        <th data-field="oid">예약번호</th>
+        <th data-field="date">날짜</th>
+        <th data-field="time">시간</th>
+        <th data-field="covers">예약인원</th>
+        <th data-field="message">메시지</th>
     </tr>
     </thead>
 </table>
@@ -51,4 +54,34 @@
 </body>
 <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        callSetupTableView1();
+    })
+
+    function callSetupTableView1(){
+        $('#reservationRequestTable').bootstrapTable('load',data1());
+        // $('#table').bootstrapTable('append',data());
+        $('#reservationRequestTable').bootstrapTable('refresh');
+    }
+
+    function data1(){
+        var orderList = <%=ReservationRequest%>
+        var rows = [];
+        for(var i=0;i<orderList.length;i++){
+            var order=orderList[i];
+            rows.push({
+                oid: order.oid,
+                covers: order.covers,
+                date: order.date,
+                time: order.time,
+                message: order.message,
+                action : '<button class="btn btn-dark" onclick="modifyReservationRequest('+i+')">예약 정보 수정</button>'
+            });
+        }
+        // alert(rows);
+        return rows;
+    }
+
+</script>
 </html>

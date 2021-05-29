@@ -21,29 +21,32 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
-- 2020.05.28
+- 2021.05.29
+  - [허수빈] 디자인 개선
+  - [윤주현] userManager 페이지에 DB 연결 및 reservationRequest 버그 전면 수정
+- 2021.05.28
   - [최예슬] 음료 DB 추가, 주문 시 페이지 분류 개선
   - [허수빈] 손님용 헤더 수정, 예약 조회 페이지 레이아웃 추가
   - [김우중] WalkIn 데이터 출력 및 WalkIn, Reservation 중복 방지 기능 추가
   - [윤주현] 부트스트랩 테이블 버그 전면 수정, Reservation 테이블 자동 배정 기능 추가
-- 2020.05.27
+- 2021.05.27
   - [허수빈] 경고문 알림 개선
   - [김우중] CustomerManager 페이지 Table 출력
   - [윤주현] 메뉴 View 버튼 활성화 (메뉴 정보 단독페이지 출력 가능토록 구현), 메뉴 타입별 출력 기능 추가, 날짜별 스케쥴 출력 기능 추가
-- 2020.05.26
+- 2021.05.26
   - [송성호] ReservationDAO addReservation 메소드 date 전달 수정
   - [윤주현] bootstrapTable 버그수정 및 기능 활성화
-- 2020.05.25
+- 2021.05.25
   - [허수빈] 각종 디자인 전면 개편
   - [김우중] customerManager페이지 walkIn버튼 구현
-- 2020.05.23
+- 2021.05.23
   - [최예슬] WalkIn 페이지에 modal 연결, Packing 페이지에 이미지 연동
   - [윤주현] Modal 버그 수정 및 레이아웃 , reservation request관련 기능 비로그인자 접속 제한
-- 2020.05.22
+- 2021.05.22
   - [김우중] customerManager에 요청 리스트 받는 레이아웃 완성 및 연결 성공
   - [윤주현] customerManager에 스케쥴 표가 자동으로 그려지도록 레이아웃 개선, ReservationRequest관련 오류 수정
   - [송성호]jsp에서 Ajaxaction으로 예약 요청 데이터 보내는 function(completeReservationRequest) 구현, AjaxAction에서 case문 reservationRequest case 추가
-- 2020.05.21
+- 2021.05.21
   - [윤주현] Reservation에 정보 넘기기 및 로그인 정보 띄우는 기능 추가
   - [송성호] ReservationRequest DB 테이블 수정(table_id, arrivalTime 삭제, message 추가, reservationinfo 레이아웃 수정
   - [최예슬] reservationinfo 수정
