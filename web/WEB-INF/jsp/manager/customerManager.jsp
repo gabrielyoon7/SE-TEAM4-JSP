@@ -36,13 +36,13 @@
             </div>
             <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
             <button type="button" class="btn btn-primary btn-lg" onclick="reload()" >날짜 이동하기</button>
-            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In</button>
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In 추가하기</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" id = "walkInData"></div>
@@ -53,6 +53,23 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel2">수정하기</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id = "DataModify"></div>
+                        <%--                        <div class="modal-footer">--%>
+                        <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+                        <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
+                        <%--                        </div>--%>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div>
@@ -173,7 +190,7 @@
             text+='<tr>'
                 +'<td>'+table.number+'</td>';
             for(var j=openingTime;j<closingTime;j++){
-                text+='<td id='+i+j+'>-</td>'
+                text+='<td><button id='+i+j+' type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">-</button></td>'
             }
             +'</tr>';
         }
