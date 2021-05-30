@@ -65,7 +65,8 @@ CREATE TABLE WaitingList(
                             date   DATE,
                             name VARCHAR(32) NOT NULL,
                             covers INT NOT NULL,
-                            table_id int
+                            table_id int,
+                            verifyCode  INT
 );
 CREATE TABLE Menu(
                      oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

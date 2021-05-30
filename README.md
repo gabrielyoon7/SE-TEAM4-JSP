@@ -22,6 +22,8 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2021.05.29
+  - [김우중] 대기리스트 DB 추가 기능
+- 2021.05.29
   - [허수빈] 디자인 개선
   - [윤주현] userManager 페이지에 DB 연결 및 reservationRequest 버그 전면 수정
 - 2021.05.28

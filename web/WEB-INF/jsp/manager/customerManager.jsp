@@ -322,9 +322,37 @@
                     if(oid=="-1"){
                         alert("이미 입석한 손님이 존재합니다.");
                     }
+                    else if(oid=="-2"){
+                        var check = confirm("현재 만섭입니다. 대기리스트에 등록하시겠습니까?");
+                        if(check)
+                            MakeWaitingList(check);
+                    }
                     else {
                         alert("[예약번호:" + oid + "]의 현장 예약이 정상적으로 요청되었습니다.");
                     }
+                    location.href = 'customerManager.do?date='+<%=date%>;
+                }
+            })
+        }
+    }
+    function  MakeWaitingList(checking){
+        var date = document.getElementById('walkInDate1').value;
+        var table = document.getElementById('walkInTable').value;
+        var cover = document.getElementById('walkInCovers').value;
+        var data=date+"-/-/-"+table+"-/-/-"+cover;
+        var check = checking;
+        if(check){
+            var name=prompt("성함를 남겨주세요","");
+            data+="-/-/-/"+name;
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "makeWaitingList",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("[예약번호:" + oid + "]의 대기리스트 등록이 정상적으로 요청되었습니다.");
                     location.href = 'customerManager.do?date='+<%=date%>;
                 }
             })

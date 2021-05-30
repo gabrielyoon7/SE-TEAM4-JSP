@@ -95,6 +95,9 @@ public class AjaxAction implements Action {
             case "addReservation":
                 result=ReservationDAO.getInstance().addReservation(data);
                 break;
+            case "makeWaitingList":
+                result=WalkInDAO.getInstance().makeWaitingList(data);
+                break;
         }
         return result;
     }
