@@ -145,4 +145,22 @@ public class PackingDAO {
         }
 
     }
+
+    public ArrayList<PickupDTO> getUserOrder(String id){
+        ArrayList<PickupDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM Pickup WHERE id=?", new MapListHandler(), id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<PickupDTO>>() {
+        }.getType());
+        return result;
+    }
 }

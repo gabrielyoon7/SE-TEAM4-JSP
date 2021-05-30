@@ -1,6 +1,7 @@
 package com.se.team4.application.domain.user;
 
 import com.google.gson.Gson;
+import com.se.team4.application.persistency.DAO.Packing.PackingDAO;
 import com.se.team4.application.persistency.DAO.Reservation.ReservationDAO;
 import com.se.team4.common.controller.Action;
 
@@ -20,6 +21,7 @@ public class UserReservationInfoAction implements Action {
         }
         else{
             request.setAttribute("ReservationRequest", gson.toJson(ReservationDAO.getInstance().getUserReservationRequest(id)));
+            request.setAttribute("Order", gson.toJson(PackingDAO.getInstance().getUserOrder(id)));
         }
         return "RequestDispatcher:jsp/user/userReservationInfo.jsp";
     }
