@@ -18,12 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <title>Title</title>
 
-    <style>
-        #container{
-
-        }
-
-    </style>
 </head>
 <body>
 <%@include file="../common/header.jsp" %>

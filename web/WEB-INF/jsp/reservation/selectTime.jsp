@@ -66,14 +66,18 @@
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">* 토,일 : 16:00 ~ 21:00</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">예약 방문 시간 15분 이후에는 예약이 취소될 수 있습니다.</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">단체 예약은 매장으로 전화 부탁드립니다. (02-9999-4444) </p>
-        <a class="btn btn-lg btn-dark" style="font-family: 'Noto Serif KR', serif;" href="#" role="button">View navbar docs »</a>
     </div>
+    <br>
+    <br>
     <div class="col-md-12">
         <input type="date" class="form-control" id="reservationDate" name="new_date" value=<%=date%> placeholder="Date_of_Birth_required">
+        <br>
         <button type="button" class="btn btn-dark" style="font-family: 'Noto Serif KR', serif;" onclick="goToSelectTime()">조회 하기</button>
     </div>
 
 </main>
+<br>
+<br>
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row row-cols-3 row-cols-sm-4 row-cols-md-6 g-3" id="card"> </div>
@@ -147,7 +151,7 @@
         var date=$('#reservationDate').val();
         var time=selectedTime;
         var data=time+"-/-/-"+date;
-        var check = confirm("냥?");
+        var check = confirm(time+":00 을 선택하시겠습니까?");
         if(check){
             $.ajax({
                 url : "ajax.do", //AjaxAction

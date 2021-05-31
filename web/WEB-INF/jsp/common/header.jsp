@@ -88,12 +88,7 @@
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="packing.do">Packing</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="test.do">TEST</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled" href="test.do" tabindex="-1" aria-disabled="true">Disabled</a>
-					</li>
+
 				</ul>
 				<div class="d-flex">
 					<%--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">--%>

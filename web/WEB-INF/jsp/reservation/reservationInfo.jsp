@@ -207,9 +207,7 @@
         var name = $('#username').val();
         var id = $('#userid').val();
         var data = covers+'-/-/-'+date+'-/-/-'+time+'-/-/-'+name+'-/-/-'+id+'-/-/-'+message;
-        alert(data);
-        var check =
-            swal({
+        var check =  swal({
                 title : '예약을 하시겠습니까?',
                 icon : 'info',
 
@@ -226,7 +224,6 @@
                     },
                 }
             }).then((check)  => {
-                alert(data);
                 if(check) {
                     $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
                         url: "ajax.do", //ajax.do(ajaxAction)에 있는
