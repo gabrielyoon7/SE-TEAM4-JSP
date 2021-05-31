@@ -30,6 +30,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-table.js"></script>
+    <script src="/js/bootstrap-table-cookie.js"></script>
+    <script src="/js/bootstrap-table-export.min.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -49,9 +58,14 @@
             }
         }
 
+        a:link {
+            color :white;
+            text-decoration: none;
+        }
     </style>
 
     <link href="css/heroes.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
 </head>
 <body>
 <%--header를 이런식으로 include해서 끼워넣습니다. 이 작업은 매 페이지마다 필요해요.--%>
@@ -65,13 +79,13 @@
                 <h1 class="fw-light" style="font-family: 'Noto Serif KR', serif; font-size: 55px; font-weight: bold">Check the menu</h1>
                 <p style="font-size: 25px; font-family: 'Noto Serif KR', serif;" class="lead text-muted">아래의 다양한 메뉴들을 직접 확인하세요.</p>
             </div>
-            <div style="font-family: 'Noto Serif KR', serif; font-weight: bold">
-                <a href="menu.do?type=all">메뉴 전체보기</a>
-                <a href="menu.do?type=치킨">치킨</a>
-                <a href="menu.do?type=피자">피자</a>
-                <a href="menu.do?type=스테이크">스테이크</a>
-                <a href="menu.do?type=파스타">파스타</a>
-                <a href="menu.do?type=음료수">음료</a>
+            <div style="font-family: 'Noto Serif KR', serif; font-weight: bold" >
+                <button class="btn btn-dark"><a href="menu.do?type=all">메뉴 전체보기</a></button>
+                <button class="btn btn-dark"><a href="menu.do?type=치킨">치킨</a></button>
+                <button class="btn btn-dark"><a href="menu.do?type=피자">피자</a></button>
+                <button class="btn btn-dark"><a href="menu.do?type=스테이크">스테이크</a></button>
+                <button class="btn btn-dark"><a href="menu.do?type=파스타">파스타</a></button>
+                <button class="btn btn-dark"><a href="menu.do?type=음료수">음료</a></button>
             </div>
         </div>
     </section>
