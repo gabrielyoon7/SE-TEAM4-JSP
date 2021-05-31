@@ -21,10 +21,16 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
-- 2021.05.29
-  - [김우중] 대기리스트 DB 추가 기능
-- 2021.05.29
+- 2021.06.01
+  - [최예슬] 메뉴바 수정
   - [허수빈] 디자인 개선
+  - [윤주현] 스케쥴 테이블의 빈 공간의 modal이 유동성을 갖게 만듦 (버튼 별 기능 제작중)
+- 2021.05.31
+  - [김우중] 대기리스트 DB 추가 기능
+- 2021.05.30
+  - [윤주현] userReservationInfo에 각종 정보 연결
+- 2021.05.29
+  - [허수빈] 디자인 개선 및 userReservationInfo 레이아웃 개선
   - [윤주현] userManager 페이지에 DB 연결 및 reservationRequest 버그 전면 수정
 - 2021.05.28
   - [최예슬] 음료 DB 추가, 주문 시 페이지 분류 개선

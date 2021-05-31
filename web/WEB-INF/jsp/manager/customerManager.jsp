@@ -133,7 +133,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function(){
-        MakeModalData();
+        MakeModalData1();
         MakeTableHead();
         MakeTableBody();
         MakeReservationData();
@@ -143,7 +143,7 @@
     })
     var openingTime = 10;
     var closingTime = 22;
-    function MakeModalData(){
+    function MakeModalData1(){
         let today = new Date();
         var hour = today.getHours()
         var list = $('#walkInData');
@@ -180,6 +180,38 @@
             +'</div>'
         list.append(text);
     }
+
+
+
+    var selectedSchedule=[];
+    function scheduleClicked(ij){
+        if(ij<100){
+            var id="#0"+ij;
+        }
+        else {
+            var id="#"+ij;
+        }
+        const index = selectedSchedule.indexOf(id);
+        selectedSchedule.splice(index, 1);
+        selectedSchedule.push(id);
+        console.log(selectedSchedule);
+
+        MakeModalData2(id);
+
+    }
+    function MakeModalData2(id){
+        var list = $('#DataModify');
+        //날짜
+        var text = '날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
+            +'id:'+id;
+        list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
+    }
+
+
+
+
+
+
     function MakeTableHead(){
         var list = $('#TableHead');
         var text = '<tr><th scope="col">No.</th>';
@@ -198,7 +230,7 @@
             text+='<tr>'
                 +'<td>'+table.number+'</td>';
             for(var j=openingTime;j<closingTime;j++){
-                text+='<td><button id='+i+j+' type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">-</button></td>'
+                text+='<td><button id='+i+j+' type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="scheduleClicked('+i+j+')">-</button></td>'
             }
             +'</tr>';
         }
