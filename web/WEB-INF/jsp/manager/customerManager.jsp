@@ -42,23 +42,23 @@
             </div>
             <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
             <button  id="bt" type="button" class="btn btn-outline-dark btn-lg" onclick="reload()" >날짜 이동하기</button>
-            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In 추가하기</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body" id = "walkInData"></div>
-                        <%--                        <div class="modal-footer">--%>
-                        <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
-                        <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
-                        <%--                        </div>--%>
-                    </div>
-                </div>
-            </div>
+<%--            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>--%>
+<%--            <!-- Modal -->--%>
+<%--            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">--%>
+<%--                <div class="modal-dialog">--%>
+<%--                    <div class="modal-content">--%>
+<%--                        <div class="modal-header">--%>
+<%--                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In 추가하기</h5>--%>
+<%--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
+<%--                        </div>--%>
+<%--                        <div class="modal-body" id = "walkInData"></div>--%>
+<%--                        &lt;%&ndash;                        <div class="modal-footer">&ndash;%&gt;--%>
+<%--                        &lt;%&ndash;                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>&ndash;%&gt;--%>
+<%--                        &lt;%&ndash;                            <button type="button" class="btn btn-primary">추가하기</button>&ndash;%&gt;--%>
+<%--                        &lt;%&ndash;                        </div>&ndash;%&gt;--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
                 <div class="modal-dialog">
@@ -83,9 +83,9 @@
             <thead id="TableHead"></thead>
             <tbody id="TableData"></tbody>
         </table>
-        <div class="pay_button text-center">
-            <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>
-        </div>
+<%--        <div class="pay_button text-center">--%>
+<%--            <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>--%>
+<%--        </div>--%>
     </div>
     <div>
         <br>
@@ -133,7 +133,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function(){
-        MakeModalData1();
+        // MakeModalData1();
         MakeTableHead();
         MakeTableBody();
         MakeReservationData();
@@ -143,47 +143,48 @@
     })
     var openingTime = 10;
     var closingTime = 22;
-    function MakeModalData1(){
-        let today = new Date();
-        var hour = today.getHours()
-        var list = $('#walkInData');
-        //날짜
-        var text = '날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="" placeholder="Date" required>';
-        //시간
-        if(hour>=openingTime && hour<closingTime){
-            text += '시간<select id="walkInDate2" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';
-        }
-        else {//영업시간이 아닐 때
-            text += '시간<select id="walkInDate2" class="form-control"><option value="">--시간을 선택하세요--</option>';
-        }
-        for(var i=openingTime;i<closingTime;i++){
-            text+='<option value="'+i+'">'+i+':00</option>';
-        }
-        text+='</select>';
-        //인원수
-        text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';
-        for(var i=2;i<6;i++){
-            text+='<option value="'+i+'">'+i+'명</option>';
-        }
-        text+='</select>';
-        //테이블 번호
-        var tableList = <%=TableList%>
-            text += '테이블번호<select id="walkInTable" class="form-control">';
-        for(var i=0;i<tableList.length;i++){
-            var table=tableList[i];
-            text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';
-        }
-        text+='</select>';
-        text+='<div class="modal-footer">'
-            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
-            +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'
-            +'</div>'
-        list.append(text);
-    }
+    <%--function MakeModalData1(){--%>
+    <%--    let today = new Date();--%>
+    <%--    var hour = today.getHours()--%>
+    <%--    var list = $('#walkInData');--%>
+    <%--    //날짜--%>
+    <%--    var text = '날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="" placeholder="Date" required>';--%>
+    <%--    //시간--%>
+    <%--    if(hour>=openingTime && hour<closingTime){--%>
+    <%--        text += '시간<select id="walkInDate2" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';--%>
+    <%--    }--%>
+    <%--    else {//영업시간이 아닐 때--%>
+    <%--        text += '시간<select id="walkInDate2" class="form-control"><option value="">--시간을 선택하세요--</option>';--%>
+    <%--    }--%>
+    <%--    for(var i=openingTime;i<closingTime;i++){--%>
+    <%--        text+='<option value="'+i+'">'+i+':00</option>';--%>
+    <%--    }--%>
+    <%--    text+='</select>';--%>
+    <%--    //인원수--%>
+    <%--    text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';--%>
+    <%--    for(var i=2;i<6;i++){--%>
+    <%--        text+='<option value="'+i+'">'+i+'명</option>';--%>
+    <%--    }--%>
+    <%--    text+='</select>';--%>
+    <%--    //테이블 번호--%>
+    <%--    var tableList = <%=TableList%>--%>
+    <%--        text += '테이블번호<select id="walkInTable" class="form-control">';--%>
+    <%--    for(var i=0;i<tableList.length;i++){--%>
+    <%--        var table=tableList[i];--%>
+    <%--        text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';--%>
+    <%--    }--%>
+    <%--    text+='</select>';--%>
+    <%--    text+='<div class="modal-footer">'--%>
+    <%--        +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'--%>
+    <%--        +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'--%>
+    <%--        +'</div>'--%>
+    <%--    list.append(text);--%>
+    <%--}--%>
 
 
 
     var selectedSchedule=[];
+    var selectedText=[];
     function scheduleClicked(ij){
         if(ij<100){
             var id="#0"+ij;
@@ -191,19 +192,67 @@
         else {
             var id="#"+ij;
         }
-        const index = selectedSchedule.indexOf(id);
-        selectedSchedule.splice(index, 1);
+        var text = $(id).text();
+        const index1 = selectedSchedule.indexOf(id);
+        selectedSchedule.splice(index1, 1);
         selectedSchedule.push(id);
+
+        const index2 = selectedText.indexOf(text);
+        selectedText.splice(index2, 1);
+        selectedText.push(text);
+
         console.log(selectedSchedule);
+        console.log(selectedText);
 
         MakeModalData2(id);
 
     }
+
     function MakeModalData2(id){
+        // var newID = '"'+id+'"';
         var list = $('#DataModify');
-        //날짜
-        var text = '날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
-            +'id:'+id;
+        var text='';
+        if(selectedText[0]=='-'){
+            let today = new Date();
+            var hour = today.getHours()
+            var list = $('#DataModify');
+            //날짜
+            var text = '날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="" placeholder="Date" required>';
+            //시간
+            if(hour>=openingTime && hour<closingTime){
+                text += '시간<select id="walkInDate2" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';
+            }
+            else {//영업시간이 아닐 때
+                text += '시간<select id="walkInDate2" class="form-control"><option value="">--시간을 선택하세요--</option>';
+            }
+            for(var i=openingTime;i<closingTime;i++){
+                text+='<option value="'+i+'">'+i+':00</option>';
+            }
+            text+='</select>';
+            //인원수
+            text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';
+            for(var i=2;i<6;i++){
+                text+='<option value="'+i+'">'+i+'명</option>';
+            }
+            text+='</select>';
+            //테이블 번호
+            var tableList = <%=TableList%>
+                text += '테이블번호<select id="walkInTable" class="form-control">';
+            for(var i=0;i<tableList.length;i++){
+                var table=tableList[i];
+                text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';
+            }
+            text+='</select>';
+            text+='<div class="modal-footer">'
+                +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+                +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'
+                +'</div>';
+        }
+        else {//발열 혹은 수정 기능 넣어야 할듯
+            //날짜
+            text = '날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
+                +'id:'+id;
+        }
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
 
