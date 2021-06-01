@@ -181,7 +181,8 @@
                                 button : '확인',
                             }).then(function ()
                             {
-                                window.location.href = "reservationInfo.do"
+                                // window.location.href = "reservationInfo.do"
+                                location.href = 'reservationInfo.do?date='+date+'&&time='+selectedTime[0];
                             });
                         }
                         else{

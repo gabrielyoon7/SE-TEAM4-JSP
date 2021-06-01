@@ -95,7 +95,7 @@
         <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >대기리스트</p>
         <table class="boardtable" id="table1"  style="font-family: 'Noto Serif KR', serif;" data-toggle="table"
                data-pagination="true" data-toolbar="#toolbar"
-               data-search="true" data-side-pagination="true" data-click-to-select="true"
+               data-search="true" data-side-pagination="true" data-click-to-select="true" data-height="460"
                data-page-list="[10]">
             <thead>
             <tr>
@@ -133,7 +133,7 @@
 
         <table class="boardtable" id="table"  style="font-family: 'Noto Serif KR', serif;" data-toggle="table"
                data-pagination="true" data-toolbar="#toolbar"
-               data-search="true" data-side-pagination="true" data-click-to-select="true"
+               data-search="true" data-side-pagination="true" data-click-to-select="true" data-height="460"
                data-page-list="[10]">
             <thead>
             <tr>
