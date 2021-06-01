@@ -42,23 +42,23 @@
             </div>
             <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
             <button  id="bt" type="button" class="btn btn-outline-dark btn-lg" onclick="reload()" >날짜 이동하기</button>
-<%--            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>--%>
-<%--            <!-- Modal -->--%>
-<%--            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">--%>
-<%--                <div class="modal-dialog">--%>
-<%--                    <div class="modal-content">--%>
-<%--                        <div class="modal-header">--%>
-<%--                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In 추가하기</h5>--%>
-<%--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
-<%--                        </div>--%>
-<%--                        <div class="modal-body" id = "walkInData"></div>--%>
-<%--                        &lt;%&ndash;                        <div class="modal-footer">&ndash;%&gt;--%>
-<%--                        &lt;%&ndash;                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>&ndash;%&gt;--%>
-<%--                        &lt;%&ndash;                            <button type="button" class="btn btn-primary">추가하기</button>&ndash;%&gt;--%>
-<%--                        &lt;%&ndash;                        </div>&ndash;%&gt;--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+            <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Walk-In 추가하기</button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Walk-In 추가하기</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id = "walkInData"></div>
+                        <%--                        <div class="modal-footer">--%>
+                        <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+                        <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
+                        <%--                        </div>--%>
+                    </div>
+                </div>
+            </div>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
                 <div class="modal-dialog">
@@ -83,9 +83,9 @@
             <thead id="TableHead"></thead>
             <tbody id="TableData"></tbody>
         </table>
-<%--        <div class="pay_button text-center">--%>
-<%--            <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>--%>
-<%--        </div>--%>
+        <div class="pay_button text-center">
+            <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>
+        </div>
     </div>
     <div>
         <br>
