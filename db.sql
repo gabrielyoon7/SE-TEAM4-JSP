@@ -177,4 +177,23 @@ INSERT INTO Customer(oid, name, phoneNumber,id,blackList ) VALUES(7000, 'TEST', 
 -- TEST DATA
 INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES(8000, 'TEST', 'TEST','2021-05-10', '', '현장결제', 0, '맛있게 해주세요.', 0);
 INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES(8001, 'TEST', 'TEST','2021-05-10', '', '온라인결제', 0, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '온라인결제', 10000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '온라인결제', 37000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 12000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 11000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 11000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 37000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 37000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 30000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 32000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 31000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 27000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 17000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 20000, '양 많이 주세요.', 0);
+
 

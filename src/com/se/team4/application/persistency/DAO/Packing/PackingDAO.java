@@ -133,6 +133,29 @@ public class PackingDAO {
         return result;
     }
 
+    public String getOrderListOfDay(String date){
+        List<Map<String, Object>> list = null;
+        String totalPrice = "";
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT SUM(totalPrice) FROM Pickup WHERE date=?", new MapListHandler(), date);
+            totalPrice=list.get(0).toString();
+//            System.out.println(totalPrice);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        String arr[]=totalPrice.split("=");
+        totalPrice=arr[1].substring(0,arr[1].length()-1);
+        if(totalPrice.equals("null")){
+            totalPrice="0";
+        }
+        System.out.println(totalPrice);
+        return totalPrice;
+    }
+
     public void completeOrder(String id) {
         Connection conn = Config.getInstance().sqlLogin();
         try {
