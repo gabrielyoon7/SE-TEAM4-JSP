@@ -14,6 +14,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -151,8 +152,8 @@
         var date=$('#reservationDate').val();
         var time=selectedTime;
         var data=time+"-/-/-"+date;
-        var check = confirm(time+":00 을 선택하시겠습니까?");
-        if(check){
+        //var check = confirm(time+":00 을 선택하시겠습니까?");
+        //if(check){
             $.ajax({
                 url : "ajax.do", //AjaxAction
                 type : "post",
@@ -162,23 +163,41 @@
                 },
                 success :function(oid){
                     if(oid=="-1"){
-                        alert("해당 시간은 만석입니다");
+                        //alert("해당 시간은 만석입니다");
+                        swal({
+                            title : '해당 시간은 만석입니다!',
+                            text : '다시 입력해주세요!',
+                            icon : 'error',
+                            button : '확인',
+                        })
                     }
                     else{
                         if(date!=''&&selectedTime.length!=0){
-                            location.href = 'reservationInfo.do?date='+date+'&&time='+selectedTime[0];
+                            //location.href = 'reservationInfo.do?date='+date+'&&time='+selectedTime[0];
+                            swal({
+                                title : '예약 확인',
+                                text : '예약 하시겠습니까? ',
+                                icon : 'info' ,
+                                button : '확인',
+                            }).then(function ()
+                            {
+                                window.location.href = "reservationInfo.do"
+                            });
                         }
                         else{
                             swal({
                                 title : '날짜 혹은 일정을 선택해주세요!',
                                 icon : 'error',
                                 button : '확인',
+                            }).then(function ()
+                            {
+                                location.reload();
                             });
                         }
                     } //if else끝
                 }
             }) // ajax끝
-        }
+        //}
     }
 
 </script>
