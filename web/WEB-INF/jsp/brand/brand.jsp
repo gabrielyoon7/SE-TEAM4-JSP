@@ -162,6 +162,6 @@
 
 <script src="js/bootstrap.bundle.min.js"></script>
 
-<%@include file="../common/footer.jsp" %>
 </body>
+<%@include file="../common/footer.jsp" %>
 </html>

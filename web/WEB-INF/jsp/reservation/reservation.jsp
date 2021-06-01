@@ -38,7 +38,7 @@
 
 </head>
 <html>
-<body class="d-flex h-100 text-center text-white bg-white">
+<body class="text-center text-white bg-white">
 <%--header를 이런식으로 include해서 끼워넣습니다. 이 작업은 매 페이지마다 필요해요.--%>
 <%@include file="../common/header.jsp" %>
 <div class= "cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -59,7 +59,9 @@
 </div>
 <script src="js/bootstrap.bundle.min.js"></script>
 <%--<%@include file="../common/footer.jsp" %>--%>
+<img src="img/sea.jpg" style="width: 1712px; height: 570px">
 </body>
+<%@include file="../common/footer.jsp" %>
 <script>
 function goToSelectTime(){
     var date=$('#reservationDate').val();
