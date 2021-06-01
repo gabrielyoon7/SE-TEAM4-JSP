@@ -132,8 +132,9 @@
 				  +'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">'
 				  +'<li><a class="dropdown-item" href="userManager.do">사용자관리</a></li>'
 				  +'<li><a class="dropdown-item" href="pickupManager.do">포장관리</a></li>'
+
 				  +'<li><a class="dropdown-item" href="customerManager.do?date='+dateString+'">고객관리</a></li>'
-						+'</ul></div>'
+				  +'<li><a class="dropdown-item" href="statisticsManager.do">통계</a></li>'
 						// +'</ul>'
 				  +' <button id="logout" class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}

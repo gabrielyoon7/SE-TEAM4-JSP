@@ -32,10 +32,10 @@
 
     <script src="js/jquery-3.2.1.min.js"></script>
 
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-table.js"></script>
-    <script src="/js/bootstrap-table-cookie.js"></script>
-    <script src="/js/bootstrap-table-export.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-cookie.js"></script>
+    <script src="js/bootstrap-table-export.min.js"></script>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
