@@ -210,19 +210,7 @@
         var check =  swal({
                 title : '예약을 하시겠습니까?',
                 icon : 'info',
-
-                buttons : {
-                    cancel : {
-                        text : '취소',
-                        value: false,
-                        className : 'btn btn-danger'
-                    },
-                    confirm: {
-                        text: '확인',
-                        value: true,
-                        className : 'btn btn-primary'
-                    },
-                }
+                button: '확인'
             }).then((check)  => {
                 if(check) {
                     $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.

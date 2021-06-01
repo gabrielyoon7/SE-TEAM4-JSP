@@ -16,6 +16,7 @@
 <head>
     <meta charset="utf-8">
     <title>Title</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -186,88 +187,167 @@
         var user =userList[i];
         var data = userList[i].id+"-/-/-"+userList[i].blackList;
         if(userList[i].blackList=='false'){
-            var check = confirm(user.name+"["+user.id+"]님의 계정을 블랙리스트에 추가하시겠습니까?");
+            var check =
+                swal({
+                    title : '잠깐!',
+                    text : user.name+"["+user.id+"]님의 계정을 블랙리스트에 추가하시겠습니까?",
+                    icon : 'info',
+                    button : '확인'
+                }).then(function ()
+                {
+                    if(check){
+                        $.ajax({
+                            url : "ajax.do", //AjaxAction
+                            type : "post",
+                            data : {
+                                req : "changeBlacklist",
+                                data : data
+                            },
+                            success :function(blackList){
+                                if(blackList=='true'){
+                                    swal({
+                                        title : '블랙리스트에 추가되었습니다.',
+                                        icon : 'success',
+                                        button: '확인'
+                                    }).then(function ()
+                                    {
+                                        location.reload();
+                                    });
+                                }
+                            }
+                        })
+                    }
+                });
         }
         else{
-            var check = confirm(user.name+"["+user.id+"]님의 계정을 블랙리스트에 삭제하시겠습니까?");
-        }
-
-        if(check){
-            $.ajax({
-                url : "ajax.do", //AjaxAction
-                type : "post",
-                data : {
-                    req : "changeBlacklist",
-                    data : data
-                },
-                success :function(blackList){
-                    if(blackList=='true'){
-                        alert("블랙리스트에 추가되었습니다.");
-                        location.reload();
+            var check =
+                swal({
+                    title : '잠깐!',
+                    text : user.name+"["+user.id+"]님의 계정을 블랙리스트에서 삭제하시겠습니까?",
+                    icon : 'info',
+                    button : '확인'
+                }).then(function ()
+                {
+                    if(check){
+                        $.ajax({
+                            url : "ajax.do", //AjaxAction
+                            type : "post",
+                            data : {
+                                req : "changeBlacklist",
+                                data : data
+                            },
+                            success :function(blackList){
+                                if(blackList=='false'){
+                                    swal({
+                                        title : '블랙리스트에서 삭제되었습니다.',
+                                        icon : 'success',
+                                        button: '확인'
+                                    }).then(function ()
+                                    {
+                                        location.reload();
+                                    });
+                                }
+                            }
+                        })
                     }
-                    else{
-                        alert("블랙리스트에서 삭제되었습니다.");
-                        location.reload();
-                    }
-
-                }
-            })
+                });
         }
     }
     function deleteUser(i){ //대상자에서 삭제
         var user =userList[i];
-        var check = confirm(user.name+"["+user.id+"]님의 계정을 삭제 하시겠습니까? (취소 불가능)");
-        if(check){
-            $.ajax({
-                url : "ajax.do", //AjaxAction
-                type : "post",
-                data : {
-                    req : "deleteUser",
-                    data : userList[i].id
-                },
-                success :function(data){
-                    alert("삭제되었습니다.");
-                    location.reload();
-                }
-            })
-        }
+        var check =
+            swal({
+                title : '잠깐!',
+                text : user.name+"["+user.id+"]님의 계정을 삭제 하시겠습니까? (취소 불가능)",
+                icon : 'info',
+                button : '확인',
+            }).then(function ()
+                {
+                    if(check){
+                        $.ajax({
+                            url : "ajax.do", //AjaxAction
+                            type : "post",
+                            data : {
+                                req : "deleteUser",
+                                data : userList[i].id
+                            },
+                            success :function(data){
+                                swal({
+                                    title : '삭제되었습니다.',
+                                    icon : 'success',
+                                    button: '확인'
+                                }).then(function ()
+                                {
+                                    location.reload();
+                                });
+                            }
+                        })
+                    }
+                });
     }
     function pwReset(i){
         var user =userList[i];
-        var check = confirm(user.name+"["+user.id+"]님의 비밀번호를 0000으로 초기화 하시겠습니까? (취소 불가능)");
-        if(check){
-            $.ajax({
-                url : "ajax.do", //AjaxAction
-                type : "post",
-                data : {
-                    req : "pwReset",
-                    data : userList[i].id
-                },
-                success :function(data){
-                    alert("변경되었습니다.");
-                    location.reload();
+        var check =
+            swal({
+                title : '잠깐!',
+                text : user.name+"["+user.id+"]님의 비밀번호를 0000으로 초기화 하시겠습니까? (취소 불가능)",
+                icon : 'info',
+                button : '확인'
+            }).then(function ()
+            {
+                if(check){
+                    $.ajax({
+                        url : "ajax.do", //AjaxAction
+                        type : "post",
+                        data : {
+                            req : "pwReset",
+                            data : userList[i].id
+                        },
+                        success :function(data){
+                            swal({
+                                title : '변경되었습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.reload();
+                            });
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
     function changeType(i){
         var user =userList[i];
-        var check = confirm(user.name+"["+user.id+"]님의 Type을 변경하시겠습니까?");
-        var data=userList[i].id+"-/-/-"+userList[i].type;
-        if(check){
-            $.ajax({
-                url : "ajax.do", //AjaxAction
-                type : "post",
-                data : {
-                    req : "typeChange",
-                    data : data
-                },
-                success :function(data){
-                    alert("변경되었습니다.");
-                    location.reload();
+        var check =
+            swal({
+                title : '잠깐!',
+                text : user.name+"["+user.id+"]님의 Type을 변경하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function () {
+                var data = userList[i].id + "-/-/-" + userList[i].type;
+                if(check){
+                    $.ajax({
+                        url : "ajax.do", //AjaxAction
+                        type : "post",
+                        data : {
+                            req : "typeChange",
+                            data : data
+                        },
+                        success :function(data){
+                            swal({
+                                title : '변경되었습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.reload();
+                            });
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
 
 </script>

@@ -175,8 +175,7 @@
                         if(date!=''&&selectedTime.length!=0){
                             //location.href = 'reservationInfo.do?date='+date+'&&time='+selectedTime[0];
                             swal({
-                                title : '예약 확인',
-                                text : '예약 하시겠습니까? ',
+                                title : '예약을 하시겠습니까? ',
                                 icon : 'info' ,
                                 button : '확인',
                             }).then(function ()
