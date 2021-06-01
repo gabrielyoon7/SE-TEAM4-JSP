@@ -329,6 +329,7 @@
                 for(var k=0; k<reservationList.length; k++) {
                     var reservationData = reservationList[k];
                     if (reservationData.time == j && reservationData.table_id == i) {
+                        // alert(i);
                         text+=i+""+j;
                         document.getElementById(eval("'"+text+"'")).innerText="[R]"+reservationData.customer_id;
                         // text += '<td>' + reservationData.customer_name + '</td>'
