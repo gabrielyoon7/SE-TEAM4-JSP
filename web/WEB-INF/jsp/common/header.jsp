@@ -135,7 +135,7 @@
 
 				  +'<li><a class="dropdown-item" href="customerManager.do?date='+dateString+'">고객관리</a></li>'
 				  +'<li><a class="dropdown-item" href="statisticsManager.do">통계</a></li>'
-						// +'</ul>'
+						+'</ul></div>'
 				  +' <button id="logout" class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';
 			}
 			else{
