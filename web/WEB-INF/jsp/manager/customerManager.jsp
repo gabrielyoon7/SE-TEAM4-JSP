@@ -65,7 +65,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel2">수정하기</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel2">관리하기</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" id = "DataModify"></div>
@@ -85,14 +85,14 @@
             <tbody id="TableData"></tbody>
         </table>
         <div class="pay_button text-center">
-            <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>
+            <button class="w-25 btn-dark btn-lg" onclick="">대기리스트 추가</button>
         </div>
     </div>
 
     <div>
         <br>
         <br>
-        <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >대기리스트</p>
+        <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >대기 리스트</p>
         <table class="boardtable" id="table1"  style="font-family: 'Noto Serif KR', serif;" data-toggle="table"
                data-pagination="true" data-toolbar="#toolbar"
                data-search="true" data-side-pagination="true" data-click-to-select="true" data-height="460"
@@ -114,7 +114,7 @@
     <div>
         <br>
         <br>
-        <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >갱신리스트</p>
+        <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >예약 요청 명단</p>
         <%--        <table class="table">--%>
         <%--            <thead>--%>
         <%--            <tr>--%>
@@ -168,45 +168,6 @@
     })
     var openingTime = 10;
     var closingTime = 22;
-    <%--function MakeModalData1(){--%>
-    <%--    let today = new Date();--%>
-    <%--    var hour = today.getHours()--%>
-    <%--    var list = $('#walkInData');--%>
-    <%--    //날짜--%>
-    <%--    var text = '날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="" placeholder="Date" required>';--%>
-    <%--    //시간--%>
-    <%--    if(hour>=openingTime && hour<closingTime){--%>
-    <%--        text += '시간<select id="walkInDate2" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';--%>
-    <%--    }--%>
-    <%--    else {//영업시간이 아닐 때--%>
-    <%--        text += '시간<select id="walkInDate2" class="form-control"><option value="">--시간을 선택하세요--</option>';--%>
-    <%--    }--%>
-    <%--    for(var i=openingTime;i<closingTime;i++){--%>
-    <%--        text+='<option value="'+i+'">'+i+':00</option>';--%>
-    <%--    }--%>
-    <%--    text+='</select>';--%>
-    <%--    //인원수--%>
-    <%--    text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';--%>
-    <%--    for(var i=2;i<6;i++){--%>
-    <%--        text+='<option value="'+i+'">'+i+'명</option>';--%>
-    <%--    }--%>
-    <%--    text+='</select>';--%>
-    <%--    //테이블 번호--%>
-    <%--    var tableList = <%=TableList%>--%>
-    <%--        text += '테이블번호<select id="walkInTable" class="form-control">';--%>
-    <%--    for(var i=0;i<tableList.length;i++){--%>
-    <%--        var table=tableList[i];--%>
-    <%--        text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';--%>
-    <%--    }--%>
-    <%--    text+='</select>';--%>
-    <%--    text+='<div class="modal-footer">'--%>
-    <%--        +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'--%>
-    <%--        +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'--%>
-    <%--        +'</div>'--%>
-    <%--    list.append(text);--%>
-    <%--}--%>
-
-
 
     var selectedSchedule=[];
     var selectedText=[];
@@ -233,26 +194,22 @@
 
     }
 
-    function MakeModalData2(id){
+    function MakeModalData2(id){ //id = #테이블번호+타임
         // var newID = '"'+id+'"';
         var list = $('#DataModify');
         var text='';
-        alert('id:'+id);
+        // alert('id:'+id);
+        var date = <%=date%>;
+        var time_number=id.slice(2,4);
+        var table_number=id.slice(1,2);
         if(selectedText[0]=='-'){
-            let today = new Date();
-            var hour = today.getHours();
-
             //날짜
-            var text = '';
-            var date = <%=date%>;
             text+='날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="'+date+'" placeholder="Date" readonly>';
 
             //시간
-            var time_number=id.slice(2,4);
             text+='시간<input type="text" class="form-control" id="walkInDate2" name="new_time" value="'+time_number+'" placeholder="Date" readonly>';
 
             //테이블 번호
-            var table_number=id.slice(1,2);
             text+='테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+(table_number)+'" placeholder="Date" readonly>';
 
             //인원수
@@ -266,33 +223,42 @@
                 +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'
                 +'</div>';
         }
-        else {//(미완성)발열 혹은 수정 기능 넣어야 할듯
+        else {//(미완성) 신청된 일정일 시
+            //공통으로 뜰 것
+            text +='날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="'+date+'" placeholder="Date" >'
+
+            text +='시간<select id="modifyTime" class="form-control"><option value="'+time_number+'">'+time_number+':00</option>'
+            for(var i=openingTime;i<closingTime;i++){
+                text+='<option value="'+i+'">'+i+':00</option>';
+            }
+            text +='</select>';
+
+            var tableList = <%=TableList%>
+            text +='테이블번호<select id="modifyTable" class="form-control"><option value="'+table_number+'">'+table_number+'번 테이블</option>'
+            for(var i=0;i<tableList.length;i++){
+                var newI=i+1;
+                text+='<option value="'+newI+'">'+newI+'번 테이블</option>';
+            }
+            text +='</select>';
+
             if(selectedText[0].slice(1,2)=='R'){
-                //날짜
-                text = '발열 입력<input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
-                    +'id:'+id;
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">도착</button>'
                     +'</div>';
             }
             else if(selectedText[0].slice(1,2)=='W'){
-                //날짜
-                text = '발열 입력 <input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
-                    +'id:'+id;
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제하기</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">수정</button>'
                     +'</div>';
             }
         }
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
-
-
-
-
-
 
     function MakeTableHead(){
         var list = $('#TableHead');

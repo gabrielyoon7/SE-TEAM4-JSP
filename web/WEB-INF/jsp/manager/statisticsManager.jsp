@@ -80,6 +80,7 @@ var chart = new Chart(ctx, {
 });
 </script>
 </body>
+<script src="js/bootstrap.bundle.min.js"></script>
 <%@include file="../common/footer.jsp" %>
 </html>
 
