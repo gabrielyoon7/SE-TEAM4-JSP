@@ -226,30 +226,9 @@
             var time_number=id.slice(2,4);
             text+='시간<input type="text" class="form-control" id="walkInDate2" name="new_time" value="'+time_number+'" placeholder="Date" readonly>';
 
-            // //시간
-            // if(hour>=openingTime && hour<closingTime){
-            //     text += '시간<select id="walkInDate2" class="form-control"><option value="'+hour+'">'+hour+':00(현재)</option>';
-            // }
-            // else {//영업시간이 아닐 때
-            //     text += '시간<select id="walkInDate2" class="form-control"><option value="">--시간을 선택하세요--</option>';
-            // }
-            // for(var i=openingTime;i<closingTime;i++){
-            //     text+='<option value="'+i+'">'+i+':00</option>';
-            // }
-            // text+='</select>';
-
             //테이블 번호
             var table_number=id.slice(1,2);
             text+='테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+(table_number)+'" placeholder="Date" readonly>';
-
-            <%--//테이블 번호--%>
-            <%--var tableList = <%=TableList%>;--%>
-            <%--text += '테이블번호<select id="walkInTable" class="form-control">';--%>
-            <%--for(var i=0;i<tableList.length;i++){--%>
-            <%--    var table=tableList[i];--%>
-            <%--    text+='<option value="'+table.number+'">'+table.number+'번 테이블</option>';--%>
-            <%--}--%>
-            <%--text+='</select>';--%>
 
             //인원수
             text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';
@@ -262,10 +241,25 @@
                 +'<button type="button" class="btn btn-dark" onclick="MakeWalkIn()">추가하기</button>'
                 +'</div>';
         }
-        else {//발열 혹은 수정 기능 넣어야 할듯
-            //날짜
-            text = '날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
-                +'id:'+id;
+        else {//(미완성)발열 혹은 수정 기능 넣어야 할듯
+            if(selectedText[0].slice(1,2)=='R'){
+                //날짜
+                text = '발열 입력<input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
+                    +'id:'+id;
+                text+='<div class="modal-footer">'
+                    +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">도착</button>'
+                    +'</div>';
+            }
+            else if(selectedText[0].slice(1,2)=='W'){
+                //날짜
+                text = '발열 입력 <input type="date" class="form-control" id="modifyDate" name="new_date" value="" placeholder="Date" required>'
+                    +'id:'+id;
+                text+='<div class="modal-footer">'
+                    +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제하기</button>'
+                    +'</div>';
+            }
         }
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
@@ -311,7 +305,7 @@
                     var reservationData = reservationList[k];
                     if (reservationData.time == j && reservationData.table_id == i) {
                         text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText=reservationData.customer_id;
+                        document.getElementById(eval("'"+text+"'")).innerText="[R]"+reservationData.customer_id;
                         // text += '<td>' + reservationData.customer_name + '</td>'
                     }
                 }
@@ -329,7 +323,7 @@
                     var walkInData = walkInList[k];
                     if (walkInData.time == j && walkInData.table_id == i) {
                         text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText=walkInData.covers+"명";
+                        document.getElementById(eval("'"+text+"'")).innerText="[W]"+walkInData.covers+"명";
                         // text += '<td>' + reservationData.customer_name + '</td>'
                     }
                 }
