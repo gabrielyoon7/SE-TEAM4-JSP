@@ -323,7 +323,7 @@
         var tableList = <%=TableList%>
         var reservationList=<%=ReservationList%>
         var text = '';
-        for(var i=0;i<tableList.length;i++){
+        for(var i=1;i<tableList.length+1;i++){
             for(var j=openingTime;j<closingTime;j++){
                 text='';
                 for(var k=0; k<reservationList.length; k++) {
@@ -341,7 +341,7 @@
         var tableList = <%=TableList%>
         var walkInList=<%=WalkInList%>
         var text = '';
-        for(var i=0;i<tableList.length;i++){
+        for(var i=1;i<tableList.length+1;i++){
             for(var j=openingTime;j<closingTime;j++){
                 text='';
                 for(var k=0; k<walkInList.length; k++) {
