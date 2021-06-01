@@ -169,6 +169,8 @@ INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id
 INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',18,'as323d','asd',3);
 INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',15,'as444d','asd',1);
 
+INSERT INTO WaitingList(DATE, name, covers, table_id, verifyCode) VALUES('2021-06-01','김우중', 5, 2,1123);
+
 -- TEST DATA
 INSERT INTO Customer(oid, name, phoneNumber,id,blackList ) VALUES(7000, 'TEST', '010-0000-0000','TEST','false');
 

@@ -98,6 +98,9 @@ public class AjaxAction implements Action {
             case "makeWaitingList":
                 result=WalkInDAO.getInstance().makeWaitingList(data);
                 break;
+            case "addWaitingListToWalkIn":
+                result=WalkInDAO.getInstance().addWaitingListToWalkIn(data);
+                break;
         }
         return result;
     }

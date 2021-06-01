@@ -19,6 +19,7 @@ public class CustomerManagerAction implements Action {
         request.setAttribute("NewOrderList", gson.toJson(ReservationDAO.getInstance().getReservationRequestList()));
         request.setAttribute("ReservationList", gson.toJson(ReservationDAO.getInstance().getReservationList(date)));
         request.setAttribute("WalkInList", gson.toJson(WalkInDAO.getInstance().getWalkInList(date)));
+        request.setAttribute("WaitingList", gson.toJson(WalkInDAO.getInstance().getWaitingList(date)));
         return "RequestDispatcher:jsp/manager/customerManager.jsp";
     }
 }

@@ -11,6 +11,7 @@
     String NewOrderList = (String) request.getAttribute("NewOrderList");
     String ReservationList = (String) request.getAttribute("ReservationList");
     String WalkInList = (String) request.getAttribute("WalkInList");
+    String WaitingList = (String) request.getAttribute("WaitingList");
     String date = (String) request.getAttribute("date");
 %>
 <html>
@@ -87,6 +88,29 @@
             <button class="w-25 btn-dark btn-lg" type="submit">테이블 갱신</button>
         </div>
     </div>
+
+    <div>
+        <br>
+        <br>
+        <p style="font-family: 'Noto Serif KR', serif; font-size: 25px;" >대기리스트</p>
+        <table class="boardtable" id="table1"  style="font-family: 'Noto Serif KR', serif;" data-toggle="table"
+               data-pagination="true" data-toolbar="#toolbar"
+               data-search="true" data-side-pagination="true" data-click-to-select="true"
+               data-page-list="[10]">
+            <thead>
+            <tr>
+                <th data-field="action">설정</th>
+                <th data-field="covers" data-sortable="true">인원수</th>
+                <th data-field="date" data-sortable="true">날짜</th>
+                <th data-field="customer_name" data-sortable="true">이름</th>
+            </tr>
+            </thead>
+            <%--    <tbody id="TableData">--%>
+            <%--    </tbody>--%>
+        </table>
+
+    </div>
+
     <div>
         <br>
         <br>
@@ -139,6 +163,7 @@
         MakeReservationData();
         MakeWalkInData();
         // MakeNewOrderTable();
+        callSetupTableView2()
         callSetupTableView();
     })
     var openingTime = 10;
@@ -322,6 +347,7 @@
                 for(var k=0; k<walkInList.length; k++) {
                     var walkInData = walkInList[k];
                     if (walkInData.time == j && walkInData.table_id == i) {
+                       // alert(walkInData.table_id);
                         text+=i+""+j;
                         document.getElementById(eval("'"+text+"'")).innerText="[W]"+walkInData.covers+"명";
                         // text += '<td>' + reservationData.customer_name + '</td>'
@@ -372,6 +398,55 @@
         }
         // alert(rows);
         return rows;
+    }
+
+    function callSetupTableView2(){
+        $('#table1').bootstrapTable('load',data2());
+        // $('#table').bootstrapTable('append',data());
+        $('#table1').bootstrapTable('refresh');
+    }
+    function data2(){
+        var waitingList = <%=WaitingList%>
+        var rows = [];
+        for(var i=0;i<waitingList.length;i++){
+            var waiting=waitingList[i];
+            rows.push({
+                covers: waiting.covers,
+                date: waiting.date,
+                customer_name: waiting.name,
+                action : '<button class="btn btn-dark" onclick="addWaitingListToWalkIn('+i+')">손님 배정</button>'
+            });
+        }
+        // alert(rows);
+        return rows;
+    }
+
+    function addWaitingListToWalkIn(i){
+        var waitingList = <%=WaitingList%>
+        var waiting=waitingList[i];
+        let today=new Date();
+        var time=today.getHours();
+        var data =waiting.covers+"-/-/-"+waiting.date+"-/-/-"+waiting.name+"-/-/-"+time;
+        var check=confirm("배정 하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "addWaitingListToWalkIn",
+                    data: data
+                },
+                success: function (oid) {
+                    if(oid=="-1"){
+                        alert("현재 만석입니다.");
+                    }
+                    else {
+                        alert("현장 예약이 정상적으로 요청되었습니다.");
+                    }
+                    location.href = 'customerManager.do?date='+<%=date%>;
+                }
+            })
+        }
     }
     function addReservation(i){
         var orderList = <%=NewOrderList%>
