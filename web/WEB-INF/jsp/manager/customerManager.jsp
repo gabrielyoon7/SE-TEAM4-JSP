@@ -212,6 +212,7 @@
         // var newID = '"'+id+'"';
         var list = $('#DataModify');
         var text='';
+        alert('id:'+id);
         if(selectedText[0]=='-'){
             let today = new Date();
             var hour = today.getHours();
@@ -239,7 +240,7 @@
 
             //테이블 번호
             var table_number=id.slice(1,2);
-            text+='테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+(parseInt(table_number)+1)+'" placeholder="Date" readonly>';
+            text+='테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+(table_number)+'" placeholder="Date" readonly>';
 
             <%--//테이블 번호--%>
             <%--var tableList = <%=TableList%>;--%>
@@ -288,11 +289,12 @@
         var list = $('#TableData');
         var text = '';
         for(var i=0;i<tableList.length;i++){
+            var newI=i+1;
             var table=tableList[i];
             text+='<tr>'
                 +'<td>'+table.number+'</td>';
             for(var j=openingTime;j<closingTime;j++){
-                text+='<td><button id='+i+j+' type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="scheduleClicked('+i+j+')">-</button></td>'
+                text+='<td><button id='+newI+j+' type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="scheduleClicked('+newI+j+')">-</button></td>'
             }
             +'</tr>';
         }
@@ -307,7 +309,7 @@
                 text='';
                 for(var k=0; k<reservationList.length; k++) {
                     var reservationData = reservationList[k];
-                    if (reservationData.time == j && reservationData.table_id == i + 1) {
+                    if (reservationData.time == j && reservationData.table_id == i) {
                         text+=i+""+j;
                         document.getElementById(eval("'"+text+"'")).innerText=reservationData.customer_id;
                         // text += '<td>' + reservationData.customer_name + '</td>'
@@ -325,7 +327,7 @@
                 text='';
                 for(var k=0; k<walkInList.length; k++) {
                     var walkInData = walkInList[k];
-                    if (walkInData.time == j && walkInData.table_id == i + 1) {
+                    if (walkInData.time == j && walkInData.table_id == i) {
                         text+=i+""+j;
                         document.getElementById(eval("'"+text+"'")).innerText=walkInData.covers+"명";
                         // text += '<td>' + reservationData.customer_name + '</td>'
