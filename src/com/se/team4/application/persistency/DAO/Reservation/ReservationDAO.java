@@ -316,9 +316,30 @@ public class ReservationDAO {
         }
         return "";
     }
-//    public static String dateToString(Date date) {
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        return sdf.format(date);
-//    }
+
+    public String recordArrival(String data) {
+        String arr[] = data.split("-/-/-"); //data = date+"-/-/-"+time_number+"-/-/-"+table_number;
+        String date = arr[0];
+        String time=arr[1];
+        String table=arr[2];
+        SimpleDateFormat format = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+
+        Date now = new Date();
+
+        String nownow = format.format(now);
+
+        Connection conn = Config.getInstance().sqlLogin();
+        try{
+            QueryRunner que = new QueryRunner();
+            que.query(conn, "UPDATE Reservation SET arrivalTime=? WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
+                    nownow, date, time, table);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            DbUtils.closeQuietly(conn);
+        }
+        return "";
+    }
 
 }

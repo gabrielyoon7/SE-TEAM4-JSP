@@ -274,7 +274,7 @@
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
                     +'<button type="button" class="btn btn-dark" onclick="modifyReservation('+selectedText[0].slice(3,4)+')">수정</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="arriveSchedule()">도착</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="recordArrival('+table_number+time_number+')">도착</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
@@ -651,5 +651,29 @@
             alert("날짜를 선택해주세요!");
         }
     }
+
+    function recordArrival(id){
+        var id2="#"+id;
+        var date = <%=date%>;
+        var time_number=id2.slice(2,4);
+        var table_number=id2.slice(1,2);
+        var data=date+"-/-/-"+time_number+"-/-/-"+table_number;
+        var check = confirm("도착했나요?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "recordArrival",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("도착 처리했습니다.");
+                    location.href = 'customerManager.do?date='+date;
+                }
+            })
+        }
+    }
+
 </script>
 </html>
