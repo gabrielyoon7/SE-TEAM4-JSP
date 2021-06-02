@@ -199,11 +199,13 @@ public class ReservationDAO {
         List<Map<String, Object>> list = null;
         List<Map<String, Object>> table = null;
         List<Map<String, Object>> check_reservation_request = null;
+        List<Map<String, Object>> check_reservation = null;
         try{
             QueryRunner que = new QueryRunner();
             table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
             check_reservation_request=que.query(conn,"SELECT * FROM ReservationRequest WHERE date=? AND time=?", new MapListHandler(),date,time);
-                if(check_reservation_request.size()==table.size()){
+            check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=?", new MapListHandler(),date,time);
+                if(check_reservation_request.size()+check_reservation.size()==table.size()){
                     return "-1";
                 }
         }
