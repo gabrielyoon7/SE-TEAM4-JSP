@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/brand/brand.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/brand" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/common/header.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/common" />
+        <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/manager/customerManager.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/manager" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/manager/statisticsManager.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/manager" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/menu/menu.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/menu" />
         <entry key="file://$PROJECT_DIR$/web/WEB-INF/jsp/packing/basket.jsp" value="file://$PROJECT_DIR$/web/WEB-INF/jsp/packing" />

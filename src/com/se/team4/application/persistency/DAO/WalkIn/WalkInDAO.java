@@ -51,9 +51,9 @@ public class WalkInDAO {
                     date,time);
             watingListReservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=?", new MapListHandler(),
                     date,time);
-            if(watingListWalkIn.size()+watingListReservation.size()==3){
-                return "-2"; // 대기리스트
-            }
+//            if(watingListWalkIn.size()+watingListReservation.size()==3){
+//                return "-2"; // 대기리스트
+//            }
             if(check_walkIn.size()+check_reservation.size()==0) {
                 que.query(conn, "INSERT WalkIn SET covers=?, date=?, time=?, table_id=?, verifyCode=?;", new MapListHandler(),
                         covers, date, time, table, verifyCode);
@@ -101,17 +101,17 @@ public class WalkInDAO {
     public String makeWaitingList(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+table+"-/-/-"+cover+-/-/-name;
         String date = arr[0];
-        String table_id = arr[1];
-        String covers=arr[2];
-        String name=arr[3];
+//        String table_id = arr[1];
+        String covers=arr[1];
+        String name=arr[2];
         Random random = new Random();
         int verifyCode=random.nextInt(100000000);
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "INSERT WaitingList SET covers=?, date=?,table_id=?,name=?, verifyCode=? ;", new MapListHandler(),
-                    covers, date, table_id, name, verifyCode);
+            que.query(conn, "INSERT WaitingList SET covers=?, date=?, name=?, verifyCode=? ;", new MapListHandler(),
+                    covers, date, name, verifyCode);
 //          System.out.println("ddd");
            list = que.query(conn, "SELECT * FROM WaitingList WHERE verifyCode=?", new MapListHandler(), verifyCode);
 //          System.out.println(list);

@@ -77,6 +77,22 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel3" >대기리스트 등록</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id = "WaitingData"></div>
+                        <%--                        <div class="modal-footer">--%>
+                        <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+                        <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
+                        <%--                        </div>--%>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <div>
@@ -85,7 +101,8 @@
             <tbody id="TableData"></tbody>
         </table>
         <div class="pay_button text-center">
-            <button class="w-25 btn-dark btn-lg" onclick="">대기리스트 추가</button>
+<%--            <button class="w-25 btn-dark btn-lg" onclick="MakeWaitingList()">대기리스트 추가</button>--%>
+                <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop3" onclick="MakeModalData4()">대기리스트 추가</button>
         </div>
     </div>
 
@@ -263,6 +280,30 @@
                     +'</div>';
             }
         }
+        list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
+    }
+
+    function MakeModalData4(){
+        var list = $('#WaitingData');
+        var text='';
+        // alert('id:'+id);
+        var date = <%=date%>;
+
+        text+='날짜<input type="date" class="form-control" id="waitingDate" name="new_date" value="'+date+'" placeholder="Date" readonly>';
+
+        //이름
+        text+= '이름<input type="text" class="form-control" id="waitingName" name="new_name" value="'+""+'">';
+
+        //인원수
+        text += '인원수<select id="waitingCovers" class="form-control"><option value="1">1명</option>';
+        for(var i=2;i<6;i++){
+            text+='<option value="'+i+'">'+i+'명</option>';
+        }
+        text+='</select>';
+        text+='<div class="modal-footer">'
+            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+            +'<button type="button" class="btn btn-dark" onclick="MakeWaitingList()">추가하기</button>'
+            +'</div>';
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
 
@@ -491,11 +532,11 @@
                     if(oid=="-1"){
                         alert("이미 입석한 손님이 존재합니다.");
                     }
-                    else if(oid=="-2"){
-                        var check = confirm("현재 만섭입니다. 대기리스트에 등록하시겠습니까?");
-                        if(check)
-                            MakeWaitingList(check);
-                    }
+                    // else if(oid=="-2"){
+                    //     var check = confirm("현재 만섭입니다. 대기리스트에 등록하시겠습니까?");
+                    //     if(check)
+                    //         MakeWaitingList(check);
+                    // }
                     else {
                         alert("[예약번호:" + oid + "]의 현장 예약이 정상적으로 요청되었습니다.");
                     }
@@ -504,15 +545,13 @@
             })
         }
     }
-    function  MakeWaitingList(checking){
-        var date = document.getElementById('walkInDate1').value;
-        var table = document.getElementById('walkInTable').value;
-        var cover = document.getElementById('walkInCovers').value;
-        var data=date+"-/-/-"+table+"-/-/-"+cover;
-        var check = checking;
+    function  MakeWaitingList(){
+        var date = document.getElementById('waitingDate').value;
+        var cover = document.getElementById('waitingCovers').value;
+        var name = document.getElementById('waitingName').value;
+        var data=date+"-/-/-"+cover+"-/-/-"+name;
+        var check = confirm("대기리스트에 등록하시겠습니까?");
         if(check){
-            var name=prompt("성함를 남겨주세요","");
-            data+="-/-/-/"+name;
             $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
                 url: "ajax.do", //ajax.do(ajaxAction)에 있는
                 type: "post",
