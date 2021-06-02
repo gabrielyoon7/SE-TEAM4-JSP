@@ -151,9 +151,9 @@ public class ReservationDAO {
 //            mmddyy[1]="0"+mmddyy[1];
 //        String date = mmddyy[2]+"-"+mmddyy[0]+"-"+mmddyy[1];
         String date = arr[1];
-        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
-        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
-        date = array2[1]+"-"+array[0]+"-"+array2[0];
+//        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
+//        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
+//        date = array2[1]+"-"+array[0]+"-"+array2[0];
         String time = arr[2];
         String id = arr[3];
         String name=arr[4];

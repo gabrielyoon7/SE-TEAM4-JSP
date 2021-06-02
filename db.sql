@@ -45,7 +45,7 @@ CREATE TABLE Reservation (
 CREATE TABLE ReservationRequest	(
                                        oid    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                        covers INT,
-                                       date    DATE,
+                                       date    VARCHAR(32),
                                        time   INT,
                                        customer_name   VARCHAR(32),
                                        customer_id  VARCHAR(32),
