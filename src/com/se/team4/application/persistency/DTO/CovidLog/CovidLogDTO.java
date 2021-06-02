@@ -1,6 +1,39 @@
 package com.se.team4.application.persistency.DTO.CovidLog;
 
 public class CovidLogDTO {
+    private String date;
+    private String time_num;
+    private String table_num;
+    private String name;
+    private String address;
+    private String phoneNumber;
+    private String symptom;
+    private String temperature;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime_num() {
+        return time_num;
+    }
+
+    public void setTime_num(String time_num) {
+        this.time_num = time_num;
+    }
+
+    public String getTable_num() {
+        return table_num;
+    }
+
+    public void setTable_num(String table_num) {
+        this.table_num = table_num;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,20 +73,4 @@ public class CovidLogDTO {
     public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
-
-    public String getTableNumber() {
-        return tableNumber;
-    }
-
-    public void setTableNumber(String tableNumber) {
-        this.tableNumber = tableNumber;
-    }
-
-    private String name;
-    private String address;
-    private String phoneNumber;
-    private String symptom;
-    private String temperature;
-    private String tableNumber;
-
 }

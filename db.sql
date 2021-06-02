@@ -52,13 +52,15 @@ CREATE TABLE ReservationRequest	(
                                        message    VARCHAR(100),
                                        verifyCode  INT
 );
-CREATE TABLE CovidLog(
-                         name   VARCHAR(32)    NOT NULL,
+CREATE TABLE covidlog(
+								 date VARCHAR(32) NOT NULL,
+								 time_num VARCHAR(32) NOT NULL,
+								 table_num VARCHAR(32) NOT NULL,
+                         name   VARCHAR(32) NOT NULL,
                          address   VARCHAR(32) NOT NULL,
-                         phoneNumber   CHAR(13) NOT NULL,
-                         symptom   BOOLEAN NOT NULL,
-                         temperature   DOUBLE NOT NULL,
-                         tableNumber   INT NOT NULL
+                         phoneNumber   VARCHAR(20) NOT NULL,
+                         symptom   VARCHAR(32) NOT NULL,
+                         temperature   DOUBLE NOT NULL
 
 );
 CREATE TABLE WaitingList(

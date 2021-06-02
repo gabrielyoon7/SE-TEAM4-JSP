@@ -122,6 +122,9 @@ public class AjaxAction implements Action {
             case "recordArrival":
                 result=ReservationDAO.getInstance().recordArrival(data);
                 break;
+            case "addCovidLog":
+                result=HomeDAO.getInstance().addCovidLog(data);
+                break;
         }
         return result;
     }

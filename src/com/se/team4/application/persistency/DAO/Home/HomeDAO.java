@@ -3,6 +3,7 @@ package com.se.team4.application.persistency.DAO.Home;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.se.team4.application.persistency.DAO.TestDAO;
+import com.se.team4.application.persistency.DTO.CovidLog.CovidLogDTO;
 import com.se.team4.application.persistency.DTO.Home.UserDTO;
 import com.se.team4.application.persistency.DTO.TestDTO;
 import com.se.team4.common.sql.Config;
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class HomeDAO {
     public static HomeDAO it;
@@ -185,6 +187,32 @@ public class HomeDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return "";
+    }
+
+
+    public String addCovidLog(String data){
+        String arr[] = data.split("-/-/-"); //date+"-/-/-"+time_num+"-/-/-"+table_num+"-/-/-"+name+"-/-/-"+address+"-/-/-"+phoneNumber+"-/-/-"+symptom+"-/-/-"+temperature;
+        String date = arr[0];
+        String time_num = arr[1];
+        String table_num = arr[2];
+        String name = arr[3];
+        String address = arr[4];
+        String phoneNumber = arr[5];
+        String symptom = arr[6];
+        String temperature = arr[7];
+        Connection conn = Config.getInstance().sqlLogin();
+        List<Map<String, Object>> list = null;
+        try{
+            QueryRunner que = new QueryRunner();
+            que.query(conn, "INSERT covidlog SET date=?, time_num=?, table_num=?, name=?, address=?,phoneNumber=?,symptom=?,temperature=?;", new MapListHandler(),
+                    date,time_num,table_num,  name, address, phoneNumber, symptom, temperature);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
             DbUtils.closeQuietly(conn);
         }
         return "";

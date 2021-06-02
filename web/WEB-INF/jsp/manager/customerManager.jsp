@@ -325,10 +325,11 @@
         var time_number=id2.slice(2,4);
         var table_number=id2.slice(1,2);
         //체온
-        text+= '<button type="button" class="btn btn-dark" onclick="deleteSchedule()11">인원 추가</button>'
+        // text+= '<button type="button" class="btn btn-dark" onclick="addCovidLog()">인원 추가</button>'
+        text+= ''
             +'날짜<input type="date" class="form-control" id="covid_date" name="covid_date" value="'+date+'" placeholder="Date" readonly>'
-            +'시간<input type="text" class="form-control" id="walkInDate2" name="new_time" value="'+time_number+'" placeholder="Date" readonly>'
-            +'테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+table_number+'" placeholder="Date" readonly>'
+            +'시간<input type="text" class="form-control" id="covid_time" name="covid_time" value="'+time_number+'" placeholder="Date" readonly>'
+            +'테이블번호<input type="text" class="form-control" id="covid_table" name="covid_table" value="'+table_number+'" placeholder="Date" readonly>'
             +'이름<input type="text" class="form-control" id="covid_name" name="covid_name" value="">'
             +'주소<input type="text" class="form-control" id="covid_address" name="covid_address" value="">'
             +'연락처<input type="text" class="form-control" id="covid_phoneNumber" name="covid_phoneNumber" value="">'
@@ -338,7 +339,7 @@
         //footer
         text+='<div class="modal-footer">'
             +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
-            +'<button type="button" class="btn btn-dark" onclick="deleteSchedule11()">저장</button>'
+            +'<button type="button" class="btn btn-dark" onclick="addCovidLog()">저장</button>'
             +'</div>';
         list.html(text);
     }
@@ -669,6 +670,33 @@
                 },
                 success: function (oid) {
                     alert("도착 처리했습니다.");
+                    location.href = 'customerManager.do?date='+date;
+                }
+            })
+        }
+    }
+
+    function addCovidLog(){
+        var date=$('#covid_date').val();
+        var time_num =$('#covid_time').val();
+        var table_num =$('#covid_table').val();
+        var name =$('#covid_name').val();
+        var address =$('#covid_address').val();
+        var phoneNumber =$('#covid_phoneNumber').val();
+        var symptom =$('#covid_symptom').val();
+        var temperature=$('#covid_temperature').val();
+        var data=date+"-/-/-"+time_num+"-/-/-"+table_num+"-/-/-"+name+"-/-/-"+address+"-/-/-"+phoneNumber+"-/-/-"+symptom+"-/-/-"+temperature;
+        var check = confirm("코로나 관련 정보 입력이 되셨나요?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "addCovidLog",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("코로나 관련 기록을 저장했습니다.");
                     location.href = 'customerManager.do?date='+date;
                 }
             })
