@@ -202,6 +202,7 @@
         var date = <%=date%>;
         var time_number=id.slice(2,4);
         var table_number=id.slice(1,2);
+
         if(selectedText[0]=='-'){
             //날짜
             text+='날짜<input type="date" class="form-control" id="walkInDate1" name="new_date" value="'+date+'" placeholder="Date" readonly>';
@@ -212,11 +213,17 @@
             //테이블 번호
             text+='테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+(table_number)+'" placeholder="Date" readonly>';
 
+            //체온
+            text+= '체온<input type="text" class="form-control" id="temperature" name="new_temperture" value="'+""+'">';
+
             //인원수
             text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';
             for(var i=2;i<6;i++){
                 text+='<option value="'+i+'">'+i+'명</option>';
             }
+
+
+
             text+='</select>';
             text+='<div class="modal-footer">'
                 +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
