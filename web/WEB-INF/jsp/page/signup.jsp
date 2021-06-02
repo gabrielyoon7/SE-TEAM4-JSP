@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-   <%-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/"> --%> 아직
+   <%-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/"> --%>
     <!-- Bootstrap core CSS -->
 <%--    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">--%>
 
@@ -51,7 +51,7 @@
         </div>
             <div>
                 <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">기본 정보</h4>
-                <form class="needs-validation" novalidate>
+                <div class="needs-validation" novalidate>
                     <div class="row g-3">
                         <div class="col-12">
                             <label for="name" class="form-label" style="font-family: 'Noto Serif KR', serif;">이 름</label>
@@ -69,7 +69,7 @@
                             <label for="id" class="form-label" style="font-family: 'Noto Serif KR', serif;">아이디</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text">@</span>
-                                <input type="text" class="form-control" id="id" placeholder="Username" required>
+                                <input type="text" class="form-control" id="id" placeholder="되도록이면 학번으로 가입해주세요." required>
                                 <div class="invalid-feedback">
                                     아이디를 입력해주세요.
                                 </div>
@@ -78,7 +78,7 @@
 
                         <div class="col-12">
                             <label for="password" class="form-label" style="font-family: 'Noto Serif KR', serif;">비밀번호</label>
-                            <input type="text" class="form-control" id="password" placeholder="1234 Main St" required="">
+                            <input type="text" class="form-control" id="password" placeholder="비밀번호가 암호화되지 않습니다. 실제로 사용하는 비밀번호를 절대로 입력하지 말아주세요. " required="">
                             <div class="invalid-feedback">
                                 비밀번호를 입력해주세요.
                             </div>
@@ -86,7 +86,7 @@
 
                         <div class="col-12">
                             <label for="phoneNumber" class="form-label" style="font-family: 'Noto Serif KR', serif;">전화번호</label>
-                            <input type="text" class="form-control" id="phoneNumber" placeholder="Apartment or suite">
+                            <input type="text" class="form-control" id="phoneNumber" placeholder="010-0000-0000">
                         </div>
                     </div>
 
@@ -99,62 +99,62 @@
 
                     <hr class="my-4">
 
-                    <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">결제정보(미구현)</h4>
+<%--                    <h4 class="mb-3" style="font-family: 'Noto Serif KR', serif;">결제정보(미구현)</h4>--%>
 
-                    <div class="my-3">
-                        <div class="form-check">
-                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-                            <label class="form-check-label" for="credit" style="font-family: 'Noto Serif KR', serif;">체크 카드</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="debit" style="font-family: 'Noto Serif KR', serif;">신용 카드</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-                            <label class="form-check-label" for="paypal">카카오 페이</label>
-                        </div>
-                    </div>
+<%--                    <div class="my-3">--%>
+<%--                        <div class="form-check">--%>
+<%--                            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>--%>
+<%--                            <label class="form-check-label" for="credit" style="font-family: 'Noto Serif KR', serif;">체크 카드</label>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-check">--%>
+<%--                            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>--%>
+<%--                            <label class="form-check-label" for="debit" style="font-family: 'Noto Serif KR', serif;">신용 카드</label>--%>
+<%--                        </div>--%>
+<%--                        <div class="form-check">--%>
+<%--                            <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>--%>
+<%--                            <label class="form-check-label" for="paypal">카카오 페이</label>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
-                    <div class="row gy-3">
-                        <div class="col-md-6">
-                            <label for="cc-name" class="form-label">Name on card</label>
-                            <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                            <small class="text-muted">카드에 적혀 있는 영문 이름을 입력해주세요.</small>
-                            <div class="invalid-feedback">
-                                카드에 적혀 있는 영문 이름을 입력해주세요.
-                            </div>
-                        </div>
+<%--                    <div class="row gy-3">--%>
+<%--                        <div class="col-md-6">--%>
+<%--                            <label for="cc-name" class="form-label">Name on card</label>--%>
+<%--                            <input type="text" class="form-control" id="cc-name" placeholder="" required>--%>
+<%--                            <small class="text-muted">카드에 적혀 있는 영문 이름을 입력해주세요.</small>--%>
+<%--                            <div class="invalid-feedback">--%>
+<%--                                카드에 적혀 있는 영문 이름을 입력해주세요.--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
 
-                        <div class="col-md-6">
-                            <label for="cc-number" class="form-label">Credit card number</label>
-                            <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                            <div class="invalid-feedback">
-                                카드 번호를 입력해주세요.
-                            </div>
-                        </div>
+<%--                        <div class="col-md-6">--%>
+<%--                            <label for="cc-number" class="form-label">Credit card number</label>--%>
+<%--                            <input type="text" class="form-control" id="cc-number" placeholder="" required>--%>
+<%--                            <div class="invalid-feedback">--%>
+<%--                                카드 번호를 입력해주세요.--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
 
-                        <div class="col-md-3">
-                            <label for="cc-expiration" class="form-label">Expiration</label>
-                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                            <div class="invalid-feedback">
-                                카드 만료일을 입력해주세요.
-                            </div>
-                        </div>
+<%--                        <div class="col-md-3">--%>
+<%--                            <label for="cc-expiration" class="form-label">Expiration</label>--%>
+<%--                            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>--%>
+<%--                            <div class="invalid-feedback">--%>
+<%--                                카드 만료일을 입력해주세요.--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
 
-                        <div class="col-md-3">
-                            <label for="cc-cvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                            <div class="invalid-feedback">
-                                CVV를 입력해주세요.
-                            </div>
-                        </div>
-                    </div>
+<%--                        <div class="col-md-3">--%>
+<%--                            <label for="cc-cvv" class="form-label">CVV</label>--%>
+<%--                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>--%>
+<%--                            <div class="invalid-feedback">--%>
+<%--                                CVV를 입력해주세요.--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
                     <hr class="my-4">
 
                     <button class="w-100 btn btn-dark btn-lg" onclick="signUp()" style="font-family: 'Noto Serif KR', serif;">회원가입 하기</button>
-                </form>
+                </div>
             </div>
         </div>
     </main>

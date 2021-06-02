@@ -80,7 +80,7 @@
                 <p style="font-size: 25px; font-family: 'Noto Serif KR', serif;" class="lead text-muted">아래의 다양한 메뉴들을 직접 확인하세요.</p>
             </div>
             <div style="font-family: 'Noto Serif KR', serif; font-weight: bold" >
-                <button class="btn btn-dark"><a href="menu.do?type=all">메뉴 전체보기</a></button>
+                <button class="btn btn-dark"><a href="menu.do?type=all">전체보기</a></button>
                 <button class="btn btn-dark"><a href="menu.do?type=치킨">치킨</a></button>
                 <button class="btn btn-dark"><a href="menu.do?type=피자">피자</a></button>
                 <button class="btn btn-dark"><a href="menu.do?type=스테이크">스테이크</a></button>

@@ -83,14 +83,14 @@
         <h1 class="fw-light" style="font-family: 'Noto Serif KR', serif; font-size: 55px; font-weight: bold">Choose the menu</h1>
         <p style="font-size: 25px; font-family: 'Noto Serif KR', serif;" class="lead text-muted">원하는 메뉴를 골라 장바구니에 추가한 뒤, 하단의 주문하기를 누르세요.</p>
       </div>
-      <div style="font-family: 'Noto Serif KR', serif; font-weight: bold">
-        <button class="btn btn-dark"><a href="packing.do?type=all">메뉴 전체보기</a></button>
-        <button class="btn btn-dark"><a href="packing.do?type=치킨">치킨</a></button>
-        <button class="btn btn-dark"><a href="packing.do?type=피자">피자</a></button>
-        <button class="btn btn-dark"><a href="packing.do?type=스테이크">스테이크</a></button>
-        <button class="btn btn-dark"><a href="packing.do?type=파스타">파스타</a></button>
-        <button class="btn btn-dark"><a href="packing.do?type=음료수">음료</a></button>
-      </div>
+<%--      <div style="font-family: 'Noto Serif KR', serif; font-weight: bold">--%>
+<%--        <button class="btn btn-dark"><a href="packing.do?type=all">메뉴 전체보기</a></button>--%>
+<%--        <button class="btn btn-dark"><a href="packing.do?type=치킨">치킨</a></button>--%>
+<%--        <button class="btn btn-dark"><a href="packing.do?type=피자">피자</a></button>--%>
+<%--        <button class="btn btn-dark"><a href="packing.do?type=스테이크">스테이크</a></button>--%>
+<%--        <button class="btn btn-dark"><a href="packing.do?type=파스타">파스타</a></button>--%>
+<%--        <button class="btn btn-dark"><a href="packing.do?type=음료수">음료</a></button>--%>
+<%--      </div>--%>
     </div>
   </section>
 
