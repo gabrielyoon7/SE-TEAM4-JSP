@@ -101,6 +101,18 @@ public class AjaxAction implements Action {
             case "addWaitingListToWalkIn":
                 result=WalkInDAO.getInstance().addWaitingListToWalkIn(data);
                 break;
+            case "deleteSchedule":
+                result=WalkInDAO.getInstance().deleteSchedule(data);
+                break;
+            case "deleteReservation":
+                result=ReservationDAO.getInstance().deleteReservation(data);
+                break;
+            case "deleteReservationRequest":
+                result=ReservationDAO.getInstance().deleteReservationRequest(data);
+                break;
+            case "modifyReservationRequest":
+                result=ReservationDAO.getInstance().deleteReservationRequest(data);
+                break;
         }
         return result;
     }

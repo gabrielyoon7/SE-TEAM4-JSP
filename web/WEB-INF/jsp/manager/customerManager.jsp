@@ -269,8 +269,8 @@
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">수정</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">도착</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="modifySchedule()">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="arriveSchedule()">도착</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
@@ -278,7 +278,7 @@
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="modifySchedule()">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
@@ -321,7 +321,7 @@
         var time_number=id2.slice(2,4);
         var table_number=id2.slice(1,2);
         //체온
-        text+= '<button type="button" class="btn btn-dark" onclick="deleteSchedule()">인원 추가</button>'
+        text+= '<button type="button" class="btn btn-dark" onclick="deleteSchedule()11">인원 추가</button>'
             +'날짜<input type="date" class="form-control" id="covid_date" name="covid_date" value="'+date+'" placeholder="Date" readonly>'
             +'시간<input type="text" class="form-control" id="walkInDate2" name="new_time" value="'+time_number+'" placeholder="Date" readonly>'
             +'테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+table_number+'" placeholder="Date" readonly>'
@@ -334,7 +334,7 @@
         //footer
         text+='<div class="modal-footer">'
             +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
-            +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">저장</button>'
+            +'<button type="button" class="btn btn-dark" onclick="deleteSchedule11()">저장</button>'
             +'</div>';
         list.html(text);
     }
@@ -569,6 +569,28 @@
             })
         }
     }
+    function deleteSchedule(){
+        var date = document.getElementById('modifyDate').value;
+        var time = document.getElementById('modifyTime').value;
+        var table = document.getElementById('modifyTable').value;
+        var data=date+"-/-/-"+time+"-/-/-"+table;
+        var check=confirm("삭제하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "deleteSchedule",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("일정이 삭제되었습니다.");
+                    location.href = 'customerManager.do?date='+<%=date%>;
+                }
+            })
+        }
+    }
+
     function reload(){
         var date=$('#reservationDate').val();
         if(date!=''){

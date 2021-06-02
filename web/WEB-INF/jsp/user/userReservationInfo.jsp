@@ -9,7 +9,9 @@
 
 <%
     String ReservationRequest = (String) request.getAttribute("ReservationRequest");
+    String Reservation = (String) request.getAttribute("Reservation");
     String Order = (String) request.getAttribute("Order");
+    String id=(String) request.getAttribute("id");
 %>
 <html>
 <head>
@@ -44,6 +46,27 @@
         </thead>
     </table>
 
+    <div>예약완료 현황</div>
+    <table
+            id="reservationTable"
+            data-toggle="table"
+            data-height="460"
+            data-search="true"
+            data-show-search-button="true"
+            data-pagination="true"
+            data-side-pagination="server">
+        <thead>
+        <tr>
+            <th data-field="action">설정</th>
+            <th data-field="oid">예약번호</th>
+            <th data-field="date">날짜</th>
+            <th data-field="time">시간</th>
+            <th data-field="covers">예약인원</th>
+            <th data-field="table_id">테이블</th>
+        </tr>
+        </thead>
+    </table>
+
     <div>주문 현황</div>
     <table
             id="orderTable"
@@ -67,6 +90,22 @@
     </table>
 
 </div>
+    <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel4">수정하기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id = "UserModify"></div>
+                <%--                        <div class="modal-footer">--%>
+                <%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>--%>
+                <%--                            <button type="button" class="btn btn-primary">추가하기</button>--%>
+                <%--                        </div>--%>
+            </div>
+        </div>
+    </div>
+
 </div>
 <%@include file="../common/footer.jsp" %>
 </body>
@@ -82,6 +121,8 @@
         $('#reservationRequestTable').bootstrapTable('refresh');
         $('#orderTable').bootstrapTable('load',data2());
         $('#orderTable').bootstrapTable('refresh');
+        $('#reservationTable').bootstrapTable('load',data3());
+        $('#reservationTable').bootstrapTable('refresh');
     }
 
     function data1(){
@@ -95,7 +136,8 @@
                 date: request.date,
                 time: request.time,
                 message: request.message,
-                action : '<button class="btn btn-dark" onclick="modifyReservationRequest('+i+')">예약 정보 수정</button>'
+                action : '<button <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop4" onclick="MakeModalData('+i+')">예약 정보 수정</button>'+
+                    '<button class="btn btn-outline-dark" onclick="deleteReservationRequest('+i+')">예약 취소</button>'
             });
         }
         // alert(rows);
@@ -119,6 +161,126 @@
         // alert(rows);
         return rows;
     }
+    function data3(){
+        var reservationList = <%=Reservation%>
+        var rows = [];
+        for(var i=0;i<reservationList.length;i++){
+            var reservation=reservationList[i];
+            rows.push({
+                oid: reservation.oid,
+                covers: reservation.covers,
+                date: reservation.date,
+                time: reservation.time,
+                table_id: "No."+reservation.table_id,
+                action : '<button class="btn btn-outline-dark" onclick="message()">예약 정보 수정</button>'+
+                    '<button class="btn btn-outline-dark" onclick="deleteReservation('+i+')">예약 취소</button>'
+            });
+        }
+        // alert(rows);
+        return rows;
+    }
+    function MakeModalData(i){
+        var list = $('#UserModify');
+        var text='';
+        // alert('id:'+id);
+        var reservationRequestList = <%=ReservationRequest%>;
+        var reservation=reservationRequestList[i];
+        var date = reservation.date;
+        var time = reservation.time;
 
+        text +='날짜<input type="date" class="form-control" id="modifyDate" name="new_date" value="'+date+'" placeholder="Date">'
+
+        text +='시간<select id="modifyTime" class="form-control"><option value="'+time+'">'+time+':00</option>'
+        for(var i=openingTime;i<closingTime;i++){
+            text+='<option value="'+i+'">'+i+':00</option>';
+        }
+        text +='</select>';
+
+        //이름
+        text+= '이름<input type="text" class="form-control" id="modifyName" name="new_name" value="'+""+'">';
+
+        //인원수
+        text += '인원수<select id="modifyCovers" class="form-control"><option value="1">1명</option>';
+        for(var i=2;i<6;i++){
+            text+='<option value="'+i+'">'+i+'명</option>';
+        }
+        text+='</select>';
+        text+='<div class="modal-footer">'
+            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+            +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+reservation.oid+')">추가하기</button>'
+            +'</div>';
+        list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
+    }
+    function message(){
+        alert("※변경을 원하시면 02-111-2222로 문의해주세요.※");
+        location.href='userReservationInfo.do?id='+<%=id%>;
+    }
+    function deleteReservation(i) {
+        var reservationList = <%=Reservation%>
+        var reservation = reservationList[i];
+        var date = reservation.date;
+        var time = reservation.time;
+        var table = reservation.table_id;
+        var data = date + "-/-/-" + time + "-/-/-" + table;
+        var check = confirm("삭제하시겠습니까?");
+        if (check) {
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "deleteReservation",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("일정이 삭제되었습니다.");
+                    location.href = 'userReservationInfo.do?id=' +<%=id%>;
+                }
+            })
+        }
+    }
+    function deleteReservationRequest(i){
+            var reservationRequestList = <%=ReservationRequest%>
+            var reservation=reservationRequestList[i];
+            var date = reservation.date;
+            var time = reservation.time;
+            var data=date+"-/-/-"+time;
+            var check=confirm("삭제하시겠습니까?");
+            if(check){
+                $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                    url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                    type: "post",
+                    data: {
+                        req: "deleteReservationRequest",
+                        data: data
+                    },
+                    success: function (oid) {
+                        alert("일정이 삭제되었습니다.");
+                        location.href = 'userReservationInfo.do?id=' +<%=id%>;
+                    }
+                })
+            }
+    }
+    function  modifyReservationRequest(oid){
+        var date = document.getElementById('modifyDate').value;
+        var time = document.getElementById('modifyTime')
+        var cover = document.getElementById('modifyCovers').value;
+        var name = document.getElementById('modifyName').value;
+        var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name+"-/-/-"+oid;
+        var check = confirm("대기리스트에 등록하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "modifyReservationRequest",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("예약이 수정되었습니다.");
+                    location.href = 'userReservationInfo.do?id=' +<%=id%>;
+                }
+            })
+        }
+    }
 </script>
 </html>

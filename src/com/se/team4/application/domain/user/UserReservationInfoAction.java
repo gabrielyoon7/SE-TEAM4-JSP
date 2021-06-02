@@ -21,7 +21,9 @@ public class UserReservationInfoAction implements Action {
         }
         else{
             request.setAttribute("ReservationRequest", gson.toJson(ReservationDAO.getInstance().getUserReservationRequest(id)));
+            request.setAttribute("Reservation", gson.toJson(ReservationDAO.getInstance().getUserReservation(id)));
             request.setAttribute("Order", gson.toJson(PackingDAO.getInstance().getUserOrder(id)));
+            request.setAttribute("id",id);
         }
         return "RequestDispatcher:jsp/user/userReservationInfo.jsp";
     }
