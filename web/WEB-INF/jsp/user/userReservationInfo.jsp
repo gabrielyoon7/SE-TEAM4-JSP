@@ -90,7 +90,7 @@
     </table>
 
 </div>
-    <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel4" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -136,7 +136,7 @@
                 date: request.date,
                 time: request.time,
                 message: request.message,
-                action : '<button <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop4" onclick="MakeModalData('+i+')">예약 정보 수정</button>'+
+                action : '<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop4" onclick="MakeModalData('+i+')">예약 정보 수정</button>'+
                     '<button class="btn btn-outline-dark" onclick="deleteReservationRequest('+i+')">예약 취소</button>'
             });
         }
@@ -179,6 +179,9 @@
         // alert(rows);
         return rows;
     }
+
+    var openingTime = 10;
+    var closingTime = 22;
     function MakeModalData(i){
         var list = $('#UserModify');
         var text='';
