@@ -9,7 +9,7 @@ CREATE TABLE Oid (
 ) ;
 
 CREATE TABLE `Table` (
-                         oid        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                         oid       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                          number    INT NOT NULL,
                          places    INT NOT NULL,
                          limits   INT NOT NULL
@@ -43,29 +43,30 @@ CREATE TABLE Reservation (
                              arrivalTime  TIME
 ) ;
 CREATE TABLE ReservationRequest	(
-                                       oid  			INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                       covers  		INT,
-                                       date  			DATE,
-                                       time  			INT,
-                                       customer_name  			VARCHAR(32),
-                                       customer_id  			VARCHAR(32),
-                                       message  			VARCHAR(100),
-                                       verifyCode  			INT
+                                       oid    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                       covers INT,
+                                       date    DATE,
+                                       time   INT,
+                                       customer_name   VARCHAR(32),
+                                       customer_id  VARCHAR(32),
+                                       message    VARCHAR(100),
+                                       verifyCode  INT
 );
 CREATE TABLE CovidLog(
-                         name VARCHAR(32)    NOT NULL,
-                         address VARCHAR(32) NOT NULL,
-                         phoneNumber CHAR(13) NOT NULL,
-                         symptom BOOLEAN NOT NULL,
-                         temperature DOUBLE NOT NULL,
-                         tableNumber INT NOT NULL
+                         name   VARCHAR(32)    NOT NULL,
+                         address   VARCHAR(32) NOT NULL,
+                         phoneNumber   CHAR(13) NOT NULL,
+                         symptom   BOOLEAN NOT NULL,
+                         temperature   DOUBLE NOT NULL,
+                         tableNumber   INT NOT NULL
 
 );
 CREATE TABLE WaitingList(
-                            date   DATE,
-                            name VARCHAR(32) NOT NULL,
-                            covers INT NOT NULL,
-                            table_id int
+                            date    DATE,
+                            name   VARCHAR(32) NOT NULL,
+                            covers   INT NOT NULL,
+                            table_id   int,
+                            verifyCode    INT
 );
 CREATE TABLE Menu(
                      oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -150,7 +151,12 @@ INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5038,'파스타','탈리아 텔레',15500,'훈제 연어와 생크림으로 만든 소스가 들어간 파스타입니다.','5038.jpg', 22);
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5039,'파스타','라비올리',18000,'시금치와 리코타 치즈를 섞어 속을 채우고 납작하게 빚어낸 파스타입니다.','5039.jpg', 25);
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5040,'파스타','명란 크림 로제 파스타',16000,'부드러운 크림과 명란이 어우러진 파스타입니다.','5040.jpg', 20);
-
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5041,'음료수','사이다',2000,'사이다 입니다.','5041.jpg', 1);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5042,'음료수','콜라',2000,'콜라입니다.','5042.jpg', 1);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5043,'음료수','환타',2000,'사이다 입니다.','5043.jpg', 1);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5044,'음료수','레몬 에이드',3500,'레몬 에이드 입니다.','5044.jpg', 5);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5045,'음료수','한라봉 에이드',3500,'한라봉 에이드 입니다.','5045.jpg', 5);
+INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5046,'음료수','청포도 에이드',3500,'청포도 에이드 입니다.','5046.jpg', 5);
 
 INSERT INTO `Table`(oid, number, places, limits ) VALUES(6000,1,1,4);
 INSERT INTO `Table`(number, places, limits ) VALUES(2,2,4);
@@ -162,10 +168,29 @@ INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id
 INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',18,'as323d','asd',3);
 INSERT INTO Reservation(covers, DATE, TIME, customer_name, customer_id, table_id) VALUES(3,'2021-05-26',15,'as444d','asd',1);
 
+INSERT INTO WaitingList(DATE, name, covers, table_id, verifyCode) VALUES('2021-06-01','김우중', 5, 2,1123);
+
 -- TEST DATA
 INSERT INTO Customer(oid, name, phoneNumber,id,blackList ) VALUES(7000, 'TEST', '010-0000-0000','TEST','false');
 
 -- TEST DATA
 INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES(8000, 'TEST', 'TEST','2021-05-10', '', '현장결제', 0, '맛있게 해주세요.', 0);
 INSERT INTO Pickup(oid, id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES(8001, 'TEST', 'TEST','2021-05-10', '', '온라인결제', 0, '양 많이 주세요.', 0);
-
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '온라인결제', 10000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '온라인결제', 37000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-31', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 12000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 11000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 11000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-01', '', '온라인결제', 37000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 37000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 30000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 25000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 32000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 31000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 27000, '맛있게 해주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 17000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 20000, '양 많이 주세요.', 0);
