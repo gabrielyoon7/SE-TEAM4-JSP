@@ -31,6 +31,9 @@
         #bt{
             margin-right: 5px;
         }
+        .pull-right ul{
+            display: none;
+        }
     </style>
 </head>
 <body>

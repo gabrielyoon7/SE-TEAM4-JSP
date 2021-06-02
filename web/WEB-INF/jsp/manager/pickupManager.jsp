@@ -24,22 +24,22 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
-<div id="container" class="py-5 row text-center" style="font-family: 'Noto Serif KR', serif;">
-<table  class="boardtable" style="font-family: 'Noto Serif KR', serif;" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
-  <thead>
-  <tr>
-    <th data-field="action">설정</th>
-    <th data-field="name" data-sortable="true">이름</th>
-    <th data-field="id" data-sortable="true">아이디</th>
-    <th data-field="menu" data-sortable="true">메뉴</th>
-    <th data-field="price" data-sortable="true">가격</th>
-    <th data-field="message" data-sortable="true">요청사항</th>
-    <th data-field="payment" data-sortable="true">결제수단</th>
-  </tr>
-  </thead>
-</table>
+  <div id="container" class="py-5 row text-center" style="font-family: 'Noto Serif KR', serif;">
+    <table  class="boardtable" style="font-family: 'Noto Serif KR', serif;" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar">
+      <thead>
+      <tr>
+        <th data-field="action">설정</th>
+        <th data-field="name" data-sortable="true">이름</th>
+        <th data-field="id" data-sortable="true">아이디</th>
+        <th data-field="menu" data-sortable="true">메뉴</th>
+        <th data-field="price" data-sortable="true">가격</th>
+        <th data-field="message" data-sortable="true">요청사항</th>
+        <th data-field="payment" data-sortable="true">결제수단</th>
+      </tr>
+      </thead>
+    </table>
   </div>
-</div>
+<%--</div>--%>
 </body>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script>
