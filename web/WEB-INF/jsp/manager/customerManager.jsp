@@ -264,12 +264,16 @@
                 text+='<option value="'+newI+'">'+newI+'번 테이블</option>';
             }
             text +='</select>';
-
+            text += '인원수<select id="modifyCovers" class="form-control"><option value="1">1명</option>';
+            for(var i=2;i<6;i++){
+                text+='<option value="'+i+'">'+i+'명</option>';
+            }
+            text+='</select>';
             if(selectedText[0].slice(1,2)=='R'){
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="modifySchedule()">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="modifyReservation('+selectedText[0].slice(3,4)+')">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="arriveSchedule()">도착</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
@@ -278,7 +282,7 @@
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="modifySchedule()">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="modifyWalkIn('+selectedText[0].slice(3,4)+')">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
@@ -378,7 +382,7 @@
                     if (reservationData.time == j && reservationData.table_id == i) {
                         // alert(i);
                         text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText="[R]"+reservationData.customer_id;
+                        document.getElementById(eval("'"+text+"'")).innerText="[R-"+reservationData.oid+"]"+reservationData.customer_id;
                         // text += '<td>' + reservationData.customer_name + '</td>'
                     }
                 }
@@ -397,7 +401,7 @@
                     if (walkInData.time == j && walkInData.table_id == i) {
                        // alert(walkInData.table_id);
                         text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText="[W]"+walkInData.covers+"명";
+                        document.getElementById(eval("'"+text+"'")).innerText="[W-"+walkInData.oid+"]"+walkInData.covers+"명";
                         // text += '<td>' + reservationData.customer_name + '</td>'
                     }
                 }
@@ -586,6 +590,52 @@
                 success: function (oid) {
                     alert("일정이 삭제되었습니다.");
                     location.href = 'customerManager.do?date='+<%=date%>;
+                }
+            })
+        }
+    }
+    function  modifyReservation(oid){
+        var date = document.getElementById('modifyDate').value;
+        var time = document.getElementById('modifyTime').value;
+        var cover = document.getElementById('modifyCovers').value;
+        var table = document.getElementById('modifyTable').value;
+        //var name = document.getElementById('modifyName').value;
+        var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table+"-/-/-"+oid;
+        var check = confirm("수정하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "modifyReservation",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("예약이 수정되었습니다.");
+                    location.href = 'customerManager.do?date='+date;
+                }
+            })
+        }
+    }
+    function  modifyWalkIn(oid){
+        var date = document.getElementById('modifyDate').value;
+        var time = document.getElementById('modifyTime').value;
+        var cover = document.getElementById('modifyCovers').value;
+        var table = document.getElementById('modifyTable').value;
+        //var name = document.getElementById('modifyName').value;
+        var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table+"-/-/-"+oid;
+        var check = confirm("수정하시겠습니까?");
+        if(check){
+            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                type: "post",
+                data: {
+                    req: "modifyWalkIn",
+                    data: data
+                },
+                success: function (oid) {
+                    alert("예약이 수정되었습니다.");
+                    location.href = 'customerManager.do?date='+date;
                 }
             })
         }

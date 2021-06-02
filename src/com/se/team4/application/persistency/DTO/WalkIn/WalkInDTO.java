@@ -1,10 +1,19 @@
 package com.se.team4.application.persistency.DTO.WalkIn;
 
 public class WalkInDTO {
+    private String oid;
     private String date;
     private String time;
     private String covers;
     private String table_id;
+
+    public String getOid() {
+        return oid;
+    }
+
+    public void setOid(String oid) {
+        this.oid = oid;
+    }
 
     public String getVerifyCode() {
         return verifyCode;

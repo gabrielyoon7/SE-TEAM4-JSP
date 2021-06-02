@@ -22,7 +22,7 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2021.06.02
-  - [김우중] 대기리스트 Modal로 변환
+  - [김우중] 대기리스트 Modal로 변환, 워크인, 예약 수정 및 삭제 기능 추가
   - [송성호] CovidLogDTO, DAO 추가 Modal 창 체온 입력란 추가
   - [윤주현] 통계에 DB 연동 (일별 매출)
 - 2021.06.01

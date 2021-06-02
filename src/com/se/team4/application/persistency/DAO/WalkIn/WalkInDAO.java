@@ -207,6 +207,8 @@ public class WalkInDAO {
             QueryRunner que = new QueryRunner();
             que.query(conn, "DELETE FROM WalkIn WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
                     date, time, table_id);
+            que.query(conn, "DELETE FROM Reservation WHERE date=? AND time=? AND table_id=?", new MapListHandler(),
+                    date, time, table_id);
 //          System.out.println("ddd");
 //            list = que.query(conn, "SELECT * FROM WaitingList WHERE verifyCode=?", new MapListHandler(), verifyCode);
         }catch(SQLException e){
@@ -218,6 +220,26 @@ public class WalkInDAO {
 //        ArrayList<WaitingListDTO> result = null;
 //        Gson gson = new Gson();
 //        result = gson.fromJson(gson.toJson(list), new TypeToken<List<WaitingListDTO>>() {}.getType());
+        return "";
+    }
+    public String modifyWalkIn(String data) {    //고객 예약 요청 리스트 추가
+        String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name;
+        String date = arr[0];
+        String time=arr[1];
+        String cover=arr[2];
+        String table=arr[3];
+        String oid=arr[4];
+        Connection conn = Config.getInstance().sqlLogin();
+        try{
+            QueryRunner que = new QueryRunner();
+            que.query(conn, "UPDATE WalkIn SET date=?, time=?, covers=?, table_id=? WHERE oid=?", new MapListHandler(),
+                    date, time, cover,table,oid);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            DbUtils.closeQuietly(conn);
+        }
         return "";
     }
 }

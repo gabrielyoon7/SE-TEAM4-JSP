@@ -296,6 +296,26 @@ public class ReservationDAO {
         }
         return "";
     }
+    public String modifyReservation(String data) {    //고객 예약 요청 리스트 추가
+        String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name;
+        String date = arr[0];
+        String time=arr[1];
+        String cover=arr[2];
+        String table=arr[3];
+        String oid=arr[4];
+        Connection conn = Config.getInstance().sqlLogin();
+        try{
+            QueryRunner que = new QueryRunner();
+            que.query(conn, "UPDATE Reservation SET date=?, time=?, covers=?, table_id=? WHERE oid=?", new MapListHandler(),
+                    date, time, cover,table,oid);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        finally{
+            DbUtils.closeQuietly(conn);
+        }
+        return "";
+    }
 //    public static String dateToString(Date date) {
 //        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //        return sdf.format(date);

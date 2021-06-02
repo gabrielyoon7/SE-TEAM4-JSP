@@ -111,7 +111,13 @@ public class AjaxAction implements Action {
                 result=ReservationDAO.getInstance().deleteReservationRequest(data);
                 break;
             case "modifyReservationRequest":
-                result=ReservationDAO.getInstance().deleteReservationRequest(data);
+                result=ReservationDAO.getInstance().modifyReservationRequest(data);
+                break;
+            case "modifyReservation":
+                result=ReservationDAO.getInstance().modifyReservation(data);
+                break;
+            case "modifyWalkIn":
+                result=WalkInDAO.getInstance().modifyWalkIn(data);
                 break;
         }
         return result;

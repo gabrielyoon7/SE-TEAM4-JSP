@@ -210,7 +210,7 @@
         text+='</select>';
         text+='<div class="modal-footer">'
             +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
-            +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+reservation.oid+')">추가하기</button>'
+            +'<button type="button" class="btn btn-dark" onclick="modifyReservationRequest('+reservation.oid+')">수정하기</button>'
             +'</div>';
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
@@ -265,11 +265,11 @@
     }
     function  modifyReservationRequest(oid){
         var date = document.getElementById('modifyDate').value;
-        var time = document.getElementById('modifyTime')
+        var time = document.getElementById('modifyTime').value;
         var cover = document.getElementById('modifyCovers').value;
         var name = document.getElementById('modifyName').value;
         var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name+"-/-/-"+oid;
-        var check = confirm("대기리스트에 등록하시겠습니까?");
+        var check = confirm("수정하시겠습니까?");
         if(check){
             $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
                 url: "ajax.do", //ajax.do(ajaxAction)에 있는
