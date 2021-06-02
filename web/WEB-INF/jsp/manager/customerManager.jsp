@@ -213,9 +213,6 @@
             //테이블 번호
             text+='테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+(table_number)+'" placeholder="Date" readonly>';
 
-            //체온
-            text+= '체온<input type="text" class="form-control" id="temperature" name="new_temperture" value="'+""+'">';
-
             //인원수
             text += '인원수<select id="walkInCovers" class="form-control"><option value="1">1명</option>';
             for(var i=2;i<6;i++){
@@ -254,6 +251,7 @@
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">도착</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
             else if(selectedText[0].slice(1,2)=='W'){
@@ -261,11 +259,43 @@
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
         }
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
     }
+
+    function MakeModalData3(id){ //id = #테이블번호+타임
+        var id2="#"+id;
+        alert(id2);
+        // var newID = '"'+id+'"';
+        var list = $('#DataModify');
+        var text='';
+        // alert('id:'+id);
+        var date = <%=date%>;
+        var time_number=id2.slice(2,4);
+        var table_number=id2.slice(1,2);
+        //체온
+        text+= '<button type="button" class="btn btn-dark" onclick="deleteSchedule()">인원 추가</button>'
+            +'날짜<input type="date" class="form-control" id="covid_date" name="covid_date" value="'+date+'" placeholder="Date" readonly>'
+            +'시간<input type="text" class="form-control" id="walkInDate2" name="new_time" value="'+time_number+'" placeholder="Date" readonly>'
+            +'테이블번호<input type="text" class="form-control" id="walkInTable" name="new_table" value="'+table_number+'" placeholder="Date" readonly>'
+            +'이름<input type="text" class="form-control" id="covid_name" name="covid_name" value="">'
+            +'주소<input type="text" class="form-control" id="covid_address" name="covid_address" value="">'
+            +'연락처<input type="text" class="form-control" id="covid_phoneNumber" name="covid_phoneNumber" value="">'
+            +'증상 있음<input id="covid_symptom" name="covid_symptom" type="radio" class="pay-form-input" checked="" required="" value="yes">'
+            +'증상 없음<input id="covid_symptom" name="covid_symptom" type="radio" class="pay-form-input" required="" value="no">'
+            +'체온<input type="text" class="form-control" id="covid_temperature" name="covid_temperature" value="">';
+        //footer
+        text+='<div class="modal-footer">'
+            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+            +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">저장</button>'
+            +'</div>';
+        list.html(text);
+    }
+
+
 
     function MakeTableHead(){
         var list = $('#TableHead');
