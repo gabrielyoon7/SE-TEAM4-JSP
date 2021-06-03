@@ -18,6 +18,7 @@ import com.google.gson.JsonParser;
 import com.se.team4.application.persistency.DAO.Home.HomeDAO;
 import com.se.team4.application.persistency.DAO.Packing.PackingDAO;
 import com.se.team4.application.persistency.DAO.Reservation.ReservationDAO;
+import com.se.team4.application.persistency.DAO.Table.TableDAO;
 import com.se.team4.application.persistency.DAO.TestDAO;
 import com.se.team4.application.persistency.DAO.WalkIn.WalkInDAO;
 import com.se.team4.common.controller.Action;
@@ -124,6 +125,16 @@ public class AjaxAction implements Action {
                 break;
             case "addCovidLog":
                 result=HomeDAO.getInstance().addCovidLog(data);
+                break;
+            case "deleteTable":
+                result=TableDAO.getInstance().deleteTable(data);
+//                System.out.println(data);
+                break;
+            case "modifyTable":
+                result=TableDAO.getInstance().modifyTable(data);
+                break;
+            case "addTable":
+                result=TableDAO.getInstance().addTable(data);
                 break;
         }
         return result;

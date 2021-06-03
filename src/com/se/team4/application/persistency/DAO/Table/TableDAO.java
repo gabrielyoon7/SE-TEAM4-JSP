@@ -3,6 +3,8 @@ package com.se.team4.application.persistency.DAO.Table;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.se.team4.application.persistency.DTO.Reservation.ReservationRequestDTO;
+import com.se.team4.application.persistency.DTO.Reservation.TableDTO;
+import com.se.team4.application.persistency.DTO.TestDTO;
 import com.se.team4.common.sql.Config;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -25,7 +27,7 @@ public class TableDAO {
         return it;
     }
 
-    public void addTable(String data){      //테이블 추가
+    public String addTable(String data){      //테이블 추가
         String arr[] = data.split("-/-/-");
 
         String number = arr[0];
@@ -35,34 +37,64 @@ public class TableDAO {
         List<Map<String, Object>> list = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "INSERT table SET number=?, places=?,limits=?;", new MapListHandler(),
+            que.query(conn, "INSERT  `Table` SET number=?, places=?,limits=?;", new MapListHandler(),
                     number, places, limits);
-//          System.out.println("ddd");
-            list = que.query(conn, "SELECT * FROM table", new MapListHandler());
-//          System.out.println(list);
         }catch(SQLException e){
             e.printStackTrace();
         }
         finally{
             DbUtils.closeQuietly(conn);
         }
-        ArrayList<ReservationRequestDTO> result = null;
-        Gson gson = new Gson();
-        result = gson.fromJson(gson.toJson(list), new TypeToken<List<ReservationRequestDTO>>() {}.getType());
-
-
+        return "";
     }
-    public void deleteTable(String number){     //테이블 삭제
+    public String deleteTable(String number){     //테이블 삭제
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            queryRunner.query(conn, "DELETE FROM table WHERE number=?", new MapListHandler(), number);
+            queryRunner.query(conn, "DELETE FROM  `Table` WHERE number=?", new MapListHandler(), number);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DbUtils.closeQuietly(conn);
         }
+        return "";
+    }
+    public String modifyTable(String data){     //테이블 삭제
+        String arr[] = data.split("-/-/-");
+        String oid = arr[0];
+        String number = arr[1];
+        String places = arr[2];
+        String limits = arr[3];
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            queryRunner.query(conn, "UPDATE `Table` SET number=?,places=?,limits=?  WHERE oid=?", new MapListHandler(),
+                    number, places, limits, oid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return "";
     }
 
+
+    public ArrayList<TableDTO> getTable() {
+        ArrayList<TableDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM `Table`", new MapListHandler());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<TableDTO>>() {
+        }.getType());
+        return result;
+    }
 
 }

@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.se.team4.application.persistency.DAO.TestDAO;
 import com.se.team4.application.persistency.DTO.CovidLog.CovidLogDTO;
 import com.se.team4.application.persistency.DTO.Home.UserDTO;
+import com.se.team4.application.persistency.DTO.Reservation.TableDTO;
 import com.se.team4.application.persistency.DTO.TestDTO;
 import com.se.team4.common.sql.Config;
 import org.apache.commons.dbutils.DbUtils;
@@ -218,4 +219,21 @@ public class HomeDAO {
         return "";
     }
 
+    public ArrayList<CovidLogDTO> getCovidLog() {
+        ArrayList<CovidLogDTO> result = null;
+        List<Map<String, Object>> list = null;
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, "SELECT * FROM covidlog", new MapListHandler());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        Gson gson = new Gson();
+        result = gson.fromJson(gson.toJson(list), new TypeToken<List<CovidLogDTO>>() {
+        }.getType());
+        return result;
+    }
 }

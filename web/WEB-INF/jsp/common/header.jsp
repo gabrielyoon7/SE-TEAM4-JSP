@@ -132,7 +132,7 @@
 				  +'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">'
 				  +'<li><a class="dropdown-item" href="userManager.do">사용자관리</a></li>'
 				  +'<li><a class="dropdown-item" href="pickupManager.do">포장관리</a></li>'
-
+				  +'<li><a class="dropdown-item" href="restaurantManager.do">매장관리</a></li>'
 				  +'<li><a class="dropdown-item" href="customerManager.do?date='+dateString+'">고객관리</a></li>'
 				  +'<li><a class="dropdown-item" href="statisticsManager.do?date='+dateString+'">통계</a></li>'
 						+'</ul></div>'
