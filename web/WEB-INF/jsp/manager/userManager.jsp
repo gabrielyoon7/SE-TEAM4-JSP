@@ -15,7 +15,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Title</title>
+    <title>Little4 Restaurant MANAGER</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>

@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <title>Little4 Restaurant BRAND</title>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -57,7 +58,9 @@
         <h1 id="title" class="display-5 fw-bold">Little4 Restaurant</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4" style="font-size: 40px; font-family: 'Amatic SC', cursive;">by Team4</p>
+            <input type="button" value="Guide Line" style="font-family: 'Noto Serif KR', serif;" onclick="location.href='guideLine.do'" class="btn btn-dark btn-lg">
         </div>
+        <br>
         <img src="img/forests.jpg" style="max-width: 100%; height:auto;">
     </div>
 

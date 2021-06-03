@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
-    <title>Checkout example · Bootstrap v5.0</title>
+    <title>Little4 Restaurant PACKING</title>
     <meta name="theme-color" content="#7952b3">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

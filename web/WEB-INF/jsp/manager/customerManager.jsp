@@ -16,7 +16,7 @@
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Little4 Restaurant MANAGER</title>
     <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
     <script src="/js/jquery-3.2.1.min.js"></script>
