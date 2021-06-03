@@ -57,7 +57,7 @@
 <div class="b-example-divider"></div>
 
 <div class="container my-5">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg" id="menuInfo"></div>
+  <div class="p-5 align-items-center rounded-3 border shadow-lg" id="menuInfo" style="text-align: center"></div>
 </div>
 
 <div class="b-example-divider"></div>
@@ -75,16 +75,16 @@
   function makeMenuInfo() {
     var data = <%=menu%>;
     var list = $('#menuInfo');
-    var text = '<div class="col-lg-5 p-3 p-lg-5 pt-lg-3">'
+    var text = '<div>'
             +'<h1 id="menu" class="display-4 fw-bold lh-1">'+data.name+'</h1>'
             +'<p id="notice" class="lead">'+data.notice+'</p>'
-            +'<div id="content" class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">'
+            +'<div id="content" class="mb-4 mb-lg-3">'
             +'<button type="button" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">'+data.price+'원</button>'
             +'<button type="button" class="btn btn-outline-secondary btn-lg px-4">조리시간 '+data.cookingTime+'분</button>'
             +'</div></div>'
-            +'<div class="col-lg-4 offset-lg-1 p-0 position-relative overflow-hidden shadow-lg">'
-            +'<div class="position-lg-absolute top-0 left-0 overflow-hidden">'
-            +'<img class="d-block rounded-lg-3" src="img/menu/'+data.imageURL+'" alt="" width="720">'
+            +'<div class="overflow-hidden shadow-lg">'
+            +'<div class="position-lg-absolute overflow-hidden">'
+            +'<img class="d-block rounded-lg-3" src="img/menu/'+data.imageURL+'" alt="" width="100%">'
             +'</div></div>';
     list.append(text);
   }

@@ -100,12 +100,12 @@
                 <p style="font-family: 'Noto Serif KR', serif;" class="fs-4">기능 개선 목록 </p>
                     <div style="font-family: 'Noto Serif KR', serif; float: left">예약 정보 수정</div>
                     <div style="font-family: 'Noto Serif KR', serif; float: right">
-                        <input type="button" value="이동" onclick="location.href='userReservationInfo.do'" class="btn btn-dark">
+                        <input type="button" value="이동" onclick="location.href='customerManager.do'" class="btn btn-dark">
                     </div> <div style="clear:both"></div>
                 <br>
                     <div style="font-family: 'Noto Serif KR', serif; float: left">대기 리스트</div>
                     <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" class="btn btn-dark">
+                    <input type="button" value="이동" style="float: right" onclick="location.href='customerManager.do'" class="btn btn-dark">
                     </div> <div style="clear:both"></div>
                 <br>
                     <div style="font-family: 'Noto Serif KR', serif; float: left">테이블 자동 배정</div>
@@ -143,7 +143,7 @@
                 <br>
                 <div style="font-family: 'Noto Serif KR', serif; float: left">통계</div>
                 <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" class="btn btn-dark">
+                    <input type="button" value="이동" style="float: right" onclick="location.href='statisticsManager.do'" class="btn btn-dark">
                 </div> <div style="clear:both"></div>
                 <br>
                 <div style="font-family: 'Noto Serif KR', serif; float: left">테이블 설정</div>

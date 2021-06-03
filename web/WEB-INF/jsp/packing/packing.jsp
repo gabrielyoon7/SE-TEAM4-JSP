@@ -47,7 +47,7 @@
       }
     }
     .clicked {
-      background-color: #2a6496;
+      background-color: black;
       color: white;
     }
 
@@ -58,6 +58,11 @@
       height: 50px;
       text-align: center;
     }
+
+    .b{
+      border-radius: 5px;
+    }
+
 
     .bottom_bar>button{
     }
@@ -96,7 +101,7 @@
 
   <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="card">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="card" style="font-family: 'Noto Serif KR', serif; ">
       </div>
     </div>
   </div>
@@ -133,7 +138,7 @@
               +'<small class="text-muted">'+data[i].price+'원</small>'
               +'<div class="btn-group">'
               // +'<button type="button" class="btn btn-sm btn-outline-secondary" id="menu'+i+'" onclick=basketClicked('+i+')>장바구니에 추가</button></div>'
-              +'<button type="button" class="" id="menu'+i+'" onclick=basketClicked('+i+')>장바구니에 추가</button></div>'
+              +'<button type="button" class="b btn-lg" id="menu'+i+'" onclick="basketClicked('+i+')">장바구니에 추가</button></div>'
               +'</div></div></div></div>';
     }
     list.append(text);

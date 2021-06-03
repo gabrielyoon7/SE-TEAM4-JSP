@@ -12,6 +12,7 @@
 <html>
 <head>
   <title>Little4 Restaurant MANAGER</title>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
   <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,7 +68,7 @@
         totalPrice: order.totalPrice,
         message: order.message,
         payment: order.payment,
-        action : '<button onclick="completeOrder('+i+')">주문완료</button>'
+        action : '<button class="btn-dark" onclick="completeOrder('+i+')">주문완료</button>'
       });
     }
     return rows;
@@ -95,21 +96,34 @@
 
   function completeOrder(i){ //대상자에서 삭제
     var order =orderInfo[i];
-    var check = confirm(order.name+"["+order.id+"]의 주문을 완료하시겠습니까? (취소 불가능)");
-    if(check){
-      $.ajax({
-        url : "ajax.do", //AjaxAction
-        type : "post",
-        data : {
-          req : "completeOrder",
-          data : orderInfo[i].oid
-        },
-        success :function(data){
-          alert("완료되었습니다.");
-          location.reload();
-        }
-      })
-    }
+    var check =
+            swal({
+              title : '취소 불가!',
+              text : order.name+"["+order.id+"]의 주문을 완료하시겠습니까?",
+              icon : 'info',
+              button : '확인'
+            }).then(function (){
+              if(check){
+                $.ajax({
+                  url : "ajax.do", //AjaxAction
+                  type : "post",
+                  data : {
+                    req : "completeOrder",
+                    data : orderInfo[i].oid
+                  },
+                  success :function(data){
+                    swal({
+                      title : '완료되었습니다.',
+                      icon : 'success',
+                      button: '확인'
+                    }).then(function ()
+                    {
+                      location.reload();
+                    });
+                  }
+                })
+              }
+            });
   }
 </script>
 
