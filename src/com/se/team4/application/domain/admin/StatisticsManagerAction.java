@@ -33,9 +33,39 @@ public class StatisticsManagerAction implements Action {
         request.setAttribute("date3", gson.toJson(sevenDays.get(4)));
         request.setAttribute("date2", gson.toJson(sevenDays.get(5)));
         request.setAttribute("date1", gson.toJson(sevenDays.get(6)));
+
+
+        ArrayList<String> sevenWeeks = make7weeks(date);
+//        System.out.println("hhh");
+        request.setAttribute("getOrderListOfWeek7", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(0))));
+        request.setAttribute("getOrderListOfWeek6", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(1))));
+        request.setAttribute("getOrderListOfWeek5", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(2))));
+        request.setAttribute("getOrderListOfWeek4", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(3))));
+        request.setAttribute("getOrderListOfWeek3", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(4))));
+        request.setAttribute("getOrderListOfWeek2", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(5))));
+        request.setAttribute("getOrderListOfWeek1", gson.toJson(PackingDAO.getInstance().getOrderListOfWeek(sevenWeeks.get(6))));
+        request.setAttribute("week7", gson.toJson(sevenWeeks.get(0)));
+        request.setAttribute("week6", gson.toJson(sevenWeeks.get(1)));
+        request.setAttribute("week5", gson.toJson(sevenWeeks.get(2)));
+        request.setAttribute("week4", gson.toJson(sevenWeeks.get(3)));
+        request.setAttribute("week3", gson.toJson(sevenWeeks.get(4)));
+        request.setAttribute("week2", gson.toJson(sevenWeeks.get(5)));
+        request.setAttribute("week1", gson.toJson(sevenWeeks.get(6)));
+
+
+
         return "RequestDispatcher:jsp/manager/statisticsManager.jsp";
     }
-
+    private static String AddDate(String strDate, int year, int month, int day) throws Exception {
+        SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+        Calendar cal = Calendar.getInstance();
+        Date dt = dtFormat.parse(strDate);
+        cal.setTime(dt);
+        cal.add(Calendar.YEAR, year);
+        cal.add(Calendar.MONTH, month);
+        cal.add(Calendar.DATE, day);
+        return dtFormat.format(cal.getTime());
+    }
     public ArrayList<String>  make7days(String date) throws Exception {
         ArrayList<String> days = new ArrayList<>();
         days.add(date);
@@ -55,15 +85,26 @@ public class StatisticsManagerAction implements Action {
         }
         return days;
     }
-    private static String AddDate(String strDate, int year, int month, int day) throws Exception {
-        SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
-        Calendar cal = Calendar.getInstance();
-        Date dt = dtFormat.parse(strDate);
-        cal.setTime(dt);
-        cal.add(Calendar.YEAR, year);
-        cal.add(Calendar.MONTH, month);
-        cal.add(Calendar.DATE, day);
-        return dtFormat.format(cal.getTime());
+    public ArrayList<String>  make7weeks(String date) throws Exception {
+//        System.out.println("hhh");
+        ArrayList<String> weeks = new ArrayList<>();
+        weeks.add(date);
+
+        String arr[] = date.split("-");
+        String year = arr[0];
+        String month = arr[1];
+        String day = arr[2];
+        String newDate = year+month+day;
+        for(int i=0; i<6;i++){
+            newDate = AddDate(newDate, 0,0,-7);
+            String newYear = newDate.substring(0,4);
+            String newMonth = newDate.substring(4,6);
+            String newDay = newDate.substring(6,8);
+            String originalDateFormat = newYear+"-"+newMonth+"-"+newDay;
+            weeks.add(originalDateFormat);
+        }
+        return weeks;
     }
+
 
 }

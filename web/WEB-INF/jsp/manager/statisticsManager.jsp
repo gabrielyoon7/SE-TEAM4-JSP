@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.se.team4.application.persistency.DAO.Packing.PackingDAO" %><%--
   Created by IntelliJ IDEA.
   User: 최예슬
   Date: 2021-06-01
@@ -22,6 +22,23 @@
     String date5 = (String) request.getAttribute("date5");
     String date6 = (String) request.getAttribute("date6");
     String date7 = (String) request.getAttribute("date7");
+    String incomeOfWeek1 = (String) request.getAttribute("getOrderListOfWeek1");
+    String incomeOfWeek2 = (String) request.getAttribute("getOrderListOfWeek2");
+    String incomeOfWeek3 = (String) request.getAttribute("getOrderListOfWeek3");
+    String incomeOfWeek4 = (String) request.getAttribute("getOrderListOfWeek4");
+    String incomeOfWeek5 = (String) request.getAttribute("getOrderListOfWeek5");
+    String incomeOfWeek6 = (String) request.getAttribute("getOrderListOfWeek6");
+    String incomeOfWeek7 = (String) request.getAttribute("getOrderListOfWeek7");
+    String week1 = (String) request.getAttribute("week1");
+    String week2 = (String) request.getAttribute("week2");
+    String week3 = (String) request.getAttribute("week3");
+    String week4 = (String) request.getAttribute("week4");
+    String week5 = (String) request.getAttribute("week5");
+    String week6 = (String) request.getAttribute("week6");
+    String week7 = (String) request.getAttribute("week7");
+
+
+
 %>
 
 <!DOCTYPE html> <html lang="en">
@@ -43,6 +60,30 @@
 <br>
 <h1 style="font-size: 25px; font-family: 'Noto Serif KR', serif; text-align: center; font-size: 45px;">Statistics</h1>
 <br>
+<div class="row-fluid container">
+    <div class="btn pull=left">
+        <input type="date" class="form-control" id="statisticsDate" name="new_date" value=<%=date%> required>
+    </div>
+    <%--            <button type="button" class="btn btn-primary btn-lg" onclick="goToWalkIn()">Walk-In</button>--%>
+    <button  id="bt" type="button" class="btn btn-outline-dark btn-lg" onclick="reload()" >날짜 이동하기</button>
+
+</div>
+<script>
+    function reload(){
+        var date=$('#statisticsDate').val();
+        if(date!=''){
+            location.href = 'statisticsManager.do?date='+date;
+        }
+        else {
+            // alert(date);
+            swal({
+                title : '날짜를 선택해주세요!',
+                icon : 'error',
+                button: '확인'
+            });
+        }
+    }
+</script>
 <div style="width: 100%; height: 100%">
 <canvas id="myChart" height="200" width="450" style="margin: 0 auto "></canvas>
 </div>
@@ -54,12 +95,12 @@
         //챠트 종류를 선택
         type: 'line',
         //챠트를 그릴 데이타
-        data: { labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        data: { labels: ['<%=week1%>', '<%=week2%>', '<%=week3%>', '<%=week4%>', '<%=week5%>', '<%=week6%>', '<%=week7%>'],
             datasets: [{
-                label: '월별 매출',
+                label: '주간 매출',
                 backgroundColor: 'transparent',
                 borderColor: 'black',
-                data: [0, 10, 5, 2, 20, 30, 45]
+                data: [<%=incomeOfWeek1%>, <%=incomeOfWeek2%>, <%=incomeOfWeek3%>, <%=incomeOfWeek4%>, <%=incomeOfWeek5%>, <%=incomeOfWeek6%>, <%=incomeOfWeek7%>]
         }]
         },
         options: {

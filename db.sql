@@ -196,3 +196,4 @@ INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, ve
 INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '현장결제', 27000, '맛있게 해주세요.', 0);
 INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 17000, '양 많이 주세요.', 0);
 INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-06-02', '', '온라인결제', 20000, '양 많이 주세요.', 0);
+INSERT INTO Pickup(id, name, date, orderedList, payment, totalPrice, message, verifyCode) VALUES('TEST', 'TEST','2021-05-02', '', '온라인결제', 220000, '양 많이 주세요.', 0);

@@ -11,6 +11,7 @@ import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class PackingDAO {
@@ -152,8 +153,64 @@ public class PackingDAO {
         if(totalPrice.equals("null")){
             totalPrice="0";
         }
-        System.out.println(totalPrice);
+//        System.out.println(totalPrice);
         return totalPrice;
+    }
+
+    public String getOrderListOfWeek(String date) throws Exception {
+//        System.out.println("dddd");
+        String newDate = AddDate2(date, 0,0,-6);
+//        System.out.println(newDate);
+        List<Map<String, Object>> list = null;
+        String totalPrice = "";
+        Connection conn = Config.getInstance().sqlLogin();
+        String queryString = "";
+//        queryString += "SELECT DATE_FORMAT(DATE_SUB(`date`, INTERVAL (DAYOFWEEK(`date`)-1) DAY), '%Y/%m/%d') as start,"
+//                +"DATE_FORMAT(DATE_SUB(`date`, INTERVAL (DAYOFWEEK(`date`)-7) DAY), '%Y/%m/%d') as end,"
+//                +"DATE_FORMAT(`date`, '%Y%U') AS `date`,SUM(`totalPrice`) FROM Pickup GROUP BY date;";
+//        queryString += "SELECT DATE_FORMAT(DATE_SUB(`"+date+"`, INTERVAL (DAYOFWEEK(`"+date+"`)-1) DAY), '%Y/%m/%d') as start,"
+//                +"DATE_FORMAT(DATE_SUB(`"+date+"`, INTERVAL (DAYOFWEEK(`"+date+"`)-7) DAY), '%Y/%m/%d') as end,"
+//                +"DATE_FORMAT(`"+date+"`, '%Y%U') AS `date`,SUM(`totalPrice`) FROM Pickup GROUP BY date;";
+        queryString += "SELECT SUM(totalPrice) FROM Pickup" +
+                " WHERE DATE(`date`) >= STR_TO_DATE('"+newDate+"', '%Y-%m-%d')" +
+                "   AND DATE(`date`) <= STR_TO_DATE('"+date+"', '%Y-%m-%d');";
+        System.out.println(queryString);
+        try {
+            QueryRunner queryRunner = new QueryRunner();
+            list = queryRunner.query(conn, queryString, new MapListHandler());
+            totalPrice=list.get(0).toString();
+//            System.out.println(totalPrice);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+//        String arr[]=totalPrice.split("=");
+//        totalPrice=arr[1].substring(0,arr[1].length()-1);
+//        if(totalPrice.equals("null")){
+//            totalPrice="0";
+//        }
+        String arr[]=totalPrice.split("=");
+        totalPrice=arr[1].substring(0,arr[1].length()-1);
+        if(totalPrice.equals("null")){
+            totalPrice="0";
+        }
+        System.out.println("weektest: "+totalPrice);
+        return totalPrice;
+    }
+
+    private static String AddDate2(String strDate, int year, int month, int day) throws Exception {
+        SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        Date dt = dtFormat.parse(strDate);
+        cal.setTime(dt);
+        cal.add(Calendar.YEAR, year);
+        cal.add(Calendar.MONTH, month);
+        cal.add(Calendar.DATE, day);
+        String dateString = dtFormat.format(cal.getTime());
+//        System.out.println(dtFormat.format(cal.getTime()));
+//        System.out.println("dddd");
+        return dateString;
     }
 
     public void completeOrder(String id) {
