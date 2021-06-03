@@ -143,7 +143,7 @@
 						+'<div class="dropdown" style="display: inline-block"><button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">사용자 메뉴</button>'
 
 						+'<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">'
-						+'<li><a class="dropdown-item" href="userReservationInfo.do?id='+user.id+'">예약 정보 관리</a></li>'
+						+'<li><a class="dropdown-item" href="userReservationInfo.do?id='+user.id+'">마이 페이지</a></li>'
 						+'</ul></div>'
 
 						+ '<button id="logout" class="btn btn-outline-light" onclick="logout()">LOGOUT</button>';

@@ -81,8 +81,9 @@
 <body>
 <%@include file="../common/header.jsp" %>
 <br>
-
-<div id="container" class="py-5 row text-center" style="font-family: 'Noto Serif KR', serif;">
+<br>
+<h1 class="text-center" style="font-family: 'Noto Serif KR', serif;">USER LIST</h1>
+<div id="container" class="py-3 row text-center" style="font-family: 'Noto Serif KR', serif;">
     <table  class="boardtable" style="font-family: 'Noto Serif KR', serif;" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar" data-page-list="[10]" data-search="true">
         <style>
             .pull-right ul{
@@ -312,7 +313,7 @@
                         type : "post",
                         data : {
                             req : "typeChange",
-                            data : data
+                            data : data.소
                         },
                         success :function(data){
                             swal({

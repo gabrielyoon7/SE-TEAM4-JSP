@@ -17,6 +17,7 @@
 <html>
 <head>
     <title>Little4 Restaurant MANAGER</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
     <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
     <script src="/js/jquery-3.2.1.min.js"></script>
@@ -480,46 +481,74 @@
         let today=new Date();
         var time=today.getHours();
         var data =waiting.covers+"-/-/-"+waiting.date+"-/-/-"+waiting.name+"-/-/-"+time;
-        var check=confirm("배정 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "addWaitingListToWalkIn",
-                    data: data
-                },
-                success: function (oid) {
-                    if(oid=="-1"){
-                        alert("현재 만석입니다.");
-                    }
-                    else {
-                        alert("현장 예약이 정상적으로 요청되었습니다.");
-                    }
-                    location.href = 'customerManager.do?date='+<%=date%>;
+        var check=
+            swal({
+                title : "배정 하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "addWaitingListToWalkIn",
+                            data: data
+                        },
+                        success: function (oid) {
+                            if(oid=="-1"){
+                                swal({
+                                    title : "현재 만석입니다.",
+                                    icon : 'error',
+                                    button : '확인'
+                                });
+                            }
+                            else {
+                                swal({
+                                    title : '현장 예약이 정상적으로 요청되었습니다.',
+                                    icon : 'success',
+                                    button : '확인'
+                                }).then(function (){
+                                    location.href = 'customerManager.do?date='+<%=date%>;
+                                });
+                            }
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
     function addReservation(i){
         var orderList = <%=NewOrderList%>
         var order=orderList[i];
         var data = order.covers+"-/-/-"+order.date+"-/-/-"+order.time+"-/-/-"+order.customer_id+"-/-/-"+order.customer_name;
-        var check=confirm("배정 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "addReservation",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.");
-                    location.href = 'customerManager.do?date='+<%=date%>;
+        var check=
+            swal({
+                title : "배정 하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "addReservation",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '요청 성공!',
+                                text : "[예약번호:"+oid+"]의 현장 예약이 정상적으로 요청되었습니다.",
+                                icon : 'success',
+                                button : '확인'
+                            }).then(function (){
+                                location.href = 'customerManager.do?date='+<%=date%>;
+                            });
+                        }
+                    })
                 }
-            })
-        }
+
+            });
     }
     function MakeWalkIn() {
         var date = document.getElementById('walkInDate1').value;
@@ -527,73 +556,114 @@
         var cover = document.getElementById('walkInCovers').value;
         var table = document.getElementById('walkInTable').value;
         var data = date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table;
-        var check = confirm("배정 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "walkInRequest",
-                    data: data
-                },
-                success: function (oid) {
-                    if(oid=="-1"){
-                        alert("이미 입석한 손님이 존재합니다.");
-                    }
-                    // else if(oid=="-2"){
-                    //     var check = confirm("현재 만섭입니다. 대기리스트에 등록하시겠습니까?");
-                    //     if(check)
-                    //         MakeWaitingList(check);
-                    // }
-                    else {
-                        alert("[예약번호:" + oid + "]의 현장 예약이 정상적으로 요청되었습니다.");
-                    }
-                    location.href = 'customerManager.do?date='+<%=date%>;
+        var check =
+            swal({
+                title : "배정 하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "walkInRequest",
+                            data: data
+                        },
+                        success: function (oid) {
+                            if(oid=="-1"){
+                                swal({
+                                    title : "이미 입석한 손님이 존재합니다.",
+                                    icon : 'error',
+                                    button : '확인'
+                                });
+                            }
+                                // else if(oid=="-2"){
+                                //     var check = confirm("현재 만섭입니다. 대기리스트에 등록하시겠습니까?");
+                                //     if(check)
+                                //         MakeWaitingList(check);
+                            // }
+                            else {
+                                swal({
+                                    title : '요청 성공!',
+                                    text : "[예약번호:" + oid + "]의 현장 예약이 정상적으로 요청되었습니다.",
+                                    icon : 'success',
+                                    button : '확인'
+                                }).then(function (){
+                                    location.href = 'customerManager.do?date='+<%=date%>;
+                                });
+                            }
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
     function  MakeWaitingList(){
         var date = document.getElementById('waitingDate').value;
         var cover = document.getElementById('waitingCovers').value;
         var name = document.getElementById('waitingName').value;
         var data=date+"-/-/-"+cover+"-/-/-"+name;
-        var check = confirm("대기리스트에 등록하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "makeWaitingList",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("[예약번호:" + oid + "]의 대기리스트 등록이 정상적으로 요청되었습니다.");
-                    location.href = 'customerManager.do?date='+<%=date%>;
+        var check =
+            swal({
+                title : "대기리스트에 등록하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "makeWaitingList",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '요청 성공!',
+                                text : "[예약번호:" + oid + "]의 대기리스트 등록이 정상적으로 요청되었습니다.",
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'customerManager.do?date='+<%=date%>;
+                            });
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
     function deleteSchedule(){
         var date = document.getElementById('modifyDate').value;
         var time = document.getElementById('modifyTime').value;
         var table = document.getElementById('modifyTable').value;
         var data=date+"-/-/-"+time+"-/-/-"+table;
-        var check=confirm("삭제하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "deleteSchedule",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("일정이 삭제되었습니다.");
-                    location.href = 'customerManager.do?date='+<%=date%>;
+        var check=
+            swal({
+                title : "삭제하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "deleteSchedule",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '일정이 삭제되었습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'customerManager.do?date='+<%=date%>;
+                            });
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
     function  modifyReservation(oid){
         var date = document.getElementById('modifyDate').value;
@@ -602,21 +672,35 @@
         var table = document.getElementById('modifyTable').value;
         //var name = document.getElementById('modifyName').value;
         var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table+"-/-/-"+oid;
-        var check = confirm("수정하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "modifyReservation",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("예약이 수정되었습니다.");
-                    location.href = 'customerManager.do?date='+date;
+        var check =
+            swal({
+                title : "수정하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "modifyReservation",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '예약이 수정되었습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'customerManager.do?date='+date;
+                            });
+
+                        }
+                    })
                 }
-            })
-        }
+
+            });
     }
     function  modifyWalkIn(oid){
         var date = document.getElementById('modifyDate').value;
@@ -625,21 +709,33 @@
         var table = document.getElementById('modifyTable').value;
         //var name = document.getElementById('modifyName').value;
         var data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+table+"-/-/-"+oid;
-        var check = confirm("수정하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "modifyWalkIn",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("예약이 수정되었습니다.");
-                    location.href = 'customerManager.do?date='+date;
+        var check =
+            swal({
+                title : "수정 하시겠습니까?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "modifyWalkIn",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '예약이 수정되었습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'customerManager.do?date='+date;
+                            });
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
 
     function reload(){
@@ -649,7 +745,11 @@
         }
         else {
             // alert(date);
-            alert("날짜를 선택해주세요!");
+            swal({
+                title : '날짜를 선택해주세요!',
+                icon : 'error',
+                button: '확인'
+            });
         }
     }
 
@@ -659,21 +759,33 @@
         var time_number=id2.slice(2,4);
         var table_number=id2.slice(1,2);
         var data=date+"-/-/-"+time_number+"-/-/-"+table_number;
-        var check = confirm("도착했나요?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "recordArrival",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("도착 처리했습니다.");
-                    location.href = 'customerManager.do?date='+date;
+        var check =
+            swal({
+                title : "도착했나요?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "recordArrival",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '도착 처리했습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'customerManager.do?date='+date;
+                            });
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
 
     function addCovidLog(){
@@ -686,21 +798,34 @@
         var symptom =$('#covid_symptom').val();
         var temperature=$('#covid_temperature').val();
         var data=date+"-/-/-"+time_num+"-/-/-"+table_num+"-/-/-"+name+"-/-/-"+address+"-/-/-"+phoneNumber+"-/-/-"+symptom+"-/-/-"+temperature;
-        var check = confirm("코로나 관련 정보 입력이 되셨나요?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "addCovidLog",
-                    data: data
-                },
-                success: function (oid) {
-                    alert("코로나 관련 기록을 저장했습니다.");
-                    location.href = 'customerManager.do?date='+date;
+        var check =
+            swal({
+                title : "코로나 관련 정보 입력이 되셨나요?",
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "addCovidLog",
+                            data: data
+                        },
+                        success: function (oid) {
+                            swal({
+                                title : '코로나 관련 기록을 저장했습니다.',
+                                icon : 'success',
+                                button: '확인'
+                            }).then(function ()
+                            {
+                                location.href = 'customerManager.do?date='+date;
+                            });
+                        }
+                    })
                 }
-            })
-        }
+
+            });
     }
 
 </script>

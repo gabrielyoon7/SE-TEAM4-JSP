@@ -23,9 +23,12 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
+<br>
+<br>
+<h1 class="text-center" style="font-family: 'Noto Serif KR', serif;">My Page</h1>
 <div id="container" class="py-5 row text-center" style="font-family: 'Noto Serif KR', serif;">
 <div class="col-lg-7 mx-auto">
-    <div>예약신청 현황</div>
+    <div style="font-size: 20px; font-weight: bold">예약신청 현황</div>
     <table
             id="reservationRequestTable"
             data-toggle="table"
@@ -46,7 +49,8 @@
         </thead>
     </table>
 
-    <div>예약완료 현황</div>
+    <br>
+    <div style="font-size: 20px; font-weight: bold">예약완료 현황</div>
     <table
             id="reservationTable"
             data-toggle="table"
@@ -67,7 +71,9 @@
         </thead>
     </table>
 
-    <div>주문 현황</div>
+    <br>
+    <br>
+    <div style="font-size: 20px; font-weight: bold">주문 현황</div>
     <table
             id="orderTable"
             data-toggle="table"

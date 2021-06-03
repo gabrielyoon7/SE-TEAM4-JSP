@@ -138,7 +138,7 @@
                 <br>
                 <div style="font-family: 'Noto Serif KR', serif; float: left">발열 체크</div>
                 <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" class="btn btn-dark">
+                    <input type="button" value="이동" style="float: right" onclick="location.href='customerManager.do'" class="btn btn-dark">
                 </div> <div style="clear:both"></div>
                 <br>
                 <div style="font-family: 'Noto Serif KR', serif; float: left">통계</div>
