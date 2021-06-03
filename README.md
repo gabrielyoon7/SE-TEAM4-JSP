@@ -21,6 +21,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.06.03
+  - [송성호] Table DAO, DTO 추가 Table 삭제, 추가 함수 구현
 - 2021.06.02
   - [김우중] 대기리스트 Modal로 변환, 워크인, 예약 수정 및 삭제 기능 추가
   - [송성호] CovidLogDTO, DAO 추가 Modal 창 체온 입력란 추가
