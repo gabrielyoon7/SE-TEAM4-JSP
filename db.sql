@@ -99,16 +99,18 @@ CREATE TABLE User (
                       name        VARCHAR(32) NOT NULL,
                       birthDay   DATE,
                       phoneNumber  CHAR(13) NOT NULL,
-                      blackList      VARCHAR(13) NOT NULL
+                      blackList      VARCHAR(13) NOT NULL,
+                      point INT NOT NULL
 ) ;
 
 
 
 
-INSERT INTO User(oid, id, password, type, name, birthDay, phoneNumber, blackList) VALUES(10000, 'admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', 'false');
-INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VALUES(201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698','false');
-INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VALUES(201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620','false');
-INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList) VALUES(201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231','false');
+INSERT INTO User(oid, id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(10000, 'admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', 'false', 100000);
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201713919,1234,'관리자','윤주현','1996-03-25','010-4413-5698','false', 100000);
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620','false', 100000);
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231','false', 100000);
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201912039,1234,'관리자','김우중','2000-02-16','010-9874-2338','false', 100000);
 
 
 -- 이미지 URL 이탈 가능성이 있어, oid를 일부러 강제로 지정함.

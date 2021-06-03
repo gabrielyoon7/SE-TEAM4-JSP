@@ -100,6 +100,7 @@
             <th data-field="birthDay" data-sortable="true">생년월일</th>
             <th data-field="phoneNumber" data-sortable="true">연락처</th>
             <th data-field="blackList" data-sortable="true">블랙리스트</th>
+            <th data-field="point" data-sortable="true">보유 포인트</th>
         </tr>
         </thead>
     <%--    <tbody id="TableData">--%>
@@ -136,6 +137,7 @@
                 birthDay: user.birthDay,
                 phoneNumber: user.phoneNumber,
                 blackList: user.blackList,
+                point: user.point,
                 action : '<button class="btn btn-outline-dark" onclick="deleteUser('+i+')">삭제</button>' +
                     '<button class="btn btn-outline-dark" onclick="pwReset('+i+')">pw초기화</button>' +
                     '<button class="btn btn-outline-dark" onclick="changeType('+i+')">타입변경</button>' +
@@ -313,7 +315,7 @@
                         type : "post",
                         data : {
                             req : "typeChange",
-                            data : data.소
+                            data : data
                         },
                         success :function(data){
                             swal({

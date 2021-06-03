@@ -9,6 +9,15 @@ public class UserDTO {
     private String birthDay;
     private String phoneNumber;
     private String blackList;
+    private String point;
+
+    public String getPoint() {
+        return point;
+    }
+
+    public void setPoint(String point) {
+        this.point = point;
+    }
 
     public String getOid() {
         return oid;

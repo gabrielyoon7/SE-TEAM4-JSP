@@ -21,6 +21,8 @@ Restaurant Booking System of TEAM4
   > github@heo5620
 * * *
 ## History
+- 2021.06.04
+  - [김우중] 포인트 기능 추가
 - 2021.06.03
   - [허수빈] 디자인 개선, 가이드라인 추가
   - [송성호] Table DAO, DTO 추가 Table 삭제, 추가 함수 구현

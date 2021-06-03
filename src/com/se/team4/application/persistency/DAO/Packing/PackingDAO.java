@@ -66,13 +66,16 @@ public class PackingDAO {
 
 
     public String packingOrder(String data) {
-        String arr[] = data.split("~!~!~"); // 0 id, 1 name, 2 orderedList, 3 payment, 4 totalPrice, 5 message
+        String arr[] = data.split("~!~!~"); // 0 id, 1 name, 2 orderedList, 3 payment, 4 totalPrice, 5 message, 6 point
         String id = arr[0];
         String name = arr[1];
         String orderedList = arr[2];
         String payment=arr[3];
         String totalPrice=arr[4];
         String message=arr[5];
+        String point=arr[6];
+        int newPointInt=Integer.parseInt(point)-Integer.parseInt(totalPrice);
+        String newPointString=Integer.toString(newPointInt);
         System.out.println(name);
         Date date=new Date();
         Random random = new Random();
@@ -83,6 +86,13 @@ public class PackingDAO {
             QueryRunner que = new QueryRunner();
             que.query(conn, "INSERT Pickup SET id=?, name=?, date=?, orderedList=?, payment=?, totalPrice=?, message=?, verifyCode=?;", new MapListHandler(),
                     id, name, date, orderedList, payment, totalPrice, message, verifyCode);
+            if(payment.equals("onlinePayment")){
+                if(newPointInt>=0) {
+                    que.query(conn, "UPDATE User SET point=? WHERE id=?", new MapListHandler(),
+                            newPointString, id);
+                }
+                else return "-1";
+            }
             list = que.query(conn, "SELECT * FROM Pickup WHERE verifyCode=?", new MapListHandler(), verifyCode);
 //            System.out.println(list);
         } catch (SQLException e) {
@@ -242,5 +252,25 @@ public class PackingDAO {
         result = gson.fromJson(gson.toJson(list), new TypeToken<List<PickupDTO>>() {
         }.getType());
         return result;
+    }
+
+    public String chargePoint(String data) {
+        String arr[] = data.split("~!~!~"); // 0 id, 1 name, 2 orderedList, 3 payment, 4 totalPrice, 5 message, 6 point
+        String id = arr[0];
+        String point=arr[1];
+        String charge=arr[2];
+        int newPointInt=Integer.parseInt(point)+Integer.parseInt(charge);
+        String newPointString=Integer.toString(newPointInt);
+        Connection conn = Config.getInstance().sqlLogin();
+        try {
+            QueryRunner que = new QueryRunner();
+            que.query(conn, "UPDATE User SET point=? WHERE id=?", new MapListHandler(),
+                    newPointString, id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return newPointString;
     }
 }

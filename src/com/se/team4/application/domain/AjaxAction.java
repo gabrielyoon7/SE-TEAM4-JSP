@@ -136,6 +136,9 @@ public class AjaxAction implements Action {
             case "addTable":
                 result=TableDAO.getInstance().addTable(data);
                 break;
+            case "chargePoint":
+                result=PackingDAO.getInstance().chargePoint(data);
+                break;
         }
         return result;
     }
