@@ -111,16 +111,29 @@ public class ReservationDAO {
         String name = arr[3];
         String id = arr[4];
         String message = arr[5];
+        List<Map<String, Object>> check_reservation = null;
+        List<Map<String, Object>> check_walkIn = null;
+        List<Map<String, Object>> table = null;
         Random random = new Random();
         int verifyCode=random.nextInt(100000000);
         Connection conn = Config.getInstance().sqlLogin();
         List<Map<String, Object>> list = null;
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;", new MapListHandler(),
-                      covers, date, time, name, id, message, verifyCode);
+            table=que.query(conn,"SELECT * FROM `Table`",new MapListHandler());
+            check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=?", new MapListHandler(),
+                    date,time);
+            check_walkIn=que.query(conn,"SELECT * FROM WalkIn WHERE date=? AND time=?", new MapListHandler(),
+                    date,time);
+            if(check_reservation.size()+check_walkIn.size()==table.size()){
+                return "-1";
+            }
+            else {
+                que.query(conn, "INSERT ReservationRequest SET covers=?, date=?,time=?,customer_name=?,customer_id=?, message=?, verifyCode=?;", new MapListHandler(),
+                        covers, date, time, name, id, message, verifyCode);
 //          System.out.println("ddd");
-            list = que.query(conn, "SELECT * FROM ReservationRequest WHERE verifyCode=?", new MapListHandler(), verifyCode);
+                list = que.query(conn, "SELECT * FROM ReservationRequest WHERE verifyCode=?", new MapListHandler(), verifyCode);
+            }
 //          System.out.println(list);
         }catch(SQLException e){
             e.printStackTrace();
@@ -303,11 +316,17 @@ public class ReservationDAO {
         String cover=arr[2];
         String table=arr[3];
         String oid=arr[4];
+        List<Map<String, Object>> check_reservation = null;
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "UPDATE Reservation SET date=?, time=?, covers=?, table_id=? WHERE oid=?", new MapListHandler(),
-                    date, time, cover,table,oid);
+            check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=? AND table_id=?",new MapListHandler(),
+                    date, time, table);
+            if(check_reservation.size()==0) {
+                que.query(conn, "UPDATE Reservation SET date=?, time=?, covers=?, table_id=? WHERE oid=?", new MapListHandler(),
+                        date, time, cover, table, oid);
+            }
+            else return "-1";
         }catch(SQLException e){
             e.printStackTrace();
         }

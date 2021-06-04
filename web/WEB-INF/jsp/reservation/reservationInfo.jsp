@@ -222,15 +222,26 @@
                             data: data
                         },
                         success: function (oid) {
-                            swal({
-                                title: '예약 성공!',
-                                text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
-                                icon: 'success',
-                                button: '확인'
-                            }).then(function ()
-                            {
-                                location.href = 'main.do';
-                            });
+                            if(oid=="-1"){
+                                swal({
+                                    title: '예약 실패!',
+                                    text: "해당 시간은 만석입니다!\n다시 예약해주세요.",
+                                    icon: 'error',
+                                    button: '확인'
+                                }).then(function () {
+                                    location.href = 'main.do';
+                                });
+                            }
+                            else {
+                                swal({
+                                    title: '예약 성공!',
+                                    text: "[예약번호:" + oid + "]의 예약 요청이 정상적으로 요청되었습니다.",
+                                    icon: 'success',
+                                    button: '확인'
+                                }).then(function () {
+                                    location.href = 'main.do';
+                                });
+                            }
                         }
                     })
                 }

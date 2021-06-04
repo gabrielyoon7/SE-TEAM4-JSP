@@ -283,7 +283,12 @@
                     data: data
                 },
                 success: function (oid) {
-                    alert("예약이 수정되었습니다.");
+                    if(oid=="-1"){
+                        alert("이미 예약이 있는 날짜입니다.")
+                    }
+                    else {
+                        alert("예약이 수정되었습니다.");
+                    }
                     location.href = 'userReservationInfo.do?id=' +<%=id%>;
                 }
             })
