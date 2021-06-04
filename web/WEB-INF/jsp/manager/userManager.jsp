@@ -86,7 +86,7 @@
 <div id="container" class="py-3 row text-center" style="font-family: 'Noto Serif KR', serif;">
     <table  class="boardtable" style="font-family: 'Noto Serif KR', serif;" id="table" data-toggle="table" data-pagination="true" data-toolbar="#toolbar" data-page-list="[10]" data-search="true">
         <style>
-            .pull-right ul{
+            .fixed-table-toolbar .pull-right ul{
                 display: none;
             }
         </style>
