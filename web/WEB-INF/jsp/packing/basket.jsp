@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String selectedMenuList = (String) request.getAttribute("selectedMenuList");
+    String user1 =  (String)session.getAttribute("newUser");
 %>
 <!doctype html>
 <html>
@@ -184,7 +185,7 @@
         payment.append(text);
     }
     function orderCheck() {
-        var user = <%=user%> //user는 header에서 정의했으므로 사용 가능.
+        var user = <%=user1%> //user는 header에서 정의했으므로 사용 가능.
         var payment = $('input[name=paymentMethod]:checked').val();
         var message = $('#request').val();
         var orderedList = "";
@@ -241,8 +242,8 @@
                                 swal({
                                     title: '주문 성공!',
                                     text: "[주문번호:" + oid + "]의 방문포장 주문이 정상적으로 요청되었습니다.",
-                                    icon: 'success',
-                                    button: '확인'
+                                        icon: 'success',
+                                        button: '확인'
                                 }).then(function () {
                                     location.href = 'complete.do?oid=' + oid;
                                 });
@@ -264,11 +265,11 @@
         // text+= '<div class="col-12">100,000<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">충전하기</button></div><br>';
 
         text+= '<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">5,000 충전하기</button>';
-        text+= '<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">10,000 충전하기</button>';
-        text+= '<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">20,000 충전하기</button>';
-        text+= '<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">30,000 충전하기</button>';
-        text+= '<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">50,000 충전하기</button>';
-        text+= '<button onclick="chargePoint(this.id)" id="5000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">100,000 충전하기</button>';
+        text+= '<button onclick="chargePoint(this.id)" id="10000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">10,000 충전하기</button>';
+        text+= '<button onclick="chargePoint(this.id)" id="20000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">20,000 충전하기</button>';
+        text+= '<button onclick="chargePoint(this.id)" id="30000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">30,000 충전하기</button>';
+        text+= '<button onclick="chargePoint(this.id)" id="50000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">50,000 충전하기</button>';
+        text+= '<button onclick="chargePoint(this.id)" id="100000" data-bs-dismiss="modal" class="btn btn-dark float-right" type="button">100,000 충전하기</button>';
 
         list.html(text);//누를때마다 #DataModify의 값을 완전 새로 갈아치움
         $('#staticBackdrop5').modal("show");
