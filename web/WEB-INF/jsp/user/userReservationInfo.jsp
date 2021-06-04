@@ -84,7 +84,6 @@
             data-side-pagination="server">
         <thead>
         <tr>
-            <th data-field="action">설정</th>
             <th data-field="oid">예약번호</th>
             <th data-field="date">날짜</th>
             <th data-field="orderedList">주문 리스트</th>
@@ -161,7 +160,6 @@
                 payment: order.payment,
                 totalPrice: order.totalPrice,
                 message: order.message,
-                action : '<button class="btn btn-dark" onclick="aaaa('+i+')">???</button>'
             });
         }
         // alert(rows);

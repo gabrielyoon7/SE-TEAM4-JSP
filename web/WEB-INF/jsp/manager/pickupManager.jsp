@@ -67,8 +67,8 @@
       rows.push({
         name: order.name,
         id: order.id,
-        orderedList: order.orderedList,
-        totalPrice: order.totalPrice,
+        menu: order.orderedList,
+        price: order.totalPrice,
         message: order.message,
         payment: order.payment,
         action : '<button class="btn-dark" onclick="completeOrder('+i+')">주문완료</button>'
