@@ -743,14 +743,24 @@
                             data: data
                         },
                         success: function (oid) {
-                            swal({
-                                title : '예약이 수정되었습니다.',
-                                icon : 'success',
-                                button: '확인'
-                            }).then(function ()
-                            {
-                                location.href = 'customerManager.do?date='+date;
-                            });
+                            if(oid=="-1") {
+                                swal({
+                                    title: '이미 예약이 되어있습니다.',
+                                    icon: 'error',
+                                    button: '확인'
+                                }).then(function () {
+                                    location.href = 'customerManager.do?date=' + date;
+                                });
+                            }
+                            else {
+                                swal({
+                                    title: '예약이 수정되었습니다.',
+                                    icon: 'success',
+                                    button: '확인'
+                                }).then(function () {
+                                    location.href = 'customerManager.do?date=' + date;
+                                });
+                            }
                         }
                     })
                 }

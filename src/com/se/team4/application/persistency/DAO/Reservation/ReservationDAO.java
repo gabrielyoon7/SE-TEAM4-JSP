@@ -317,12 +317,15 @@ public class ReservationDAO {
         String table=arr[3];
         String oid=arr[4];
         List<Map<String, Object>> check_reservation = null;
+        List<Map<String, Object>> check_walkIn = null;
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
             check_reservation=que.query(conn,"SELECT * FROM Reservation WHERE date=? AND time=? AND table_id=?",new MapListHandler(),
                     date, time, table);
-            if(check_reservation.size()==0) {
+            check_walkIn=que.query(conn,"SELECT * FROM WalkIn WHERE date=? AND time=? AND table_id=?",new MapListHandler(),
+                    date, time, table);
+            if(check_reservation.size()+check_walkIn.size()==0) {
                 que.query(conn, "UPDATE Reservation SET date=?, time=?, covers=?, table_id=? WHERE oid=?", new MapListHandler(),
                         date, time, cover, table, oid);
             }
