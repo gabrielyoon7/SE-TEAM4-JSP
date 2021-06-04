@@ -84,15 +84,18 @@ public class PackingDAO {
         List<Map<String, Object>> list = null;
         try {
             QueryRunner que = new QueryRunner();
-            que.query(conn, "INSERT Pickup SET id=?, name=?, date=?, orderedList=?, payment=?, totalPrice=?, message=?, verifyCode=?;", new MapListHandler(),
-                    id, name, date, orderedList, payment, totalPrice, message, verifyCode);
+
             if(payment.equals("onlinePayment")){
                 if(newPointInt>=0) {
                     que.query(conn, "UPDATE User SET point=? WHERE id=?", new MapListHandler(),
                             newPointString, id);
                 }
-                else return "-1";
+                else {
+                    return "-1";
+                }
             }
+            que.query(conn, "INSERT Pickup SET id=?, name=?, date=?, orderedList=?, payment=?, totalPrice=?, message=?, verifyCode=?;", new MapListHandler(),
+                    id, name, date, orderedList, payment, totalPrice, message, verifyCode);
             list = que.query(conn, "SELECT * FROM Pickup WHERE verifyCode=?", new MapListHandler(), verifyCode);
 //            System.out.println(list);
         } catch (SQLException e) {
@@ -259,6 +262,7 @@ public class PackingDAO {
         String id = arr[0];
         String point=arr[1];
         String charge=arr[2];
+        System.out.println(point+" "+charge);
         int newPointInt=Integer.parseInt(point)+Integer.parseInt(charge);
         String newPointString=Integer.toString(newPointInt);
         Connection conn = Config.getInstance().sqlLogin();

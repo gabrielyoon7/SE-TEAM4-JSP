@@ -3,6 +3,7 @@ package com.se.team4.application.domain.packing;
 import com.google.gson.Gson;
 import com.se.team4.application.persistency.DAO.Home.HomeDAO;
 import com.se.team4.application.persistency.DAO.Packing.PackingDAO;
+import com.se.team4.application.persistency.DTO.Home.UserDTO;
 import com.se.team4.common.controller.Action;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +18,16 @@ public class BasketAction implements Action {
             return "RequestDispatcher:jsp/page/error.jsp";
         else {
             String carts = request.getParameter("carts"); //?로 넘겨준 carts 값을 가져옴
-            String id=(String) session.getAttribute("user");
-            String[] arr=id.split(",");
-            String[] id1=arr[1].split("\"");
-            System.out.println(id1[3]);
+//            String id=(String) session.getAttribute("user");
+//            String[] arr=id.split(",");
+//            String[] id1=arr[1].split("\"");
+//            System.out.println(id1[3]);
+            String userData=(String) session.getAttribute("user");
             Gson gson = new Gson();
+            UserDTO user = gson.fromJson(userData, UserDTO.class);
             request.setAttribute("selectedMenuList", gson.toJson(PackingDAO.getInstance().getSelectedMenuList(carts)));
-            session.setAttribute("newUser", gson.toJson(HomeDAO.getInstance().getUserInfo(id1[3])));
+//            session.setAttribute("newUser", gson.toJson(HomeDAO.getInstance().getUserInfo(id1[3])));
+            session.setAttribute("newUser", gson.toJson(HomeDAO.getInstance().getUserInfo(user.getId())));
             return "RequestDispatcher:jsp/packing/basket.jsp";
         }
     }

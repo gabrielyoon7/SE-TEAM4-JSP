@@ -185,7 +185,7 @@
         payment.append(text);
     }
     function orderCheck() {
-        var user = <%=user1%> //user는 header에서 정의했으므로 사용 가능.
+        var user = <%=user1%>
         var payment = $('input[name=paymentMethod]:checked').val();
         var message = $('#request').val();
         var orderedList = "";
@@ -275,7 +275,7 @@
         $('#staticBackdrop5').modal("show");
     }
     function chargePoint(amount){
-        var user=<%=user%>
+        var user = <%=user1%>
         var data = user.id + "~!~!~" +user.point+ "~!~!~" + amount;
         var check=confirm("충전하시겠습니까?");
         if(check){
