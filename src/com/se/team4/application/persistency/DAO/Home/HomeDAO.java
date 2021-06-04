@@ -80,6 +80,7 @@ public class HomeDAO {
 
     public String signUp(String data) {//회원가입
         Connection conn = Config.getInstance().sqlLogin();
+        List<Map<String, Object>> list = null;
 //        System.out.println(data);
         String arr[] = data.split("-/-/-"); // 0 name, 1 birthDay, 2 id, 3 password, 4 phoneNumber
         String name = arr[0];
@@ -88,17 +89,25 @@ public class HomeDAO {
         String password = arr[3];
         String phoneNumber = arr[4];
         String type = "손님";
-        Boolean blackList = false;
+        String blackList = "false";
+        String point = "100000";
         try {
             QueryRunner que = new QueryRunner();
-            que.query(conn, "INSERT User SET name=?, birthDay=?, id=?, password=?, phoneNumber=?, type=?, blackList=?;", new MapListHandler(), name, birthDay, id, password, phoneNumber, type, blackList);
+            list = que.query(conn, "SELECT * FROM User WHERE id=?;", new MapListHandler(), id);
+            if(list.size()==0){ //존재하지 않는 아이디의 경우
+                que.query(conn, "INSERT User SET name=?, birthDay=?, id=?, password=?, phoneNumber=?, type=?, blackList=?, point=?;", new MapListHandler(), name, birthDay, id, password, phoneNumber, type, blackList, point);
 //insert into User(id, password, type, name, birthDay, phoneNumber, blackList) values('admin', 'admin', '관리자', '홈페이지관리자', '2021-05-10', '010-0000-0000', false);
+            }
+            else {
+                return "실패";
+            }
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DbUtils.closeQuietly(conn);
         }
-        return null;
+        return "성공";
     }
 
     public ArrayList<UserDTO> getUserList() { //User 정보 전부 돌려줌

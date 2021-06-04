@@ -5,102 +5,109 @@ CREATE DATABASE booksys default character set utf8;
 USE booksys ;
 
 CREATE TABLE Oid (
-    last_id    INT NOT NULL
+  `last_id` int(11) NOT NULL
 ) ;
 
 CREATE TABLE `Table` (
-                         oid       INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                         number    INT NOT NULL,
-                         places    INT NOT NULL,
-                         limits   INT NOT NULL
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `number` int(11) NOT NULL,
+  `places` int(11) NOT NULL,
+  `limits` int(11) NOT NULL,
+  PRIMARY KEY (`oid`)
 ) ;
 
 CREATE TABLE Customer (
-                          oid        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                          name        VARCHAR(32) NOT NULL,
-                          phoneNumber  CHAR(13) NOT NULL,
-                          id            CHAR(13) NOT NULL,
-                          blackList      VARCHAR(13) NOT NULL
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL,
+  `phoneNumber` char(13) NOT NULL,
+  `id` char(13) NOT NULL,
+  `blackList` varchar(13) NOT NULL,
+  PRIMARY KEY (`oid`)
 ) ;
 
 CREATE TABLE WalkIn (
-                        oid        int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                        covers    int,
-                        date        DATE,
-                        time        INT,
-                        table_id    int,
-                        verifyCode  int
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `covers` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `table_id` int(11) DEFAULT NULL,
+  `verifyCode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`oid`)
 ) ;
 
 CREATE TABLE Reservation (
-                             oid           int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                             covers       int,
-                             date           DATE,
-                             time           INT,
-                             table_id       int,
-                             customer_id  VARCHAR(32),
-                             customer_name VARCHAR(32),
-                             arrivalTime  TIME
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `covers` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `table_id` int(11) DEFAULT NULL,
+  `customer_id` varchar(32) DEFAULT NULL,
+  `customer_name` varchar(32) DEFAULT NULL,
+  `arrivalTime` time DEFAULT NULL,
+  PRIMARY KEY (`oid`)
 ) ;
 CREATE TABLE ReservationRequest	(
-                                       oid    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                       covers INT,
-                                       date    VARCHAR(32),
-                                       time   INT,
-                                       customer_name   VARCHAR(32),
-                                       customer_id  VARCHAR(32),
-                                       message    VARCHAR(100),
-                                       verifyCode  INT
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `covers` int(11) DEFAULT NULL,
+  `date` varchar(32) DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  `customer_name` varchar(32) DEFAULT NULL,
+  `customer_id` varchar(32) DEFAULT NULL,
+  `message` varchar(100) DEFAULT NULL,
+  `verifyCode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`oid`)
 );
 CREATE TABLE covidlog(
-								 date VARCHAR(32) NOT NULL,
-								 time_num VARCHAR(32) NOT NULL,
-								 table_num VARCHAR(32) NOT NULL,
-                         name   VARCHAR(32) NOT NULL,
-                         address   VARCHAR(32) NOT NULL,
-                         phoneNumber   VARCHAR(20) NOT NULL,
-                         symptom   VARCHAR(32) NOT NULL,
-                         temperature   DOUBLE NOT NULL
-
+  `date` varchar(32) NOT NULL,
+  `time_num` varchar(32) NOT NULL,
+  `table_num` varchar(32) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `address` varchar(32) NOT NULL,
+  `phoneNumber` varchar(20) NOT NULL,
+  `symptom` varchar(32) NOT NULL,
+  `temperature` double NOT NULL
 );
 CREATE TABLE WaitingList(
-                            date    DATE,
-                            name   VARCHAR(32) NOT NULL,
-                            covers   INT NOT NULL,
-                            table_id   int,
-                            verifyCode    INT
+  `date` date DEFAULT NULL,
+  `name` varchar(32) NOT NULL,
+  `covers` int(11) NOT NULL,
+  `table_id` int(11) DEFAULT NULL,
+  `verifyCode` int(11) DEFAULT NULL
 );
 CREATE TABLE Menu(
-                     oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                     type   CHAR(13)   NOT NULL,
-                     name VARCHAR(32) NOT NULL,
-                     price INT NOT NULL,
-                     notice VARCHAR(100) NOT NULL,
-                     imageURL VARCHAR(100),
-                     cookingTime INT NOT NULL
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `type` char(13) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `price` int(11) NOT NULL,
+  `notice` varchar(100) NOT NULL,
+  `imageURL` varchar(100) DEFAULT NULL,
+  `cookingTime` int(11) NOT NULL,
+  PRIMARY KEY (`oid`)
 );
 CREATE TABLE Pickup(
-                       oid   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                       id VARCHAR(32) NOT NULL,
-                       name VARCHAR(32) NOT NULL,
-                       date DATE,
-                       orderedList VARCHAR(200) NOT NULL,
-                       payment VARCHAR(32) NOT NULL,
-                       totalPrice INT NOT NULL,
-                       message VARCHAR(100),
-                       verifyCode INT
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(32) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `date` date DEFAULT NULL,
+  `orderedList` varchar(200) NOT NULL,
+  `payment` varchar(32) NOT NULL,
+  `totalPrice` int(11) NOT NULL,
+  `message` varchar(100) DEFAULT NULL,
+  `verifyCode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`oid`)
 );
 
 CREATE TABLE User (
-                      oid        INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                      id            CHAR(13) NOT NULL,
-                      password    CHAR(13) NOT NULL,
-                      type VARCHAR (13) NOT NULL,
-                      name        VARCHAR(32) NOT NULL,
-                      birthDay   DATE,
-                      phoneNumber  CHAR(13) NOT NULL,
-                      blackList      VARCHAR(13) NOT NULL,
-                      point INT NOT NULL
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `id` char(13) NOT NULL,
+  `password` char(13) NOT NULL,
+  `type` varchar(13) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `birthDay` date DEFAULT NULL,
+  `phoneNumber` char(13) NOT NULL,
+  `blackList` varchar(13) NOT NULL,
+  `point` int(11) NOT NULL,
+  PRIMARY KEY (`oid`)
 ) ;
 
 

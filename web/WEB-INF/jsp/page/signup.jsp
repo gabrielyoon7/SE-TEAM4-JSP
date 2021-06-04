@@ -94,7 +94,7 @@
 
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="save-info">
-                        <label class="form-check-label" for="save-info">Save this information for next time</label>
+                        <label class="form-check-label" for="save-info">모든 정보는 암호화되지 않습니다!</label>
                     </div>
 
                     <hr class="my-4">
@@ -199,15 +199,28 @@
                             data: data
                         },
                         success: function (data) {
-                            swal({
-                                title : '회원가입 성공!',
-                                text : 'Little4 Restaurant의 회원이 되신 걸 환영합니다.',
-                                icon : 'success',
-                                button : '확인'
-                            }).then(function ()
-                            {
-                                window.location.href = 'loginPage.do';
-                            });
+                            if(data=='성공'){
+                                swal({
+                                    title : '회원가입 성공!',
+                                    text : 'Little4 Restaurant의 회원이 되신 걸 환영합니다.',
+                                    icon : 'success',
+                                    button : '확인'
+                                }).then(function ()
+                                {
+                                    window.location.href = 'loginPage.do';
+                                });
+                            }
+                            else {
+                                swal({
+                                    title : '오류',
+                                    text : '이미 아이디가 존재합니다...!',
+                                    icon : 'error',
+                                    button : '확인'
+                                }).then(function ()
+                                {
+                                    window.location.href = 'loginPage.do';
+                                });
+                            }
                         }
                     })
                 }
