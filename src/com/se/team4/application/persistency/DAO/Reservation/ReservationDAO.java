@@ -274,13 +274,16 @@ public class ReservationDAO {
     }
     public String deleteReservationRequest(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time
-        String date = arr[0];
-        String time=arr[1];
+        String oid = arr[0];
+        String covers =arr[1];
+        String date = arr[2];
+        String time = arr[3];
+        String message = arr[4];
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "DELETE FROM ReservationRequest WHERE date=? AND time=?", new MapListHandler(),
-                    date, time);
+            que.query(conn, "DELETE FROM ReservationRequest WHERE oid=? AND covers=? AND date=? AND time=? AND message=?", new MapListHandler(),
+                    oid, covers, date, time);
         }catch(SQLException e){
             e.printStackTrace();
         }

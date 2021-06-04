@@ -118,6 +118,7 @@ INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, poi
 INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201912161,1234,'관리자','허수빈','2001-01-05','010-3217-5620','false', 100000);
 INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201912149,1234,'관리자','최예슬','2000-09-24','010-3160-9231','false', 100000);
 INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201912039,1234,'관리자','김우중','2000-02-16','010-9874-2338','false', 100000);
+INSERT INTO User(id, password, type, name, birthDay, phoneNumber, blackList, point) VALUES(201713866,1234,'손님','송성호','2000-01-01','010-0001-0002','false',100000); 
 
 -- 이미지 URL 이탈 가능성이 있어, oid를 일부러 강제로 지정함.
 INSERT INTO Menu(oid, TYPE, NAME, price, notice, imageURL, cookingTime) VALUES(5000,'치킨','후라이드치킨',20000,'바삭한 후라이드 치킨입니다.','5000.png', 15);
