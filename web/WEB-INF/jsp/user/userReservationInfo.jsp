@@ -241,7 +241,7 @@
                         data: data
                     },
                     success: function (oid) {
-                        if (oid == "1") {
+
                             swal({
                                 title: '예약 취소',
                                 text: "예약이 취소되었습니다.",
@@ -251,7 +251,7 @@
                                 location.href = 'userReservationInfo.do?id=' +<%=id%>;
 
                             });
-                        }
+
                     }
                 })
             }

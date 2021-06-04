@@ -252,13 +252,23 @@ public class ReservationDAO {
         return "";
     }
     public String deleteReservation(String data) {    //고객 예약 요청 리스트 추가
+        System.out.println(data+"아잇!");
         String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time+"-/-/-"+table;
         String date = arr[0];
         String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
         String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
+        if(array[0].length()==1){
+            array[0]="0"+array[0];
+        }
+        if(array2[0].length()==1){
+            array2[0]="0"+array2[0];
+        }
         date = array2[1]+"-"+array[0]+"-"+array2[0];
+        System.out.println(date+"아잇!");
         String time=arr[1];
+        System.out.println(time+"아잇!");
         String table_id=arr[2];
+        System.out.println(table_id+"아잇!");
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
@@ -274,16 +284,13 @@ public class ReservationDAO {
     }
     public String deleteReservationRequest(String data) {    //고객 예약 요청 리스트 추가
         String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time
-        String oid = arr[0];
-        String covers =arr[1];
-        String date = arr[2];
-        String time = arr[3];
-        String message = arr[4];
+        String date = arr[0];
+        String time=arr[1];
         Connection conn = Config.getInstance().sqlLogin();
         try{
             QueryRunner que = new QueryRunner();
-            que.query(conn, "DELETE FROM ReservationRequest WHERE oid=? AND covers=? AND date=? AND time=? AND message=?", new MapListHandler(),
-                    oid, covers, date, time);
+            que.query(conn, "DELETE FROM ReservationRequest WHERE date=? AND time=?", new MapListHandler(),
+                    date, time);
         }catch(SQLException e){
             e.printStackTrace();
         }
