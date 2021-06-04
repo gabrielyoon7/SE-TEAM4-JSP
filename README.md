@@ -22,6 +22,7 @@ Restaurant Booking System of TEAM4
 * * *
 ## History
 - 2021.06.05
+  - [송성호] 예약 완료 삭제 기능 수정
   - [윤주현] customerManager에서 도착 기록을 확인할 수 없는 문제 해결
 - 2021.06.04
   - [김우중] 포인트 기능 추가
