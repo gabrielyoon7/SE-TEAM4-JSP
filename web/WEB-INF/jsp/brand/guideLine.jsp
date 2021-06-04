@@ -16,16 +16,27 @@
 </head>
 <body>
 <%@include file="../common/header.jsp" %>
-
+<style type="text/css">
+    a {color : white; text-decoration:none;}
+    a:hover {color : white; text-decoration: none;}
+</style>
 <div id="first" class="px-4 py-5 my-5 text-center">
     <h1 id="title" class="display-5 fw-bold" style="font-family: 'Noto Serif KR', serif;">Little4 Restaurant Guide-Line</h1>
     <p class="lead mb-4" style="font-size: 40px; font-family: 'Amatic SC', cursive;">by Team4</p>
+    <div style="font-family: 'Noto Serif KR', serif; font-weight: bold" >
+        <h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 바로가기</h1>
+
+        <button class="btn btn-dark"><a href="#menu">메뉴 보기</a></button>
+        <button class="btn btn-dark"><a href="#reservation">예약 방법</a></button>
+        <button class="btn btn-dark"><a href="#order">주문 방법</a></button>
+    </div>
 </div>
 
 <hr style="margin: 0 40px">
 
 <div class="px-4 py-5 text-center" >
-    <h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 메뉴를 보고 싶다면?</h1>
+    <a name="menu"><h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 메뉴를 보고 싶다면?</h1>
+    </a>
     <div>
         <br>
         <br>
@@ -36,14 +47,15 @@
         <br>
         <br>
         <p style="font-family: 'Noto Serif KR', serif;" class="fs-4">2. 종류별 버튼을 눌러 보고 싶은 메뉴를 확인한다.</p>
-        <img src="img/guideLine/menu_1.png" width="50%">
+        <img src="img/guideLine/menu_1.PNG" width="50%">
     </div>
 </div>
 
 <hr style="margin: 0 40px">
 
 <div class="px-4 py-5 text-center" >
-    <h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 예약을 하고 싶다면?</h1>
+    <a name="reservation"><h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 예약을 하고 싶다면?</h1>
+    </a>
     <div>
         <br>
         <br>
@@ -84,7 +96,8 @@
 <hr style="margin: 0 40px">
 
 <div class="px-4 py-5 text-center" >
-    <h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 주문을 하고 싶다면?</h1>
+    <a name="order"><h1 class="fw-bold" style="font-family: 'Noto Serif KR', serif; font-size: 30px"> > 주문을 하고 싶다면?</h1>
+    </a>
     <div>
         <br>
         <br>

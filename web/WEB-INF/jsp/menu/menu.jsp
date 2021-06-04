@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.83.1">
-    <title>Little4 Restaruant MENU</title>
+    <title>Little4 Restaurant MENU</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -70,7 +70,10 @@
 <body>
 <%--header를 이런식으로 include해서 끼워넣습니다. 이 작업은 매 페이지마다 필요해요.--%>
 <%@include file="../common/header.jsp" %>
-
+<style type="text/css">
+    a{color : white; text-decoration: none;}
+    a:hover {color : white; text-decoration: none;}
+</style>
 <main>
 
     <section class="py-5 text-center container">
@@ -80,12 +83,12 @@
                 <p style="font-size: 25px; font-family: 'Noto Serif KR', serif;" class="lead text-muted">아래의 다양한 메뉴들을 직접 확인하세요.</p>
             </div>
             <div style="font-family: 'Noto Serif KR', serif; font-weight: bold" >
-                <button class="btn btn-dark"><a href="menu.do?type=all">전체보기</a></button>
-                <button class="btn btn-dark"><a href="menu.do?type=치킨">치킨</a></button>
-                <button class="btn btn-dark"><a href="menu.do?type=피자">피자</a></button>
-                <button class="btn btn-dark"><a href="menu.do?type=스테이크">스테이크</a></button>
-                <button class="btn btn-dark"><a href="menu.do?type=파스타">파스타</a></button>
-                <button class="btn btn-dark"><a href="menu.do?type=음료수">음료</a></button>
+                <a name="menu"><button class="btn btn-dark"><a href="menu.do?type=all">전체보기</a></button></a>
+                <a name="menu"><button class="btn btn-dark"><a href="menu.do?type=치킨">치킨</a></button></a>
+                <a name="menu"><button class="btn btn-dark"><a href="menu.do?type=피자">피자</a></button></a>
+                <a name="menu"><button class="btn btn-dark"><a href="menu.do?type=스테이크">스테이크</a></button></a>
+                <a name="menu"><button class="btn btn-dark"><a href="menu.do?type=파스타">파스타</a></button></a>
+                <a name="menu"><button class="btn btn-dark"><a href="menu.do?type=음료수">음료</a></button></a>
             </div>
         </div>
     </section>
