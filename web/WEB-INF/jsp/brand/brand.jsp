@@ -95,7 +95,7 @@
 
     <div class="container px-4 py-5">
             <div>
-                <h1 style="font-family: 'Noto Serif KR', serif;" class="display-4 fw-bold lh-1 mb-3">Fuction</h1>
+                <h1 style="font-family: 'Noto Serif KR', serif;" class="display-4 fw-bold lh-1 mb-3">Function</h1>
                 <br>
                 <p style="font-family: 'Noto Serif KR', serif;" class="fs-4">기능 개선 목록 </p>
                     <div style="font-family: 'Noto Serif KR', serif; float: left">예약 정보 수정</div>
