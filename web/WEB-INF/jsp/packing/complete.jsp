@@ -100,8 +100,12 @@
         var text='';
         var menu=orderInfo[0].orderedList.split('/');
 
-        for(var i=0; i<menu.length; i++)
+        for(var i=0; i<menu.length; i++){
             text+=menu[i]+`<br>`;
+
+        }
+
+
 
         orderList.append(text);
     }
