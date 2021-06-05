@@ -44,7 +44,7 @@
       }
     }
 
-    #menu, #notice, #content{
+    #menu, #notice, #content, #button{
       font-family: 'Noto Serif KR', serif;
     }
   </style>
@@ -82,11 +82,16 @@
             +'<button type="button" class="btn btn-dark btn-lg px-4 me-md-2 fw-bold">'+data.price+'원</button>'
             +'<button type="button" class="btn btn-outline-secondary btn-lg px-4">조리시간 '+data.cookingTime+'분</button>'
             +'</div></div>'
+            +'<button id="button" type="button" class="btn btn-dark btn-lg fw-bold mb-3" onclick="goMenu()">이전 페이지</button>'
             +'<div class="overflow-hidden shadow-lg">'
             +'<div class="position-lg-absolute overflow-hidden">'
             +'<img class="d-block rounded-lg-3" src="img/menu/'+data.imageURL+'" alt="" width="100%">'
             +'</div></div>';
     list.append(text);
+  }
+
+  function goMenu() {
+    location.href = 'menu.do?type=all';
   }
 
 </script>
