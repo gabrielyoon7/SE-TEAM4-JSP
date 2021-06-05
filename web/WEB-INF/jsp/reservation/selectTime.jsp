@@ -62,10 +62,9 @@
     <div class="bg-light p-5 rounded">
         <h1 style="font-family: 'Noto Serif KR', serif;">Reservation</h1>
         <p class="lead" style="color: red" style="font-family: 'Noto Serif KR', serif;">! 알립니다.</p>
-        <p class="lead" style="font-family: 'Noto Serif KR', serif;">- 매주 월요일 휴무</p>
+        <p class="lead" style="font-family: 'Noto Serif KR', serif;">- 연중무휴</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">- 근무 시간 </p>
-        <p class="lead" style="font-family: 'Noto Serif KR', serif;">* 화 ~ 금 : 16:00 ~ 22:00</p>
-        <p class="lead" style="font-family: 'Noto Serif KR', serif;">* 토,일 : 16:00 ~ 21:00</p>
+        <p class="lead" style="font-family: 'Noto Serif KR', serif;">* 월~일 : 16:00 ~ 21:00</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">예약 방문 시간 15분 이후에는 예약이 취소될 수 있습니다.</p>
         <p class="lead" style="font-family: 'Noto Serif KR', serif;">단체 예약은 매장으로 전화 부탁드립니다. (02-9999-4444) </p>
     </div>
