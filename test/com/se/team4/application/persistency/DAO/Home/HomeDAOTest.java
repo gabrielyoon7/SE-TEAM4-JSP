@@ -8,6 +8,6 @@ class HomeDAOTest {
     void loginCheck() {
         HomeDAO homeDAO = new HomeDAO();
         assertEquals(true, homeDAO.loginCheck("201713919"+"-/-/-"+"1234"));
-        assertEquals(true, homeDAO.loginCheck("201713919"+"-/-/-"+"0000"));
+        assertEquals(false, homeDAO.loginCheck("201713919"+"-/-/-"+"0000"));
     }
 }

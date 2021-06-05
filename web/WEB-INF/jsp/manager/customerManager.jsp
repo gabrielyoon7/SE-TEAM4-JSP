@@ -367,7 +367,7 @@
             text+='<tr>'
                 +'<td>'+table.number+'</td>';
             for(var j=openingTime;j<closingTime;j++){
-                text+='<td><button id='+newI+j+' type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="scheduleClicked('+newI+j+')">-</button></td>'
+                text+='<td><button style="text-overflow:ellipsis; overflow:hidden; width:100px; height: 80px" id='+newI+j+' type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="scheduleClicked('+newI+j+')">-</button></td>'
             }
             +'</tr>';
         }
@@ -385,7 +385,7 @@
                     if (reservationData.time == j && reservationData.table_id == i) {
                         // alert(i);
                         text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText="[R-"+reservationData.oid+"]"+reservationData.customer_id;
+                        document.getElementById(eval("'"+text+"'")).innerText="[R-"+reservationData.oid+"] "+reservationData.customer_id;
                         document.getElementById(eval("'"+text+"'")).classList.remove('btn-outline-dark');
                         if(reservationData.arrivalTime==null){
                             document.getElementById(eval("'"+text+"'")).classList.add('btn-secondary');
@@ -412,7 +412,7 @@
                     if (walkInData.time == j && walkInData.table_id == i) {
                        // alert(walkInData.table_id);
                         text+=i+""+j;
-                        document.getElementById(eval("'"+text+"'")).innerText="[W-"+walkInData.oid+"]"+walkInData.covers+"명";
+                        document.getElementById(eval("'"+text+"'")).innerText="[W-"+walkInData.oid+"] "+walkInData.covers+"명";
                         document.getElementById(eval("'"+text+"'")).classList.remove('btn-outline-dark');
                         document.getElementById(eval("'"+text+"'")).classList.add('btn-dark');
                         // text += '<td>' + reservationData.customer_name + '</td>'
