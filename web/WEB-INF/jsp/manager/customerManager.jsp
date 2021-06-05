@@ -220,6 +220,7 @@
         var list = $('#DataModify');
         var text='';
         // alert('id:'+id);
+        var index=selectedText[0].indexOf("]");
         var date = <%=date%>;
         var time_number=id.slice(2,4);
         var table_number=id.slice(1,2);
@@ -274,7 +275,7 @@
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="modifyReservation('+selectedText[0].slice(3,4)+')">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="modifyReservation('+selectedText[0].slice(3,index)+')">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="recordArrival('+table_number+time_number+')">도착</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
@@ -283,7 +284,7 @@
                 text+='<div class="modal-footer">'
                     +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
                     +'<button type="button" class="btn btn-dark" onclick="deleteSchedule()">삭제</button>'
-                    +'<button type="button" class="btn btn-dark" onclick="modifyWalkIn('+selectedText[0].slice(3,4)+')">수정</button>'
+                    +'<button type="button" class="btn btn-dark" onclick="modifyWalkIn('+selectedText[0].slice(3,index)+')">수정</button>'
                     +'<button type="button" class="btn btn-dark" onclick="MakeModalData3('+table_number+time_number+')">기록</button>'
                     +'</div>';
             }
