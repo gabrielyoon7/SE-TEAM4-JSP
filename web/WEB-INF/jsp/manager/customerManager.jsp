@@ -479,18 +479,35 @@
                 covers: waiting.covers,
                 date: waiting.date,
                 customer_name: waiting.name,
-                action : '<button class="btn btn-dark" onclick="addWaitingListToWalkIn('+i+')">손님 배정</button>'
+                action : '<button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" onclick="MakeModalData5('+i+')">손님 배정</button>'
             });
         }
         // alert(rows);
         return rows;
     }
 
+    function MakeModalData5(i){
+        var list = $('#DataModify');
+        var text='';
+        text +='시간<select id="waitingListTime" class="form-control"><option value="10">시간을 선택해주세요</option>'
+        for(var i=openingTime;i<closingTime;i++){
+            text+='<option value="'+i+'">'+i+':00</option>';
+        }
+        text +='</select>';
+        //footer
+        text+='<div class="modal-footer">'
+            +'<button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">취소</button>'
+            +'<button type="button" class="btn btn-dark" onclick="addWaitingListToWalkIn('+i+')">배정</button>'
+            +'</div>';
+        list.html(text);
+    }
+
+
     function addWaitingListToWalkIn(i){
         var waitingList = <%=WaitingList%>
         var waiting=waitingList[i];
         let today=new Date();
-        var time=today.getHours();
+        var time=$('#waitingListTime').val();
         var data =waiting.covers+"-/-/-"+waiting.date+"-/-/-"+waiting.name+"-/-/-"+time;
         var check=
             swal({

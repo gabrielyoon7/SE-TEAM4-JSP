@@ -68,7 +68,7 @@ CREATE TABLE covidlog(
   `temperature` double NOT NULL
 );
 CREATE TABLE WaitingList(
-  `date` date DEFAULT NULL,
+  `date` varchar(32) DEFAULT NULL,
   `name` varchar(32) NOT NULL,
   `covers` int(11) NOT NULL,
   `table_id` int(11) DEFAULT NULL,
