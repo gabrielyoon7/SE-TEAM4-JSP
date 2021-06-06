@@ -10,7 +10,7 @@ class ReservationDAOTest {
     @Test
     void addReservationRequest() {
         ReservationDAO reservationDAO = new ReservationDAO();
-        assertEquals("-1", reservationDAO.addReservationRequest("0"+"-/-/-"+"2020-01-01"+"-/-/-"+"0"+"-/-/-"+"윤주현"+"-/-/-"+"201713919"+"-/-/-"+"message"));
+        assertNotEquals("-1", reservationDAO.addReservationRequest("0"+"-/-/-"+"2020-01-01"+"-/-/-"+"0"+"-/-/-"+"윤주현"+"-/-/-"+"201713919"+"-/-/-"+"message"));
         //covers+"-/-/-"+date+"-/-/-"+time+"-/-/-"+user.name+"-/-/-"+user.id+"-/-/-"+message
     }
     @Test
