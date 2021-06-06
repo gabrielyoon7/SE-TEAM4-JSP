@@ -16,6 +16,12 @@ class HomeDAOTest {
         HomeDAO homeDAO = new HomeDAO();
         assertEquals("실패", homeDAO.signUp("name"+"-/-/-"+"2020-01-01"+"-/-/-"+"201713919"+"-/-/-"+"0000"+"-/-/-"+"010-0000-0000"));
     }
+    @org.junit.jupiter.api.Test
+    void changeBlacklist(){ //블랙리스트 점검
+        HomeDAO homeDAO = new HomeDAO();
+        assertEquals("true", homeDAO.changeBlacklist("201713919"+"-/-/-"+"false"));
+    }
+
 
 
 
