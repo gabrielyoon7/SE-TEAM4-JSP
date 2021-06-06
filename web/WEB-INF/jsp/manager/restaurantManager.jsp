@@ -236,20 +236,26 @@
         var limits = $('#add_limits').val();
 
         var data =number+"-/-/-"+places+"-/-/-"+limits;
-        var check=confirm("추가 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "addTable",
-                    data: data
-                },
-                success: function (oid) {
-                    location.href = 'restaurantManager.do';
+        var check=
+            swal({
+                title : '추가 하시겠습니까?',
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "addTable",
+                            data: data
+                        },
+                        success: function (oid) {
+                            location.href = 'restaurantManager.do';
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
 </script>
 <script src="js/bootstrap.bundle.min.js"></script>
