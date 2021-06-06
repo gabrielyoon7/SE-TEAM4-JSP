@@ -94,6 +94,7 @@ CREATE TABLE Pickup(
   `totalPrice` int(11) NOT NULL,
   `message` varchar(100) DEFAULT NULL,
   `verifyCode` int(11) DEFAULT NULL,
+  `statement` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`oid`)
 );
 

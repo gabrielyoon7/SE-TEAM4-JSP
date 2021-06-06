@@ -60,7 +60,7 @@
 </div>
 <script src="js/bootstrap.bundle.min.js"></script>
 <%--<%@include file="../common/footer.jsp" %>--%>
-<img src="img/sea.jpg" style="width: 1712px; height: 570px">
+<img src="img/sea.jpg" style="width: 100%; height: auto">
 </body>
 <%@include file="../common/footer.jsp" %>
 <script>

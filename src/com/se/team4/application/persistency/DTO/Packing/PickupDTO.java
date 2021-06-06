@@ -6,6 +6,16 @@ public class PickupDTO {
     private String name;
     private String date;
 
+    private String statement;
+
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
+    }
+
     public String getVerifyCode() {
         return verifyCode;
     }

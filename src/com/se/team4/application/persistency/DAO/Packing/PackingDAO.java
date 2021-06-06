@@ -135,7 +135,7 @@ public class PackingDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            list = queryRunner.query(conn, "SELECT * FROM Pickup", new MapListHandler());
+            list = queryRunner.query(conn, "SELECT * FROM Pickup ORDER BY oid DESC", new MapListHandler());
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -230,7 +230,7 @@ public class PackingDAO {
         Connection conn = Config.getInstance().sqlLogin();
         try {
             QueryRunner queryRunner = new QueryRunner();
-            queryRunner.query(conn, "DELETE FROM Pickup WHERE oid=?", new MapListHandler(), id);
+            queryRunner.query(conn, "UPDATE Pickup SET statement =? WHERE oid=?", new MapListHandler(), "주문완료",id);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

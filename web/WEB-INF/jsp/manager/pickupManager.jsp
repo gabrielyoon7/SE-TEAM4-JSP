@@ -36,6 +36,8 @@
       <thead>
       <tr>
         <th data-field="action">설정</th>
+        <th data-field="statement" data-sortable="true">처리상태</th>
+        <th data-field="date" data-sortable="true">날짜</th>
         <th data-field="name" data-sortable="true">이름</th>
         <th data-field="id" data-sortable="true">아이디</th>
         <th data-field="menu" data-sortable="true">메뉴</th>
@@ -74,6 +76,8 @@
         price: order.totalPrice,
         message: order.message,
         payment: order.payment,
+        statement:order.statement,
+        date:order.date,
         action : '<button class="btn-dark" onclick="completeOrder('+i+')">주문완료</button>'
       });
     }
@@ -104,7 +108,7 @@
     var order =orderInfo[i];
     var check =
             swal({
-              title : '취소 불가!',
+              title : '주문완료 처리',
               text : order.name+"["+order.id+"]의 주문을 완료하시겠습니까?",
               icon : 'info',
               button : '확인'
