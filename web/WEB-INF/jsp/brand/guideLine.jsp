@@ -47,7 +47,7 @@
         <br>
         <br>
         <p style="font-family: 'Noto Serif KR', serif;" class="fs-4">2. 종류별 버튼을 눌러 보고 싶은 메뉴를 확인한다.</p>
-        <img src="img/guideLine/menu_1.PNG" width="50%">
+        <img src="img/guideLine/menu_1.png" width="50%">
     </div>
 </div>
 

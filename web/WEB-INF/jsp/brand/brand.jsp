@@ -33,10 +33,6 @@
             }
         }
 
-        #first{
-            
-        }
-
         #title{
             font-size: 100px;
             font-family: 'Caveat', cursive;
@@ -110,13 +106,8 @@
                 <br>
                     <div style="font-family: 'Noto Serif KR', serif; float: left">테이블 자동 배정</div>
                     <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" class="btn btn-dark">
+                    <input type="button" value="이동" style="float: right" onclick="location.href='customerManager.do'" class="btn btn-dark">
                     </div> <div style="clear:both"></div>
-                <br>
-                    <div style="font-family: 'Noto Serif KR', serif; float: left">한번에 여러 테이블 예약</div>
-                    <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" class="btn btn-dark">
-                    </div>
                 <br>
                 <br>
                 <br>
@@ -148,23 +139,19 @@
                 <br>
                 <div style="font-family: 'Noto Serif KR', serif; float: left">테이블 설정</div>
                 <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" class="btn btn-dark">
+                    <input type="button" value="이동" style="float: right" onclick="location.href='statisticsManager.do'" class="btn btn-dark">
                 </div> <div style="clear:both"></div>
                 <br>
                 <div style="font-family: 'Noto Serif KR', serif; float: left">주문/결제</div>
                 <div style="font-family: 'Noto Serif KR', serif; float: right">
-                    <input type="button" value="이동" style="float: right" onclick="location.href='packing.do'" class="btn btn-dark">
+                    <input type="button" value="이동" style="float: right" onclick="location.href='restaurantManager.do'" class="btn btn-dark">
                 </div> <div style="clear:both"></div>
             </div>
     </div>
 
     <div class="b-example-divider mb-0"></div>
-
 </main>
-
-
 <script src="js/bootstrap.bundle.min.js"></script>
-
 </body>
 <%@include file="../common/footer.jsp" %>
 </html>
