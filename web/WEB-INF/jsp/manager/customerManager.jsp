@@ -26,6 +26,9 @@
     <%--    <script src="/js/bootstrap-table-cookie.js"></script>--%>
     <%--    <script src="/js/bootstrap-table-export.min.js"></script>--%>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
 
     <style>
