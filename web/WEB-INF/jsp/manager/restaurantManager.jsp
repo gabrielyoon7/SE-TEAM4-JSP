@@ -162,20 +162,26 @@
     function deleteTable(i){
         var table=tableList[i];
         var data =table.number;
-        var check=confirm("삭제 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "deleteTable",
-                    data: data
-                },
-                success: function (oid) {
-                    location.href = 'restaurantManager.do';
+        var check=
+            swal({
+                title : '삭제 하시겠습니까?',
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "deleteTable",
+                            data: data
+                        },
+                        success: function (oid) {
+                            location.href = 'restaurantManager.do';
+                        }
+                    })
                 }
-            })
-        }
+            });
     }
 
     function makeModifyModal(i){
@@ -201,20 +207,26 @@
         var limits = $('#limits').val();
 
         var data =oid+"-/-/-"+number+"-/-/-"+places+"-/-/-"+limits;
-        var check=confirm("수정 하시겠습니까?");
-        if(check){
-            $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
-                url: "ajax.do", //ajax.do(ajaxAction)에 있는
-                type: "post",
-                data: {
-                    req: "modifyTable",
-                    data: data
-                },
-                success: function (oid) {
-                    location.href = 'restaurantManager.do';
+        var check=
+            swal({
+                title : '수정 하시겠습니까?',
+                icon : 'info',
+                button : '확인'
+            }).then(function (){
+                if(check){
+                    $.ajax({ //ajax 프레임워크( jQuery)로 위 data를 서버로 보냄.
+                        url: "ajax.do", //ajax.do(ajaxAction)에 있는
+                        type: "post",
+                        data: {
+                            req: "modifyTable",
+                            data: data
+                        },
+                        success: function (oid) {
+                            location.href = 'restaurantManager.do';
+                        }
+                    })
                 }
-            })
-        }
+        });
     }
     function makeAddModal(){
         var list = $('#DataModify');
@@ -260,6 +272,3 @@
 </script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </html>
-
-
-
