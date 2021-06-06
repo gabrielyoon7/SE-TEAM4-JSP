@@ -321,7 +321,6 @@
 
     function MakeModalData3(id){ //id = #테이블번호+타임
         var id2="#"+id;
-        alert(id2);
         // var newID = '"'+id+'"';
         var list = $('#DataModify');
         var text='';
