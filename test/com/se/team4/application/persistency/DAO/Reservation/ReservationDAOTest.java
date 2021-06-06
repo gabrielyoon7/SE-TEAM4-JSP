@@ -26,7 +26,7 @@ class ReservationDAOTest {
     @Test
     void modifyReservation(){
         ReservationDAO reservationDAO = new ReservationDAO();
-        assertEquals("-1", reservationDAO.modifyReservation("2020-01-01"+"-/-/-"+"0"+"-/-/-"+"1"+"-/-/-"+"1"+"-/-/-"+"0"));
+        assertEquals("", reservationDAO.modifyReservation("2020-01-01"+"-/-/-"+"0"+"-/-/-"+"1"+"-/-/-"+"1"+"-/-/-"+"0"));
 /**
  *         String arr[] = data.split("-/-/-"); //data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name;
  *         String date = arr[0];
@@ -36,5 +36,28 @@ class ReservationDAOTest {
  *         String oid=arr[4];
  *         */
     }
-
+    @Test
+    void modifyReservationRequest(){
+        ReservationDAO reservationDAO = new ReservationDAO();
+        assertEquals("", reservationDAO.modifyReservationRequest("2020-01-01"+"-/-/-"+"19"+"-/-/-"+"1"+"-/-/-"+"김우중"+"-/-/-"+"1"));
+        //data=date+"-/-/-"+time+"-/-/-"+cover+"-/-/-"+name+"-/-/-"+oid;
+    }
+    @Test
+    void deleteReservation() {
+        ReservationDAO reservationDAO = new ReservationDAO();
+        assertEquals("", reservationDAO.deleteReservation("2020-01-01"+"-/-/-"+"19"+"-/-/-"+"2"));
+        //data=date+"-/-/-"+time+"-/-/-"+table;
+    }
+    @Test
+    void deleteReservationRequest() {
+        ReservationDAO reservationDAO = new ReservationDAO();
+        assertEquals("", reservationDAO.deleteReservationRequest("2020-01-01"+"-/-/-"+"19"));
+        //data=date+"-/-/-"+time
+    }
+    @Test
+    void recordArrival() {
+        ReservationDAO reservationDAO = new ReservationDAO();
+        assertEquals("", reservationDAO.recordArrival("2020-01-01"+"-/-/-"+"19"+"-/-/-"+"2"));
+        //data=date+"-/-/-"+time
+    }
 }
