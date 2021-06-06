@@ -490,8 +490,8 @@
         var list = $('#DataModify');
         var text='';
         text +='시간<select id="waitingListTime" class="form-control"><option value="10">시간을 선택해주세요</option>'
-        for(var i=openingTime;i<closingTime;i++){
-            text+='<option value="'+i+'">'+i+':00</option>';
+        for(var t=openingTime;t<closingTime;t++){
+            text+='<option value="'+t+'">'+t+':00</option>';
         }
         text +='</select>';
         //footer

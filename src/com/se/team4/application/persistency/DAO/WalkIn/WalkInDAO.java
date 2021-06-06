@@ -151,9 +151,9 @@ public class WalkInDAO {
         String arr[] = data.split("-/-/-"); //data =waiting.covers+"-/-/-"+waiting.date+"-/-/-"+waiting.name;
         String covers = arr[0];
         String date = arr[1];
-        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
-        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
-        date = array2[1]+"-"+array[0]+"-"+array2[0];
+//        String[] array = date.split("월 ");          // array[0]는 월, array[1]은 일이랑 년도
+//        String[] array2 =array[1].split(", ");      //array2[0]는 일, array2[1]는 년도
+//        date = array2[1]+"-"+array[0]+"-"+array2[0];
         String name=arr[2];
         String time=arr[3];
         System.out.println(time+date);
