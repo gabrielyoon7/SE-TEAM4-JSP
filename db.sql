@@ -38,7 +38,7 @@ CREATE TABLE WalkIn (
 CREATE TABLE Reservation (
   `oid` int(11) NOT NULL AUTO_INCREMENT,
   `covers` int(11) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` varchar(32) DEFAULT NULL,
   `time` int(11) DEFAULT NULL,
   `table_id` int(11) DEFAULT NULL,
   `customer_id` varchar(32) DEFAULT NULL,
