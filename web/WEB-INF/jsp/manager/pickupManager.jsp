@@ -14,7 +14,10 @@
   <title>Little4 Restaurant MANAGER</title>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link href='css/bootstrap-table.css' rel='stylesheet' type='text/css'>
-  <link href='css/boardtable.css' rel='stylesheet' type='text/css'>
+  <link href='css/boardtable.css' rel='stylesheet' type='text/css'
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300&display=swap" rel="stylesheet">
 <%--  <script src="/js/jquery-3.2.1.min.js"></script>--%>
